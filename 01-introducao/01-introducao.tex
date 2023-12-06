@@ -28,7 +28,15 @@
 
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
 \usepackage[english,brazil]{babel}
-\usepackage[utf8]{inputenc}
+\RequirePackage[backend=biber,
+style=apa,
+%style=authoryear,
+%style=authoryear-comp,
+%style=authoryear-ibid,
+%style=authoryear-icomp,
+%style=authoryear-icomp,
+citestyle=authoryear,
+]{biblatex}
 
 %----------------------------------------------------------------------------------------
 %	SELECT LAYOUT THEME
@@ -103,9 +111,9 @@
 \usepackage{palatino} % Use the Palatino font for serif text
 
 %\usepackage{helvet} % Use the Helvetica font for sans serif text
-\usepackage[default]{opensans} % Use the Open Sans font for sans serif text
+% \usepackage[default]{opensans} % Use the Open Sans font for sans serif text
 %\usepackage[default]{FiraSans} % Use the Fira Sans font for sans serif text
-%\usepackage[default]{lato} % Use the Lato font for sans serif text
+\usepackage[default]{lato} % Use the Lato font for sans serif text
 
 %----------------------------------------------------------------------------------------
 %	SELECT INNER THEME
@@ -139,6 +147,11 @@
 %\setbeamertemplate{footline}[page number] % Uncomment this line to replace the footer line in all slides with a simple slide count
 
 %\setbeamertemplate{navigation symbols}{} % Uncomment this line to remove the navigation symbols from the bottom of all slides
+
+
+% \bibliography{references} % Specifies the bibliography file to include publications
+% \bibliographystyle{apalike} % Specifies the bibliography style
+\addbibresource{references.bib}
 
 %----------------------------------------------------------------------------------------
 %	PRESENTATION INFORMATION
@@ -200,7 +213,7 @@
 	\end{itemize}
 
 	\begin{block}{Web Moderna}
-		A arquitetura moderna da Web enfatiza a escalabilidade das interações entre componentes, a generalidade das interfaces, a implantação independente de componentes e a presença de componentes intermediários para reduzir a latência da interação, reforçar a segurança e encapsular sistemas legados.
+		A arquitetura moderna da Web enfatiza a \alert{escalabilidade} das interações entre componentes, a \alert{generalidade} das interfaces, a implantação \alert{independente} de componentes e a presença de componentes intermediários para reduzir a latência da interação, reforçar a segurança e encapsular sistemas legados \parencite{Fielding2002}.
 	\end{block}
 
 	% \bigskip % Vertical whitespace
@@ -402,27 +415,32 @@
 	
 	\bigskip % Vertical whitespace
 	
-	This statement requires citation \cite{p1,p2}.
+	This statement requires citation.
 \end{frame}
 
 %------------------------------------------------
 
-\begin{frame} % Use [allowframebreaks] to allow automatic splitting across slides if the content is too long
-	\frametitle{References}
+% \begin{frame} % Use [allowframebreaks] to allow automatic splitting across slides if the content is too long
+% 	\frametitle{References}
 	
-	\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below, you may need to use multiple columns and/or reduce the font size further if you have many references
-		\footnotesize % Reduce the font size in the bibliography
+% 	\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below, you may need to use multiple columns and/or reduce the font size further if you have many references
+% 		\footnotesize % Reduce the font size in the bibliography
 		
-		\bibitem[Smith, 2022]{p1}
-			John Smith (2022)
-			\newblock Publication title
-			\newblock \emph{Journal Name} 12(3), 45 -- 678.
+% 		\bibitem[Smith, 2022]{p1}
+% 			John Smith (2022)
+% 			\newblock Publication title
+% 			\newblock \emph{Journal Name} 12(3), 45 -- 678.
 			
-		\bibitem[Kennedy, 2023]{p2}
-			Annabelle Kennedy (2023)
-			\newblock Publication title
-			\newblock \emph{Journal Name} 12(3), 45 -- 678.
-	\end{thebibliography}
+% 		\bibitem[Kennedy, 2023]{p2}
+% 			Annabelle Kennedy (2023)
+% 			\newblock Publication title
+% 			\newblock \emph{Journal Name} 12(3), 45 -- 678.
+% 	\end{thebibliography}
+% \end{frame}
+
+\begin{frame}
+	\frametitle{References}
+	\printbibliography
 \end{frame}
 
 %----------------------------------------------------------------------------------------
