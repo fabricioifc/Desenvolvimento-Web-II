@@ -27,6 +27,10 @@
 \graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
 
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
 \usepackage[english,brazil]{babel}
 \RequirePackage[backend=biber,
 style=ieee,
@@ -163,7 +167,6 @@ citestyle=authoryear,
 \date[\today]{Ciência da Computação \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
 
 %----------------------------------------------------------------------------------------
-
 \begin{document}
 
 %----------------------------------------------------------------------------------------
@@ -219,21 +222,14 @@ citestyle=authoryear,
 	\frametitle{Principais Arquiteturas de Aplicações Web}
 	\framesubtitle{Monolito}
 	
-	Abordagem tradicional no desenvolvimento de software na qual todos os componentes de uma aplicação são combinados em uma única unidade totalmente integrada. A aplicação é implantada como uma única e grande base de código que contém todas as funcionalidades.
+	Abordagem tradicional (Figura \ref{fig:monolito}) no desenvolvimento de software na qual todos os componentes de uma aplicação são combinados em uma única unidade totalmente integrada. A aplicação é implantada como uma única e grande base de código que contém todas as funcionalidades.
 
-	% \bigskip % Vertical whitespace
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
-	\framesubtitle{Monolito}
-	
-	\begin{figure}[ht]
-		\caption{Arquitetura Monolítica.}
+	\begin{figure}
+		\centering
 		\includegraphics[width=0.4\linewidth]{Images/monolito.jpg}
+		\caption{Arquitetura Monolítica teste.}\label{fig:monolito}
 	\end{figure}
-	
+
 \end{frame}
 
 \begin{frame}
@@ -248,9 +244,11 @@ citestyle=authoryear,
 	\end{exampleblock}
 	
 	\begin{alertblock}{Contras}
-		\item \textbf{Desafios de escalabilidade}: a aplicação é implantada como uma única unidade, tornando difícil escalar componentes individuais.
-		\item \textbf{Modularidade limitada}: as aplicações monolíticas são totalmente integradas, dificultando a alteração de recursos existentes sem afetar outros componentes.
-		\item \textbf{Falta de agilidade}: dificultando o trabalho das equipes em diferentes componentes em paralelo.
+		\begin{itemize}
+			\item \textbf{Desafios de escalabilidade}: a aplicação é implantada como uma única unidade, tornando difícil escalar componentes individuais.
+			\item \textbf{Modularidade limitada}: as aplicações monolíticas são totalmente integradas, dificultando a alteração de recursos existentes sem afetar outros componentes.
+			\item \textbf{Falta de agilidade}: dificultando o trabalho das equipes em diferentes componentes em paralelo.
+		\end{itemize}
 	\end{alertblock}
 	
 \end{frame}
