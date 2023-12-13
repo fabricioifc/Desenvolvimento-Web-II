@@ -163,56 +163,21 @@ $ sudo yum install nginx # CentOS/RHEL
 $ sudo pacman -S nginx # Arch Linux
 ```
 
-10. Configurando o `nginx` no Arch Linux:
+10. Configurando o `nginx` no Ubuntu:
+    
+```bash
+$ sudo rm /etc/nginx/sites-enabled/default
+$ sudo touch /etc/nginx/sites-available/flask
+$ sudo ln -s /etc/nginx/sites-available/flask /etc/nginx/sites-enabled/flask
+```
+
+11. Adicionem o seguinte código no arquivo `/etc/nginx/sites-available/flask`:
 
 ```bash
-$ sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bkp
-$ sudo nano /etc/nginx/nginx.conf
-```
-
-Adicionem o seguinte código no arquivo `/etc/nginx/nginx.conf`:
-
-```nginx
-user http;
-worker_processes auto;
-error_log /var/log/nginx/error.log;
-pid /run/nginx.pid;
-include /usr/share/nginx/modules/*.conf;
-
-events {
-    worker_connections 1024;
-}
-
-http {
-    include /etc/nginx/mime.types;
-    default_type application/octet-stream;
-    log_format main '$remote_addr - $remote_user [$time_local] "$request" '
-                    '$status $body_bytes_sent "$http_referer" '
-                    '"$http_user_agent" "$http_x_forwarded_for"';
-    access_log /var/log/nginx/access.log main;
-    sendfile on;
-    tcp_nopush on;
-    tcp_nodelay on;
-    keepalive_timeout 65;
-    types_hash_max_size 2048;
-    include /etc/nginx/conf.d/*.conf;
-    include /etc/nginx/sites-enabled/*;
-}
-```
-
-11. Criando o arquivo de configuração do `nginx` no Arch Linux:
-
-```bash
-$ sudo mkdir /etc/nginx/sites-enabled
-$ sudo touch /etc/nginx/sites-enabled/default.conf
-```
-
-Adicionem o seguinte código no arquivo `/etc/nginx/sites-enabled/default.conf`:
-
-```nginx
 server {
     listen 80;
-    server_name localhos, tarefas.ifc.edu.br;
+    server_name localhost monolito.ifc.edu.br;
+
     location / {
         proxy_pass http://localhost:8000;
     }
@@ -225,7 +190,7 @@ server {
 $ sudo nano /etc/hosts
 ```
 
-Adicionem o seguinte código no arquivo `/etc/hosts`:
+Altere a seguinte linha no arquivo `/etc/hosts`:
 
 ```bash
 127.0.0.1 localhost monolito.ifc.edu.br
