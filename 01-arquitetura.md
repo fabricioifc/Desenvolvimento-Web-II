@@ -40,7 +40,10 @@ Para demonstrar, vamos criar uma aplicação web com Python e Flask. Para isso, 
 0. Criação do ambiente virtual:
 
 ```bash
-$ python -m venv .venv
+$ sudo apt install -y python3-pip # Caso não esteja instalado
+$ sudo apt install -y python3-venv # Caso não esteja instalado
+$ sudo apt install -y iputils-ping # Caso não esteja instalado
+$ python3 -m venv .venv
 $ source .venv/bin/activate
 ```
 
@@ -184,7 +187,7 @@ server {
 }
 ```
 
-12. Alterando o arquivo `/etc/hosts`:
+12. Alterando o arquivo `/etc/hosts` na máquina local:
 
 ```bash
 $ sudo nano /etc/hosts
@@ -193,14 +196,16 @@ $ sudo nano /etc/hosts
 Altere a seguinte linha no arquivo `/etc/hosts`:
 
 ```bash
-127.0.0.1 localhost monolito.ifc.edu.br
+# vincular ao endereço IP do docker
+172.17.0.3 monolito.ifc.edu.br
 ```
 
 13. Reiniciando o `nginx`:
 
 ```bash
 $ sudo nginx -t # Testa a configuração do nginx
-$ sudo systemctl restart nginx
+$ sudo sevice nginx restart # Reinicia o nginx
+$ ping monolito.ifc.edu.br # Testa a configuração do nginx
 ```
 
 14. Rodar a aplicação com o `gunicorn`:
