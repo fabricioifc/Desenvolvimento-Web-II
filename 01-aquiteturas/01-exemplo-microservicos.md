@@ -318,8 +318,48 @@ services:
       context: ./services
     ports:
       - "5001:5001"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
 ```
 
 5. Criar o arquivo `nginx.conf`:
 
 ```bash
+touch nginx.conf
+```
+
+```conf
+# nginx.conf
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    upstream backend {
+        server ui:5000;
+        server task-service:5001;
+        # Adicione mais servidores conforme necessário
+        # server outro_servidor:porta;
+    }
+
+    server {
+        listen 80;
+        server_name localhost;
+
+        location / {
+            proxy_pass http://backend;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+}
+```
+
