@@ -238,9 +238,15 @@ Para adicionar um balanceador de carga com nginx e docker, vamos seguir os segui
 1. Criar o arquivo `requirements.txt` com `Flask` e `requests`:
 
 ```bash
+# services
 touch services/requirements.txt
 echo "Flask" >> services/requirements.txt
 echo "requests" >> services/requirements.txt
+
+#ui
+touch ui/requirements.txt
+echo "Flask" >> ui/requirements.txt
+echo "requests" >> ui/requirements.txt
 ```
 
 2. Criar o arquivo `Dockerfile` para a camada de serviços:
@@ -312,3 +318,8 @@ services:
       context: ./services
     ports:
       - "5001:5001"
+```
+
+5. Criar o arquivo `nginx.conf`:
+
+```bash
