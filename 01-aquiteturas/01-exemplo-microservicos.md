@@ -304,27 +304,44 @@ touch docker-compose.yml
 
 ```yml
 # docker-compose.yml
-version: '3.8'
+version: '3'
 
 services:
   ui:
     build:
       context: ./ui
-    ports:
-      - "5000:5000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ui.rule=Host(`ui.localhost`)"
+    networks:
+      - web
 
   task-service:
     build:
       context: ./services
-    ports:
-      - "5001:5001"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.task-service.rule=Host(`task-service.localhost`)"
+    networks:
+      - web
 
-  nginx:
-    image: nginx:latest
+  traefik:
+    image: traefik:v2.5
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
     ports:
       - "80:80"
+      - "8080:8080"
+    networks:
+      - web
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  web:
+    external: true
 ```
 
 5. Criar o arquivo `nginx.conf`:
@@ -334,7 +351,7 @@ touch nginx.conf
 ```
 
 ```conf
-# nginx.conf
+# nginx/nginx.conf
 
 events {
     worker_connections 1024;
