@@ -58,23 +58,11 @@ Um exemplo típico de arquitetura em N camadas é a arquitetura MVC (Model-View-
 
 #### 1.3.3. Arquitetura de microserviços (Microservices)
 
-A arquitetura de microsserviços é um padrão moderno de arquitetura de software no qual a aplicação é dividida em serviços pequenos, independentes e com baixo acoplamento. Cada serviço é uma base de código separada, que pode ser gerida por uma pequena equipa de desenvolvimento. Uma única e pequena equipe de programadores pode escrever e manter um determinado microsserviço.
+A arquitetura de microsserviços é um padrão moderno de arquitetura de software no qual a aplicação é dividida em serviços pequenos, independentes e com baixo acoplamento. Cada serviço é uma base de código separada, que pode ser mantida por uma pequena equipe de desenvolvimento. Essa abordagem tem diversas características que podem oferecer benefícios em termos de escalabilidade, manutenção, flexibilidade e implementação de soluções distribuídas.
 
 A figura abaixo ilustra a arquitetura de microsserviços:
 
 ![Arquitetura de microsserviços](../img/microservice.png)
 **Fonte:** [Monolithic, N-Tier, Microservices explained with comparison and example - Software Architecture](https://www.youtube.com/watch?app=desktop&v=qbDkBPpmjJM)
 
-
-
-<!-- 
-
-#### 1.3.2. Arquitetura de microsserviços
-
-Os microsserviços são __`serviços pequenos, independentes e com baixo acoplamento`__. Assim, os microsserviços podem trabalhar em conjunto e podem ser implantados de forma independente e autónoma. Cada serviço é uma base de código separada, que pode ser gerida por uma pequena equipa de desenvolvimento. Uma única pequena equipa de programadores pode escrever e manter um determinado microsserviço.
-
-A figura abaixo ilustra a arquitetura de microsserviços:
-
-![Arquitetura de microsserviços](../img/microservices.webp)
-
-### 1.3. Principais desafios e tendências -->
+Para demonstrar a arquitetura de microsserviços, vamos criar uma aplicação web com Python e Flask. Para isso, vamos seguir os seguintes passos descritos no [01-exemplo-microservicos.md](01-exemplo-microservicos.md).
