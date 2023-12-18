@@ -235,8 +235,80 @@ http://localhost:5002
 
 Para adicionar um balanceador de carga com nginx e docker, vamos seguir os seguintes passos:
 
-1. Criar o arquivo `docker-compose.yml`:
+1. Criar o arquivo `requirements.txt` com `Flask` e `requests`:
+
+```bash
+touch services/requirements.txt
+echo "Flask" >> services/requirements.txt
+echo "requests" >> services/requirements.txt
+```
+
+2. Criar o arquivo `Dockerfile` para a camada de serviços:
+
+```bash
+touch services/Dockerfile
+```
+
+```dockerfile
+# services/Dockerfile
+FROM python:3.8-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 5001
+
+CMD ["python", "task_service.py"]
+```
+
+3. Adicionar o arquivo `Dockerfile` para a camada de apresentação:
+
+```bash
+touch ui/Dockerfile
+```
+
+```dockerfile
+# ui/Dockerfile
+
+FROM python:3.8-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
+```
+
+4. Criar o arquivo `docker-compose.yml`:
 
 ```bash
 touch docker-compose.yml
 ```
+
+```yml
+# docker-compose.yml
+version: '3.8'
+
+services:
+  ui:
+    build:
+      context: ./ui
+    ports:
+      - "5000:5000"
+
+  task-service:
+    build:
+      context: ./services
+    ports:
+      - "5001:5001"

@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  ui:
+    build:
+      context: ./ui
+    ports:
+      - "5000:5000"
+
+  task-service:
+    build:
+      context: ./services
+    ports:
+      - "5001:5001"
