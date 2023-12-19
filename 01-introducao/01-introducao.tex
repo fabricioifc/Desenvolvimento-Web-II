@@ -20,7 +20,7 @@
 
 \documentclass[
 	10pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
-	%t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
+	t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
 	%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
 ]{beamer}
 
@@ -343,6 +343,84 @@ citestyle=authoryear,
 		\caption{Arquitetura em N camadas (N-tier).}\label{fig:n-tier}
 	\end{figure}
 
+\end{frame}
+
+\subsubsection{Microserviços}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Microserviços - Definição}
+
+	Microsserviços são uma abordagem arquitetônica e organizacional do desenvolvimento de software na qual o software consiste em pequenos serviços independentes que se comunicam usando APIs bem definidas. Esses serviços pertencem a pequenas equipes autossuficientes. É similar à \alert{arquitetura orientada a serviços (SOA)}, mas com algumas diferenças importantes, tais como, por exemplo, o tamanho dos serviços e a forma como eles se comunicam.
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Microserviços - Vantagens}
+
+	\begin{exampleblock}{Vantagens}
+		\begin{itemize}
+			\item \textbf{Separação de Responsabilidades}: Tudo é desenvolvido através de pequenas unidades de código e publicado em processos de deploy automatizados e independentes.
+			\item \textbf{Tecnologias}: Essa abordagem permite que cada serviço seja desenvolvido usando a \textit{stack} mais adequadas para o problema que está sendo resolvido.
+			\item \textbf{Aplicabilidade}: em aplicações de grande porte e complexas que precisam ser escaladas rapidamente ou em organizações com equipes distribuídas.
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Microserviços - Desvantagens}
+
+	\begin{alertblock}{Desvantagens}
+		\begin{itemize}
+			\item \textbf{Complexidade}: A complexidade de uma arquitetura de microsserviços é maior do que a de uma arquitetura monolítica, pois existem mais componentes para gerenciar.
+			\item \textbf{Comunicação}: A comunicação entre os serviços pode resultar em algum overhead, especialmente em sistemas distribuídos, o que pode impactar o desempenho.
+			\item \textbf{Testes}: Os testes de integração são mais complexos, pois envolvem a comunicação entre os serviços.
+			\item \textbf{Gerenciamento}: O gerenciamento de uma arquitetura de microsserviços (governança) é mais complexo, pois existem mais componentes para gerenciar.
+		\end{itemize}
+	\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Microserviços - Representação}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{Images/microservice.png}
+		\caption{Arquitetura de Microsserviços.}\label{fig:microservices}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Monolito vs. Microsserviços}
+
+	\begin{figure}
+		\centering
+		% \caption*{Fonte: \url{https://aws.amazon.com/pt/microservices/}}
+		\includegraphics[width=0.8\linewidth]{Images/mono_x_micro.png}
+		\caption{Monolito vs. Microsserviços.}\label{fig:monolito-vs-microservicos}
+	\end{figure}
+
+\end{frame}
+
+\subsection{Material Complementar}
+
+\begin{frame}
+	\frametitle{Material Complementar}
+	\framesubtitle{Vídeos}
+	
+	\begin{itemize}
+		\item \href{https://youtu.be/CsrHHHPHKwE}{\textbf{Aplicação Monolítica // Dicionário do Programador}}. Canal \textbf{Código Fonte TV}. Disponível em: \url{https://youtu.be/CsrHHHPHKwE}.
+		\item \href{https://youtu.be/suZfVAk7hco}{\textbf{Arquitetura de Software: Monolítica x SOA x Microserviços}}. Canal \textbf{Marcos Dósea}. Disponível em: \url{https://youtu.be/suZfVAk7hco}.
+		\item \href{https://www.youtube.com/watch?v=_2bDOCTnbKc}{\textbf{Microservices // Dicionário do Programador}}. Canal \textbf{Código Fonte TV}. Disponível em: \url{https://www.youtube.com/watch?v=_2bDOCTnbKc}.
+		\item \href{https://youtu.be/gtv9szE_P1U}{\textbf{Microservices na prática}}. Canal \textbf{Full Cycle}. Disponível em: \url{https://youtu.be/gtv9szE_P1U}.
+	\end{itemize}
+	
 \end{frame}
 
 %------------------------------------------------
