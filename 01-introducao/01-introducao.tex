@@ -218,15 +218,53 @@ citestyle=authoryear,
 
 %------------------------------------------------
 
+\subsection{Modelos Arquiteturais}
+\subsubsection{Monolito}
+
 \begin{frame}
 	\frametitle{Principais Arquiteturas de Aplicações Web}
-	\framesubtitle{Monolito}
+	\framesubtitle{Monolito - Definição}
 	
-	Abordagem tradicional no desenvolvimento de software na qual todos os componentes de uma aplicação são combinados em uma única unidade totalmente integrada. A aplicação é implantada como uma \alert{única e grande base de código} que contém todas as funcionalidades.
+	Abordagem tradicional no desenvolvimento de software na qual todos os componentes de uma aplicação são combinados em uma única unidade totalmente integrada. A aplicação é implantada como uma \alert{única base de código} que contém todas as funcionalidades.
 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Monolito - Vantagens}
+
+	\begin{exampleblock}{Vantagens}
+		\begin{itemize}
+			\item \textbf{Simplicidade da Arquitetura}: não existem muitas camadas e componentes para gerenciar. É mais fácil para começar.
+			\item \textbf{Tecnologias}: usar uma única linguagem de programação e tecnologias para desenvolver a aplicação pode facilitar o entendimento da equipe.
+			\item \textbf{Fluxo de implantação}: o `deploy' é simples de fazer e gerenciar. Não há necessidade de implantar vários componentes separadamente.
+		\end{itemize}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Monolito - Desvantabens}
+
+	\begin{alertblock}{Desvantagens}
+		\begin{itemize}
+			\item \textbf{Acoplamento forte}: a aplicação é uma única unidade totalmente integrada, o que significa que qualquer alteração em um componente pode afetar outros componentes da aplicação.
+			\item \textbf{Escalabilidade limitada}:a aplicação é implantada como uma única unidade, o que significa que todos os componentes da aplicação devem ser escalados juntos horizontalmente.
+			\item \textbf{Implantação única}: a aplicação é implantada como uma única unidade, o que significa que todos os componentes da aplicação devem ser implantados juntos. Qualquer alteração, por menor que seja, requer a implantação de toda a aplicação.
+			\item \textbf{Tecnologias limitadas}: todos os componentes da aplicação devem ser desenvolvidos usando a mesma linguagem de programação e tecnologias.
+		\end{itemize}
+	\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Monolito - Representação}
+	
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.6\linewidth]{Images/monolito.jpg}
+		\includegraphics[width=0.9\linewidth]{Images/monolito2.png}
 		\caption{Arquitetura Monolítica.}\label{fig:monolito}
 	\end{figure}
 
@@ -234,23 +272,77 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{Principais Arquiteturas de Aplicações Web}
-	\framesubtitle{Monolito}
+	\framesubtitle{Monolito - Escalando Horizontalmente}
+
+	\begin{itemize}
+		\item \textbf{Escalabilidade horizontal}: adicionar mais instâncias de um componente.
+		\item \textbf{Escalabilidade vertical}: adicionar mais recursos (CPU, memória, etc) a um componente.
+	\end{itemize}
 	
-	\begin{exampleblock}{Prós}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\linewidth]{Images/monolito-balancer.jpg}
+		\caption{Arquitetura Monolítica com \textit{Load Balancer}.}\label{fig:monolito-balancer}
+	\end{figure}
+
+\end{frame}
+
+\subsubsection{Arquitetura em N camadas (N-tier)}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Arquitetura em N camadas (N-tier) - Definição}
+
+	A arquitetura em N camadas é um padrão de arquitetura de software no qual a aplicação é dividida em camadas lógicas ou físicas.
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{Images/n-tier-simple-2.png}
+		\caption{Arquitetura em camadas - Fluxo.}\label{fig:n-tier-simple-2}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Arquitetura em N camadas (N-tier) - Vantagens}
+
+	\begin{exampleblock}{Vantagens}
 		\begin{itemize}
-			\item \textbf{Simples de entender e desenvolver}: os componentes são combinados em uma única base de código.
-			\item \textbf{Fácil de testar e implantar}: a aplicação é implantada como uma única unidade.
+			\item \textbf{Separação de Responsabilidades}: A separação clara das responsabilidades em diferentes camadas (como apresentação, lógica de negócios e acesso a dados) facilita a manutenção e a evolução do sistema.
+			\item \textbf{Escalabilidade}: A escalabilidade é facilitada, pois cada camada pode ser dimensionada independentemente das outras, permitindo a otimização de recursos.
+			\item \textbf{Facilidade de Testes}: Cada camada pode ser testada separadamente, o que simplifica os testes unitários e facilita a identificação e correção de falhas.
+			\item \textbf{Manutenção}: Alterações em uma camada específica não devem afetar as outras, tornando a manutenção mais simples e menos propensa a efeitos colaterais indesejados.
 		\end{itemize}
 	\end{exampleblock}
-	
-	\begin{alertblock}{Contras}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Arquitetura em N camadas (N-tier) - Desvantagens}
+
+	\begin{alertblock}{Desvantagens}
 		\begin{itemize}
-			\item \textbf{Desafios de escalabilidade}: a aplicação é implantada como uma única unidade, tornando difícil escalar componentes individuais.
-			\item \textbf{Modularidade limitada}: as aplicações monolíticas são totalmente integradas, dificultando a alteração de recursos existentes sem afetar outros componentes.
-			\item \textbf{Falta de agilidade}: dificultando o trabalho das equipes em diferentes componentes em paralelo.
+			\item \textbf{Complexidade Inicial}: A implementação de uma arquitetura em camadas pode ser mais complexa inicialmente, especialmente para projetos pequenos ou simples.
+			\item \textbf{Comunicação entre camadas}: A comunicação entre camadas pode resultar em algum overhead, especialmente em sistemas distribuídos, o que pode impactar o desempenho.
+			\item \textbf{Duplicação de Lógica}: Pode ocorrer uma duplicação de lógica entre as camadas, o que pode levar a inconsistências se não for gerenciado adequadamente.
+			\item \textbf{Aumento da Latência}: O acesso a dados através de várias camadas pode aumentar a latência.
 		\end{itemize}
 	\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Arquitetura em N camadas (N-tier) - Representação}
 	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{Images/n-tier.png}
+		\caption{Arquitetura em N camadas (N-tier).}\label{fig:n-tier}
+	\end{figure}
+
 \end{frame}
 
 %------------------------------------------------
