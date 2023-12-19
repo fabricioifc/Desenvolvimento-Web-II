@@ -1,0 +1,40 @@
+
+# docker-compose.yml
+version: '3'
+
+services:
+  ui:
+    build:
+      context: ./ui
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ui.rule=Host(`ui.localhost`)"
+    networks:
+      - web
+
+  task-service:
+    build:
+      context: ./services
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.task-service.rule=Host(`task-service.localhost`)"
+    networks:
+      - web
+
+  traefik:
+    image: traefik:v2.5
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    networks:
+      - web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  web:
+    external: true

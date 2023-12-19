@@ -182,55 +182,6 @@ python services/task_service.py
 http://localhost:5001
 ```
 
-### 1.3. Criando a camada de dados
-
-A camada de dados é responsável por armazenar os dados da aplicação web. Para criar a camada de dados, vamos utilizar o framework Flask. O Flask é um framework web minimalista para Python. O Flask fornece ferramentas, bibliotecas e tecnologias que permitem criar aplicações web com Python de forma simples e rápida.
-
-Para criar a camada de dados, vamos seguir os seguintes passos:
-
-1. Criar o microserviço da camada de dados:
-
-```bash
-touch services/user_service.py
-```
-
-2. Implementar o microserviço da camada de dados:
-
-```python
-# services/user_service.py
-
-from flask import Flask, request, jsonify
-
-app = Flask(__name__)
-users = []
-
-@app.route('/users', methods=['GET'])
-def get_all_users():
-    return jsonify(users)
-
-@app.route('/add_user', methods=['POST'])
-def add_user():
-    data = request.get_json()
-    name = data.get('name')
-    users.append({'name': name})
-    return jsonify({'message': 'Usuário adicionado com sucesso!'})
-
-if __name__ == '__main__':
-    app.run(debug=True, port=5002)
-```
-
-3. Executar o microserviço da camada de dados:
-
-```bash
-python services/user_service.py
-```
-
-4. Acessar o microserviço da camada de dados:
-
-```bash
-http://localhost:5002
-```
-
 #### Adicionando um balanceador de carga com nginx e docker (Load Balancer)
 
 Para adicionar um balanceador de carga com nginx e docker, vamos seguir os seguintes passos:
@@ -242,11 +193,14 @@ Para adicionar um balanceador de carga com nginx e docker, vamos seguir os segui
 touch services/requirements.txt
 echo "Flask" >> services/requirements.txt
 echo "requests" >> services/requirements.txt
+echo "gunicorn" >> services/requirements.txt
+
 
 #ui
 touch ui/requirements.txt
 echo "Flask" >> ui/requirements.txt
 echo "requests" >> ui/requirements.txt
+echo "gunicorn\n
 ```
 
 2. Criar o arquivo `Dockerfile` para a camada de serviços:
@@ -380,3 +334,14 @@ http {
 }
 ```
 
+6. Criar a rede `web` manualmente:
+
+```bash
+docker network create web
+```
+
+7. Executar a aplicação web:
+
+```bash
+docker-compose up --build
+```
