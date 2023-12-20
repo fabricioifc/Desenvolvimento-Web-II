@@ -351,7 +351,14 @@ citestyle=authoryear,
 	\frametitle{Principais Arquiteturas de Aplicações Web}
 	\framesubtitle{Microserviços - Definição}
 
-	Microsserviços são uma abordagem arquitetônica e organizacional do desenvolvimento de software na qual o software consiste em pequenos serviços independentes que se comunicam usando APIs bem definidas. Esses serviços pertencem a pequenas equipes autossuficientes. É similar à \alert{arquitetura orientada a serviços (SOA)}, mas com algumas diferenças importantes, tais como, por exemplo, o tamanho dos serviços e a forma como eles se comunicam.
+	\begin{itemize}
+		\item A arquitetura de microsserviços é uma abordagem arquitetônica e organizacional do desenvolvimento de software na qual o software consiste em \alert{pequenos serviços independentes}.
+		\item É similar à \alert{arquitetura orientada a serviços (SOA)}, mas com algumas diferenças importantes, tais como, por exemplo, o tamanho dos serviços e a forma como eles se comunicam.
+		\item Esses serviços são mantidos por \alert{pequenas equipes autossuficientes}.
+		\item Cada serviço é desenvolvido, implantado e gerenciado de forma \alert{independente}.
+		\item Cada serviço é responsável por uma \alert{única funcionalidade}.
+		\item Os serviços se comunicam entre si através de \alert{APIs} bem definidas.
+	\end{itemize}
 
 \end{frame}
 
@@ -363,7 +370,7 @@ citestyle=authoryear,
 		\begin{itemize}
 			\item \textbf{Separação de Responsabilidades}: Tudo é desenvolvido através de pequenas unidades de código e publicado em processos de deploy automatizados e independentes.
 			\item \textbf{Tecnologias}: Essa abordagem permite que cada serviço seja desenvolvido usando a \textit{stack} mais adequadas para o problema que está sendo resolvido.
-			\item \textbf{Aplicabilidade}: em aplicações de grande porte e complexas que precisam ser escaladas rapidamente ou em organizações com equipes distribuídas.
+			\item \textbf{Aplicabilidade}: em aplicações de \alert{grande porte e complexas} que precisam ser escaladas rapidamente e com equipes distribuídas.
 		\end{itemize}
 	\end{exampleblock}
 \end{frame}
@@ -395,6 +402,8 @@ citestyle=authoryear,
 
 \end{frame}
 
+\subsection{Comparativo}
+
 \begin{frame}
 	\frametitle{Principais Arquiteturas de Aplicações Web}
 	\framesubtitle{Monolito vs. Microsserviços}
@@ -402,176 +411,199 @@ citestyle=authoryear,
 	\begin{figure}
 		\centering
 		% \caption*{Fonte: \url{https://aws.amazon.com/pt/microservices/}}
-		\includegraphics[width=0.8\linewidth]{Images/mono_x_micro.png}
+		\includegraphics[width=0.9\linewidth]{Images/mono_x_micro.png}
 		\caption{Monolito vs. Microsserviços.}\label{fig:monolito-vs-microservicos}
 	\end{figure}
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\framesubtitle{Monolito, N Camares e Microsserviços}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{Images/arquit-comparativo.jpg}
+		\caption{Monolito, N Camares e Microsserviços.}\label{fig:comparativo}
+	\end{figure}
+
+\end{frame}
+
+%------------------------------------------------
+
+
+
 \subsection{Material Complementar}
 
 \begin{frame}
 	\frametitle{Material Complementar}
-	\framesubtitle{Vídeos}
+	\framesubtitle{Vídeos, Podcasts, Livros, etc}
 	
 	\begin{itemize}
-		\item \href{https://youtu.be/CsrHHHPHKwE}{\textbf{Aplicação Monolítica // Dicionário do Programador}}. Canal \textbf{Código Fonte TV}. Disponível em: \url{https://youtu.be/CsrHHHPHKwE}.
-		\item \href{https://youtu.be/suZfVAk7hco}{\textbf{Arquitetura de Software: Monolítica x SOA x Microserviços}}. Canal \textbf{Marcos Dósea}. Disponível em: \url{https://youtu.be/suZfVAk7hco}.
-		\item \href{https://www.youtube.com/watch?v=_2bDOCTnbKc}{\textbf{Microservices // Dicionário do Programador}}. Canal \textbf{Código Fonte TV}. Disponível em: \url{https://www.youtube.com/watch?v=_2bDOCTnbKc}.
-		\item \href{https://youtu.be/gtv9szE_P1U}{\textbf{Microservices na prática}}. Canal \textbf{Full Cycle}. Disponível em: \url{https://youtu.be/gtv9szE_P1U}.
+		\item \href{https://youtu.be/CsrHHHPHKwE}{\textbf{Aplicação Monolítica // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
+		\item \href{https://youtu.be/suZfVAk7hco}{\textbf{Arquitetura de Software: Monolítica x SOA x Microserviços}}.\\Canal \textbf{Marcos Dósea}.
+		\item \href{https://www.youtube.com/watch?v=_2bDOCTnbKc}{\textbf{Microservices // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
+		\item \href{https://youtu.be/gtv9szE_P1U}{\textbf{Microservices na prática}}.\\Canal \textbf{Full Cycle}.
+		\item \href{https://www.hipsters.tech/uma-linguagem-para-cada-combate-hipsters-ponto-tech-277}{\textbf{Microservices na prática}}.\\Podcast Hipsters Ponto Tech \textbf{Monolitos}.
 	\end{itemize}
 	
 \end{frame}
 
 %------------------------------------------------
 
-\subsection{Columns}
+% \subsection{Columns}
 
-\begin{frame}
-	\frametitle{Multiple Columns}
-	\framesubtitle{Subtitle} % Optional subtitle
+% \begin{frame}
+% 	\frametitle{Multiple Columns}
+% 	\framesubtitle{Subtitle} % Optional subtitle
 	
-	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-		\begin{column}{0.45\textwidth} % Left column width
-			\textbf{Heading}
-			\begin{enumerate}
-				\item Statement
-				\item Explanation
-				\item Example
-			\end{enumerate}
-		\end{column}
-		\begin{column}{0.5\textwidth} % Right column width
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-		\end{column}
-	\end{columns}
-\end{frame}
+% 	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+% 		\begin{column}{0.45\textwidth} % Left column width
+% 			\textbf{Heading}
+% 			\begin{enumerate}
+% 				\item Statement
+% 				\item Explanation
+% 				\item Example
+% 			\end{enumerate}
+% 		\end{column}
+% 		\begin{column}{0.5\textwidth} % Right column width
+% 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+% 		\end{column}
+% 	\end{columns}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \section{Table and Figure Examples}
+
+% \subsection{Table}
+
+% \begin{frame}
+% 	\frametitle{Table}
+% 	\framesubtitle{Subtitle} % Optional subtitle
+	
+% 	\begin{table}
+% 		\begin{tabular}{l l l}
+% 			\toprule
+% 			\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+% 			\midrule
+% 			Treatment 1 & 0.0003262 & 0.562 \\
+% 			Treatment 2 & 0.0015681 & 0.910 \\
+% 			Treatment 3 & 0.0009271 & 0.296 \\
+% 			\bottomrule
+% 		\end{tabular}
+% 		\caption{Table caption}
+% 	\end{table}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \subsection{Figure}
+
+% \begin{frame}
+% 	\frametitle{Figure}
+	
+% 	\begin{figure}
+% 		\includegraphics[width=0.8\linewidth]{logo.png}
+% 		\caption{IFC Videira.}
+% 	\end{figure}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \section{Mathematics}
+
+% \begin{frame}
+% 	\frametitle{Definitions \& Examples}
+	
+% 	\begin{definition}
+% 		A \alert{prime number} is a number that has exactly two divisors.
+% 	\end{definition}
+	
+% 	\smallskip % Vertical whitespace
+	
+% 	\begin{example}
+% 		\begin{itemize}
+% 			\item 2 is prime (two divisors: 1 and 2).
+% 			\item 3 is prime (two divisors: 1 and 3).
+% 			\item 4 is not prime (\alert{three} divisors: 1, 2, and 4).
+% 		\end{itemize}
+% 	\end{example}
+	
+% 	\smallskip % Vertical whitespace
+	
+% 	You can also use the \texttt{theorem}, \texttt{lemma}, \texttt{proof} and \texttt{corollary} environments.
+% \end{frame}
+
+% %------------------------------------------------
+
+% \begin{frame}
+% 	\frametitle{Theorem, Corollary \& Proof}
+	
+% 	\begin{theorem}[Mass--energy equivalence]
+% 		$E = mc^2$
+% 	\end{theorem}
+	
+% 	\begin{corollary}
+% 		$x + y = y + x$
+% 	\end{corollary}
+	
+% 	\begin{proof}
+% 		$\omega + \phi = \epsilon$
+% 	\end{proof}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \begin{frame}
+% 	\frametitle{Equation}
+
+% 	\begin{equation}
+% 		\cos^3 \theta =\frac{1}{4}\cos\theta+\frac{3}{4}\cos 3\theta
+% 	\end{equation}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+% 	\frametitle{Verbatim}
+	
+% 	\begin{example}[Theorem Slide Code]
+% 		\begin{verbatim}
+% 			\begin{frame}
+% 				\frametitle{Theorem}
+% 				\begin{theorem}[Mass--energy equivalence]
+% 					$E = mc^2$
+% 				\end{theorem}
+% 		\end{frame}\end{verbatim} % Must be on the same line
+% 	\end{example}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \begin{frame}
+% 	Slide without title.
+% \end{frame}
 
 %------------------------------------------------
 
-\section{Table and Figure Examples}
+% \section{Referências}
 
-\subsection{Table}
+% \begin{frame}
+% 	\frametitle{Referências}
+% 	\printbibliography
+% \end{frame}
 
-\begin{frame}
-	\frametitle{Table}
-	\framesubtitle{Subtitle} % Optional subtitle
+
+% \begin{frame}
+% 	\frametitle{Referências}
 	
-	\begin{table}
-		\begin{tabular}{l l l}
-			\toprule
-			\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-			\midrule
-			Treatment 1 & 0.0003262 & 0.562 \\
-			Treatment 2 & 0.0015681 & 0.910 \\
-			Treatment 3 & 0.0009271 & 0.296 \\
-			\bottomrule
-		\end{tabular}
-		\caption{Table caption}
-	\end{table}
-\end{frame}
-
-%------------------------------------------------
-
-\subsection{Figure}
-
-\begin{frame}
-	\frametitle{Figure}
+% 	An example of the \texttt{\textbackslash cite} command to cite within the presentation:
 	
-	\begin{figure}
-		\includegraphics[width=0.8\linewidth]{logo.png}
-		\caption{IFC Videira.}
-	\end{figure}
-\end{frame}
-
-%------------------------------------------------
-
-\section{Mathematics}
-
-\begin{frame}
-	\frametitle{Definitions \& Examples}
+% 	\bigskip % Vertical whitespace
 	
-	\begin{definition}
-		A \alert{prime number} is a number that has exactly two divisors.
-	\end{definition}
-	
-	\smallskip % Vertical whitespace
-	
-	\begin{example}
-		\begin{itemize}
-			\item 2 is prime (two divisors: 1 and 2).
-			\item 3 is prime (two divisors: 1 and 3).
-			\item 4 is not prime (\alert{three} divisors: 1, 2, and 4).
-		\end{itemize}
-	\end{example}
-	
-	\smallskip % Vertical whitespace
-	
-	You can also use the \texttt{theorem}, \texttt{lemma}, \texttt{proof} and \texttt{corollary} environments.
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-	\frametitle{Theorem, Corollary \& Proof}
-	
-	\begin{theorem}[Mass--energy equivalence]
-		$E = mc^2$
-	\end{theorem}
-	
-	\begin{corollary}
-		$x + y = y + x$
-	\end{corollary}
-	
-	\begin{proof}
-		$\omega + \phi = \epsilon$
-	\end{proof}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-	\frametitle{Equation}
-
-	\begin{equation}
-		\cos^3 \theta =\frac{1}{4}\cos\theta+\frac{3}{4}\cos 3\theta
-	\end{equation}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-	\frametitle{Verbatim}
-	
-	\begin{example}[Theorem Slide Code]
-		\begin{verbatim}
-			\begin{frame}
-				\frametitle{Theorem}
-				\begin{theorem}[Mass--energy equivalence]
-					$E = mc^2$
-				\end{theorem}
-		\end{frame}\end{verbatim} % Must be on the same line
-	\end{example}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-	Slide without title.
-\end{frame}
-
-%------------------------------------------------
-
-\section{Referencing}
-
-\begin{frame}
-	\frametitle{Citing References}
-	
-	An example of the \texttt{\textbackslash cite} command to cite within the presentation:
-	
-	\bigskip % Vertical whitespace
-	
-	This statement requires citation.
-\end{frame}
+% 	This statement requires citation.
+% \end{frame}
 
 %------------------------------------------------
 
@@ -593,55 +625,50 @@ citestyle=authoryear,
 % 	\end{thebibliography}
 % \end{frame}
 
-\begin{frame}
-	\frametitle{References}
-	\printbibliography
-\end{frame}
-
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGMENTS SLIDE
 %----------------------------------------------------------------------------------------
 
-\begin{frame}
-	\frametitle{Acknowledgements}
+% \begin{frame}
+% 	\frametitle{Acknowledgements}
 	
-	\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-		\begin{column}{0.45\textwidth} % Left column width
-			\textbf{Smith Lab}
-			\begin{itemize}
-				\item Alice Smith
-				\item Devon Brown
-			\end{itemize}
-			\textbf{Cook Lab}
-			\begin{itemize}
-				\item Margaret
-				\item Jennifer
-				\item Yuan
-			\end{itemize}
-		\end{column}		
-		\begin{column}{0.5\textwidth} % Right column width
-			\textbf{Funding}
-			\begin{itemize}
-				\item British Royal Navy
-				\item Norwegian Government
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
+% 	\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+% 		\begin{column}{0.45\textwidth} % Left column width
+% 			\textbf{Smith Lab}
+% 			\begin{itemize}
+% 				\item Alice Smith
+% 				\item Devon Brown
+% 			\end{itemize}
+% 			\textbf{Cook Lab}
+% 			\begin{itemize}
+% 				\item Margaret
+% 				\item Jennifer
+% 				\item Yuan
+% 			\end{itemize}
+% 		\end{column}		
+% 		\begin{column}{0.5\textwidth} % Right column width
+% 			\textbf{Funding}
+% 			\begin{itemize}
+% 				\item British Royal Navy
+% 				\item Norwegian Government
+% 			\end{itemize}
+% 		\end{column}
+% 	\end{columns}
+% \end{frame}
 
 %----------------------------------------------------------------------------------------
 %	CLOSING SLIDE
 %----------------------------------------------------------------------------------------
 
-\begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
-	\begin{center}
-		{\Huge The End}
+% \begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
+% 	\begin{center}
+% 		{\Huge The End}
 		
-		\bigskip\bigskip % Vertical whitespace
+% 		\bigskip\bigskip % Vertical whitespace
 		
-		{\LARGE Questions? Comments?}
-	\end{center}
-\end{frame}
+% 		{\LARGE Questions? Comments?}
+% 	\end{center}
+% \end{frame}
 
 %----------------------------------------------------------------------------------------
 
