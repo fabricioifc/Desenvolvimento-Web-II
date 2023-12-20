@@ -197,7 +197,7 @@ citestyle=authoryear,
 %	PRESENTATION BODY SLIDES
 %----------------------------------------------------------------------------------------
 
-\section{Introdução a Arquitetura de Sistemas Web} % Sections are added in order to organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
+\section{Introdução a Arquitetura de Software} % Sections are added in order to organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
 
 %------------------------------------------------
 
@@ -206,14 +206,18 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Conceitos}
 	
-	A \alert{arquitetura de aplicações web} descreve a estrutura interna e interações entre seus componentes. A arquitetura de uma aplicação web é composta por:
+	A \alert{arquitetura da aplicação} descreve a estrutura interna e interações entre seus componentes. A arquitetura de uma aplicação é composta por:
 
 	\begin{itemize}
-		\item \textbf{Componentes}: partes que compõem a aplicação web. Exemplos: cliente, servidor, banco de dados, etc.
+		\item \textbf{Componentes}: partes que compõem a aplicação. Exemplos: cliente, servidor, banco de dados, etc.
 		\item \textbf{Conectores}: mecanismos que permitem a comunicação entre os componentes. Exemplos: protocolos de comunicação, APIs, etc.
 		\item \textbf{Restrições}: regras que definem como os componentes e conectores podem interagir. Exemplos: autenticação, autorização, etc.
 	\end{itemize}
-	% \bigskip % Vertical whitespace
+	\bigskip % Vertical whitespace
+
+	\begin{alertblock}{Tomada de Decisão}
+		Escolher a arquitetura correta para uma aplicação é uma das decisões mais importantes que um arquiteto de software deve tomar.
+	\end{alertblock}
 \end{frame}
 
 %------------------------------------------------
@@ -237,7 +241,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Monolito - Definição}
 	
 	Abordagem tradicional no desenvolvimento de software na qual todos os componentes de uma aplicação são combinados em uma única unidade totalmente integrada. A aplicação é implantada como uma \alert{única base de código} que contém todas as funcionalidades.
@@ -245,21 +249,21 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Monolito - Vantagens}
 
 	\begin{exampleblock}{Vantagens}
 		\begin{itemize}
 			\item \textbf{Simplicidade da Arquitetura}: não existem muitas camadas e componentes para gerenciar. É mais fácil para começar.
 			\item \textbf{Tecnologias}: usar uma única linguagem de programação e tecnologias para desenvolver a aplicação pode facilitar o entendimento da equipe.
-			\item \textbf{Fluxo de implantação}: o `deploy' é simples de fazer e gerenciar. Não há necessidade de implantar vários componentes separadamente.
+			\item \textbf{Fluxo de implantação}: o `deploy` é simples de fazer e gerenciar. Não há necessidade de implantar vários componentes separadamente.
 		\end{itemize}
 	\end{exampleblock}
 
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Monolito - Desvantabens}
 
 	\begin{alertblock}{Desvantagens}
@@ -274,7 +278,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Monolito - Representação}
 	
 	\begin{figure}
@@ -286,7 +290,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Monolito - Escalando Horizontalmente}
 
 	\begin{itemize}
@@ -320,7 +324,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Arquitetura em N camadas (N-tier) - Definição}
 
 	A arquitetura em N camadas é um padrão de arquitetura de software no qual a aplicação é dividida em camadas lógicas ou físicas.
@@ -334,7 +338,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Arquitetura em N camadas (N-tier) - Vantagens}
 
 	\begin{exampleblock}{Vantagens}
@@ -349,28 +353,41 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Arquitetura em N camadas (N-tier) - Desvantagens}
 
 	\begin{alertblock}{Desvantagens}
 		\begin{itemize}
 			\item \textbf{Complexidade Inicial}: A implementação de uma arquitetura em camadas pode ser mais complexa inicialmente, especialmente para projetos pequenos ou simples.
-			\item \textbf{Comunicação entre camadas}: A comunicação entre camadas pode resultar em algum overhead, especialmente em sistemas distribuídos, o que pode impactar o desempenho.
+			\item \textbf{Comunicação entre camadas}: A comunicação entre camadas pode resultar em algum overhead, especialmente em sistemas distribuídos, o que pode impactar o desempenho. Alguns exemplos são latência, serialização e desserialização de dados, etc.
 			\item \textbf{Duplicação de Lógica}: Pode ocorrer uma duplicação de lógica entre as camadas, o que pode levar a inconsistências se não for gerenciado adequadamente.
-			\item \textbf{Aumento da Latência}: O acesso a dados através de várias camadas pode aumentar a latência.
 		\end{itemize}
 	\end{alertblock}
 
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Arquitetura em N camadas (N-tier) - Representação}
 	
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.9\linewidth]{Images/n-tier.png}
 		\caption{Arquitetura em N camadas (N-tier).}\label{fig:n-tier}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Software}
+	\framesubtitle{Arquitetura em 2 camadas - Cliente-Servidor}
+
+	A arquitetura de software em duas camadas, também conhecida como arquitetura cliente-servidor, é um modelo simples no qual a lógica de aplicação é dividida em duas partes principais: a camada de apresentação (cliente) e a camada de dados (servidor). Essa arquitetura é bastante direta e é frequentemente utilizada em aplicações pequenas e simples.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{Images/cliente-servidor.png}
+		\caption{Arquitetura Cliente-Servidor.}\label{fig:cliente-servidor}
 	\end{figure}
 
 \end{frame}
@@ -393,7 +410,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Microserviços - Definição}
 
 	\begin{itemize}
@@ -408,7 +425,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Microserviços - Vantagens}
 
 	\begin{exampleblock}{Vantagens}
@@ -421,7 +438,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Microserviços - Desvantagens}
 
 	\begin{alertblock}{Desvantagens}
@@ -436,7 +453,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Microserviços - Representação}
 	
 	\begin{figure}
@@ -450,7 +467,7 @@ citestyle=authoryear,
 \subsection{Comparativo}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Monolito vs. Microsserviços}
 
 	\begin{figure}
@@ -463,7 +480,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Principais Arquiteturas de Aplicações Web}
+	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Monolito, N Camares e Microsserviços}
 
 	\begin{figure}
@@ -475,7 +492,6 @@ citestyle=authoryear,
 \end{frame}
 
 %------------------------------------------------
-
 
 
 \subsection{Material Complementar}
@@ -493,6 +509,41 @@ citestyle=authoryear,
 	\end{itemize}
 	
 \end{frame}
+
+\subsection{Quiz}
+
+\begin{frame}
+	\frametitle{Recapitulando}
+	\framesubtitle{QUIZ}
+
+	O que é arquitetura de software?
+
+	\bigskip
+
+	\begin{alertblock}{Resposta}
+		A arquitetura da aplicação descreve a estrutura interna e interações entre seus componentes.
+
+\end{frame}
+
+	
+	
+% \subsection{Modelos Arquiteturais para Web}
+
+% \begin{frame}
+% 	\begin{center}
+		
+% 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+% 		{\Large Modelos Arquiteturais para Web}
+		
+% 		\bigskip\bigskip % Vertical whitespace
+% 		{\Huge Modelo Cliente-Servidor}
+
+% 		\begin{alertblock}{Observação}
+% 			Não é uma arq
+% 		\end{alertblock}
+% 	\end{center}
+
+% \end{frame}
 
 %------------------------------------------------
 
