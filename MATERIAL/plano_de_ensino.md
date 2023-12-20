@@ -1,5 +1,10 @@
 **Plano de Ensino para a Disciplina de Desenvolvimento Web: Arquitetura de Sistemas Web**
 
+**Professor:** Prof. Fabricio Bizotto\
+
+**Ementa:**
+Segurança e arquitetura de sistemas Web. Serviços Web. Integração de sistemas. Tecnologias emergentes de sistemas Web. 
+
 **Objetivo Geral:**
 Capacitar os estudantes a compreender e aplicar conceitos fundamentais relacionados à arquitetura de sistemas web, serviços web, integração de sistemas e tecnologias emergentes, proporcionando uma visão abrangente e atualizada do desenvolvimento web.
 
@@ -22,7 +27,7 @@ Capacitar os estudantes a compreender e aplicar conceitos fundamentais relaciona
 3.1. Padrões de integração\
 3.2. APIs de terceiros\
 3.3. Integração de bancos de dados\
-3.4. Autenticação e autorização em sistemas \distribuídos
+3.4. Autenticação e autorização em sistemas distribuídos\
 3.5. Ferramentas de integração\
 
 **Unidade 4: Tecnologias Emergentes de Sistemas Web (14 horas)**\
