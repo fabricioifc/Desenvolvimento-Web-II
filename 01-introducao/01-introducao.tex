@@ -464,7 +464,22 @@ citestyle=authoryear,
 
 \end{frame}
 
-\subsection{Comparativo}
+\subsection{Comparativos}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Modelos Arquiteturais}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge Comparativos}
+		
+		% \smallskip
+		% {\small \textit{Monolithic}}
+	\end{center}
+
+\end{frame}
 
 \begin{frame}
 	\frametitle{Principais Arquiteturas de Software}
@@ -491,6 +506,86 @@ citestyle=authoryear,
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Software}
+	\framesubtitle{Exemplo Prático}
+
+	\textbf{Sistema de Comércio Eletrônico - Módulo de Recomendações:}
+
+	\begin{exampleblock}{Monolito - Exemplo}
+		Um componente que fornece recomendações de produtos com base no histórico de compras, comportamentos de navegação e preferências do usuário. Todos os módulos serão construídos na mesma base de código e implantados como uma única unidade.
+	\end{exampleblock}
+
+	\begin{exampleblock}{N Camadas - Exemplo}
+		Será organizado como parte da camada de lógica de negócios (Backend).
+	\end{exampleblock}
+
+	\begin{exampleblock}{Microserviços - Exemplo}
+		Um microserviço que fornece recomendações personalizadas aos clientes com base em seu histórico de compras, preferências e comportamentos de navegação. Será um serviço separado e independente.
+	\end{exampleblock}
+	
+
+\end{frame}
+
+\section{Outras Arquiteturas}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Modelos Arquiteturais}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge Outras Arquiteturas}
+		
+		% \smallskip
+		% {\small \textit{Monolithic}}
+	\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Outras Arquiteturas}
+	\framesubtitle{Arquitetura Orientada a Serviços (SOA)}
+
+	\begin{block}{Arquitetura Orientada a Serviços (SOA)}
+		A arquitetura de microsserviços é uma evolução do estilo de arquitetura SOA. Embora cada serviço de SOA seja um \alert{recurso de negócios completo}, cada microsserviço é um componente de software muito menor, especializado em apenas uma única tarefa. Os microsserviços abordam as deficiências da SOA para tornar o software mais compatível com ambientes corporativos modernos baseados na nuvem \parencite{AWSSOA2024}.		
+	\end{block}
+	\begin{exampleblock}{Exemplo}
+		\textbf{Sistema de Comércio Eletrônico - Serviço de Pagamento:} Responsável pelo processamento de transações financeiras, integração com gateways de pagamento e validação de transações.
+	\end{exampleblock}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Outras Arquiteturas}
+	\framesubtitle{Arquitetura Orientada a Eventos}
+
+	\begin{block}{Arquitetura Orientada a Eventos}
+		Uma arquitetura orientada por eventos usa eventos para acionamento e comunicação entre serviços desacoplados e é comum em aplicações modernas criadas com microsserviços \parencite{AWSEVENTOS2024}.
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\textbf{Sistema de Comércio Eletrônico - Pedido Realizado}: quando um cliente faz um pedido, um evento é gerado e enviado para o serviço de processamento de pedidos, que pode então iniciar o processamento do pedido.
+	\end{exampleblock}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Outras Arquiteturas}
+	\framesubtitle{Arquitetura Serverless}
+
+	\begin{block}{Serverless}
+		É um modelo de desenvolvimento nativo em nuvem para criação e execução de aplicações sem o gerenciamento de servidores. Os servidores ainda são usados nesse modelo, mas eles são abstraídos do desenvolvimento de aplicações \parencite{REDHAT2024}.
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\textbf{Serviço de Armazenamento (Storage)}: Os usuários fazem upload de imagens para um serviço de armazenamento na nuvem, como o Amazon S3. A função serverless terá a lógica para processar a imagem e gerar thumbnails em diferentes tamanhos.
+	\end{exampleblock}
+	
+\end{frame}
+
 %------------------------------------------------
 
 
@@ -510,20 +605,19 @@ citestyle=authoryear,
 	
 \end{frame}
 
-% \subsection{Quiz}
+\subsection{Quiz}
 
-% \begin{frame}
-% 	\frametitle{Recapitulando}
-% 	\framesubtitle{QUIZ}
+\begin{frame}
+	\frametitle{Recapitulando}
+	\framesubtitle{QUIZ}
 
-% 	O que é arquitetura de software?
-
-% 	\bigskip
-
-% 	\begin{alertblock}{Resposta}
-% 		A arquitetura da aplicação descreve a estrutura interna e interações entre seus componentes.
-
-% \end{frame}
+	\vfill
+	\begin{block}{Vamos praticar um pouco o que vimos até agora?}
+		\href{https://quizizz.com/admin/quiz/65832b860b273f1989868234?source=quiz_share}{\textbf{QUIZ - Desenvolvimento Web - Arquitetura de Software}}
+	\end{block}
+	\vfill
+		
+\end{frame}
 
 	
 	
@@ -683,12 +777,12 @@ citestyle=authoryear,
 
 %------------------------------------------------
 
-% \section{Referências}
+\section{Referências}
 
-% \begin{frame}
-% 	\frametitle{Referências}
-% 	\printbibliography
-% \end{frame}
+\begin{frame}
+	\frametitle{Referências}
+	\printbibliography
+\end{frame}
 
 
 % \begin{frame}
