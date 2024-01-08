@@ -1,0 +1,732 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 2.0 (March 8, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	10pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+	t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
+	%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+
+\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[english,brazil]{babel}
+\RequirePackage[backend=biber,
+style=ieee,
+%style=authoryear,
+%style=authoryear-comp,
+%style=authoryear-ibid,
+%style=authoryear-icomp,
+%style=authoryear-icomp,
+citestyle=authoryear,
+]{biblatex}
+
+%----------------------------------------------------------------------------------------
+%	SELECT LAYOUT THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of default layout themes which change the colors and layouts of slides. Below is a list of all themes available, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+%----------------------------------------------------------------------------------------
+%	SELECT COLOR THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of color themes that can be applied to any layout theme to change its colors. Uncomment each of these in turn to see how they change the colors of your selected layout theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+% \usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{monarca}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{spruce}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%----------------------------------------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with several font themes to easily change the fonts used in various parts of the presentation. Review the comments beside each one to decide if you would like to use it. Note that additional options can be specified for several of these font themes, consult the beamer documentation for more information.
+
+\usefonttheme{default} % Typeset using the default sans serif font
+%\usefonttheme{serif} % Typeset using the default serif font (make sure a sans font isn't being set as the default font if you use this option!)
+%\usefonttheme{structurebold} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in bold
+%\usefonttheme{structureitalicserif} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in italic serif
+%\usefonttheme{structuresmallcapsserif} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in small caps serif
+
+%------------------------------------------------
+
+%\usepackage{mathptmx} % Use the Times font for serif text
+\usepackage{palatino} % Use the Palatino font for serif text
+
+%\usepackage{helvet} % Use the Helvetica font for sans serif text
+% \usepackage[default]{opensans} % Use the Open Sans font for sans serif text
+%\usepackage[default]{FiraSans} % Use the Fira Sans font for sans serif text
+\usepackage[default]{lato} % Use the Lato font for sans serif text
+
+%----------------------------------------------------------------------------------------
+%	SELECT INNER THEME
+%----------------------------------------------------------------------------------------
+
+% Inner themes change the styling of internal slide elements, for example: bullet points, blocks, bibliography entries, title pages, theorems, etc. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useinnertheme{default}
+% \useinnertheme{circles}
+\useinnertheme{rectangles}
+%\useinnertheme{rounded}
+%\useinnertheme{inmargin}
+
+%----------------------------------------------------------------------------------------
+%	SELECT OUTER THEME
+%----------------------------------------------------------------------------------------
+
+% Outer themes change the overall layout of slides, such as: header and footer lines, sidebars and slide titles. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useoutertheme{default}
+%\useoutertheme{infolines}
+%\useoutertheme{miniframes}
+%\useoutertheme{smoothbars}
+%\useoutertheme{sidebar}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+
+%\setbeamertemplate{footline} % Uncomment this line to remove the footer line in all slides
+%\setbeamertemplate{footline}[page number] % Uncomment this line to replace the footer line in all slides with a simple slide count
+
+%\setbeamertemplate{navigation symbols}{} % Uncomment this line to remove the navigation symbols from the bottom of all slides
+
+% \bibliography{references} % Specifies the bibliography file to include publications
+% \bibliographystyle{apalike} % Specifies the bibliography style
+\addbibresource{references.bib}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title[DesWebII]{Desenvolvimento Web II} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+\subtitle{Aula 02 - Padrões de projeto} % Presentation subtitle, remove this command if a subtitle isn't required
+\author[Fabricio Bizotto]{Prof. Fabricio Bizotto} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+\institute[IFC]{Instituto Federal Catarinense \\ \smallskip \textit{fabricio.bizotto@ifc.edu.br}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+\date[\today]{Ciência da Computação \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Roteiro} % Slide title, remove this command for no title
+	
+	\tableofcontents % Output the table of contents (all sections on one slide)
+	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Padrões de Projeto para Web} % Sections are added in order to organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
+
+%------------------------------------------------
+
+\subsection{Conceitos}
+
+\begin{frame}
+	\frametitle{Conceitos}
+	
+	Os \alert{padrões de projeto para web} são soluções reutilizáveis para problemas comuns de design de software que surgem no desenvolvimento de aplicativos web. Eles fornecem \alert{diretrizes e estruturas} para organizar o código, melhorar a escalabilidade, a manutenibilidade e a eficiência do desenvolvimento. Os mais comuns são:
+
+	\begin{itemize}
+		\item \textbf{Modelo-Visão-Controlador (MVC)}
+		\item \textbf{Modelo-Visão-Presenter (MVP)}
+		\item \textbf{Modelo-Visão-ViewModel (MVVM)}
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Padrões de Projeto para Web}
+\subsubsection{MVC}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Padrões de Projeto}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge MVC}
+		
+		\smallskip
+		{\small \textit{Model-View-Controller}}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVC - Model-View-Controller}
+
+	\begin{block}{Definição}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+			\begin{column}{0.8\textwidth} % Left column width
+				É um dos padrões de arquitetura mais conhecidos e adotados pela indústria de software. Foi introduzido pela primeira vez no final da década de 1970 por Trygve Reenskaug, um cientista da computação norueguês, e desde então se tornou um elemento básico na arquitetura de aplicativos. O padrão facilita a separação de interesses dividindo o aplicativo em três componentes principais.
+			\end{column}
+
+			\begin{column}{0.2\textwidth} % Right column width
+				\includegraphics[width=0.9\linewidth]{Images/reenskaug.jpg}
+			\end{column}
+		\end{columns}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVC - Model-View-Controller}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{Images/mvc.png}
+		\caption{Estrutura do MVC.}\label{fig:mvc}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVC - Model-View-Controller}
+
+	\begin{block}{Explicando}
+		\begin{itemize}
+			\item \textbf{Model}: define quais dados o aplicativo deve conter. Se o estado desses dados mudar, o modelo geralmente notificará a visualização (\textit{View}) (para que a exibição possa mudar conforme necessário) e, às vezes, o controlador (se for necessária uma lógica diferente para controlar a visualização atualizada).
+			\item \textbf{View}: define como os dados do aplicativo devem ser exibidos (Interface com o Usuário). A visualização é responsável por receber a entrada do usuário e encaminhá-la para o controlador.
+			\item \textbf{Controller}: atua como intermediário entre o modelo e a visualização. O controlador é responsável por receber a entrada do usuário da visualização e atualizar o modelo conforme necessário. 
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+% ------------------------------------------------
+
+
+\subsection{Padrões de Projeto para Web}
+\subsubsection{MVP}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Padrões de Projeto}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge MVP}
+		
+		\smallskip
+		{\small \textit{Model-View-Presenver}}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVP - Model-View-Presenver}
+
+	\begin{block}{Definição}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+			\begin{column}{0.8\textwidth} % Left column width
+				Aborda algumas das desvantagens da abordagem MVC tradicional. Originou-se no início da década de 1990 na Taligent, uma joint venture entre Apple, IBM e Hewlett-Packard. Foi ainda mais popularizado pelo Dolphin Smalltalk em 1998 e, em 2006, a Microsoft adotou o MVP para programação de interface de usuário no framework .NET.
+			\end{column}
+
+			\begin{column}{0.2\textwidth} % Right column width
+				\includegraphics[width=0.9\linewidth]{Images/mvp_logo.jpg}
+			\end{column}
+		\end{columns}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVP - Model-View-Presenver}
+
+	No MVP quem manda é o View. Cada View chama seu Presenter ou possui alguns eventos que o Presenter escuta.
+	\begin{exampleblock}{Exemplo}
+		Quando o usuário clica no botão “Salvar”, o manipulador de eventos na View delega ao método “OnSave” do Presenter. O Presenter fará a lógica necessária e qualquer comunicação necessária com o Modelo e, em seguida, chamará de volta a Visualização por meio de sua interface para que a Visualização possa exibir que o salvamento foi concluído.
+	\end{exampleblock}
+
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVP - Model-View-Presenver}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{Images/mvc_mvp.png}
+		\caption{Estrutura do MVP.}\label{fig:mvp}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVC vs MVP}
+
+	\begin{block}{MVC vs MVP}
+		\begin{itemize}
+			\item O \alert{MVC} não coloca o View no comando, os Views atuam como escravos que o Controlador pode gerenciar e direcionar.
+			\item No \alert{MVC}, as visualizações são sem estado, ao contrário das visualizações no MVP, onde são com estado e podem mudar com o tempo.
+			\item No \alert{MVP}, as Views não têm lógica e devemos mantê-las o mais burras possível. Por outro lado, Views em MVC podem ter algum tipo de lógica.
+			\item No \alert{MVP}, o Presenter é desacoplado da View e se comunica com ela através de uma interface. Isso permite zombar do View em testes unitários, ou seja, podemos testar o Presenter sem o View.
+			\item No \alert{MVP}, as visualizações são completamente isoladas do modelo. No entanto, no MVC, as Views podem se comunicar com o Modelo para mantê-lo atualizado com os dados mais atualizados.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVC vs MVP}
+
+	\centering
+	\includegraphics[width=0.5\linewidth]{Images/mvc2.png}
+	\includegraphics[width=0.8\linewidth]{Images/mvp2.png}
+
+\end{frame}
+
+% ------------------------------------------------
+
+\subsection{Padrões de Projeto para Web}
+\subsubsection{MVVM}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Padrões de Projeto}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge MVVM}
+		
+		\smallskip
+		{\small \textit{Model-View-View-Model}}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVVM - Model-View-View-Model}
+
+	\begin{block}{Definição}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+			\begin{column}{0.8\textwidth} % Left column width
+				Aborda algumas das desvantagens da abordagem MVC tradicional. Originou-se no início da década de 1990 na Taligent, uma joint venture entre Apple, IBM e Hewlett-Packard. Foi ainda mais popularizado pelo Dolphin Smalltalk em 1998 e, em 2006, a Microsoft adotou o MVP para programação de interface de usuário no framework .NET.
+			\end{column}
+
+			\begin{column}{0.2\textwidth} % Right column width
+				\includegraphics[width=0.9\linewidth]{Images/mvp_logo.jpg}
+			\end{column}
+		\end{columns}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVP - Model-View-Presenver}
+
+	No MVP quem manda é o View. Cada View chama seu Presenter ou possui alguns eventos que o Presenter escuta.
+	\begin{exampleblock}{Exemplo}
+		Quando o usuário clica no botão “Salvar”, o manipulador de eventos na View delega ao método “OnSave” do Presenter. O Presenter fará a lógica necessária e qualquer comunicação necessária com o Modelo e, em seguida, chamará de volta a Visualização por meio de sua interface para que a Visualização possa exibir que o salvamento foi concluído.
+	\end{exampleblock}
+
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVP - Model-View-Presenver}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{Images/mvc_mvp.png}
+		\caption{Estrutura do MVP.}\label{fig:mvp}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVC vs MVP}
+
+	\begin{block}{MVC vs MVP}
+		\begin{itemize}
+			\item O \alert{MVC} não coloca o View no comando, os Views atuam como escravos que o Controlador pode gerenciar e direcionar.
+			\item No \alert{MVC}, as visualizações são sem estado, ao contrário das visualizações no MVP, onde são com estado e podem mudar com o tempo.
+			\item No \alert{MVP}, as Views não têm lógica e devemos mantê-las o mais burras possível. Por outro lado, Views em MVC podem ter algum tipo de lógica.
+			\item No \alert{MVP}, o Presenter é desacoplado da View e se comunica com ela através de uma interface. Isso permite zombar do View em testes unitários, ou seja, podemos testar o Presenter sem o View.
+			\item No \alert{MVP}, as visualizações são completamente isoladas do modelo. No entanto, no MVC, as Views podem se comunicar com o Modelo para mantê-lo atualizado com os dados mais atualizados.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVC vs MVP}
+
+	\centering
+	\includegraphics[width=0.5\linewidth]{Images/mvc2.png}
+	\includegraphics[width=0.8\linewidth]{Images/mvp2.png}
+
+\end{frame}
+
+% ------------------------------------------------
+
+\subsection{Material Complementar}
+
+\begin{frame}
+	\frametitle{Material Complementar}
+	\framesubtitle{Vídeos, Podcasts, Livros, etc}
+	
+	\begin{itemize}
+		\item \href{https://youtu.be/CsrHHHPHKwE}{\textbf{Aplicação Monolítica // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
+		\item \href{https://youtu.be/suZfVAk7hco}{\textbf{Arquitetura de Software: Monolítica x SOA x Microserviços}}.\\Canal \textbf{Marcos Dósea}.
+		\item \href{https://www.youtube.com/watch?v=_2bDOCTnbKc}{\textbf{Microservices // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
+		\item \href{https://youtu.be/gtv9szE_P1U}{\textbf{Microservices na prática}}.\\Canal \textbf{Full Cycle}.
+		\item \href{https://www.hipsters.tech/uma-linguagem-para-cada-combate-hipsters-ponto-tech-277}{\textbf{Microservices na prática}}.\\Podcast Hipsters Ponto Tech \textbf{Monolitos}.
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Quiz}
+
+\begin{frame}
+	\frametitle{Recapitulando}
+	\framesubtitle{QUIZ}
+
+	Vamos praticar um pouco o que vimos até agora?
+	\vfill
+
+	\bigskip
+	\centering
+
+	\href{https://quizizz.com/admin/quiz/65832b860b273f1989868234?source=quiz_share}{\textbf{QUIZ - Desenvolvimento Web - Arquitetura de Software}}
+	\vfill
+		
+\end{frame}
+
+	
+	
+% \subsection{Modelos Arquiteturais para Web}
+
+% \begin{frame}
+% 	\begin{center}
+		
+% 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+% 		{\Large Modelos Arquiteturais para Web}
+		
+% 		\bigskip\bigskip % Vertical whitespace
+% 		{\Huge Modelo Cliente-Servidor}
+
+% 		\begin{alertblock}{Observação}
+% 			Não é uma arq
+% 		\end{alertblock}
+% 	\end{center}
+
+% \end{frame}
+
+%------------------------------------------------
+
+% \subsection{Columns}
+
+% \begin{frame}
+% 	\frametitle{Multiple Columns}
+% 	\framesubtitle{Subtitle} % Optional subtitle
+	
+% 	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+% 		\begin{column}{0.45\textwidth} % Left column width
+% 			\textbf{Heading}
+% 			\begin{enumerate}
+% 				\item Statement
+% 				\item Explanation
+% 				\item Example
+% 			\end{enumerate}
+% 		\end{column}
+% 		\begin{column}{0.5\textwidth} % Right column width
+% 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+% 		\end{column}
+% 	\end{columns}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \section{Table and Figure Examples}
+
+% \subsection{Table}
+
+% \begin{frame}
+% 	\frametitle{Table}
+% 	\framesubtitle{Subtitle} % Optional subtitle
+	
+% 	\begin{table}
+% 		\begin{tabular}{l l l}
+% 			\toprule
+% 			\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+% 			\midrule
+% 			Treatment 1 & 0.0003262 & 0.562 \\
+% 			Treatment 2 & 0.0015681 & 0.910 \\
+% 			Treatment 3 & 0.0009271 & 0.296 \\
+% 			\bottomrule
+% 		\end{tabular}
+% 		\caption{Table caption}
+% 	\end{table}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \subsection{Figure}
+
+% \begin{frame}
+% 	\frametitle{Figure}
+	
+% 	\begin{figure}
+% 		\includegraphics[width=0.8\linewidth]{logo.png}
+% 		\caption{IFC Videira.}
+% 	\end{figure}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \section{Mathematics}
+
+% \begin{frame}
+% 	\frametitle{Definitions \& Examples}
+	
+% 	\begin{definition}
+% 		A \alert{prime number} is a number that has exactly two divisors.
+% 	\end{definition}
+	
+% 	\smallskip % Vertical whitespace
+	
+% 	\begin{example}
+% 		\begin{itemize}
+% 			\item 2 is prime (two divisors: 1 and 2).
+% 			\item 3 is prime (two divisors: 1 and 3).
+% 			\item 4 is not prime (\alert{three} divisors: 1, 2, and 4).
+% 		\end{itemize}
+% 	\end{example}
+	
+% 	\smallskip % Vertical whitespace
+	
+% 	You can also use the \texttt{theorem}, \texttt{lemma}, \texttt{proof} and \texttt{corollary} environments.
+% \end{frame}
+
+% %------------------------------------------------
+
+% \begin{frame}
+% 	\frametitle{Theorem, Corollary \& Proof}
+	
+% 	\begin{theorem}[Mass--energy equivalence]
+% 		$E = mc^2$
+% 	\end{theorem}
+	
+% 	\begin{corollary}
+% 		$x + y = y + x$
+% 	\end{corollary}
+	
+% 	\begin{proof}
+% 		$\omega + \phi = \epsilon$
+% 	\end{proof}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \begin{frame}
+% 	\frametitle{Equation}
+
+% 	\begin{equation}
+% 		\cos^3 \theta =\frac{1}{4}\cos\theta+\frac{3}{4}\cos 3\theta
+% 	\end{equation}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+% 	\frametitle{Verbatim}
+	
+% 	\begin{example}[Theorem Slide Code]
+% 		\begin{verbatim}
+% 			\begin{frame}
+% 				\frametitle{Theorem}
+% 				\begin{theorem}[Mass--energy equivalence]
+% 					$E = mc^2$
+% 				\end{theorem}
+% 		\end{frame}\end{verbatim} % Must be on the same line
+% 	\end{example}
+% \end{frame}
+
+% %------------------------------------------------
+
+% \begin{frame}
+% 	Slide without title.
+% \end{frame}
+
+%------------------------------------------------
+
+\section{Referências}
+
+\begin{frame}
+	\frametitle{Referências}
+	\printbibliography
+\end{frame}
+
+
+% \begin{frame}
+% 	\frametitle{Referências}
+	
+% 	An example of the \texttt{\textbackslash cite} command to cite within the presentation:
+	
+% 	\bigskip % Vertical whitespace
+	
+% 	This statement requires citation.
+% \end{frame}
+
+%------------------------------------------------
+
+% \begin{frame} % Use [allowframebreaks] to allow automatic splitting across slides if the content is too long
+% 	\frametitle{References}
+	
+% 	\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below, you may need to use multiple columns and/or reduce the font size further if you have many references
+% 		\footnotesize % Reduce the font size in the bibliography
+		
+% 		\bibitem[Smith, 2022]{p1}
+% 			John Smith (2022)
+% 			\newblock Publication title
+% 			\newblock \emph{Journal Name} 12(3), 45 -- 678.
+			
+% 		\bibitem[Kennedy, 2023]{p2}
+% 			Annabelle Kennedy (2023)
+% 			\newblock Publication title
+% 			\newblock \emph{Journal Name} 12(3), 45 -- 678.
+% 	\end{thebibliography}
+% \end{frame}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGMENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+% \begin{frame}
+% 	\frametitle{Acknowledgements}
+	
+% 	\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+% 		\begin{column}{0.45\textwidth} % Left column width
+% 			\textbf{Smith Lab}
+% 			\begin{itemize}
+% 				\item Alice Smith
+% 				\item Devon Brown
+% 			\end{itemize}
+% 			\textbf{Cook Lab}
+% 			\begin{itemize}
+% 				\item Margaret
+% 				\item Jennifer
+% 				\item Yuan
+% 			\end{itemize}
+% 		\end{column}		
+% 		\begin{column}{0.5\textwidth} % Right column width
+% 			\textbf{Funding}
+% 			\begin{itemize}
+% 				\item British Royal Navy
+% 				\item Norwegian Government
+% 			\end{itemize}
+% 		\end{column}
+% 	\end{columns}
+% \end{frame}
+
+%----------------------------------------------------------------------------------------
+%	CLOSING SLIDE
+%----------------------------------------------------------------------------------------
+
+% \begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
+% 	\begin{center}
+% 		{\Huge The End}
+		
+% 		\bigskip\bigskip % Vertical whitespace
+		
+% 		{\LARGE Questions? Comments?}
+% 	\end{center}
+% \end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

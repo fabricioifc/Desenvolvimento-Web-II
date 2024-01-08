@@ -7,7 +7,7 @@ Capacitar os estudantes a projetar, desenvolver e implementar sistemas web segur
 
 1. **Arquitetura de Sistemas Web**
    - Modelagem de sistemas web escaláveis.
-   - Padrões arquiteturais (MVC, MVVM, Microservices).
+   - Padrões de projeto (MVC, MCP, MVVM).
    - Gerenciamento de estados em aplicações web.
    - Performance e otimização.
    - Uso eficiente de recursos (servidores, bancos de dados, etc.).

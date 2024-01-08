@@ -1,0 +1,41 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    
+    <!-- Mostra mensagens flash -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <form method="POST" action="/add_task">
+        <label for="task">Nova Tarefa:</label>
+        <input type="text" id="task" name="task" required>
+        <button type="submit">Adicionar Tarefa</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {% if task.done %}
+                    <del>{{ task.description }}</del>
+                {% else %}
+                    <a href="{{ url_for('mark_done', task_id=task.id) }}">{{ task.description }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
