@@ -378,14 +378,14 @@ citestyle=authoryear,
 		{\Huge MVVM}
 		
 		\smallskip
-		{\small \textit{Model-View-View-Model}}
+		{\small \textit{Model-View-ViewModel}}
 	\end{center}
 
 \end{frame}
 
 \begin{frame}
 	\frametitle{Padrões de Projeto para Web}
-	\framesubtitle{MVVM - Model-View-View-Model}
+	\framesubtitle{MVVM - Model-View-ViewModel}
 
 	\begin{block}{Definição}
 	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
@@ -403,51 +403,40 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{Padrões de Projeto para Web}
-	\framesubtitle{MVP - Model-View-Presenver}
+	\framesubtitle{MVVM - Model-View-ViewModel}
 
-	No MVP quem manda é o View. Cada View chama seu Presenter ou possui alguns eventos que o Presenter escuta.
-	\begin{exampleblock}{Exemplo}
-		Quando o usuário clica no botão “Salvar”, o manipulador de eventos na View delega ao método “OnSave” do Presenter. O Presenter fará a lógica necessária e qualquer comunicação necessária com o Modelo e, em seguida, chamará de volta a Visualização por meio de sua interface para que a Visualização possa exibir que o salvamento foi concluído.
-	\end{exampleblock}
+	O MVVM foi criado pelo arquiteto de software do WPF  (Windows Presentation Foundation) e Silverlight da Microsoft, John Grossman em 2005. Desde então, ele vem sendo usado principalmente no desenvolvimento mobile. Ele foi criado para ser usado em aplicativos WPF e usava XAML (uma linguagem declarativa para objetos e suas propriedades) a fim de separar a interface do usuário da lógica de negócios, aproveitando o data binding que é a vinculação de dados. Na prática, a camada Model não se comunica com a View nem a View se comunica com a Model.
+
+	\begin{block}{Onde é usado?}
+		O MVVM é particularmente adequado para aplicativos de \alert{UI complexos}, onde é necessária uma extensa ligação de dados, e para projetos que usam estruturas como WPF, UWP, Angular e Xamarin. Com seu forte foco no desenvolvimento de UI, o MVVM se tornou popular no mundo do \alert{desenvolvimento móvel}.
+	\end{block}
 
 	
 \end{frame}
 
 \begin{frame}
 	\frametitle{Padrões de Projeto para Web}
-	\framesubtitle{MVP - Model-View-Presenver}
+	\framesubtitle{MVVM - Model-View-ViewModel}
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.9\linewidth]{Images/mvc_mvp.png}
-		\caption{Estrutura do MVP.}\label{fig:mvp}
+		\includegraphics[width=0.9\linewidth]{Images/mvvm.png}
+		\caption{Estrutura do MVP.}\label{fig:mvvm}
 	\end{figure}
 
 \end{frame}
 
-\begin{frame}
-	\frametitle{Padrões de Projeto para Web}
-	\framesubtitle{MVC vs MVP}
-
-	\begin{block}{MVC vs MVP}
-		\begin{itemize}
-			\item O \alert{MVC} não coloca o View no comando, os Views atuam como escravos que o Controlador pode gerenciar e direcionar.
-			\item No \alert{MVC}, as visualizações são sem estado, ao contrário das visualizações no MVP, onde são com estado e podem mudar com o tempo.
-			\item No \alert{MVP}, as Views não têm lógica e devemos mantê-las o mais burras possível. Por outro lado, Views em MVC podem ter algum tipo de lógica.
-			\item No \alert{MVP}, o Presenter é desacoplado da View e se comunica com ela através de uma interface. Isso permite zombar do View em testes unitários, ou seja, podemos testar o Presenter sem o View.
-			\item No \alert{MVP}, as visualizações são completamente isoladas do modelo. No entanto, no MVC, as Views podem se comunicar com o Modelo para mantê-lo atualizado com os dados mais atualizados.
-		\end{itemize}
-	\end{block}
-
-\end{frame}
+\section{Prática}
 
 \begin{frame}
 	\frametitle{Padrões de Projeto para Web}
-	\framesubtitle{MVC vs MVP}
+	\framesubtitle{MVVM - Model-View-ViewModel}
 
-	\centering
-	\includegraphics[width=0.5\linewidth]{Images/mvc2.png}
-	\includegraphics[width=0.8\linewidth]{Images/mvp2.png}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{Images/mvvm.png}
+		\caption{Estrutura do MVP.}\label{fig:mvvm}
+	\end{figure}
 
 \end{frame}
 
@@ -460,7 +449,7 @@ citestyle=authoryear,
 	\framesubtitle{Vídeos, Podcasts, Livros, etc}
 	
 	\begin{itemize}
-		\item \href{https://youtu.be/CsrHHHPHKwE}{\textbf{Aplicação Monolítica // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
+		\item \href{https://youtu.be/B2pJWtSyVFA}{\textbf{MVVM (Model View ViewModel - A Arquitetura de Apps Mobile) // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
 		\item \href{https://youtu.be/suZfVAk7hco}{\textbf{Arquitetura de Software: Monolítica x SOA x Microserviços}}.\\Canal \textbf{Marcos Dósea}.
 		\item \href{https://www.youtube.com/watch?v=_2bDOCTnbKc}{\textbf{Microservices // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
 		\item \href{https://youtu.be/gtv9szE_P1U}{\textbf{Microservices na prática}}.\\Canal \textbf{Full Cycle}.
@@ -469,22 +458,22 @@ citestyle=authoryear,
 	
 \end{frame}
 
-\subsection{Quiz}
+% \subsection{Quiz}
 
-\begin{frame}
-	\frametitle{Recapitulando}
-	\framesubtitle{QUIZ}
+% \begin{frame}
+% 	\frametitle{Recapitulando}
+% 	\framesubtitle{QUIZ}
 
-	Vamos praticar um pouco o que vimos até agora?
-	\vfill
+% 	Vamos praticar um pouco o que vimos até agora?
+% 	\vfill
 
-	\bigskip
-	\centering
+% 	\bigskip
+% 	\centering
 
-	\href{https://quizizz.com/admin/quiz/65832b860b273f1989868234?source=quiz_share}{\textbf{QUIZ - Desenvolvimento Web - Arquitetura de Software}}
-	\vfill
+% 	\href{https://quizizz.com/admin/quiz/65832b860b273f1989868234?source=quiz_share}{\textbf{QUIZ - Desenvolvimento Web - Arquitetura de Software}}
+% 	\vfill
 		
-\end{frame}
+% \end{frame}
 
 	
 	
