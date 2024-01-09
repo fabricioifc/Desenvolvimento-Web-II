@@ -15,6 +15,11 @@ class TaskModel:
 
     def get_tasks(self):
         return self.tasks
+    
+    # def delete_task(self, task_id):
+    #     for task in self.tasks:
+    #         if task['id'] == int(task_id):
+    #             self.tasks.remove(task)
 
     def mark_task_as_completed(self, task_id):
         for task in self.tasks:
@@ -40,6 +45,9 @@ class TaskController:
     def mark_task_as_completed(self, task_id):
         self.model.mark_task_as_completed(task_id)
 
+    # def delete_task(self, task_id):
+    #     self.model.delete_task(task_id)
+
 # O controlador é responsável por receber as interações do usuário, chamar métodos no modelo correspondente e atualizar a visualização.
 
 model = TaskModel()
@@ -60,6 +68,11 @@ def add_task():
 def mark_completed(task_id):
     controller.mark_task_as_completed(task_id)
     return redirect(url_for('index'))
+
+# @app.route('/delete_task/<int:task_id>', methods=['GET'])
+# def delete_task(task_id):
+#     controller.delete_task(task_id)
+#     return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)

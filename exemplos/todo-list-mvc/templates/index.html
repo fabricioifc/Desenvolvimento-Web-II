@@ -8,20 +8,23 @@
 </head>
 <body>
     <h1>Task List</h1>
+    
+    <form method="post" action="/add_task">
+        <label for="task">Add Task:</label>
+        <input type="text" id="task" name="task" required>
+        <button type="submit">Add</button>
+    </form>
+
     <ul>
         {% for task in tasks %}
             <li>
                 <form method="post" action="/mark_completed/{{ task.id }}">
                     <input type="checkbox" {% if task.completed %}checked{% endif %} onchange="this.form.submit()">
                     <span {% if task.completed %}style="text-decoration: line-through;"{% endif %}>{{ task.description }}</span>
+                    <!-- <a href="/delete_task/{{ task.id }}">Delete</a> -->
                 </form>
             </li>
         {% endfor %}
     </ul>
-    <form method="post" action="/add_task">
-        <label for="task">Add Task:</label>
-        <input type="text" id="task" name="task" required>
-        <button type="submit">Add</button>
-    </form>
 </body>
 </html>
