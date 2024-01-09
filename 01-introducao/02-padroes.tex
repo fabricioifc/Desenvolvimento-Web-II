@@ -32,6 +32,7 @@
 \usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage[english,brazil]{babel}
+\usepackage{fontawesome5}
 \RequirePackage[backend=biber,
 style=ieee,
 %style=authoryear,
@@ -41,6 +42,9 @@ style=ieee,
 %style=authoryear-icomp,
 citestyle=authoryear,
 ]{biblatex}
+
+% Define a custom command for an icon link
+\newcommand{\iconLink}[2]{\href{#1}{\faLink \hspace{0.2em} {#2}}}
 
 %----------------------------------------------------------------------------------------
 %	SELECT LAYOUT THEME
@@ -161,7 +165,7 @@ citestyle=authoryear,
 %----------------------------------------------------------------------------------------
 
 \title[DesWebII]{Desenvolvimento Web II} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
-\subtitle{Aula 02 - Padrões de projeto} % Presentation subtitle, remove this command if a subtitle isn't required
+\subtitle{Aula 02 - Padrões de Arquitetura} % Presentation subtitle, remove this command if a subtitle isn't required
 \author[Fabricio Bizotto]{Prof. Fabricio Bizotto} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
 \institute[IFC]{Instituto Federal Catarinense \\ \smallskip \textit{fabricio.bizotto@ifc.edu.br}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
 \date[\today]{Ciência da Computação \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
@@ -192,7 +196,7 @@ citestyle=authoryear,
 %	PRESENTATION BODY SLIDES
 %----------------------------------------------------------------------------------------
 
-\section{Padrões de Projeto para Web} % Sections are added in order to organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
+\section{Padrões de Arquitetura para Web} % Sections are added in order to organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
 
 %------------------------------------------------
 
@@ -201,7 +205,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Conceitos}
 	
-	Os \alert{padrões de projeto para web} são soluções reutilizáveis para problemas comuns de design de software que surgem no desenvolvimento de aplicativos web. Eles fornecem \alert{diretrizes e estruturas} para organizar o código, melhorar a escalabilidade, a manutenibilidade e a eficiência do desenvolvimento. Os mais comuns são:
+	Os \alert{Padrões de Arquitetura para Web} são soluções reutilizáveis para problemas comuns de design de software que surgem no desenvolvimento de aplicativos web. Eles fornecem \alert{diretrizes e estruturas} para organizar o código, melhorar a escalabilidade, a manutenibilidade e a eficiência do desenvolvimento. Os mais comuns são:
 
 	\begin{itemize}
 		\item \textbf{Modelo-Visão-Controlador (MVC)}
@@ -212,14 +216,13 @@ citestyle=authoryear,
 
 %------------------------------------------------
 
-\subsection{Padrões de Projeto para Web}
-\subsubsection{MVC}
+\subsection{MVC}
 
 \begin{frame}
 	\begin{center}
 		
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Padrões de Projeto}
+		{\Large Padrões de Arquitetura}
 		
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge MVC}
@@ -231,7 +234,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVC - Model-View-Controller}
 
 	\begin{block}{Definição}
@@ -249,7 +252,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVC - Model-View-Controller}
 
 	\begin{figure}
@@ -261,7 +264,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVC - Model-View-Controller}
 
 	\begin{block}{Explicando}
@@ -277,14 +280,13 @@ citestyle=authoryear,
 % ------------------------------------------------
 
 
-\subsection{Padrões de Projeto para Web}
-\subsubsection{MVP}
+\subsection{MVP}
 
 \begin{frame}
 	\begin{center}
 		
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Padrões de Projeto}
+		{\Large Padrões de Arquitetura}
 		
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge MVP}
@@ -296,7 +298,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVP - Model-View-Presenver}
 
 	\begin{block}{Definição}
@@ -314,7 +316,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVP - Model-View-Presenver}
 
 	No MVP quem manda é o View. Cada View chama seu Presenter ou possui alguns eventos que o Presenter escuta.
@@ -326,7 +328,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVP - Model-View-Presenver}
 
 	\begin{figure}
@@ -338,7 +340,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVC vs MVP}
 
 	\begin{block}{MVC vs MVP}
@@ -354,7 +356,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVC vs MVP}
 
 	\centering
@@ -365,14 +367,13 @@ citestyle=authoryear,
 
 % ------------------------------------------------
 
-\subsection{Padrões de Projeto para Web}
-\subsubsection{MVVM}
+\subsection{MVVM}
 
 \begin{frame}
 	\begin{center}
 		
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Padrões de Projeto}
+		{\Large Padrões de Arquitetura}
 		
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge MVVM}
@@ -384,7 +385,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVVM - Model-View-ViewModel}
 
 	\begin{block}{Definição}
@@ -402,7 +403,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVVM - Model-View-ViewModel}
 
 	O MVVM foi criado pelo arquiteto de software do WPF  (Windows Presentation Foundation) e Silverlight da Microsoft, John Grossman em 2005. Desde então, ele vem sendo usado principalmente no desenvolvimento mobile. Ele foi criado para ser usado em aplicativos WPF e usava XAML (uma linguagem declarativa para objetos e suas propriedades) a fim de separar a interface do usuário da lógica de negócios, aproveitando o data binding que é a vinculação de dados. Na prática, a camada Model não se comunica com a View nem a View se comunica com a Model.
@@ -415,7 +416,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVVM - Model-View-ViewModel}
 
 	\begin{figure}
@@ -429,32 +430,55 @@ citestyle=authoryear,
 \section{Prática}
 
 \begin{frame}
-	\frametitle{Padrões de Projeto para Web}
+	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVVM - Model-View-ViewModel}
 
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.9\linewidth]{Images/mvvm.png}
-		\caption{Estrutura do MVP.}\label{fig:mvvm}
-	\end{figure}
-
+	\begin{block}{Exemplos Práticos}
+		\iconLink{https://gist.github.com/fabricioifc/d1bde9f4a13cf63b49870be4bc87a72f}{Exemplo do padrão MVC com Python/Flask}.\\
+		\iconLink{https://gist.github.com/fabricioifc/663f8abcba307a013bb56d214752458b}{Exemplo do padrão MVP com Python/Flask}.\\
+		\iconLink{https://codepen.io/fabriciobizotto/pen/MWxeONo}{Exemplo do padrão MVVM com VueJS}.
+	\end{block}
 \end{frame}
 
 % ------------------------------------------------
 
-\subsection{Material Complementar}
+\section{Material Complementar}
 
 \begin{frame}
 	\frametitle{Material Complementar}
 	\framesubtitle{Vídeos, Podcasts, Livros, etc}
 	
 	\begin{itemize}
-		\item \href{https://youtu.be/B2pJWtSyVFA}{\textbf{MVVM (Model View ViewModel - A Arquitetura de Apps Mobile) // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
-		\item \href{https://youtu.be/suZfVAk7hco}{\textbf{Arquitetura de Software: Monolítica x SOA x Microserviços}}.\\Canal \textbf{Marcos Dósea}.
-		\item \href{https://www.youtube.com/watch?v=_2bDOCTnbKc}{\textbf{Microservices // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
-		\item \href{https://youtu.be/gtv9szE_P1U}{\textbf{Microservices na prática}}.\\Canal \textbf{Full Cycle}.
-		\item \href{https://www.hipsters.tech/uma-linguagem-para-cada-combate-hipsters-ponto-tech-277}{\textbf{Microservices na prática}}.\\Podcast Hipsters Ponto Tech \textbf{Monolitos}.
+		\item \iconLink{https://youtu.be/mMDt9g7bMjk}{\textbf{Padrão MVC (Model - View - Controller)}}.\\Canal \textbf{Cod3r Cursos}.\\
+		\item \iconLink{https://youtu.be/B2pJWtSyVFA}{\textbf{MVVM (A Arquitetura de Apps Mobile)}}.\\Canal \textbf{Código Fonte TV}.\\
+		\item \iconLink{https://www.youtube.com/watch?v=-xTqfilaYow}{\textbf{MVVM in 100 Seconds}}.\\Canal \textbf{Philipp Lackner}.\\
+		\item \iconLink{https://www.youtube.com/watch?v=eHhXoCNCI1c}{\textbf{MVC, MVP ou MVVM?}}.\\Canal \textbf{ArjanCodes}.\\
 	\end{itemize}
+	
+\end{frame}
+
+% ------------------------------------------------
+
+\section{Experimentos}
+
+\begin{frame}
+	\frametitle{Experimentos}
+	\framesubtitle{Lista de Exercícios}
+	
+	\begin{itemize}
+		\item Modifique o exemplo do padrão MVC para adicionar a funcionalidade de \textbf{excluir} uma tarefa.
+		\item Modifique o exemplo do padrão MVP para adicionar a funcionalidade de \textbf{excluir} uma tarefa.
+		\item Modifique o exemplo do padrão MVVM para adicionar a funcionalidade de \textbf{excluir} uma tarefa.
+		\item Crie outro exemplo simples de aplicação web utilizando o padrão MVC, MVP ou MVVM para demonstrar o funcionamento do padrão.
+	\end{itemize}
+
+	\begin{block}{Observações}
+		\begin{itemize}
+			\item Os experimentos devem ser publicados no \textbf{GitHub}. Explique resumidamente o que foi feito e como foi feito no arquivo \textbf{README.md}.
+			\item O link para o repositório deve ser enviado para o e-mail do professor com o seguinte título: \textbf{[DesWebII] Aula 02 - Experimentos - NOMEDOALUNO}.
+			\item \textbf{Entrega:} antes do início da próxima aula.
+		\end{itemize}
+	\end{block}
 	
 \end{frame}
 
@@ -473,26 +497,6 @@ citestyle=authoryear,
 % 	\href{https://quizizz.com/admin/quiz/65832b860b273f1989868234?source=quiz_share}{\textbf{QUIZ - Desenvolvimento Web - Arquitetura de Software}}
 % 	\vfill
 		
-% \end{frame}
-
-	
-	
-% \subsection{Modelos Arquiteturais para Web}
-
-% \begin{frame}
-% 	\begin{center}
-		
-% 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-% 		{\Large Modelos Arquiteturais para Web}
-		
-% 		\bigskip\bigskip % Vertical whitespace
-% 		{\Huge Modelo Cliente-Servidor}
-
-% 		\begin{alertblock}{Observação}
-% 			Não é uma arq
-% 		\end{alertblock}
-% 	\end{center}
-
 % \end{frame}
 
 %------------------------------------------------
@@ -627,94 +631,29 @@ citestyle=authoryear,
 
 % %------------------------------------------------
 
-% \begin{frame}
-% 	Slide without title.
-% \end{frame}
 
-%------------------------------------------------
-
-\section{Referências}
-
-\begin{frame}
-	\frametitle{Referências}
-	\printbibliography
-\end{frame}
-
+% \section{Referências}
 
 % \begin{frame}
 % 	\frametitle{Referências}
-	
-% 	An example of the \texttt{\textbackslash cite} command to cite within the presentation:
-	
-% 	\bigskip % Vertical whitespace
-	
-% 	This statement requires citation.
-% \end{frame}
-
-%------------------------------------------------
-
-% \begin{frame} % Use [allowframebreaks] to allow automatic splitting across slides if the content is too long
-% 	\frametitle{References}
-	
-% 	\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below, you may need to use multiple columns and/or reduce the font size further if you have many references
-% 		\footnotesize % Reduce the font size in the bibliography
-		
-% 		\bibitem[Smith, 2022]{p1}
-% 			John Smith (2022)
-% 			\newblock Publication title
-% 			\newblock \emph{Journal Name} 12(3), 45 -- 678.
-			
-% 		\bibitem[Kennedy, 2023]{p2}
-% 			Annabelle Kennedy (2023)
-% 			\newblock Publication title
-% 			\newblock \emph{Journal Name} 12(3), 45 -- 678.
-% 	\end{thebibliography}
-% \end{frame}
-
-%----------------------------------------------------------------------------------------
-%	ACKNOWLEDGMENTS SLIDE
-%----------------------------------------------------------------------------------------
-
-% \begin{frame}
-% 	\frametitle{Acknowledgements}
-	
-% 	\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-% 		\begin{column}{0.45\textwidth} % Left column width
-% 			\textbf{Smith Lab}
-% 			\begin{itemize}
-% 				\item Alice Smith
-% 				\item Devon Brown
-% 			\end{itemize}
-% 			\textbf{Cook Lab}
-% 			\begin{itemize}
-% 				\item Margaret
-% 				\item Jennifer
-% 				\item Yuan
-% 			\end{itemize}
-% 		\end{column}		
-% 		\begin{column}{0.5\textwidth} % Right column width
-% 			\textbf{Funding}
-% 			\begin{itemize}
-% 				\item British Royal Navy
-% 				\item Norwegian Government
-% 			\end{itemize}
-% 		\end{column}
-% 	\end{columns}
+% 	\printbibliography
 % \end{frame}
 
 %----------------------------------------------------------------------------------------
 %	CLOSING SLIDE
 %----------------------------------------------------------------------------------------
 
-% \begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
-% 	\begin{center}
-% 		{\Huge The End}
+\begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
+	\begin{center}
+		\bigskip\bigskip % Vertical whitespace
 		
-% 		\bigskip\bigskip % Vertical whitespace
+		{\Huge Perguntas? Comentários?}
 		
-% 		{\LARGE Questions? Comments?}
-% 	\end{center}
-% \end{frame}
+		\bigskip\bigskip % Vertical whitespace
+		
+		{\LARGE Aula 02 - Padrões de Arquitetura}
+	\end{center}
+\end{frame}
 
 %----------------------------------------------------------------------------------------
 
