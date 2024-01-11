@@ -209,7 +209,7 @@ citestyle=authoryear,
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.7\linewidth]{methods.png}
+		\includegraphics[width=0.9\linewidth]{methods.png}
 		\caption{Métodos HTTP \footnote{\iconLink{https://pbs.twimg.com/media/F3Aak4jXoAAl4-y?format=jpg&name=large}{Twitter Post: Top 9 HTTP Request Methods}}.}
 		\label{fig:httpmethods}
 	\end{figure}
@@ -257,6 +257,7 @@ citestyle=authoryear,
 \end{frame}
 
 \subsection{HTTPS}
+\setcounter{footnote}{0}
 
 \begin{frame}
 	\frametitle{HTTPS}
@@ -265,7 +266,7 @@ citestyle=authoryear,
 		\item \textbf{HTTPS} - \textit{Hypertext Transfer Protocol \alert{Secure}}.
 		\item Os dados são criptografados antes de serem enviados. Evita que os dados sejam modificados durante a transmissão.
 		\item Utiliza o protocolo \textbf{SSL} - \textit{Secure Sockets Layer} ou \textbf{TLS} - \textit{Transport Layer Security}.
-		\item O certificado SSL/TLS (criptografia assimétrica) é emitido por uma \textbf{AC} - \textit{Autoridade Certificadora} e instalado no servidor.
+		\item O certificado SSL/TLS (criptografia assimétrica) é emitido por uma \textbf{AC} - \textit{Autoridade Certificadora} e instalado no servidor \footnote{\iconLink{https://letsencrypt.org/}{Let's Encrypt}}.
 	\end{itemize}
 	
 	\begin{block}{O que HTTPS não faz?}
@@ -319,12 +320,29 @@ citestyle=authoryear,
 
 \end{frame}
 
+\subsection{Websocket}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Protocolos de Comunicação}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge Web Socket}
+		
+		\smallskip
+		{\small \textit{Web Socket Protocol}}
+	\end{center}
+
+\end{frame}
+
 \begin{frame}
 	\frametitle{Antes de Websocket}
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.4\linewidth]{http_padrao.png}
+		\includegraphics[width=0.5\linewidth]{http_padrao.png}
 		\caption{Fluxo normal de requisição e resposta HTTP.}
 		\label{fig:http_padrao}
 	\end{figure}
@@ -347,23 +365,6 @@ citestyle=authoryear,
 		\label{fig:http_pooling}
 	\end{figure}
 	
-\end{frame}
-
-\subsection{Websocket}
-
-\begin{frame}
-	\begin{center}
-		
-		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Protocolos de Comunicação}
-		
-		\bigskip\bigskip % Vertical whitespace
-		{\Huge Web Socket}
-		
-		\smallskip
-		{\small \textit{Web Socket Protocol}}
-	\end{center}
-
 \end{frame}
 
 \begin{frame}
@@ -440,7 +441,8 @@ citestyle=authoryear,
 	\frametitle{Material Complementar}
 
 	\href{https://codepen.io/matt-west/pen/nYvVBV}{\faLink \hspace{0.2em} Web Socket - Demo}\\
-	\href{https://www.hipsters.tech/http2-magia-com-o-novo-protocolo}{\faPodcast \hspace{0.2em} HTTP2: magia com o novo protocolo – Hipsters}\\
+	\href{https://www.hipsters.tech/http2-magia-com-o-novo-protocolo}{\faPodcast \hspace{0.2em} HTTP2: magia com o novo protocolo – Hipsters (2016)}\\
+	\href{https://www.hipsters.tech/web3-vale-o-hype-hipsters-ponto-tech-380}{\faPodcast \hspace{0.2em} Web3 vale o hype? – Hipsters (2023)}\\
 	\href{https://www.casadocodigo.com.br/products/livro-desconstruindo-web}{\faBook \hspace{0.2em} Desconstruindo a Web: As tecnologias por trás de uma requisição}\\
 
 \end{frame}
