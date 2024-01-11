@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat</title>
+</head>
+<body>
+    <h1>Simple Chat</h1>
+    <div id="chat">
+        <form id="messageForm">
+            <input type="text" id="messageInput" placeholder="Digite sua mensagem">
+            <button type="submit">Enviar</button>
+        </form>
+        {% for message in messages %}
+            <p>{{ message['message'] }}</p>
+        {% endfor %}
+    </div>
+
+    <script>
+        function pollMessages(lastTimestamp) {
+            fetch(`/get_messages?last_timestamp=${lastTimestamp || 0}`)
+                .then(response => response.json())
+                .then(data => {
+                    const chatDiv = document.getElementById('chat');
+
+                    // Adiciona novas mensagens ao chat
+                    data.messages.forEach(message => {
+                        const p = document.createElement('p');
+                        p.innerText = message.message;
+                        chatDiv.appendChild(p);
+                    });
+
+                    // Chama novamente a função para continuar o polling com o novo timestamp
+                    pollMessages(data.messages.length > 0 ? data.messages[data.messages.length - 1].timestamp : lastTimestamp);
+                })
+                .catch(error => {
+                    console.error('Erro na requisição:', error);
+                    // Em caso de erro, tenta novamente após um intervalo
+                    setTimeout(() => pollMessages(lastTimestamp), 3000);
+                });
+        }
+
+        // Inicia o polling quando a página é carregada
+        document.addEventListener('DOMContentLoaded', () => pollMessages());
+
+        // Adiciona evento de envio de mensagem
+        const messageForm = document.getElementById('messageForm');
+        messageForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value.trim();
+
+            if (message !== '') {
+                // Envia a mensagem para o servidor
+                fetch('/send_message', {
+                    method: 'POST',
+                    body: new URLSearchParams({ 'message': message }),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Limpa o campo de entrada após o envio
+                        messageInput.value = '';
+                    })
+                    .catch(error => {
+                        console.error('Erro no envio da mensagem:', error);
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

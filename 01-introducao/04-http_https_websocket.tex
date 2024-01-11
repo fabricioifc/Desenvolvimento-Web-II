@@ -33,6 +33,8 @@
 \usepackage{hyperref}
 \usepackage[english,brazil]{babel}
 \usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage{animate}
 \RequirePackage[backend=biber,
 style=ieee,
 citestyle=authoryear,
@@ -190,16 +192,230 @@ citestyle=authoryear,
 	\frametitle{HTTP}
 	
 	\begin{itemize}
-		\item Protocolo de comunicação utilizado para transferência de dados na \textbf{World Wide Web} (WWW).
+		\item \alert{Protocolo} de comunicação utilizado para transferência de dados na \textbf{World Wide Web} (WWW).
 		\item Utiliza o protocolo \textbf{TCP}, normalmente na porta \textbf{80}.
 		\item É um protocolo \textbf{stateless}, ou seja, não mantém estado entre requisições.
 		\item É um protocolo \textbf{client-server}, ou seja, o cliente envia uma requisição e o servidor responde.
 		\item A \textbf{URL} é utilizada para identificar o recurso que será acessado pelo cliente (browser, por exemplo).
-		\item 
+		\item \alert{Local Storage e Cookies} são utilizados para manter estado entre requisições e melhorar a experiência do usuário.
 	\end{itemize}
 
 \end{frame}
 
+\subsubsection{Métodos HTTP}
+
+\begin{frame}
+	\frametitle{HTTP - Métodos}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{methods.png}
+		\caption{Métodos HTTP \footnote{\iconLink{https://pbs.twimg.com/media/F3Aak4jXoAAl4-y?format=jpg&name=large}{Twitter Post: Top 9 HTTP Request Methods}}.}
+		\label{fig:httpmethods}
+	\end{figure}
+
+\end{frame}
+
+\subsubsection{Códigos de Status}
+
+\begin{frame}
+	\frametitle{HTTP - Códigos de Status}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{status_code.png}
+		\caption{Códigos de status HTTP.}
+		\label{fig:status}
+	\end{figure}
+
+\end{frame}
+
+\subsubsection{Requisição e Resposta}
+
+\begin{frame}
+	\frametitle{HTTP - Requisição e Resposta}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{http_explained.jpg}
+		\caption{Ilustração do funcionamento do protocolo HTTP.}
+		\label{fig:http}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{HTTP - Requisição e Resposta}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{req_res.png}
+		\caption{Requisição e resposta HTTP.}
+		\label{fig:http_req_res}
+	\end{figure}
+
+\end{frame}
+
+\subsection{HTTPS}
+
+\begin{frame}
+	\frametitle{HTTPS}
+
+	\begin{itemize}
+		\item \textbf{HTTPS} - \textit{Hypertext Transfer Protocol \alert{Secure}}.
+		\item Os dados são criptografados antes de serem enviados. Evita que os dados sejam modificados durante a transmissão.
+		\item Utiliza o protocolo \textbf{SSL} - \textit{Secure Sockets Layer} ou \textbf{TLS} - \textit{Transport Layer Security}.
+		\item O certificado SSL/TLS (criptografia assimétrica) é emitido por uma \textbf{AC} - \textit{Autoridade Certificadora} e instalado no servidor.
+	\end{itemize}
+	
+	\begin{block}{O que HTTPS não faz?}
+		\begin{itemize}
+			\item Não garante que o servidor é confiável.
+			\item Não garante que o servidor não foi invadido.
+			\item Não garante que o servidor não está enviando dados para terceiros.
+			\item Não oculta o endereço do site que está sendo acessado.
+			\item Não esconde sua identidade e localização.
+			\item Não evita que o usuário pegue vírus. Não é um filtro de conteúdo.
+		\end{itemize}
+		
+	\end{block}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{HTTPS}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.65\linewidth]{http_https.png}
+		\caption{Comparação entre o funcionamento do protocolo HTTP e HTTPS.}
+		\label{fig:https}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{HTTPS - Consultando o Certificado}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{ssl_consulta.png}
+		\caption{Consultando o certificado SSL/TLS.}
+		\label{fig:https_ssl}
+	\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{HTTPS - Criando e consumindo meu próprio certificado}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{ssl_python_example.png}
+		\caption{Criando e consumindo meu próprio certificado.}
+		\label{fig:https_ssl_example}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Antes de Websocket}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.4\linewidth]{http_padrao.png}
+		\caption{Fluxo normal de requisição e resposta HTTP.}
+		\label{fig:http_padrao}
+	\end{figure}
+
+	\begin{itemize}
+		\item \textbf{Pooling} - O cliente faz requisições ao servidor em intervalos regulares. O servidor responde, mesmo que não tenha novos dados.
+		\item \textbf{Long polling} - O cliente faz uma requisição e o servidor mantém a conexão aberta até que tenha novos dados. O servidor responde quando tiver novos dados ou quando o tempo limite for atingido.
+		\item \alert{Essas abordagens são ineficientes e consomem muitos recursos. Cada requisição/resposta gera um \textit{overhead} de comunicação.}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{HTTP - Estratégia de Pooling}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{pooling.png}
+		\caption{HTTP - Pooling.}
+		\label{fig:http_pooling}
+	\end{figure}
+	
+\end{frame}
+
+\subsection{Websocket}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Protocolos de Comunicação}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge Web Socket}
+		
+		\smallskip
+		{\small \textit{Web Socket Protocol}}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Web Socket}
+
+	\begin{itemize}
+		\item É um protocolo de comunicação \textbf{full-duplex}, ou seja, permite que o cliente e o servidor enviem dados simultaneamente.
+		\item Utiliza o protocolo \textbf{TCP}, normalmente na porta \textbf{443}.
+		\item É um protocolo \textbf{stateful}, ou seja, mantém estado entre requisições.
+		\item A comunicação é iniciada com um \textbf{handshake} HTTP para garantir ambas as partes concordam em estabelecer uma conexão bidirecional persistente.
+		\item Muito usado em aplicações que precisam de comunicação em tempo real, tais como: 
+		\begin{itemize}
+			\item \textbf{Chat}
+			\item \textbf{Jogos}
+			\item \textbf{Streaming}
+			\item \textbf{Gráfico de ações em tempo real}
+			\item \textbf{etc}
+		\end{itemize}
+	\end{itemize}
+
+	\begin{alertblock}{Onde não usar?}
+		Não é recomendado usar em situações onde a comunicação é pontual ou para buscar dados antigos. Nesses casos, o HTTP é mais adequado.
+	\end{alertblock}
+
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Web Socket - Diagrama de funcionamento}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{websocket.png}
+		\caption{Diagrama de funcionamento do protocolo Websocket.}
+		\label{fig:websocket}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Web Socket - Exemplo de uso}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{websocket_example.png}
+		\caption{Exemplo de uso do protocolo Websocket.}
+		\label{fig:websocket_example}
+	\end{figure}
+
+\end{frame}
+
+	
 
 %----------------------------------------------------------------------------------------
 %	CLOSING SLIDE
@@ -213,7 +429,7 @@ citestyle=authoryear,
 		
 		\bigskip\bigskip % Vertical whitespace
 		
-		{\LARGE Aula 02 - Padrões de Arquitetura}
+		{\LARGE Aula 04 - Protocolos de Comunicação na Web}
 	\end{center}
 \end{frame}
 
