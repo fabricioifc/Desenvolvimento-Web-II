@@ -1,0 +1,295 @@
+\documentclass[
+	10pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+	t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
+	%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+
+\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[english,brazil]{babel}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage{animate}
+\RequirePackage[backend=biber,
+style=ieee,
+citestyle=authoryear,
+]{biblatex}
+
+% Define a custom command for an icon link
+\newcommand{\iconLink}[2]{\href{#1}{\faLink \hspace{0.2em} {#2}}}
+
+%----------------------------------------------------------------------------------------
+%	SELECT LAYOUT THEME
+%----------------------------------------------------------------------------------------
+\usetheme{Madrid}
+
+%----------------------------------------------------------------------------------------
+%	SELECT COLOR THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of color themes that can be applied to any layout theme to change its colors. Uncomment each of these in turn to see how they change the colors of your selected layout theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+% \usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{monarca}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{spruce}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%----------------------------------------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%----------------------------------------------------------------------------------------
+\usefonttheme{default} % Typeset using the default sans serif font
+
+%------------------------------------------------
+
+\usepackage{palatino} % Use the Palatino font for serif text
+\usepackage[default]{lato} % Use the Lato font for sans serif text
+
+%----------------------------------------------------------------------------------------
+%	SELECT INNER THEME
+%----------------------------------------------------------------------------------------
+\useinnertheme{rectangles}
+
+%----------------------------------------------------------------------------------------
+%	SELECT OUTER THEME
+%----------------------------------------------------------------------------------------
+
+% Outer themes change the overall layout of slides, such as: header and footer lines, sidebars and slide titles. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useoutertheme{default}
+%\useoutertheme{infolines}
+%\useoutertheme{miniframes}
+%\useoutertheme{smoothbars}
+%\useoutertheme{sidebar}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+
+%\setbeamertemplate{footline} % Uncomment this line to remove the footer line in all slides
+%\setbeamertemplate{footline}[page number] % Uncomment this line to replace the footer line in all slides with a simple slide count
+
+%\setbeamertemplate{navigation symbols}{} % Uncomment this line to remove the navigation symbols from the bottom of all slides
+
+% \bibliography{references} % Specifies the bibliography file to include publications
+% \bibliographystyle{apalike} % Specifies the bibliography style
+\addbibresource{references.bib}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title[DesWebII]{Desenvolvimento Web II} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+\subtitle{Aula 05 - Web Service e API} % Presentation subtitle, remove this command if a subtitle isn't required
+\author[Fabricio Bizotto]{Prof. Fabricio Bizotto} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+\institute[IFC]{Instituto Federal Catarinense \\ \smallskip \textit{fabricio.bizotto@ifc.edu.br}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+\date[\today]{Ciência da Computação \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Roteiro} % Slide title, remove this command for no title
+	
+	\tableofcontents % Output the table of contents (all sections on one slide)
+	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Web Service} % Sections are added in order to organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
+
+%------------------------------------------------
+
+\subsection{Definição}
+
+\begin{frame}
+	\frametitle{Web Service}
+
+	\begin{block}{Definição}
+		De acordo com a \cite{W3C2024} diz que é um sistema de software responsável por proporcionar a \alert{interação entre duas máquinas} através de uma rede. 
+	\end{block}
+
+	\begin{block}{Características}
+		\begin{itemize}
+			\item \textbf{Interoperabilidade} - Comunicação entre diferentes plataformas.
+			\item \textbf{Independência de Linguagem} - Permite a comunicação entre diferentes linguagens de programação.
+			\item \textbf{Formato de Mensagem} - Utiliza XML ou JSON.
+			\item \textbf{Padrões Abertos} - Utiliza padrões abertos como SOAP e REST.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{SOAP}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Web Service}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge SOAP}
+		
+		\smallskip
+		{\small \textit{Simple Object Access Protocol}}
+	\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{SOAP}
+	
+	\begin{block}{Definição}
+		\begin{itemize}
+			\item Protocolo de comunicação baseado em \alert{XML}.
+			\item As mensagens SOAP basicamente são \alert{documentos XML} serializados seguindo o padrão W3C enviados em cima de um protocolo de rede como HTTP.
+			\item Utiliza \alert{WSDL}, um documento XML que descreve o serviço, especificando como acessá-lo, quais operações executar, quais parâmetros usar, e qual o formato das mensagens.
+		\end{itemize}
+	\end{block}
+
+	\begin{exampleblock}{Estrutura}
+		\begin{itemize}
+			\item \textit{Envelope} - Define o início e o fim da mensagem. É o elemento raiz.
+			\item \textit{Header} - Define informações adicionais sobre a mensagem. Opcional
+			\item \textit{Body} - Define o conteúdo da mensagem. Obrigatório.
+			\item \textit{Fault} - Define informações sobre erros. Opcional
+		\end{itemize}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{SOAP - Estrutura}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{soap_structure.png}
+		\caption{Estrutura SOAP}
+		\label{fig:soap}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Web Service}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge SOAP - Exemplo}
+		
+		\smallskip
+		{\small Olá Mundo em SOAP com Python} 
+	\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{SOAP - Servidor}
+	
+	\begin{figure}
+		\includegraphics[width=0.7\linewidth]{server_soap.PNG}
+		\caption{SOAP - Servidor}
+		\label{fig:soap_server}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{SOAP - Cliente}
+	
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{client_soap.PNG}
+		\caption{SOAP - Cliente}
+		\label{fig:soap_client}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{SOAP - Chamada e WSDL}
+	
+	\begin{figure}
+		\includegraphics[width=0.7\linewidth]{soap_example.png}
+		\caption{SOAP - Chamada e WSDL}
+		\label{fig:soap_server}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Web Service}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge SOAP - Exemplo com Chamada Direta}
+		
+		\smallskip
+		{\small Podemos enviar o arquivo XML diretamente para o servidor}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{SOAP - Código para Chamada Direta com XML}
+	
+	\begin{figure}
+		\includegraphics[width=0.7\linewidth]{client_xml.PNG}
+		\caption{SOAP - Chamada Direta - Cliente}
+		\label{fig:soap_client_xml}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{SOAP - Enviando XML para o Servidor via Postman}
+	
+	\begin{figure}
+		\includegraphics[width=0.7\linewidth]{soap_http_request_example.PNG}
+		\caption{SOAP - Enviando XML}
+		\label{fig:soap_server_xml_2}
+	\end{figure}
+
+\end{frame}
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

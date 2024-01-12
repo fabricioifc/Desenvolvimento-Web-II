@@ -1,0 +1,8 @@
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap-env:Body>
+    <ns0:say_hello xmlns:ns0="spyne.examples.hello.soap">
+      <ns0:name>Professor</ns0:name>
+      <ns0:times>10000</ns0:times>
+    </ns0:say_hello>
+  </soap-env:Body>
+</soap-env:Envelope>
