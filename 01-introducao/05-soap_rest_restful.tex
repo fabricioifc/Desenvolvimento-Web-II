@@ -288,8 +288,70 @@ citestyle=authoryear,
 
 \end{frame}
 
-
-
 %----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Web Service}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge REST}
+		
+		\smallskip
+		{\small \textit{Representational State Transfer}}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	
+	\begin{block}{Definição}
+		\begin{itemize}
+			\item É um estilo de arquitetura de software que define a implementação de um serviço web.
+			\item Grande parte dos serviços web usam REST devido a sua simplicidade e desempenho.
+			\item Utiliza os métodos HTTP para definir as operações.
+			\item Diferente de SOAP, não necessita de um documento WSDL ou qualquer outro mecanismo para descrever o serviço.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	
+	\begin{exampleblock}{Fundamentos}
+		\begin{itemize}
+			\item Uma arquitetura baseada em recursos.
+			\item Os recursos são acessados e identificados usando URL.
+			\item Permite que os recursos sejam representados em diferentes formatos, como XML, JSON, HTML, etc.
+			\item \textbf{Content negotiation} - O cliente e o servidor negociam o formato de representação do recurso.
+		\end{itemize}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST vs SOAP}
+	
+	\begin{table}
+		\begin{tabular}{|l|l|}
+			\toprule
+			\textbf{SOAP} & \textbf{REST} \\
+			\hline
+			Geralmente usa HTTP/HTTPS, mas pode usar outros & Usa apenas HTTP/HTTPS \\
+			XML & XML, JSON, HTML, etc \\
+			Utiliza WSDL & Não utiliza WSDL \\
+			Precisa fazer o parse da mensagem & Não precisa fazer o parse da mensagem \\
+			\bottomrule
+		\end{tabular}
+		\caption{SOAP vs REST}
+		\label{tab:soap_rest}
+
+	\end{table}
+
+\end{frame}
 
 \end{document} 
