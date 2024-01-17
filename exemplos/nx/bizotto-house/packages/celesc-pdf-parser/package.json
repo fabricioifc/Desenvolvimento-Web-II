@@ -1,0 +1,12 @@
+{
+  "name": "celesc-pdf-parser",
+  "version": "0.0.1",
+  "dependencies": {
+    "axios": "^1.6.5",
+    "pdfreader": "^3.0.2",
+    "tslib": "^2.3.0"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts"
+}

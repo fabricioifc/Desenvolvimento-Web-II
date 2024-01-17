@@ -32,6 +32,7 @@
 \usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage[english,brazil]{babel}
+\usepackage{fontawesome5}
 \RequirePackage[backend=biber,
 style=ieee,
 %style=authoryear,
@@ -41,6 +42,9 @@ style=ieee,
 %style=authoryear-icomp,
 citestyle=authoryear,
 ]{biblatex}
+
+% Define a custom command for an icon link
+\newcommand{\iconLink}[2]{\href{#1}{\faLink \hspace{0.2em} {#2}}}
 
 %----------------------------------------------------------------------------------------
 %	SELECT LAYOUT THEME
@@ -588,6 +592,24 @@ citestyle=authoryear,
 
 %------------------------------------------------
 
+\section{Monorepo vs Multi-repo vs Monolith}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Modelos Arquiteturais}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge Monorepo vs Multi-repo vs Monolith}
+		
+		\smallskip
+		{\small \iconLink{https://medium.com/@magenta2127/monorepo-vs-multi-repo-vs-monolith-7c4a5f476009}{\textbf{Medium: Monorepo vs Multi-repo vs Monolith}}}\\
+		\bigskip
+		{\small Este post compara vantagens e desvantagens do mono repo, multi repo e arquitetura monolítica e discute qual arquitetura escolher na vida real.}
+	\end{center}
+
+\end{frame}
 
 \subsection{Material Complementar}
 

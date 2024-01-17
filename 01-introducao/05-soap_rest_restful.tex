@@ -13,8 +13,8 @@
 \usepackage{hyperref}
 \usepackage[english,brazil]{babel}
 \usepackage{fontawesome5}
-\usepackage{graphicx}
-\usepackage{animate}
+% \usepackage{graphicx}
+% \usepackage{animate}
 \RequirePackage[backend=biber,
 style=ieee,
 citestyle=authoryear,
@@ -337,15 +337,14 @@ citestyle=authoryear,
 	\frametitle{REST vs SOAP}
 	
 	\begin{table}
-		\begin{tabular}{|l|l|}
-			\toprule
-			\textbf{SOAP} & \textbf{REST} \\
+		\renewcommand{\arraystretch}{1.5} % Ajuste este valor conforme necessário
+		\begin{tabular}{|p{0.45\linewidth}|p{0.45\linewidth}|}
 			\hline
-			Geralmente usa HTTP/HTTPS, mas pode usar outros & Usa apenas HTTP/HTTPS \\
-			XML & XML, JSON, HTML, etc \\
-			Utiliza WSDL & Não utiliza WSDL \\
-			Precisa fazer o parse da mensagem & Não precisa fazer o parse da mensagem \\
-			\bottomrule
+			\textbf{SOAP} & \textbf{REST} \\ \hline
+			Geralmente usa HTTP/HTTPS, mas pode usar outros & Usa apenas HTTP/HTTPS \\ \hline
+			XML & XML, JSON, HTML, etc \\ \hline
+			Utiliza WSDL & Não utiliza WSDL \\ \hline
+			Precisa fazer o parse da mensagem & Não precisa fazer o parse da mensagem \\ \hline
 		\end{tabular}
 		\caption{SOAP vs REST}
 		\label{tab:soap_rest}

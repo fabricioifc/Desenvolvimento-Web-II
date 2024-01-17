@@ -1,0 +1,30 @@
+{
+  "name": "celesc-pdf-parser",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/celesc-pdf-parser/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/celesc-pdf-parser",
+        "main": "packages/celesc-pdf-parser/src/index.ts",
+        "tsConfig": "packages/celesc-pdf-parser/tsconfig.lib.json",
+        "assets": ["packages/celesc-pdf-parser/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../coverage/packages/celesc-pdf-parser"
+      }
+    }
+  },
+  "tags": []
+}

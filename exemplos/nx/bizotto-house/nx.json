@@ -1,0 +1,29 @@
+{
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
+    }
+  },
+  "extends": "nx/presets/npm.json",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.js"
+      ]
+    },
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": ["default", "^default"]
+    }
+  },
+  "nxCloudAccessToken": "MzVmMjdjODEtOTNkOC00NzY5LThhODktNWYyZTk3ZmVkMjkzfHJlYWQtd3JpdGU="
+}
