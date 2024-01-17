@@ -13,6 +13,9 @@
 \usepackage{hyperref}
 \usepackage[english,brazil]{babel}
 \usepackage{fontawesome5}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{xcolor}
 % \usepackage{graphicx}
 % \usepackage{animate}
 \RequirePackage[backend=biber,
@@ -22,7 +25,9 @@ citestyle=authoryear,
 
 % Define a custom command for an icon link
 \newcommand{\iconLink}[2]{\href{#1}{\faLink \hspace{0.2em} {#2}}}
+\newcommand{\yellowbox}[1]{\colorbox{yellow!75}{#1}}
 
+% Definindo um estilo para o destaque
 %----------------------------------------------------------------------------------------
 %	SELECT LAYOUT THEME
 %----------------------------------------------------------------------------------------
@@ -213,6 +218,32 @@ citestyle=authoryear,
 		{\Huge SOAP - Exemplo}
 		
 		\smallskip
+		{\small Requisição e Resposta} 
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{SOAP - Exemplo}
+	
+	\begin{figure}
+		\includegraphics[width=0.8\linewidth]{soap_example_user.png}
+		\caption{SOAP - Exemplo - Requisição e Resposta}
+		\label{fig:soap_example_user}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Web Service}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge SOAP - Exemplo}
+		
+		\smallskip
 		{\small Olá Mundo em SOAP com Python} 
 	\end{center}
 
@@ -246,7 +277,7 @@ citestyle=authoryear,
 	\begin{figure}
 		\includegraphics[width=0.7\linewidth]{soap_example.png}
 		\caption{SOAP - Chamada e WSDL}
-		\label{fig:soap_server}
+		\label{fig:soap_example}
 	\end{figure}
 
 \end{frame}
@@ -326,6 +357,18 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Estrutura}
+
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{rest_estrutura.png}
+		\caption{Estrutura REST}
+		\label{fig:rest_structure}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
 	\frametitle{RESTful}
 	\framesubtitle{Qual a diferença entre REST e RESTful?}
 
@@ -353,14 +396,18 @@ citestyle=authoryear,
 	\frametitle{REST vs SOAP}
 	
 	\begin{table}
-		\renewcommand{\arraystretch}{1.5} % Ajuste este valor conforme necessário
+		\renewcommand{\arraystretch}{1.25} % Ajuste este valor conforme necessário
 		\begin{tabular}{|p{0.45\linewidth}|p{0.45\linewidth}|}
 			\hline
 			\textbf{SOAP} & \textbf{REST} \\ \hline
+			SOAP é um protocolo & REST é uma arquitetura \\ \hline
 			Geralmente usa HTTP/HTTPS, mas pode usar outros & Usa apenas HTTP/HTTPS \\ \hline
 			XML & XML, JSON, HTML, etc \\ \hline
-			Utiliza WSDL & Não utiliza WSDL \\ \hline
+			SOAP usa WSDL & Rest usa apenas a URL \\ \hline
 			Precisa fazer o parse da mensagem & Não precisa fazer o parse da mensagem \\ \hline
+			É mais pesado & É mais leve \\ \hline
+			Não usa cache & Pode usar cache \\ \hline
+			WS-Security\footnote{\href{https://xaropedecafe.medium.com/conhecendo-o-ws-security-c6c775b461fd}{Conhecendo o WS-Security}} & HTTPS \\ \hline
 		\end{tabular}
 		\caption{SOAP vs REST}
 		\label{tab:soap_rest}
@@ -368,5 +415,465 @@ citestyle=authoryear,
 	\end{table}
 
 \end{frame}
+
+\subsection{Boas Práticas}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Web Service}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge REST}
+		
+		\smallskip
+		{\small \textit{Boas práticas}}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{1. Documentação Clara}
+		Forneça uma documentação clara e abrangente para a API, descrevendo recursos, endpoints, parâmetros, cabeçalhos e exemplos de solicitações e respostas.
+	\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{2. JSON}
+		JSON é o formato de dados mais utilizado, embora você possa enviar dados em outros formatos como CSV, XML e HTML. A sintaxe JSON pode tornar os dados fáceis de ler para humanos. É fácil de usar e oferece avaliação e execução de dados rápida e fácil. Além disso, ele contém uma ampla gama de compatibilidade de navegadores suportados.
+    
+\begin{lstlisting}[basicstyle=\small]
+"produto": {
+  "id": 1,
+  "nome": "Produto 1",
+  "descricao": "Descricao do produto 1",
+  "preco": 100.00,
+  "categorias": [
+	{
+	  "id": 1,
+	  "nome": "Categoria 1"
+	}
+  ]
+}
+
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{3. Versionamento da API}
+		Inclua versões na sua API para garantir a compatibilidade com versões anteriores e permitir evolução controlada. 
+		Pode ser feito por meio de versões na URI ou por meio de cabeçalhos.
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\begin{itemize}
+			\item \textbf{URI} - \yellowbox{/api/v1/produtos} ou \yellowbox{/api/v2/produtos}
+			\item \textbf{Cabeçalho} - \yellowbox{Accept: application/vnd.company.app-v1+json}
+		\end{itemize}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{4. Nomes de Recursos Descritivos}
+		\begin{itemize}
+			\item Use substantivos para nomear recursos.
+			\item Use o plural para nomear coleções.
+			\item Use o singular para nomear itens individuais.
+		\end{itemize}
+	\end{block}
+
+	\begin{columns}[c]
+		\begin{column}{0.45\textwidth} % Left column width
+			\begin{exampleblock}{Certo}
+				\begin{itemize}
+					\item {\small /api/v1/produtos}
+					\item {\small /api/v1/produtos/1}
+					\item {\small /api/v1/produtos/1/categorias}
+				\end{itemize}		
+			\end{exampleblock}
+		\end{column}
+
+		\begin{column}{0.45\textwidth} % Right column width
+			\begin{alertblock}{Errado}
+				\begin{itemize}
+					\item {\small /api/v1/criarProduto}
+					\item {\small /api/v1/obterProduto/1}
+					\item {\small /api/v1/prodCat/1}
+				\end{itemize}		
+			\end{alertblock}
+			
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{5. Verbos HTTP}
+		Use métodos HTTP para operações CRUD. Por exemplo: \yellowbox{GET, POST, PUT e DELETE}. 
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\begin{tabular}{@{}ll@{}}
+			\yellowbox{\textbf{GET}}    &  /api/v1/produtos \\
+			\yellowbox{\textbf{GET}}    &  /api/v1/produtos/1 \\
+			\yellowbox{\textbf{POST}}   &  /api/v1/produtos \\
+			\yellowbox{\textbf{PUT}}    &  /api/v1/produtos/1 \\
+			\yellowbox{\textbf{DELETE}} &  /api/v1/produtos/1 \\
+			\yellowbox{\textbf{PATCH}}  &  /api/v1/produtos/1 (\textit{atualiza apenas alguns campos})
+		\end{tabular}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{6. Códigos de Status HTTP}
+		\begin{itemize}
+			\item \textbf{1xx} - Informação
+			\item \textbf{2xx} - Sucesso
+			\item \textbf{3xx} - Redirecionamento
+			\item \textbf{4xx} - Erro do cliente
+			\item \textbf{5xx} - Erro do servidor
+		\end{itemize}
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		% two columns aligned at the top
+		\begin{columns}[t]
+			\begin{column}{0.45\textwidth} % Left column width
+				\begin{itemize}
+					\item \textbf{200} - OK
+					\item \textbf{201} - Criado
+					\item \textbf{400} - Requisição inválida
+					\item \textbf{401} - Não autorizado
+				\end{itemize}
+			\end{column}
+	
+			\begin{column}{0.45\textwidth} % Right column width
+				\begin{itemize}
+					\item \textbf{404} - Não encontrado
+					\item \textbf{500} - Erro interno do servidor
+					\item \textbf{501} - Não implementado
+					\item \textbf{503} - Serviço indisponível
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{7. Paginação}
+		Para coleções muito grandes, use paginação para limitar o número de itens retornados. 
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\begin{itemize}
+			\item /api/v1/produtos\yellowbox{?page=1\&limit=10}
+			\item /api/v1/produtos\yellowbox{?page=2\&limit=10}
+		\end{itemize}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{8. Filtros}
+		Para coleções muito grandes, use filtros para limitar os itens retornados. 
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\begin{tabular}{@{}ll@{}}
+			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?type=eletronicos}} \\
+			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?price\_min=100\&price\_max=200}} \\
+			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?search=smartphone}} \\
+		\end{tabular}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{9. Ordenação}
+		Para coleções muito grandes, use ordenação para limitar os itens retornados. 
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\begin{tabular}{@{}ll@{}}
+			\textbf{GET}    &  \yellowbox{/api/v1/produtos\text{?sort=nome}} \\
+			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?sort=nome\&asc=false}} \\
+			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?sort=preco,vendas\&ordem=desc,desc}} \\
+		\end{tabular}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{10. HATEOAS}
+		\textbf{H}ypermedia \textbf{A}s \textbf{T}he \textbf{E}ngine \textbf{O}f \textbf{A}pplication \textbf{S}tate \\
+		Se possível, adote o HATEOAS para permitir que os clientes naveguem pela API dinamicamente usando links nos recursos.
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\begin{tabular}{@{}ll@{}}
+			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?page=1\&limit=10}} \\
+			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?page=2\&limit=10}} \\
+			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?page=3\&limit=100}} \\
+		\end{tabular}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+	
+	\begin{block}{11. Segurança}
+		\begin{itemize}
+			\item Utilize sempre HTTPS para garantir a criptografia dos dados durante a transmissão. Isso protege contra ataques de interceptação \yellowbox{\textit(man-in-the-middle)} e assegura a confidencialidade das informações.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\setcounter{footnote}{0}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+	
+	\begin{block}{11. Segurança (cont.)}
+		Use autenticação para proteger a API. Exemplos: 
+		\textbf{Basic Auth}\footnotemark, 
+		\textbf{bearer token} e 
+		\textbf{OAuth}.
+	\end{block}
+
+	\begin{exampleblock}{Basic Auth}
+		{ \small GET /api/resource HTTP/1.1 } \\
+		{ \small Host: example.com } \\
+		{ \small Authorization: Basic base64(username:password) } \\
+	\end{exampleblock}
+
+	\footnotetext{Apesar de ser fácil de implementar, as credenciais são enviadas sem criptografia, o que torna esse método vulnerável a ataques de interceptação.}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+	
+	\begin{block}{11. Segurança (cont.)}
+		Use autenticação para proteger a API. Exemplos: 
+		\textbf{Basic Auth}, 
+		\textbf{bearer token}\footnotemark e 
+		\textbf{OAuth}.
+	\end{block}
+
+	\begin{exampleblock}{Bearer Token}
+		{ \small GET /api/resource HTTP/1.1 } \\
+		{ \small Host: example.com } \\
+		{ \small Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 } \\
+	\end{exampleblock}
+
+	\footnotetext{Os tokens devem ser mantidos em segredo e geralmente têm um tempo de expiração. Este método é amplamente utilizado em autenticação de API REST.}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas - Segurança (cont.)}
+	
+	\begin{block}{11. Segurança (cont.)}
+		Use autenticação para proteger a API. Exemplos: 
+		\textbf{Basic Auth}, 
+		\textbf{bearer token} e 
+		\textbf{OAuth}\footnotemark.
+	\end{block}
+
+	\begin{exampleblock}{OAuth - Fluxo de Autorização}
+		Google, Facebook, Twitter, GitHub, etc.
+		\begin{itemize}
+			\item \textbf{Passo 1} - O cliente solicita autorização do usuário.
+			\item \textbf{Passo 2} - O usuário autoriza o cliente.
+			\item \textbf{Passo 3} - O cliente recebe um código de autorização.
+			\item \textbf{Passo 4} - O cliente troca o código de autorização por um token de acesso.
+			\item \textbf{Passo 5} - O cliente usa o token de acesso para acessar o recurso protegido.
+		\end{itemize}
+	\end{exampleblock}
+
+
+	\footnotetext{OAuth é um protocolo de autorização usado para permitir que aplicativos acessem recursos em nome do usuário. Ele fornece tokens de acesso que podem ser usados para autenticar solicitações.}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+	
+	\begin{block}{12. CORS (\textbf{C}ross \textbf{O}rigin \textbf{R}esource \textbf{S}haring)}
+		Permite que os clientes acessem a API de um \yellowbox{domínio diferente}. 
+	\end{block}
+
+	\begin{exampleblock}{Cabeçalho}
+		\textbf{Access-Control-Allow-Origin} 	\\ http://localhost:3000, *, ... \\ \smallskip
+		\textbf{Access-Control-Allow-Methods}   \\ Métodos HTTP permitidos (GET, POST, PUT, DELETE, ...) \\ \smallskip
+		\textbf{Access-Control-Allow-Headers}   \\ Indica quais cabeçalhos podem ser expostos como parte da resposta (Content-Type, Authorization, ...) \\ \smallskip
+		\textbf{Access-Control-Allow-Credentials}   \\ Indica se o navegador deve incluir credenciais (como cookies ou cabeçalhos de autenticação) na solicitação. \\
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas - CORS - Exemplo Prático}
+
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{cors_serv_client.png}
+		\caption{CORS - Exemplo - Servidor e Cliente}
+		\label{fig:cors_example}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas - CORS - Exemplo Prático}
+
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{cors_test.png}
+		\caption{CORS - Exemplo - Simulação}
+		\label{fig:cors_example_test}
+	\end{figure}
+
+\end{frame}
+
+\subsection{Monitoramento e Logs}
+
+\begin{frame}[fragile]
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{13. Monitoramento e Logs}
+		\begin{itemize}
+			\item Monitore a API para garantir que ela esteja sempre disponível.
+			\item Registre todas as solicitações e respostas para fins de auditoria e depuração.
+		\end{itemize}
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\begin{lstlisting}[language=Python, basicstyle=\small]
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Middleware para monitoramento do tempo de resposta
+@app.after_request
+def after_request(response):
+	duration = time.time() - request.start_time
+	logger.info(f"{request.method} {request.path} - Tempo de Resposta: {duration:.3f}s")
+	return response
+		\end{lstlisting}
+
+	\end{exampleblock}
+
+\end{frame}
+
+\subsection{Testes}
+
+\begin{frame}[fragile]
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{14. Testes Automatizados}
+		Crie testes automatizados para garantir a estabilidade da API e detectar rapidamente problemas de integração ou regressão.
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\begin{lstlisting}[language=Python, basicstyle=\small]
+# Integration Test
+def test_get_all_products(self):
+	response = self.client.get("http://localhost:5000/api/v1/produtos")
+	self.assertEqual(response.status_code, 200)
+		\end{lstlisting}
+
+	\end{exampleblock}
+
+\end{frame}
+
+\subsection{Ataques}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{15. Proteja contra ataques}
+		\textbf{SQL Injection}: Use \yellowbox{prepared statements} ou \yellowbox{ORM}.
+	\end{block}
+
+	\begin{exampleblock}{Exemplo - SQL Injection}
+		\includegraphics[width=0.9\linewidth]{sql_injection.png}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{15. Proteja contra ataques (cont.)}
+		\textbf{Cross-Site Scripting (XSS)}: Use \yellowbox{escape} ou \yellowbox{sanitize} para evitar que os usuários insiram código HTML ou JavaScript nos dados.
+	\end{block}
+
+	\begin{exampleblock}{Exemplo - XSS}
+		\includegraphics[width=0.6\linewidth]{xss_example.png}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{15. Proteja contra ataques (cont.)}
+		\textbf{Cross-Site Request Forgery (CSRF)}: Use \yellowbox{tokens} para evitar que os usuários sejam enganados para executar ações indesejadas em nome deles. O token CSRF é um valor aleatório que é gerado pelo servidor web e enviado ao cliente. O cliente deve enviar o token CSRF de volta ao servidor web ao enviar um formulário.
+	\end{block}
+
+	\begin{exampleblock}{Exemplo - CSRF}
+		\includegraphics[width=0.9\linewidth]{csrf_example.png}
+	\end{exampleblock}
+
+\end{frame}
+
 
 \end{document} 
