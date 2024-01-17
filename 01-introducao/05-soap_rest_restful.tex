@@ -290,6 +290,8 @@ citestyle=authoryear,
 
 %----------------------------------------------------------------------------------------
 
+\subsection{REST}
+
 \begin{frame}
 	\begin{center}
 		
@@ -307,30 +309,44 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{REST}
-	
-	\begin{block}{Definição}
-		\begin{itemize}
-			\item É um estilo de arquitetura de software que define a implementação de um serviço web.
-			\item Grande parte dos serviços web usam REST devido a sua simplicidade e desempenho.
-			\item Utiliza os métodos HTTP para definir as operações.
-			\item Diferente de SOAP, não necessita de um documento WSDL ou qualquer outro mecanismo para descrever o serviço.
-		\end{itemize}
-	\end{block}
+	\framesubtitle<1>{Como surgiu?}
+
+	\begin{columns}[c]
+		\begin{column}{0.8\textwidth} % Left column width
+			A arquitetura de sistema REST foi criada pelo cientista da computação \alert{Roy Fielding em 2000}. \\ \bigskip
+			Anteriormente ele já havia trabalhado na criação do \alert{protocolo HTTP e do URI}, um conjunto de elementos que identifica recursos nas aplicações web.  \\ \bigskip
+			Buscando padronizar e organizar os protocolos de comunicação e desenvolvimento na internet, Fielding se uniu a um time de especialistas para desenvolver, \alert{durante 6 anos}, as características da \alert{REST}, que foi definida em sua tese de PhD.
+		\end{column}
+
+		\begin{column}{0.2\textwidth} % Right column width
+			\includegraphics[width=0.9\linewidth]{roy.jpg}
+		\end{column}
+	\end{columns}
 
 \end{frame}
 
 \begin{frame}
-	\frametitle{REST}
-	
-	\begin{exampleblock}{Fundamentos}
-		\begin{itemize}
-			\item Uma arquitetura baseada em recursos.
-			\item Os recursos são acessados e identificados usando URL.
-			\item Permite que os recursos sejam representados em diferentes formatos, como XML, JSON, HTML, etc.
-			\item \textbf{Content negotiation} - O cliente e o servidor negociam o formato de representação do recurso.
-		\end{itemize}
-	\end{exampleblock}
+	\frametitle{RESTful}
+	\framesubtitle{Qual a diferença entre REST e RESTful?}
 
+	\begin{block}{REST}
+		É uma \alert{arquitetura} que define um conjunto de princípios para projetar aplicações web.
+		Os critérios que devem ser cumpridos são:
+		\begin{itemize}
+			\item \textbf{Cliente-Servidor} - Separação entre o cliente e o servidor.
+			\item \textbf{Stateless} - O servidor não armazena informações sobre o cliente. Cada requisição é independente.
+			\item \textbf{Cache} - O servidor deve informar se a resposta pode ser armazenada em cache.
+			\item \textbf{Interface Uniforme} - O cliente só precisa saber a URL do recurso e o servidor deve retornar os dados no formato apropriado.
+			\item \textbf{Sistema em camadas} - O cliente não precisa saber se está se comunicando diretamente com o servidor ou com um intermediário.
+		\end{itemize}
+	
+	\end{block}
+
+	\begin{block}{RESTful}
+		É uma API que \alert{implementa os princípios REST}.
+	\end{block}
+	
+	
 \end{frame}
 
 \begin{frame}
