@@ -1,5 +1,5 @@
 \documentclass[
-	10pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+	9pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
 	t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
 	%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
 ]{beamer}
@@ -399,6 +399,8 @@ citestyle=authoryear,
 
 \end{frame}
 
+\subsection{REST vs RESTful}
+
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{Qual a diferença entre REST e RESTful?}
@@ -417,11 +419,12 @@ citestyle=authoryear,
 	\end{block}
 
 	\begin{block}{RESTful}
-		É uma API que \alert{implementa os princípios REST}.
+		É uma \alert{implementação} dos princípios REST.
 	\end{block}
 	
-	
 \end{frame}
+
+\subsection{REST vs SOAP}
 
 \begin{frame}
 	\frametitle{REST}
@@ -470,8 +473,20 @@ citestyle=authoryear,
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{1. Documentação Clara}
-		Forneça uma documentação clara e abrangente para a API, descrevendo recursos, endpoints, parâmetros, cabeçalhos e exemplos de solicitações e respostas.
+		Forneça uma documentação clara e abrangente para a API, descrevendo recursos, endpoints, parâmetros, cabeçalhos e exemplos de solicitações e respostas. Existem bibliotecas que podem ajudar a gerar a documentação automaticamente.
 	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		\begin{itemize}
+			\item \textbf{Descrição} - Retorna uma lista de produtos.
+			\item \textbf{Método} - GET
+			\item \textbf{URL} - /api/v1/produtos
+			\item \textbf{Parâmetros} - page, limit, sort, order, ...
+			\item \textbf{Cabeçalhos} - Authorization, Content-Type, ...
+			\item \textbf{Corpo} - JSON
+			\item \textbf{Resposta} - JSON
+		\end{itemize}
+	\end{exampleblock}
 
 \end{frame}
 
@@ -480,7 +495,7 @@ citestyle=authoryear,
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{2. JSON}
-		JSON é o formato de dados mais utilizado, embora você possa enviar dados em outros formatos como CSV, XML e HTML. A sintaxe JSON pode tornar os dados fáceis de ler para humanos. É fácil de usar e oferece avaliação e execução de dados rápida e fácil. Além disso, ele contém uma ampla gama de compatibilidade de navegadores suportados.
+		JSON é o formato de dados mais utilizado, embora você possa enviar dados em outros formatos como CSV, XML e HTML. A sintaxe JSON pode tornar os dados fáceis de ler para humanos.
     
 \begin{lstlisting}[basicstyle=\small]
 "produto": {
@@ -506,7 +521,7 @@ citestyle=authoryear,
 
 	\begin{block}{3. Versionamento da API}
 		Inclua versões na sua API para garantir a compatibilidade com versões anteriores e permitir evolução controlada. 
-		Pode ser feito por meio de versões na URI ou por meio de cabeçalhos.
+		Pode ser feito por meio de versões na URI ou por meio de cabeçalhos. O mais comum é usar a versão na URI.
 	\end{block}
 
 	\begin{exampleblock}{Exemplo}
@@ -566,8 +581,8 @@ citestyle=authoryear,
 	\begin{exampleblock}{Exemplo}
 		\begin{tabular}{@{}ll@{}}
 			\yellowbox{\textbf{GET}}    &  /api/v1/produtos \\
-			\yellowbox{\textbf{GET}}    &  /api/v1/produtos/1 \\
 			\yellowbox{\textbf{POST}}   &  /api/v1/produtos \\
+			\yellowbox{\textbf{GET}}    &  /api/v1/produtos/1 \\
 			\yellowbox{\textbf{PUT}}    &  /api/v1/produtos/1 \\
 			\yellowbox{\textbf{DELETE}} &  /api/v1/produtos/1 \\
 			\yellowbox{\textbf{PATCH}}  &  /api/v1/produtos/1 (\textit{atualiza apenas alguns campos})
@@ -655,7 +670,7 @@ citestyle=authoryear,
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{9. Ordenação}
-		Para coleções muito grandes, use ordenação para limitar os itens retornados. 
+		Para coleções muito grandes, use ordenação para classificar os itens retornados.
 	\end{block}
 
 	\begin{exampleblock}{Exemplo}
@@ -672,18 +687,14 @@ citestyle=authoryear,
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas}
 
-	\begin{block}{10. HATEOAS}
-		\textbf{H}ypermedia \textbf{A}s \textbf{T}he \textbf{E}ngine \textbf{O}f \textbf{A}pplication \textbf{S}tate \\
-		Se possível, adote o HATEOAS para permitir que os clientes naveguem pela API dinamicamente usando links nos recursos.
+	\begin{block}{10. HATEOAS - \textit{H}ypermedia \textbf{A}s \textbf{T}he \textbf{E}ngine \textbf{O}f \textbf{A}pplication \textbf{S}tate}
+		\begin{itemize}
+			\item Se possível, adote o HATEOAS para permitir que os clientes naveguem pela API dinamicamente usando links nos recursos para descrever as ações disponíveis a seguir.
+			\item {\small Pode não ser viável fora do escopo de CRUD.}
+			\item {\small \textit{Keep it simple and stupid (KISS)}. Nem sempre é necessário adicionar mais complexidade ao projeto.}
+		\end{itemize}
 	\end{block}
-
-	\begin{exampleblock}{Exemplo}
-		\begin{tabular}{@{}ll@{}}
-			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?page=1\&limit=10}} \\
-			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?page=2\&limit=10}} \\
-			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?page=3\&limit=100}} \\
-		\end{tabular}
-	\end{exampleblock}
+	\includegraphics[width=0.5\linewidth]{hateoas.png}
 
 \end{frame}
 
@@ -694,22 +705,21 @@ citestyle=authoryear,
 	\begin{block}{11. Segurança}
 		\begin{itemize}
 			\item Utilize sempre HTTPS para garantir a criptografia dos dados durante a transmissão. Isso protege contra ataques de interceptação \yellowbox{\textit(man-in-the-middle)} e assegura a confidencialidade das informações.
+			\item Evite chave primária incremental. Use UUIDs ou chaves primárias aleatórias para evitar a adivinhação de IDs. Isso evita \yellowbox{escavação de dados}.
+			\begin{itemize}
+				\item Ex: /api/v1/users/\textbf{a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11} 
+			\end{itemize}
 		\end{itemize}
 	\end{block}
 
 \end{frame}
 
-\setcounter{footnote}{0}
-
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas}
 	
-	\begin{block}{11. Segurança (cont.)}
-		Use autenticação para proteger a API. Exemplos: 
-		\textbf{Basic Auth}\footnotemark, 
-		\textbf{bearer token} e 
-		\textbf{OAuth}.
+	\begin{block}{11. Segurança - Autenticação com Basic Auth}
+		Nesse método, o nome de usuário e a senha são codificados e incluídos no cabeçalho da solicitação HTTP usando a sintaxe \yellowbox{Authorization: Basic}. Embora seja simples, não é a opção mais segura, especialmente se a conexão não for protegida por SSL/TLS.
 	\end{block}
 
 	\begin{exampleblock}{Basic Auth}
@@ -718,19 +728,21 @@ citestyle=authoryear,
 		{ \small Authorization: Basic base64(username:password) } \\
 	\end{exampleblock}
 
-	\footnotetext{Apesar de ser fácil de implementar, as credenciais são enviadas sem criptografia, o que torna esse método vulnerável a ataques de interceptação.}
-
 \end{frame}
 
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas}
 	
-	\begin{block}{11. Segurança (cont.)}
-		Use autenticação para proteger a API. Exemplos: 
-		\textbf{Basic Auth}, 
-		\textbf{bearer token}\footnotemark e 
-		\textbf{OAuth}.
+	\begin{block}{{\small 11. Segurança - Autenticação com Bearer Token}}
+		{ \small 
+		\begin{itemize}
+			\item Um token de acesso (Bearer Token) é incluído no cabeçalho da solicitação HTTP para autenticação.
+			\item O cliente deve incluir o token de acesso em cada solicitação. 
+			\item O servidor valida o token de acesso e, se for válido, processa a solicitação.
+			\item O esquema de autenticação Bearer foi originalmente criado como parte do OAuth 2.0 na RFC 6750 , mas às vezes também é usado sozinho. Da mesma forma que a autenticação Básica, a autenticação Bearer só deve ser usada via HTTPS (SSL).
+		\end{itemize}
+		}
 	\end{block}
 
 	\begin{exampleblock}{Bearer Token}
@@ -739,7 +751,150 @@ citestyle=authoryear,
 		{ \small Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 } \\
 	\end{exampleblock}
 
-	\footnotetext{Os tokens devem ser mantidos em segredo e geralmente têm um tempo de expiração. Este método é amplamente utilizado em autenticação de API REST.}
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Bearer Token - Exemplo Prático}
+
+	\begin{figure}
+		\includegraphics[width=0.7\linewidth]{bearer_login.png}
+		\caption{Bearer Token - Login}
+		\label{fig:bearer_token_login}
+	\end{figure}
+		
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Bearer Token - Exemplo Prático}
+
+	\begin{figure}
+		\includegraphics[width=0.7\linewidth]{bearer_products.png}
+		\caption{Bearer Token - Usando o Token de Acesso}
+		\label{fig:bearer_token_usando}
+	\end{figure}
+		
+\end{frame}
+
+
+\subsection{JWT}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas - Segurança (cont.)}
+
+	\begin{block}{JWT - \textit{JSON Web Token}}
+		\begin{itemize}
+			\item É um padrão aberto definido pela \href{https://datatracker.ietf.org/doc/html/rfc7519}{RFC 7519} que define um método compacto e autocontido para transmitir com segurança informações entre partes como um objeto JSON.
+			\item As informações podem ser verificadas e confiadas porque são assinadas digitalmente.
+			\item Os JWTs podem ser assinados usando um segredo (com o algoritmo HS256) ou um par de chaves pública/privada usando RSA ou ECDSA.
+			\item Um JWT consiste em três partes separadas por pontos (.), que são:
+			\begin{itemize}
+				\item \textbf{Cabeçalho} - Contém o tipo de token e o algoritmo de assinatura.
+				\item \textbf{Corpo} - Contém as informações.
+				\item \textbf{Assinatura} - Usada para verificar se o remetente do JWT é confiável.
+			\end{itemize}
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{JWT - Exemplo Prático}
+
+	\centering
+	Efetuando login com JWT. A resposta contém o token de acesso.
+
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{jwt-1.png}
+		\caption{JWT - Exemplo (parte 1)}
+		\label{fig:jwt_example1}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{JWT - Exemplo Prático}
+
+	\centering
+	Usando o token de acesso para acessar um recurso protegido da API.
+
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{jwt-2.png}
+		\caption{JWT - Exemplo (parte 2)}
+		\label{fig:jwt_example2}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{JWT - Exemplo Prático}
+
+	\centering
+	O token expirou após 1 minuto, conforme definido no servidor.
+	
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{jwt-3.png}
+		\caption{JWT - Exemplo (parte 3)}
+		\label{fig:jwt_example3}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{JWT - Exemplo Prático}
+
+	\centering
+	Validando o token JWT na página \href{https://jwt.io/}{jwt.io}.
+
+	\begin{figure}
+		\includegraphics[width=0.75\linewidth]{jwt-4.png}
+		\caption{JWT - Exemplo (parte 4)}
+		\label{fig:jwt_example4}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{JWT - Estratégia de Renovação do Token JWT}
+
+	\begin{block}{Estratégia de Renovação do Token JWT}
+		\begin{itemize}
+			\item O cliente envia o token de acesso para o servidor.
+			\item O servidor verifica se o token de acesso é válido.
+			\item Se o token de acesso for válido, o servidor retorna um novo token de acesso.
+			\item Se o token de acesso for inválido, o servidor retorna um erro.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{JWT - Como armazenar o token JWT no cliente?}
+
+	\begin{block}{Como armazenar o token JWT no cliente?}
+		\begin{itemize}
+			\item \textbf{Cookies} - O token de acesso é armazenado em um cookie. O cookie é enviado automaticamente pelo navegador para o servidor em cada solicitação. 
+			\item \textbf{LocalStorage} ou \textbf{SessionStorage} - O token de acesso é armazenado no armazenamento local ou de sessão do navegador.
+			\item \textbf{Banco de Dados} - O token de acesso pode ser armazenado no IndexedDB ou WebSQL do navegador.
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Importante}
+		\begin{itemize}
+			\item Evite armazenar tokens em LocalStorage ou SessionStorage se sua aplicação for vulnerável a ataques XSS.
+			\item Considere configurar o token como um cookie seguro com HttpOnly para mitigar alguns riscos.
+			\item Mantenha o tempo de expiração (exp) do token curto para reduzir o impacto de um possível vazamento.
+			\item Use HTTPS para proteger a transmissão do token entre o cliente e o servidor.
+		\end{itemize}
+	\end{block}
 
 \end{frame}
 
@@ -747,11 +902,8 @@ citestyle=authoryear,
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas - Segurança (cont.)}
 	
-	\begin{block}{11. Segurança (cont.)}
-		Use autenticação para proteger a API. Exemplos: 
-		\textbf{Basic Auth}, 
-		\textbf{bearer token} e 
-		\textbf{OAuth}\footnotemark.
+	\begin{block}{11. Segurança - Autenticação com OAuth}
+		O OAuth é um protocolo ou estrutura de autorização de padrão aberto que fornece aos aplicativos a capacidade de “acesso designado seguro”. Você pode, por exemplo, dizer ao Facebook que a ESPN.com pode acessar seu perfil ou postar atualizações em sua linha do tempo sem precisar fornecer à ESPN sua senha do Facebook. Isso minimiza o risco de forma importante: caso a ESPN sofra uma violação, sua senha do Facebook permanece segura.
 	\end{block}
 
 	\begin{exampleblock}{OAuth - Fluxo de Autorização}
@@ -763,10 +915,11 @@ citestyle=authoryear,
 			\item \textbf{Passo 4} - O cliente troca o código de autorização por um token de acesso.
 			\item \textbf{Passo 5} - O cliente usa o token de acesso para acessar o recurso protegido.
 		\end{itemize}
+		\smallskip
+		{\small \iconLink{https://blog.miguelgrinberg.com/static/images/flask-oauth2-demo.gif}{OAuth - Simulação}}
 	\end{exampleblock}
 
-
-	\footnotetext{OAuth é um protocolo de autorização usado para permitir que aplicativos acessem recursos em nome do usuário. Ele fornece tokens de acesso que podem ser usados para autenticar solicitações.}
+	% \footnotetext{OAuth é um protocolo de autorização usado para permitir que aplicativos acessem recursos em nome do usuário. Ele fornece tokens de acesso que podem ser usados para autenticar solicitações.}
 
 \end{frame}
 
@@ -870,7 +1023,7 @@ def test_get_all_products(self):
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{15. Proteja contra ataques}
-		\textbf{SQL Injection}: Use \yellowbox{prepared statements} ou \yellowbox{ORM}.
+		\textbf{SQL Injection}: Use \yellowbox{prepared statements} ou \yellowbox{ORM - Object Relational Mapping}.
 	\end{block}
 
 	\begin{exampleblock}{Exemplo - SQL Injection}
