@@ -140,7 +140,11 @@ citestyle=authoryear,
 	\frametitle{Web Service}
 
 	\begin{block}{Definição}
-		De acordo com a \cite{W3C2024} diz que é um sistema de software responsável por proporcionar a \alert{interação entre duas máquinas} através de uma rede. 
+		\begin{itemize}
+			\item É uma solução utilizada na integração de sistemas e na comunicação entre aplicações diferentes.
+			\item Permite que aplicações se comuniquem independentemente de linguagem, software e hardware utilizados.
+			\item É uma tecnologia utilizada para \alert{padronizar} e \alert{organizar} a comunicação entre aplicações.
+		\end{itemize}
 	\end{block}
 
 	\begin{block}{Características}
@@ -154,9 +158,19 @@ citestyle=authoryear,
 
 \end{frame}
 
+\begin{frame}[plain, c]
+	\centering
+	\includegraphics[width=0.9\linewidth]{vdp_ws.png}
+\end{frame}
+
+\begin{frame}[plain, c]
+	\centering
+	\includegraphics[width=0.7\linewidth]{vdp_ws2.png}
+\end{frame}
+
 %------------------------------------------------
 
-\subsection{SOAP}
+\section{SOAP}
 
 \begin{frame}
 	\begin{center}
@@ -173,15 +187,17 @@ citestyle=authoryear,
 
 \end{frame}
 
+\subsection{Definição}
 
 \begin{frame}
 	\frametitle{SOAP}
+	\framesubtitle{Definição}
 	
 	\begin{block}{Definição}
 		\begin{itemize}
-			\item Protocolo de comunicação baseado em \alert{XML}.
+			\item Protocolo de comunicação usado para troca de mensagens entre aplicações.
 			\item As mensagens SOAP basicamente são \alert{documentos XML} serializados seguindo o padrão W3C enviados em cima de um protocolo de rede como HTTP.
-			\item Utiliza \alert{WSDL}, um documento XML que descreve o serviço, especificando como acessá-lo, quais operações executar, quais parâmetros usar, e qual o formato das mensagens.
+			\item Para descrever os serviços SOAP, é comum utilizar o WSDL (\textit{Web Services Description Language}), um documento XML que define a interface, operações, e protocolos de comunicação.
 		\end{itemize}
 	\end{block}
 
@@ -196,8 +212,11 @@ citestyle=authoryear,
 
 \end{frame}
 
+\subsection{Extrutura}
+
 \begin{frame}
-	\frametitle{SOAP - Estrutura}
+	\frametitle{SOAP}
+	\framesubtitle{Estrutura}
 	
 	\begin{figure}
 		\centering
@@ -207,6 +226,8 @@ citestyle=authoryear,
 	\end{figure}
 
 \end{frame}
+
+\subsection{Exemplos}
 
 \begin{frame}
 	\begin{center}
@@ -224,7 +245,8 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{SOAP - Exemplo}
+	\frametitle{SOAP}
+	\framesubtitle{Exemplo}
 	
 	\begin{figure}
 		\includegraphics[width=0.8\linewidth]{soap_example_user.png}
@@ -244,13 +266,14 @@ citestyle=authoryear,
 		{\Huge SOAP - Exemplo}
 		
 		\smallskip
-		{\small Olá Mundo em SOAP com Python} 
+		{\small Olá Mundo usando protocolo SOAP e Python} 
 	\end{center}
 
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{SOAP - Servidor}
+	\frametitle{SOAP}
+	\framesubtitle{Servidor}
 	
 	\begin{figure}
 		\includegraphics[width=0.7\linewidth]{server_soap.PNG}
@@ -261,7 +284,8 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{SOAP - Cliente}
+	\frametitle{SOAP}
+	\framesubtitle{Cliente}
 	
 	\begin{figure}
 		\includegraphics[width=0.9\linewidth]{client_soap.PNG}
@@ -271,11 +295,12 @@ citestyle=authoryear,
 
 \end{frame}
 
-\begin{frame}[fragile]
-	\frametitle{SOAP - Chamada e WSDL}
+\begin{frame}[plain, c]
+	% \frametitle{SOAP}
+	% \framesubtitle{WSDL - \textit{Web Services Description Language}}
 	
 	\begin{figure}
-		\includegraphics[width=0.7\linewidth]{soap_example.png}
+		\includegraphics[width=0.75\linewidth]{soap_example.png}
 		\caption{SOAP - Chamada e WSDL}
 		\label{fig:soap_example}
 	\end{figure}
@@ -298,7 +323,8 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{SOAP - Código para Chamada Direta com XML}
+	\frametitle{SOAP}
+	\framesubtitle{Enviando XML para o Servidor via Postman}
 	
 	\begin{figure}
 		\includegraphics[width=0.7\linewidth]{client_xml.PNG}
@@ -309,7 +335,8 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{SOAP - Enviando XML para o Servidor via Postman}
+	\frametitle{SOAP}
+	\framesubtitle{Enviando XML para o Servidor via Postman}
 	
 	\begin{figure}
 		\includegraphics[width=0.7\linewidth]{soap_http_request_example.PNG}
@@ -321,7 +348,7 @@ citestyle=authoryear,
 
 %----------------------------------------------------------------------------------------
 
-\subsection{REST}
+\section{REST}
 
 \begin{frame}
 	\begin{center}
@@ -337,6 +364,8 @@ citestyle=authoryear,
 	\end{center}
 
 \end{frame}
+
+\subsection{Como surgiu?}
 
 \begin{frame}
 	\frametitle{REST}
@@ -356,6 +385,8 @@ citestyle=authoryear,
 
 \end{frame}
 
+\subsection{Estrutura}
+
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{Estrutura}
@@ -369,7 +400,7 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{RESTful}
+	\frametitle{REST}
 	\framesubtitle{Qual a diferença entre REST e RESTful?}
 
 	\begin{block}{REST}
@@ -393,7 +424,8 @@ citestyle=authoryear,
 \end{frame}
 
 \begin{frame}
-	\frametitle{REST vs SOAP}
+	\frametitle{REST}
+	\framesubtitle{REST vs SOAP}
 	
 	\begin{table}
 		\renewcommand{\arraystretch}{1.25} % Ajuste este valor conforme necessário

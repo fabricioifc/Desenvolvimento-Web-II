@@ -1,5 +1,5 @@
 from spyne import Application, rpc, ServiceBase, Unicode, Integer
-from spyne.protocol.soap import Soap11
+from spyne.protocol.soap import Soap11, Soap12
 from spyne.server.wsgi import WsgiApplication
 from wsgiref.simple_server import make_server
 
@@ -12,12 +12,17 @@ class HelloWorldService(ServiceBase):
 
         for i in range(times):
             print(f"Hello {name} from {ip_address} #{i+1}")
+        
+        return f"Hello {name} from {ip_address}!"
 
+# Criando uma aplicação Spyne com o serviço HelloWorldService
 soap_app = Application([HelloWorldService], 'spyne.examples.hello.soap',
                        in_protocol=Soap11(validator='lxml'),
-                       out_protocol=Soap11())
+                       out_protocol=Soap12())
 
-# O objeto WsgiApplication é o que o Spyne usa para gerar o servidor WSGI
+# Criando um aplicativo WSGI a partir da aplicação SOAP
+# WSGI: Web Server Gateway Interface é uma especificação padrão para a 
+# interface entre servidores web e aplicações web em Python
 wsgi_app = WsgiApplication(soap_app)
 
 if __name__ == '__main__':
