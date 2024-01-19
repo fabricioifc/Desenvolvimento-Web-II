@@ -439,7 +439,6 @@ citestyle=authoryear,
 			Geralmente usa HTTP/HTTPS, mas pode usar outros & Usa apenas HTTP/HTTPS \\ \hline
 			XML & XML, JSON, HTML, etc \\ \hline
 			SOAP usa WSDL & Rest usa apenas a URL \\ \hline
-			Precisa fazer o parse da mensagem & Não precisa fazer o parse da mensagem \\ \hline
 			É mais pesado & É mais leve \\ \hline
 			Não usa cache & Pode usar cache \\ \hline
 			WS-Security\footnote{\href{https://xaropedecafe.medium.com/conhecendo-o-ws-security-c6c775b461fd}{Conhecendo o WS-Security}} & HTTPS \\ \hline
@@ -492,6 +491,34 @@ citestyle=authoryear,
 		\end{itemize}
 	\end{exampleblock}
 
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{1. Documentação clara - \textit{Exemplo} - \textbf{Swagger}}
+		\begin{itemize}
+			\item O Swagger é uma ferramenta para documentar APIs REST.
+			\item O Swagger permite que você descreva a estrutura da sua API para que os desenvolvedores possam entender como interagir com ela sem precisar ler o código-fonte.
+			\item O Swagger gera automaticamente uma documentação interativa da API, que permite aos desenvolvedores enviar solicitações que chamam os endpoints da API.
+			\item O Swagger pode ser usado com a maioria das linguagens de programação modernas e frameworks da web.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{figure}[h!]
+		\includegraphics[width=1.0\linewidth]{swagger.png}
+		\caption{Swagger para documentar a API REST.}
+		\label{fig:swagger}
+	\end{figure}
+	
+	
 \end{frame}
 
 \begin{frame}[fragile]
@@ -656,7 +683,9 @@ citestyle=authoryear,
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{8. Filtros}
-		Para coleções muito grandes, use filtros para limitar os itens retornados. 
+		Para coleções muito grandes, use filtros para limitar os itens retornados. \\ \bigskip
+
+		\textcolor{blue}{https://www.netshoes.com.br\yellowbox{/busca?q=chuteira\&tamanho=40}}
 	\end{block}
 
 	\begin{exampleblock}{Exemplo}
@@ -781,8 +810,6 @@ citestyle=authoryear,
 		
 \end{frame}
 
-
-\subsection{JWT}
 
 \begin{frame}
 	\frametitle{REST}
@@ -968,8 +995,6 @@ citestyle=authoryear,
 
 \end{frame}
 
-\subsection{Monitoramento e Logs}
-
 \begin{frame}[fragile]
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas}
@@ -998,8 +1023,6 @@ def after_request(response):
 
 \end{frame}
 
-\subsection{Testes}
-
 \begin{frame}[fragile]
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas}
@@ -1019,8 +1042,6 @@ def test_get_all_products(self):
 	\end{exampleblock}
 
 \end{frame}
-
-\subsection{Ataques}
 
 \begin{frame}
 	\frametitle{REST}
@@ -1063,28 +1084,5 @@ def test_get_all_products(self):
 	\end{exampleblock}
 
 \end{frame}
-
-\subsection{Swagger}
-
-\begin{frame}
-	\frametitle{REST}
-	\framesubtitle{Boas Práticas}
-
-	\begin{block}{16. Swagger}
-		\begin{itemize}
-			\item O Swagger é uma ferramenta para documentar APIs REST.
-			\item O Swagger permite que você descreva a estrutura da sua API para que os desenvolvedores possam entender como interagir com ela sem precisar ler o código-fonte.
-			\item O Swagger gera automaticamente uma documentação interativa da API, que permite aos desenvolvedores enviar solicitações que chamam os endpoints da API.
-			\item O Swagger permite que você gera automaticamente o código do cliente em várias linguagens de programação.
-		\end{itemize}
-	\end{block}
-
-	\begin{exampleblock}{Exemplo}
-		% \includegraphics[width=0.9\linewidth]{swagger_example.png}
-	\end{exampleblock}
-
-\end{frame}
-
-
 
 \end{document} 
