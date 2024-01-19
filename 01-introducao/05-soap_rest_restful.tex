@@ -473,7 +473,11 @@ citestyle=authoryear,
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{1. Documentação Clara}
-		Forneça uma documentação clara e abrangente para a API, descrevendo recursos, endpoints, parâmetros, cabeçalhos e exemplos de solicitações e respostas. Existem bibliotecas que podem ajudar a gerar a documentação automaticamente.
+		\begin{itemize}
+			\item Documente sua API para que os desenvolvedores possam entender facilmente como usá-la.
+			\item Use uma ferramenta como o \href{https://swagger.io/}{Swagger} para documentar sua API.
+			\item Descreva os recursos, parâmetros, cabeçalhos, corpo da solicitação, corpo da resposta, códigos de status, etc.
+		\end{itemize}
 	\end{block}
 
 	\begin{exampleblock}{Exemplo}
@@ -1059,6 +1063,28 @@ def test_get_all_products(self):
 	\end{exampleblock}
 
 \end{frame}
+
+\subsection{Swagger}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Boas Práticas}
+
+	\begin{block}{16. Swagger}
+		\begin{itemize}
+			\item O Swagger é uma ferramenta para documentar APIs REST.
+			\item O Swagger permite que você descreva a estrutura da sua API para que os desenvolvedores possam entender como interagir com ela sem precisar ler o código-fonte.
+			\item O Swagger gera automaticamente uma documentação interativa da API, que permite aos desenvolvedores enviar solicitações que chamam os endpoints da API.
+			\item O Swagger permite que você gera automaticamente o código do cliente em várias linguagens de programação.
+		\end{itemize}
+	\end{block}
+
+	\begin{exampleblock}{Exemplo}
+		% \includegraphics[width=0.9\linewidth]{swagger_example.png}
+	\end{exampleblock}
+
+\end{frame}
+
 
 
 \end{document} 
