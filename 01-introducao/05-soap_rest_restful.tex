@@ -346,6 +346,29 @@ citestyle=authoryear,
 
 \end{frame}
 
+\section{Experimentos}
+
+\begin{frame}
+	\frametitle{Experimentos}
+	\framesubtitle{Web Service}
+
+	\begin{block}{Experimento 1}
+		\begin{itemize}
+			\item Consuma o Web Service SOAP disponível em \url{http://www.dneonline.com/calculator.asmx?WSDL}.
+			\item Crie um cliente para testar o Web Service.
+		\end{itemize}
+	\end{block}
+	
+	\begin{block}{Experimento 2}
+		\begin{itemize}
+			\item Crie um Web Service SOAP que receba um número inteiro e retorne o dobro do número.
+			\item Crie um cliente para testar o Web Service ou use o Postman/Insomnia.
+			\item Peça para outro colega testar seu Web Service.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
 %----------------------------------------------------------------------------------------
 
 \section{REST}
@@ -1082,6 +1105,153 @@ def test_get_all_products(self):
 	\begin{exampleblock}{Exemplo - CSRF}
 		\includegraphics[width=0.9\linewidth]{csrf_example.png}
 	\end{exampleblock}
+
+\end{frame}
+
+\subsection{Experimentos}
+
+\begin{frame}
+	\frametitle{REST}
+	\framesubtitle{Experimentos}
+
+	\begin{block}{Experimento 1}
+		\begin{itemize}
+			\item Consumir a API REST \href{https://pokeapi.co/}{https://pokeapi.co/}.
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Experimento 2}
+		\begin{itemize}
+			\item \textbf{Objetivo}: Criar uma API REST para gerenciar uma lista de produtos.
+			\item \textbf{Ferramentas}: Python, Flask, SQLAlchemy, Marshmallow, SQLite.
+			\item \textbf{Requisitos}:
+			\begin{itemize}
+				\item CRUD de produtos.
+				\item Paginação.
+				\item Filtros.
+				\item Ordenação.
+				\item Autenticação com JWT.
+				\item Testes automatizados.
+			\end{itemize}
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\section{GraphQL}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Web Service}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge GraphQL}
+		
+		\smallskip
+		{\small \textit{Definição}}
+	\end{center}
+
+\end{frame}
+
+\subsection{Definição}
+
+\begin{frame}
+	\frametitle{GraphQL}
+	\framesubtitle{Definição}
+
+	\begin{block}{GraphQL - \textit{Graph Query Language}}
+		\begin{itemize}
+			\item Linguagem de consulta para APIs.
+			\item Foi criada pelo Facebook em 2012 e tornou-se open-source em 2015.
+			\item É uma alternativa ao REST. Permite que os clientes solicitem dados de forma flexível.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\subsection{Estrutura}
+
+\begin{frame}
+	\frametitle{GraphQL}
+	\framesubtitle{Estrutura}
+
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{graphql.png}
+		\caption{Estrutura GraphQL}
+		\label{fig:graphql_structure}
+	\end{figure}
+
+\end{frame}
+
+\subsection{Comparação com REST}
+
+\begin{frame}
+	\frametitle{GraphQL}
+	\framesubtitle{Comparação com REST}
+
+	\begin{table}
+		\renewcommand{\arraystretch}{1.25} % Ajuste este valor conforme necessário
+		\begin{tabular}{|p{0.45\linewidth}|p{0.45\linewidth}|}
+			\hline
+			\textbf{REST} & \textbf{GraphQL} \\ \hline
+			É uma arquitetura & É uma linguagem de consulta \\ \hline
+			Os dados são expostos como recursos & Os dados são expostos como um grafo \\ \hline
+			Overfetching ou underfetching são comuns. & Os clientes solicitam apenas os dados necessários, evitando overfetching e underfetching. \\ \hline
+			Múltiplos endpoints para diferentes recursos. & Um único ponto de entrada para todas as operações. \\ \hline
+			Operações de escrita (POST, PUT, DELETE) têm endpoints separados. & Mutações são tratadas no mesmo sistema de tipos e no mesmo endpoint que as consultas. \\ \hline
+			Utiliza diversos métodos HTTP (GET, POST, PUT, DELETE). & Usa o método POST para todas as operações. Pode ser usado com qualquer protocolo de transporte. \\ \hline
+			Pode exigir versionamento da API para adicionar ou modificar funcionalidades. & Não requer versionamento devido à flexibilidade nas consultas. \\ \hline
+		\end{tabular}
+		\caption{REST vs GraphQL}
+		\label{tab:rest_graphql}
+
+	\end{table}
+
+\end{frame}
+
+\subsection{Mutation}
+
+\begin{frame}
+	\frametitle{GraphQL}
+	\framesubtitle{Mutation}
+
+	\begin{block}{Mutation}
+		\begin{itemize}
+			\item É um tipo de operação que permite \yellowbox{criar, atualizar ou excluir dados.}
+			\item É semelhante a uma operação de escrita no REST.
+			\item As mutações são tratadas no mesmo sistema de tipos e no mesmo endpoint que as consultas.
+		\end{itemize}
+	\end{block}
+
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{gql_mutation.png}
+		\caption{Exemplo de Mutation}
+		\label{fig:graphql_mutation}
+	\end{figure}
+
+\end{frame}
+
+\subsection{Query}
+
+\begin{frame}
+	\frametitle{GraphQL}
+	\framesubtitle{Query}
+
+	\begin{block}{Query}
+		\begin{itemize}
+			\item É um tipo de operação que permite \yellowbox{recuperar dados.}
+			\item É semelhante a uma operação de leitura no REST.
+			\item As consultas são tratadas no mesmo sistema de tipos e no mesmo endpoint que as mutações.
+		\end{itemize}
+	\end{block}
+
+	\begin{figure}
+		\includegraphics[width=0.9\linewidth]{gql_query.png}
+		\caption{Exemplo de Query}
+		\label{fig:graphql_query}
+	\end{figure}
 
 \end{frame}
 
