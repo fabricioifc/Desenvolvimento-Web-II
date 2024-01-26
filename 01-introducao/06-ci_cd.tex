@@ -26,6 +26,7 @@ citestyle=authoryear,
 % Define a custom command for an icon link
 \newcommand{\iconLink}[2]{\href{#1}{\faLink \hspace{0.2em} {#2}}}
 \newcommand{\yellowbox}[1]{\colorbox{yellow!75}{#1}}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
 
 % Definindo um estilo para o destaque
 %----------------------------------------------------------------------------------------
@@ -196,21 +197,266 @@ citestyle=authoryear,
 	\frametitle{Entrega Contínua - \textit{Continuous Delivery (CD)}}
 	\begin{itemize}
 		\item CD é uma abordagem de engenharia de software na qual as equipes produzem software em ciclos curtos, garantindo que o software possa ser implantado de forma confiável a qualquer momento.
-		\item Com o CD, o código é sempre implantável, desde o início do projeto.
+		\item CD visa garantir que um aplicativo esteja sempre no estado pronto para produção após passar com sucesso em testes automatizados e verificações de qualidade.
 		\item O CD visa tornar o processo de implantação automatizado, de modo que qualquer alteração no software possa ser implantada de forma rápida e segura.
-		\item O CD pode ser falhar por: \textbf{builds} quebradas, testes quebrados, cobertura de testes insuficiente, etc.
+		\item O CD pode falhar por: \textbf{builds} quebradas, testes quebrados, cobertura de testes insuficiente, etc.
 	\end{itemize}
 
-	\begin{block}{Fluxo de Trabalho}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Pipeline de Integração e Entrega Contínua}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{ci_cd_pipeline.png}
+		\caption{Pipeline de Integração e Entrega Contínua}
+		\label{fig:ci_cd}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pipeline de Integração e Entrega Contínua}
+	
+	\begin{itemize}
+		\item O pipeline introduz monitoramento e automação para melhoria no processo de desenvolvimento de software, principalmente nas fases de integração e teste.
+		\item Embora seja possível executar o pipeline manualmente, o objetivo é que ele seja executado automaticamente sempre que houver uma alteração no código.
+	\end{itemize}
+	\begin{block}{Pipeline - Fluxo de Trabalho}
+		As etapas típicas de um pipeline de CI/CD são:
+		\bigskip
+
 		\begin{enumerate}
-			\item \textbf{Controle de Versão}: Desenvolvedor faz \textbf{commit} no repositório compartilhado;
-			\item \textbf{Gatilho Automático}: Servidor de CI monitora o repositório e faz o \textbf{pull} do código;
-			\item \textbf{Compilação e Testes Automatizados}: Servidor de CI executa a \textbf{build} e os testes;
-			\item \textbf{Implantação Automatizada}: Servidor de CI implanta o código em um ambiente de teste;
-			\item \textbf{Relatório}: Servidor de CI notifica o desenvolvedor sobre o resultado. 
+			\item \textbf{Teste}: Testes unitários, testes de integração, testes de aceitação, etc;
+			\item \textbf{Build}: Compilação, empacotamento, etc;
+			\item \textbf{Release}: Implantação em ambientes de homologação e produção;
+			\item \textbf{Monitoramento}: Monitoramento de desempenho, disponibilidade, etc.
+			\item \textbf{Feedback}: Notificação de falhas, relatórios de desempenho, etc. 
 		\end{enumerate}
+	\end{block}
+		
+\end{frame}
+
+\section{Ferramentas}
+
+\begin{frame}
+	\frametitle{Ferramentas}
+	\begin{itemize}
+		\item \textbf{Ferramentas básicas}: Git, GitHub, Docker, Docker Hub;
+		\item \textbf{CI/CD}: GitLab, Jenkins, Circle CI, GitHub Actions, GoCD, Semaphore, Travis CI;
+		\item \textbf{Cloud}: AWS, Azure, Google Cloud, Heroku, Digital Ocean, Surge, GitHub Pages, Netlify, Vercel, etc.
+		\item \textbf{Monitoramento}: New Relic, Datadog, AppDynamics, etc.
+		\item \textbf{Testes}: Selenium, Cypress, Jest, JUnit, Vitest, etc.
+		\item \textbf{Cobertura de Testes}: Istanbul, Jacoco, SonarQube, etc.
+		\item \textbf{Análise de Código}: SonarQube, Codacy, Code Climate, etc.
+	\end{itemize}
+
+\end{frame}
+
+\section{Exemplo}
+
+\begin{frame}
+	\begin{center}
+		
+		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		{\Large Integração Contínua}
+		
+		\bigskip\bigskip % Vertical whitespace
+		{\Huge Exemplo prático}
+		
+		\bigskip \bigskip
+		{\small Vamos ver um exemplo prático de CI/CD usando o GitHub Actions}\\
+		{\small \iconLink{https://github.com/fabricioifc/ci-cd-example}{https://github.com/fabricioifc/ci-cd-example}}
+	\end{center}
+
+\end{frame}
+
+\section{QUIZ}
+
+\begin{frame}
+	\frametitle{QUIZ}
+	\framesubtitle{Questão 1/5}
+
+	{\Large O que é Integração Contínua (CI)?}
+
+	\begin{exampleblock}{Resposta}
+		\begin{enumerate}[a]
+			\item Um processo que integra diferentes sistemas em uma única aplicação.
+			\item Um método para integrar continuamente novos recursos em uma aplicação.
+			\item Uma prática que visa integrar e testar automaticamente as alterações no código fonte.
+		\end{enumerate}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{QUIZ}
+	\framesubtitle{Questão 1/5}
+
+	{\Large O que é Integração Contínua (CI)?}
+
+	\begin{exampleblock}{Resposta}
+		\begin{enumerate}[a]
+			\item Um processo que integra diferentes sistemas em uma única aplicação.
+			\item Um método para integrar continuamente novos recursos em uma aplicação.
+			\item \textcolor{darkgreen}{Uma prática que visa integrar e testar automaticamente as alterações no código fonte.}
+		\end{enumerate}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{QUIZ}
+	\framesubtitle{Questão 2/5}
+
+	{\Large Qual é o principal objetivo da Integração Contínua?}
+
+	\begin{exampleblock}{Resposta}
+		\begin{enumerate}[a]
+			\item Garantir que as alterações no código sejam integradas e testadas frequentemente.
+			\item Reduzir o número de desenvolvedores na equipe.
+			\item Aumentar o tempo entre as versões da aplicação.
+		\end{enumerate}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{QUIZ}
+	\framesubtitle{Questão 2/5}
+
+	{\Large Qual é o principal objetivo da Integração Contínua?}
+
+	\begin{exampleblock}{Resposta}
+		\begin{enumerate}[a]
+			\item \textcolor{darkgreen}{Garantir que as alterações no código sejam integradas e testadas frequentemente.}
+			\item Reduzir o número de desenvolvedores na equipe.
+			\item Aumentar o tempo entre as versões da aplicação.
+		\end{enumerate}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{QUIZ}
+	\framesubtitle{Questão 3/5}
+
+	{\Large Qual é a diferença entre Integração Contínua e Entrega Contínua? }
+
+	\begin{exampleblock}{Resposta}
+		\begin{enumerate}[a]
+			\item Não há diferença, os termos são usados de forma intercambiável.
+			\item Entrega Contínua é apenas uma fase avançada da Integração Contínua.
+			\item Integração Contínua se refere à integração frequente de código, enquanto Entrega Contínua envolve a entrega automatizada de software funcional.
+		\end{enumerate}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{QUIZ}
+	\framesubtitle{Questão 3/5}
+
+	{\Large Qual é a diferença entre Integração Contínua e Entrega Contínua? }
+
+	\begin{exampleblock}{Resposta}
+		\begin{enumerate}[a]
+			\item Não há diferença, os termos são usados de forma intercambiável.
+			\item Entrega Contínua é apenas uma fase avançada da Integração Contínua.
+			\item \textcolor{darkgreen}{Integração Contínua se refere à integração frequente de código, enquanto Entrega Contínua envolve a entrega automatizada de software funcional.}
+		\end{enumerate}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{QUIZ}
+	\framesubtitle{Questão 4/5}
+
+	{\Large Qual é a importância dos testes automatizados na Integração Contínua? }
+
+	\begin{exampleblock}{Resposta}
+		\begin{enumerate}[a]
+			\item Não são necessários, pois a Integração Contínua já cobre todos os aspectos.
+			\item Garantir que as alterações no código não quebrem funcionalidades existentes.
+			\item Apenas agilizar o processo de integração, sem impacto na qualidade do software.
+		\end{enumerate}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{QUIZ}
+	\framesubtitle{Questão 4/5}
+
+	{\Large Qual é a importância dos testes automatizados na Integração Contínua? }
+
+	\begin{exampleblock}{Resposta}
+		\begin{enumerate}[a]
+			\item Não são necessários, pois a Integração Contínua já cobre todos os aspectos.
+			\item \textcolor{darkgreen}{Garantir que as alterações no código não quebrem funcionalidades existentes.}
+			\item Apenas agilizar o processo de integração, sem impacto na qualidade do software.
+		\end{enumerate}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{QUIZ}
+	\framesubtitle{Questão 5/5}
+
+	{\Large Quais benefícios podem ser obtidos ao implementar a Integração Contínua? }
+
+	\begin{exampleblock}{Resposta}
+		\begin{enumerate}[a]
+			\item Maior número de bugs.
+			\item Maior confusão entre os membros da equipe.
+			\item Detectar e corrigir problemas de integração mais cedo, facilitando o desenvolvimento contínuo e a entrega de software de alta qualidade.
+		\end{enumerate}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{QUIZ}
+	\framesubtitle{Questão 5/5}
+
+	{\Large Quais benefícios podem ser obtidos ao implementar a Integração Contínua? }
+
+	\begin{exampleblock}{Resposta}
+		\begin{enumerate}[a]
+			\item Maior número de bugs.
+			\item Maior confusão entre os membros da equipe.
+			\item \textcolor{darkgreen}{Detectar e corrigir problemas de integração mais cedo, facilitando o desenvolvimento contínuo e a entrega de software de alta qualidade.}
+		\end{enumerate}
+	\end{exampleblock}
+
+\end{frame}
+
+%------------------------------------------------
+
+\section{Experimentos}
+
+\begin{frame}
+	\frametitle{Experimentos}
+	\begin{itemize}
+		\item \textbf{Experimento 1}\\ Siga \href{https://github.com/fabricioifc/ci-cd-example/blob/main/README.md}{\textcolor{blue}{esse passo a passo}} para criar um repositório no GitHub e configurar o GitHub Actions para executar os testes e o deploy de forma automática no GitHub Pages.
+		\item \textbf{Experimento 2}\\ Faça alterações no código e observe o resultado no GitHub Actions.
+		\item \textbf{Experimento 3}\\ Faça alterações que quebrem os testes e observe o resultado no GitHub Actions.
+	\end{itemize}
+
+	\begin{block}{Desafio}
+		\begin{itemize}
+			\item Crie um novo projeto que faça uso de CI/CD e publique no GitHub.
+			\item Use o GitHub Actions ou outra ferramenta de CI/CD.
+			\item Use o GitHub Pages ou outra ferramenta de hospedagem.
+			\item Crie um ambiente de homologação e um de produção. 
+			\item Faça uso de testes automatizados.
+		\end{itemize}
+
 	\end{block}
 
 \end{frame}
-	
+
+
 \end{document} 
