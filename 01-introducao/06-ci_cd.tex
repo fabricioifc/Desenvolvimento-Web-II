@@ -142,10 +142,10 @@ citestyle=authoryear,
 		\item O Manifesto Ágil é baseado em 4 valores e 12 princípios.
 		\item Os 4 valores do Manifesto Ágil são:
 		\begin{enumerate}
-			\item Indivíduos e interações mais que processos e ferramentas;
-			\item Software em funcionamento mais que documentação abrangente;
+			\item \textcolor{darkgreen}{Indivíduos e interações} mais que processos e ferramentas;
+			\item \textcolor{darkgreen}{Software em funcionamento} mais que documentação abrangente;
 			\item Colaboração com o cliente mais que negociação de contratos;
-			\item Responder a mudanças mais que seguir um plano.
+			\item \textcolor{darkgreen}{Responder a mudanças} mais que seguir um plano.
 		\end{enumerate}
 	\end{itemize}
 \end{frame}
@@ -161,6 +161,7 @@ citestyle=authoryear,
 		\item Cada integração é verificada por uma \yellowbox{\textbf{build} automatizada} (incluindo testes) para detectar erros de integração o mais rápido possível.
 		\item Esse tipo de abordagem leva a uma redução significativa nos problemas de integração e permite que uma equipe desenvolva software coeso mais rapidamente.
 		\item O CI pode ser falhar por: \textbf{builds} quebradas, testes quebrados, cobertura de testes insuficiente, etc.
+		\item \textbf{Ferramentas}: Git, GitHub, GitLab, Jenkins, Circle CI, GitHub Actions, GoCD, Semaphore, Travis CI, etc.
 	\end{itemize}
 
 	\begin{block}{Pipeline - Fluxo de Trabalho}
@@ -196,11 +197,17 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Entrega Contínua - \textit{Continuous Delivery (CD)}}
 	\begin{itemize}
-		\item CD é uma abordagem de engenharia de software na qual as equipes produzem software em ciclos curtos, garantindo que o software possa ser implantado de forma confiável a qualquer momento.
+		\item CD é uma abordagem de engenharia de software na qual as equipes produzem software em \yellowbox{ciclos curtos}, garantindo que o software possa ser implantado de forma confiável a \yellowbox{qualquer momento}.
 		\item CD visa garantir que um aplicativo esteja sempre no estado pronto para produção após passar com sucesso em testes automatizados e verificações de qualidade.
-		\item O CD visa tornar o processo de implantação automatizado, de modo que qualquer alteração no software possa ser implantada de forma rápida e segura.
-		\item O CD pode falhar por: \textbf{builds} quebradas, testes quebrados, cobertura de testes insuficiente, etc.
+		\item O código é desenvolvido, testado e preparado para ser implantado automaticamente em um ambiente de produção a qualquer momento. No entanto, a decisão final de implantar no ambiente de produção ainda é manual e controlada pelo time de operações.
 	\end{itemize}
+
+	\begin{block}{Deploy Contínuo - \textit{Continuous Deployment}}
+		\begin{itemize}
+			\item O \textbf{Deploy Contínuo} é uma extensão da Entrega Contínua que permite que cada alteração de código que passe com sucesso pelos testes automatizados seja implantada automaticamente em produção.
+			\item \textbf{Ferramentas}: AWS, Azure, Google Cloud, Heroku, Digital Ocean, Surge, GitHub Pages, Netlify, Vercel, etc.
+		\end{itemize}
+	\end{block}
 
 \end{frame}
 
@@ -235,6 +242,22 @@ citestyle=authoryear,
 		\end{enumerate}
 	\end{block}
 		
+\end{frame}
+
+\section{Testes}
+
+\begin{frame}
+	\frametitle{Testes}
+	\begin{itemize}
+		\item \textbf{Testes Unitários}: Testam uma unidade de código (método, classe, etc) de forma isolada.
+		\item \textbf{Testes de Integração}: Testam a integração entre duas ou mais unidades de código.
+		\item \textbf{Testes de Aceitação do Usuário (UAT)}: São testes realizados pelos usuários finais ou representantes de negócios para garantir que a aplicação atenda às expectativas e requisitos do usuário.
+		\item \textbf{Testes de Regressão}: Testam se as alterações no código não quebram funcionalidades existentes.
+		\item \textbf{Testes de Desempenho}: Testam o desempenho do sistema em diferentes condições de carga. 
+		\item \textbf{Smoke Tests}: Testes básicos para verificar se o sistema está funcionando. Para testas, por exemplo, se o sistema está no ar, se o banco de dados está acessível, etc.
+		\item \textbf{Testes Funcionais}: Testam se o sistema atende aos requisitos funcionais. Para automatizar esses testes, é necessário simular a interação do usuário com o sistema.
+	\end{itemize}
+
 \end{frame}
 
 \section{Ferramentas}
