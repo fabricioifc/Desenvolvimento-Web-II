@@ -1,0 +1,299 @@
+\documentclass[
+	9pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+	t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
+	%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+
+\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[english,brazil]{babel}
+\usepackage{fontawesome5}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{xcolor}
+% \usepackage{graphicx}
+% \usepackage{animate}
+\RequirePackage[backend=biber,
+style=ieee,
+citestyle=authoryear,
+]{biblatex}
+
+% Define a custom command for an icon link
+\newcommand{\iconLink}[2]{\href{#1}{\faLink \hspace{0.2em} {#2}}}
+\newcommand{\yellowbox}[1]{\colorbox{yellow!75}{#1}}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+
+% Definindo um estilo para o destaque
+%----------------------------------------------------------------------------------------
+%	SELECT LAYOUT THEME
+%----------------------------------------------------------------------------------------
+\usetheme{Madrid}
+
+%----------------------------------------------------------------------------------------
+%	SELECT COLOR THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of color themes that can be applied to any layout theme to change its colors. Uncomment each of these in turn to see how they change the colors of your selected layout theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+% \usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{monarca}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{spruce}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%----------------------------------------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%----------------------------------------------------------------------------------------
+\usefonttheme{default} % Typeset using the default sans serif font
+
+%------------------------------------------------
+
+\usepackage{palatino} % Use the Palatino font for serif text
+\usepackage[default]{lato} % Use the Lato font for sans serif text
+
+%----------------------------------------------------------------------------------------
+%	SELECT INNER THEME
+%----------------------------------------------------------------------------------------
+\useinnertheme{rectangles}
+
+%----------------------------------------------------------------------------------------
+%	SELECT OUTER THEME
+%----------------------------------------------------------------------------------------
+
+% Outer themes change the overall layout of slides, such as: header and footer lines, sidebars and slide titles. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useoutertheme{default}
+%\useoutertheme{infolines}
+%\useoutertheme{miniframes}
+%\useoutertheme{smoothbars}
+%\useoutertheme{sidebar}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+
+%\setbeamertemplate{footline} % Uncomment this line to remove the footer line in all slides
+%\setbeamertemplate{footline}[page number] % Uncomment this line to replace the footer line in all slides with a simple slide count
+
+%\setbeamertemplate{navigation symbols}{} % Uncomment this line to remove the navigation symbols from the bottom of all slides
+
+% \bibliography{references} % Specifies the bibliography file to include publications
+% \bibliographystyle{apalike} % Specifies the bibliography style
+\addbibresource{references.bib}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title[DesWebII]{Desenvolvimento Web II} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+\subtitle{Aula 08 - Linguagens e frameworks modernos para desenvolvimento web} % Presentation subtitle, remove this command if a subtitle isn't required
+\author[Fabricio Bizotto]{Prof. Fabricio Bizotto} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+\institute[IFC]{Instituto Federal Catarinense \\ \smallskip \textit{fabricio.bizotto@ifc.edu.br}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+\date[\today]{Ciência da Computação \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Roteiro} % Slide title, remove this command for no title
+	
+	\tableofcontents % Output the table of contents (all sections on one slide)
+	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Linguagens e frameworks modernos para desenvolvimento web}
+
+\begin{frame}
+	\frametitle{Linguagens e frameworks modernos para desenvolvimento web}
+	\framesubtitle{O que é framework e para que serve?}
+
+	Um framework é um conjunto de classes e funções que auxiliam o desenvolvimento de um software. Esses códigos trazem funcionalidades já determinadas para agilizar o processo e evitar que as pessoas tenham que reescrever essas funções frequentemente.
+
+	\begin{exampleblock}{Benefícios}
+		\begin{itemize}
+			\item Agilidade no desenvolvimento
+			\item Padronização
+			\item Segurança
+			\item Manutenção
+			\item Comunidade ativa
+		\end{itemize}
+	\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Linguagens e frameworks modernos para desenvolvimento web}
+	\framesubtitle{O que é framework e para que serve?}
+
+	\begin{alertblock}{Desvantagens}
+		\begin{itemize}
+			\item \textbf{Código Inchado}: muitas vezes o framework traz muitas funcionalidades que não serão utilizadas no projeto.
+			\item \textbf{Problemas com suporte}: se o framework não for bem documentado, pode ser difícil encontrar soluções para problemas.
+			\item \textbf{Overhead de recursos}: o framework pode consumir muitos recursos do servidor, o que pode ser um problema em projetos com muitos acessos.
+		\end{itemize}
+	\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Linguagens e frameworks modernos para desenvolvimento web}
+	\framesubtitle{Principais frameworks para desenvolvimento web}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{frameworks_web.png}
+		\caption{Principais frameworks para desenvolvimento web}
+		\label{fig:frameworks}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Linguagens e frameworks modernos para desenvolvimento web}
+	\framesubtitle{JQuery}
+
+	\begin{block}{JQuery}
+		\begin{itemize}
+			\item Desenvolvido por John Resig em 2006. 
+			\item É uma biblioteca JavaScript que facilita a manipulação do DOM, o desenvolvimento de animações e a interação com o servidor.
+			\item É uma das bibliotecas JavaScript mais utilizadas no mundo.
+			\item Pode ser substituida pela biblioteca \alert{\href{http://vanilla-js.com/}{Vannila JS}}, que é mais leve e performática.
+			\item \iconLink{https://jquery.com/}{Site oficial}
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Linguagens e frameworks modernos para desenvolvimento web}
+	\framesubtitle{Angular}
+
+	\begin{block}{Angular}
+		\begin{itemize}
+			\item Desenvolvido pelo Google em 2010. Popular no desenvolvimento de Single Page Applications (SPA)\footnote{aplicativo web que carrega uma única página HTML e atualiza dinamicamente o conteúdo conforme o usuário interage, proporcionando uma experiência mais fluida e rápida.}.
+			\item Utilizava inicialmente a linguagem JavaScript, mas atualmente utiliza TypeScript
+			\item Utiliza o padrão de projeto MVC (Model-View-Controller).
+			\item Utiliza o conceito de \textbf{two-way data binding}, que permite que a alteração de um elemento na interface reflita automaticamente no modelo de dados e vice-versa.
+			\item Usa o conceito de \textbf{diretivas}, que são atributos HTML que permitem a criação de novos elementos HTML.
+			\item A partir de 2016, a versão 2 do Angular foi lançada, com grandes mudanças em relação à versão anterior. Atualmente, a versão mais recente é a 17.
+			\item \iconLink{https://angular.io/}{Site oficial}
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Linguagens e frameworks modernos para desenvolvimento web}
+	\framesubtitle{React}
+
+	\begin{block}{React}
+		\begin{itemize}
+			\item Desenvolvido pelo Facebook em 2011. Popular no desenvolvimento de Single Page Applications (SPA).
+			\item Utiliza a linguagem JavaScript.
+			\item Utiliza o padrão de projeto MVC (Model-View-Controller).
+			\item Utiliza o conceito de \textbf{componentes}, que são elementos que encapsulam o código HTML, CSS e JavaScript.
+			\item Modernizou a sintaxe do JavaScript, permitindo a manipulação do DOM de forma mais simples.
+			\item \iconLink{https://react.dev}{Site oficial}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Linguagens e frameworks modernos para desenvolvimento web}
+	\framesubtitle{Vue}
+
+	\begin{block}{Vue}
+		\begin{itemize}
+			\item Desenvolvido por Evan You em 2014. 
+			\item Também traz alguns elementos que já comentamos, como data binding, DOM virtual e suporte a SPAs. 
+			\item Vue é um framework progressivo que pode ser adotado gradualmente em partes de um projeto, facilitando a integração com projetos existentes.
+			\item O ciclo de vida de um componente Vue é composto por 8 etapas: \textbf{beforeCreate}, \textbf{created}, \textbf{beforeMount}, \textbf{mounted}, \textbf{beforeUpdate}, \textbf{updated}, \textbf{beforeDestroy} e \textbf{destroyed}.
+			\item Outros frameworks JavaScript: Ember, Backbone, Meteor, Aurelia, Svelte, etc.
+			\item \iconLink{https://vuejs.org/}{Site oficial}
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Linguagens e frameworks modernos para desenvolvimento web}
+	\framesubtitle{Laravel}
+
+	\begin{block}{Laravel}
+		\begin{itemize}
+			\item Desenvolvido por Taylor Otwell em 2011. 
+			\item É um framework PHP que utiliza o padrão de projeto MVC (Model-View-Controller).
+			\item Possui uma sintaxe simples e elegante, que permite o desenvolvimento de aplicações web de forma rápida e fácil.
+			\item Possui uma comunidade ativa e uma documentação completa.
+			\item Outros frameworks PHP: Symfony, CodeIgniter, CakePHP, Zend Framework, Yii, Phalcon, FuelPHP, Slim, etc.
+			\item \iconLink{https://laravel.com/}{Site oficial}
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Linguagens e frameworks modernos para desenvolvimento web}
+	\framesubtitle{Django}
+
+	\begin{block}{Django}
+		\begin{itemize}
+			\item Desenvolvido por Adrian Holovaty e Simon Willison em 2003. 
+			\item É um framework Python que utiliza o padrão de projeto MVT (Model-View-Template).
+			\item Pode ser usado para criar uma aplicação com backend e frontend, ou apenas o backend (API).
+			\item Outros frameworks Python: Flask, Pyramid, Bottle, CherryPy, Tornado, etc.
+			\item \iconLink{https://www.djangoproject.com/}{Site oficial}
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Linguagens e frameworks modernos para desenvolvimento web}
+	\framesubtitle{Spring}
+
+	\begin{block}{Spring}
+		\begin{itemize}
+			\item Desenvolvido por Rod Johnson em 2002. 
+			\item É um framework Java que utiliza o padrão de projeto MVC (Model-View-Controller).
+			\item Usa Gradle ou Maven para gerenciar dependências.
+			\item Outros frameworks Java: JSF, Struts, Vaadin, GWT, Wicket, Hibernate, JPA, Maven, etc.
+			\item \iconLink{https://spring.io/}{Site oficial}
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+	
+		
+\end{document} 
