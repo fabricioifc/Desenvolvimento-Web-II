@@ -305,3 +305,6 @@ __pycache__/
 
 # Virtualenv
 .venv/
+
+**/node_modules/
+**/yarn.lock
