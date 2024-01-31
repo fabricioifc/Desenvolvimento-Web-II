@@ -1,0 +1,47 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task }}</li>
+        {% endfor %}
+    </ul>
+    <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="Nova tarefa" required>
+        <button type="button" onclick="addTask()">Adicionar Tarefa</button>
+    </form>
+
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const task = taskInput.value.trim();
+
+            if (task) {
+                fetch('/add_task', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ task: task })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        taskInput.value = '';
+                        window.location.reload();
+                    } else {
+                        alert('Erro ao adicionar tarefa.');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

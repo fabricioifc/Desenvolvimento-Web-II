@@ -155,12 +155,12 @@ citestyle=authoryear,
 	\framesubtitle{Definição}
 
 	\begin{itemize}
-		\item Funcionalidade disponível apenas no protocolo HTTP/1.1.
+		\item Funcionalidade disponível no protocolo HTTP/1.1 ou superior.
 		\item SSE é uma API para criar \textit{streams} de eventos \yellowbox{a partir do servidor} para o cliente.
-		\item O cliente quer receber notificações do servidor em \yellowbox{tempo real}.
-		\item SSE é uma alternativa para \textit{WebSockets} para comunicação entre cliente e servidor.
+		\item O cliente recebe notificações do servidor em \yellowbox{tempo real}.
 		\item SSE é mais simples de implementar do que \textit{WebSockets}.
 		\item Continua sendo uma requisição HTTP, mas a resposta não é fechada.
+		\item A diferença para \textit{WebSockets} é que SSE é \yellowbox{unidirecional}.
 	\end{itemize}
 
 \end{frame}
