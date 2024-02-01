@@ -232,7 +232,7 @@ citestyle=authoryear,
 \begin{frame}
 	\begin{center}
 		
-		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+		\bigskip\bigskip % Vertical whitespace
 		{\Large Modelos Arquiteturais}
 		
 		\bigskip\bigskip % Vertical whitespace
@@ -240,6 +240,9 @@ citestyle=authoryear,
 		
 		\smallskip
 		{\small \textit{Monolithic}}
+		\smallskip
+
+		\includegraphics[width=0.5\linewidth]{Images/monolito_estrutura.jpg}
 	\end{center}
 
 \end{frame}
@@ -302,11 +305,28 @@ citestyle=authoryear,
 		\item \textbf{Escalabilidade vertical}: adicionar mais recursos (CPU, memória, etc) a um componente.
 	\end{itemize}
 	
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.8\linewidth]{Images/monolito-balancer.jpg}
-		\caption{Arquitetura Monolítica com \textit{Load Balancer}.}\label{fig:monolito-balancer}
-	\end{figure}
+	% two columns
+	\begin{columns}
+		\column{0.4\textwidth}
+		{\small 
+		\begin{itemize}
+			\item Load Balancer
+			\begin{itemize}
+				\item Distribui o tráfego entre as instâncias.
+				\item Redundância e tolerância a falhas.
+				\item Escalabilidade horizontal.
+				\item \href{https://www.tech-hour.com/nodejs-nginx-load-balancer}{Exemplo Prático}
+			\end{itemize}
+		\end{itemize}
+		}
+		\column{0.6\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\linewidth]{Images/monolito-balancer.jpg}
+			\caption{Arquitetura Monolítica com \textit{Load Balancer}.}\label{fig:monolito-balancer}
+		\end{figure}
+
+	\end{columns}
 
 \end{frame}
 
@@ -331,13 +351,23 @@ citestyle=authoryear,
 	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Arquitetura em N camadas (N-tier) - Definição}
 
-	A arquitetura em N camadas é um padrão de arquitetura de software no qual a aplicação é dividida em camadas lógicas ou físicas.
+	A arquitetura em N camadas é um padrão de arquitetura de software no qual a aplicação é dividida em camadas lógicas ou físicas. N refere-se ao número de camadas que compõem a aplicação. Cada camada é responsável por uma parte específica da aplicação.
 
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{Images/n-tier-simple-2.png}
-		\caption{Arquitetura em camadas - Fluxo.}\label{fig:n-tier-simple-2}
-	\end{figure}
+	% \two columns
+	\begin{columns}
+		\column{0.6\textwidth}
+		\begin{itemize}
+			\item {\small \textbf{Camada Fechada}: só pode se comunicar com as camadas adjacentes.}
+			\item {\small \textbf{Camada Aberta}: posso pular ela (Opcional)}
+			\item {\small Neste exemplo, como a camada está aberta, podemos ir da camada de negócio para a camada de persistência sem passar pela camada de serviço.}
+		\end{itemize}
+		\column{0.4\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\linewidth]{Images/n-tier-simple-2.png}
+			\caption{Arquitetura em camadas - Fluxo.}\label{fig:n-tier-simple-2}
+		\end{figure}
+	\end{columns}
 
 \end{frame}
 
@@ -622,7 +652,7 @@ citestyle=authoryear,
 		\item \href{https://youtu.be/suZfVAk7hco}{\textbf{Arquitetura de Software: Monolítica x SOA x Microserviços}}.\\Canal \textbf{Marcos Dósea}.
 		\item \href{https://www.youtube.com/watch?v=_2bDOCTnbKc}{\textbf{Microservices // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
 		\item \href{https://youtu.be/gtv9szE_P1U}{\textbf{Microservices na prática}}.\\Canal \textbf{Full Cycle}.
-		\item \href{https://www.hipsters.tech/uma-linguagem-para-cada-combate-hipsters-ponto-tech-277}{\textbf{Microservices na prática}}.\\Podcast Hipsters Ponto Tech \textbf{Monolitos}.
+		\item \href{https://www.hipsters.tech/uma-linguagem-para-cada-combate-hipsters-ponto-tech-277}{\textbf{Monolitos}}.\\Podcast Hipsters Ponto Tech.
 	\end{itemize}
 	
 \end{frame}
@@ -644,163 +674,28 @@ citestyle=authoryear,
 		
 \end{frame}
 
-	
-	
-% \subsection{Modelos Arquiteturais para Web}
+\section{Experimentos}
 
-% \begin{frame}
-% 	\begin{center}
-		
-% 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-% 		{\Large Modelos Arquiteturais para Web}
-		
-% 		\bigskip\bigskip % Vertical whitespace
-% 		{\Huge Modelo Cliente-Servidor}
+\begin{frame}
+	\frametitle{Experimentos}
+	\framesubtitle{Práticas e Exercícios}
 
-% 		\begin{alertblock}{Observação}
-% 			Não é uma arq
-% 		\end{alertblock}
-% 	\end{center}
+	Você precisa criar uma aplicação web para calcular o IMC (Índice de Massa Corporal) de uma pessoa. A aplicação deve permitir que o usuário informe o peso e a altura e, em seguida, exibir o resultado do cálculo. Para fazer isso, você pode escolher entre as seguintes abordagens arquiteturais:
 
-% \end{frame}
+	\bigskip
 
-%------------------------------------------------
+	\begin{itemize}
+		\item \textbf{Arquitetura 01}: \textit{Criar um simples projeto monolítico.}
+		\item \textbf{Arquitetura 02}: \textit{Criar um simples projeto em camadas.}
+		\item \textbf{Arquitetura 03}: \textit{Criar um simples projeto de microsserviços.}
+		\item \textbf{Arquitetura 04}: \textit{Criar um simples projeto orientado a eventos.}
+		\item \textbf{Arquitetura 05}: \textit{Criar um simples projeto serverless.}
+		\item \textbf{Arquitetura 06}: \textit{Criar um simples projeto orientado a serviços.}
+		\item \textbf{Arquitetura 07}: \textit{Criar um simples projeto monorepo.}
+		\item \textbf{Arquitetura 08}: \textit{Criar um simples projeto multi-repo.}
+	\end{itemize}
 
-% \subsection{Columns}
-
-% \begin{frame}
-% 	\frametitle{Multiple Columns}
-% 	\framesubtitle{Subtitle} % Optional subtitle
-	
-% 	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-% 		\begin{column}{0.45\textwidth} % Left column width
-% 			\textbf{Heading}
-% 			\begin{enumerate}
-% 				\item Statement
-% 				\item Explanation
-% 				\item Example
-% 			\end{enumerate}
-% 		\end{column}
-% 		\begin{column}{0.5\textwidth} % Right column width
-% 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-% 		\end{column}
-% 	\end{columns}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \section{Table and Figure Examples}
-
-% \subsection{Table}
-
-% \begin{frame}
-% 	\frametitle{Table}
-% 	\framesubtitle{Subtitle} % Optional subtitle
-	
-% 	\begin{table}
-% 		\begin{tabular}{l l l}
-% 			\toprule
-% 			\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-% 			\midrule
-% 			Treatment 1 & 0.0003262 & 0.562 \\
-% 			Treatment 2 & 0.0015681 & 0.910 \\
-% 			Treatment 3 & 0.0009271 & 0.296 \\
-% 			\bottomrule
-% 		\end{tabular}
-% 		\caption{Table caption}
-% 	\end{table}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \subsection{Figure}
-
-% \begin{frame}
-% 	\frametitle{Figure}
-	
-% 	\begin{figure}
-% 		\includegraphics[width=0.8\linewidth]{logo.png}
-% 		\caption{IFC Videira.}
-% 	\end{figure}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \section{Mathematics}
-
-% \begin{frame}
-% 	\frametitle{Definitions \& Examples}
-	
-% 	\begin{definition}
-% 		A \alert{prime number} is a number that has exactly two divisors.
-% 	\end{definition}
-	
-% 	\smallskip % Vertical whitespace
-	
-% 	\begin{example}
-% 		\begin{itemize}
-% 			\item 2 is prime (two divisors: 1 and 2).
-% 			\item 3 is prime (two divisors: 1 and 3).
-% 			\item 4 is not prime (\alert{three} divisors: 1, 2, and 4).
-% 		\end{itemize}
-% 	\end{example}
-	
-% 	\smallskip % Vertical whitespace
-	
-% 	You can also use the \texttt{theorem}, \texttt{lemma}, \texttt{proof} and \texttt{corollary} environments.
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}
-% 	\frametitle{Theorem, Corollary \& Proof}
-	
-% 	\begin{theorem}[Mass--energy equivalence]
-% 		$E = mc^2$
-% 	\end{theorem}
-	
-% 	\begin{corollary}
-% 		$x + y = y + x$
-% 	\end{corollary}
-	
-% 	\begin{proof}
-% 		$\omega + \phi = \epsilon$
-% 	\end{proof}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}
-% 	\frametitle{Equation}
-
-% 	\begin{equation}
-% 		\cos^3 \theta =\frac{1}{4}\cos\theta+\frac{3}{4}\cos 3\theta
-% 	\end{equation}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-% 	\frametitle{Verbatim}
-	
-% 	\begin{example}[Theorem Slide Code]
-% 		\begin{verbatim}
-% 			\begin{frame}
-% 				\frametitle{Theorem}
-% 				\begin{theorem}[Mass--energy equivalence]
-% 					$E = mc^2$
-% 				\end{theorem}
-% 		\end{frame}\end{verbatim} % Must be on the same line
-% 	\end{example}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}
-% 	Slide without title.
-% \end{frame}
-
-%------------------------------------------------
+\end{frame}
 
 \section{Referências}
 
@@ -808,82 +703,6 @@ citestyle=authoryear,
 	\frametitle{Referências}
 	\printbibliography
 \end{frame}
-
-
-% \begin{frame}
-% 	\frametitle{Referências}
-	
-% 	An example of the \texttt{\textbackslash cite} command to cite within the presentation:
-	
-% 	\bigskip % Vertical whitespace
-	
-% 	This statement requires citation.
-% \end{frame}
-
-%------------------------------------------------
-
-% \begin{frame} % Use [allowframebreaks] to allow automatic splitting across slides if the content is too long
-% 	\frametitle{References}
-	
-% 	\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below, you may need to use multiple columns and/or reduce the font size further if you have many references
-% 		\footnotesize % Reduce the font size in the bibliography
-		
-% 		\bibitem[Smith, 2022]{p1}
-% 			John Smith (2022)
-% 			\newblock Publication title
-% 			\newblock \emph{Journal Name} 12(3), 45 -- 678.
-			
-% 		\bibitem[Kennedy, 2023]{p2}
-% 			Annabelle Kennedy (2023)
-% 			\newblock Publication title
-% 			\newblock \emph{Journal Name} 12(3), 45 -- 678.
-% 	\end{thebibliography}
-% \end{frame}
-
-%----------------------------------------------------------------------------------------
-%	ACKNOWLEDGMENTS SLIDE
-%----------------------------------------------------------------------------------------
-
-% \begin{frame}
-% 	\frametitle{Acknowledgements}
-	
-% 	\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-% 		\begin{column}{0.45\textwidth} % Left column width
-% 			\textbf{Smith Lab}
-% 			\begin{itemize}
-% 				\item Alice Smith
-% 				\item Devon Brown
-% 			\end{itemize}
-% 			\textbf{Cook Lab}
-% 			\begin{itemize}
-% 				\item Margaret
-% 				\item Jennifer
-% 				\item Yuan
-% 			\end{itemize}
-% 		\end{column}		
-% 		\begin{column}{0.5\textwidth} % Right column width
-% 			\textbf{Funding}
-% 			\begin{itemize}
-% 				\item British Royal Navy
-% 				\item Norwegian Government
-% 			\end{itemize}
-% 		\end{column}
-% 	\end{columns}
-% \end{frame}
-
-%----------------------------------------------------------------------------------------
-%	CLOSING SLIDE
-%----------------------------------------------------------------------------------------
-
-% \begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
-% 	\begin{center}
-% 		{\Huge The End}
-		
-% 		\bigskip\bigskip % Vertical whitespace
-		
-% 		{\LARGE Questions? Comments?}
-% 	\end{center}
-% \end{frame}
 
 %----------------------------------------------------------------------------------------
 

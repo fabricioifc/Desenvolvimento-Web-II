@@ -19,7 +19,7 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[
-	10pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+	9pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
 	t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
 	%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
 ]{beamer}
@@ -292,14 +292,14 @@ citestyle=authoryear,
 		{\Huge MVP}
 		
 		\smallskip
-		{\small \textit{Model-View-Presenver}}
+		{\small \textit{Model-View-Presenter}}
 	\end{center}
 
 \end{frame}
 
 \begin{frame}
 	\frametitle{Padrões de Arquitetura para Web}
-	\framesubtitle{MVP - Model-View-Presenver}
+	\framesubtitle{MVP - Model-View-Presenter}
 
 	\begin{block}{Definição}
 	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
@@ -317,7 +317,7 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{Padrões de Arquitetura para Web}
-	\framesubtitle{MVP - Model-View-Presenver}
+	\framesubtitle{MVP - Model-View-Presenter}
 
 	No MVP quem manda é o View. Cada View chama seu Presenter ou possui alguns eventos que o Presenter escuta.
 	\begin{exampleblock}{Exemplo}
@@ -329,7 +329,7 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{Padrões de Arquitetura para Web}
-	\framesubtitle{MVP - Model-View-Presenver}
+	\framesubtitle{MVP - Model-View-Presenter}
 
 	\begin{figure}
 		\centering
@@ -348,8 +348,8 @@ citestyle=authoryear,
 			\item O \alert{MVC} não coloca o View no comando, os Views atuam como escravos que o Controlador pode gerenciar e direcionar.
 			\item No \alert{MVC}, as visualizações são sem estado, ao contrário das visualizações no MVP, onde são com estado e podem mudar com o tempo.
 			\item No \alert{MVP}, as Views não têm lógica e devemos mantê-las o mais burras possível. Por outro lado, Views em MVC podem ter algum tipo de lógica.
-			\item No \alert{MVP}, o Presenter é desacoplado da View e se comunica com ela através de uma interface. Isso permite zombar do View em testes unitários, ou seja, podemos testar o Presenter sem o View.
-			\item No \alert{MVP}, as visualizações são completamente isoladas do modelo. No entanto, no MVC, as Views podem se comunicar com o Modelo para mantê-lo atualizado com os dados mais atualizados.
+			\item No \alert{MVP}, o Presenter é desacoplado da View e se comunica com ela através de uma interface. Isso permite que o Presenter seja testado sem a View.
+			\item No \alert{MVP}, as visualizações são completamente isoladas do modelo. No entanto, no MVC, as Views podem se comunicar com o Modelo para mantê-lo atualizado.
 		\end{itemize}
 	\end{block}
 
@@ -384,23 +384,15 @@ citestyle=authoryear,
 
 \end{frame}
 
-\begin{frame}
-	\frametitle{Padrões de Arquitetura para Web}
-	\framesubtitle{MVVM - Model-View-ViewModel}
+% \begin{frame}
+% 	\frametitle{Padrões de Arquitetura para Web}
+% 	\framesubtitle{MVVM - Model-View-ViewModel}
 
-	\begin{block}{Definição}
-	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-			\begin{column}{0.8\textwidth} % Left column width
-				Aborda algumas das desvantagens da abordagem MVC tradicional. Originou-se no início da década de 1990 na Taligent, uma joint venture entre Apple, IBM e Hewlett-Packard. Foi ainda mais popularizado pelo Dolphin Smalltalk em 1998 e, em 2006, a Microsoft adotou o MVP para programação de interface de usuário no framework .NET.
-			\end{column}
+% 	\begin{block}{Definição}
+% 		É um padrão de arquitetura de software que facilita a separação de interesses no desenvolvimento de aplicativos. O MVVM foi criado pelo arquiteto de software do WPF  (Windows Presentation Foundation) e Silverlight da Microsoft, John Grossman em 2005. Desde então, ele vem sendo usado principalmente no desenvolvimento mobile. Ele foi criado para ser usado em aplicativos WPF e usava XAML (uma linguagem declarativa para objetos e suas propriedades) a fim de separar a interface do usuário da lógica de negócios, aproveitando o data binding que é a vinculação de dados.
+% 	\end{block}
 
-			\begin{column}{0.2\textwidth} % Right column width
-				\includegraphics[width=0.9\linewidth]{Images/mvp_logo.jpg}
-			\end{column}
-		\end{columns}
-	\end{block}
-
-\end{frame}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{Padrões de Arquitetura para Web}
@@ -418,6 +410,16 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Padrões de Arquitetura para Web}
 	\framesubtitle{MVVM - Model-View-ViewModel}
+
+	{\small 
+	\begin{itemize}
+		\item \textbf{Model}: representa os dados e as regras de negócios. Ele é responsável por recuperar, armazenar e processar dados.
+		\item \textbf{View}: é a interface do usuário. Ela é responsável por exibir os dados ao usuário e capturar a entrada do usuário.
+		\item \textbf{ViewModel}: é um intermediário entre a View e o Model. Ele é responsável por expor métodos, comandos e outras propriedades que ajudam a manter o estado da View, manipular a entrada do usuário e se comunicar com o Modelo.
+		\item \textbf{Data Binding}: é o mecanismo que sincroniza automaticamente a View e o ViewModel. Quando os dados no ViewModel mudam, a View é atualizada automaticamente e vice-versa.
+		\item \textbf{Send Notifications}: o ViewModel envia notificações para a View quando os dados mudam. Isso permite que a View saiba quando atualizar a interface do usuário.
+	\end{itemize}
+	}
 
 	\begin{figure}
 		\centering
@@ -570,7 +572,7 @@ citestyle=authoryear,
 	\begin{block}{Observações}
 		\begin{itemize}
 			\item Os experimentos devem ser publicados no \textbf{GitHub}. Explique resumidamente o que foi feito e como foi feito no arquivo \textbf{README.md}.
-			\item O link para o repositório deve ser enviado para o e-mail do professor com o seguinte título: \textbf{[DesWebII] Aula 02 - Experimentos - NOMEDOALUNO}.
+			\item O link para o repositório deve ser enviado para o e-mail do professor com o seguinte título: \textbf{[DesWebII] Aula 03 - Experimentos - NOMEDOALUNO}.
 			\item \textbf{Entrega:} antes do início da próxima aula.
 		\end{itemize}
 	\end{block}
@@ -729,7 +731,7 @@ citestyle=authoryear,
 		
 		\bigskip\bigskip % Vertical whitespace
 		
-		{\LARGE Aula 02 - Padrões de Arquitetura}
+		{\LARGE Aula 03 - Padrões de Arquitetura}
 	\end{center}
 \end{frame}
 
