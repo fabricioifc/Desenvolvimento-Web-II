@@ -198,13 +198,70 @@ citestyle=authoryear,
 		\item Permite criar árvores de DOM independentes e isoladas que podem ser anexadas a um elemento HTML.
 		\item Impede que estilos e scripts de fora do DOM encapsulado afetem o DOM encapsulado.
 		\item Permite criar e reutilizar componentes.
+		\item Exemplo: \texttt{<input type="range">} é um elemento nativo encapsulado.
 	\end{itemize}
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.5\textwidth]{shadow_dom.png}
-		\caption{Shadow DOM}
+		\includegraphics[width=0.8\textwidth]{shadow_dom_example.png}
+		\caption{Shadow DOM - Exemplo}
 	\end{figure}
+
+\end{frame}
+
+\section{HTML Templates e Slots}
+
+\begin{frame}
+	\frametitle{Web Components}
+	\framesubtitle{HTML Templates}
+	\begin{itemize}
+		\item HTML Templates é uma tag que permite declarar fragmentos de código HTML que não são renderizados quando a página é carregada.
+		\item O conteúdo do template pode ser clonado e renderizado posteriormente.
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{html_templates.png}
+		\caption{HTML Templates - Exemplo}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Web Components}
+	\framesubtitle{HTML Templates - Slots}
+	\begin{itemize}
+		\item Slots são um mecanismo que permite inserir conteúdo dinâmico dentro de um componente encapsulado.
+		\item Se um componente tem um slot, o conteúdo inserido no slot é renderizado no lugar do slot.
+		\item O slot tem um conteúdo padrão que é renderizado se nenhum conteúdo for inserido.
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{html_slots.png}
+		\caption{Slots - Exemplo}
+	\end{figure}
+
+\end{frame}
+
+\section{HTML Imports}
+
+\begin{frame}
+	\frametitle{Web Components}
+	\framesubtitle{HTML Imports}
+	\begin{itemize}
+		\item HTML Imports era uma especificação da W3C que permitia importar e incluir componentes web em outros documentos HTML.
+		\item Foi descontinuado em favor de módulos ES6 que permitem importar e exportar módulos JavaScript.
+	\end{itemize}
+
+	\begin{block}{Exemplo}
+		\texttt{// Importa o componente - \alert{descontinuado}}\\
+		\texttt{<link rel=$"$import$"$ href=$"$component.html$"$>}\\
+
+		\bigskip 
+		\texttt{// Importa o módulo ES6}\\
+		\texttt{import \{Component\} from $"$component.js$"$}
+	\end{block}
 
 \end{frame}
 
