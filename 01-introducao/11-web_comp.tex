@@ -1,0 +1,211 @@
+\documentclass[
+	9pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+	t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
+	%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+
+\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[english,brazil]{babel}
+\usepackage{fontawesome5}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{xcolor}
+% \usepackage{graphicx}
+% \usepackage{animate}
+\RequirePackage[backend=biber,
+style=ieee,
+citestyle=authoryear,
+]{biblatex}
+
+% Define a custom command for an icon link
+\newcommand{\iconLink}[2]{\href{#1}{\faLink \hspace{0.2em} {#2}}}
+\newcommand{\yellowbox}[1]{\colorbox{yellow!75}{#1}}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+
+% Definindo um estilo para o destaque
+%----------------------------------------------------------------------------------------
+%	SELECT LAYOUT THEME
+%----------------------------------------------------------------------------------------
+\usetheme{Madrid}
+
+%----------------------------------------------------------------------------------------
+%	SELECT COLOR THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of color themes that can be applied to any layout theme to change its colors. Uncomment each of these in turn to see how they change the colors of your selected layout theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+% \usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{monarca}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{spruce}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%----------------------------------------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%----------------------------------------------------------------------------------------
+\usefonttheme{default} % Typeset using the default sans serif font
+
+%------------------------------------------------
+
+\usepackage{palatino} % Use the Palatino font for serif text
+\usepackage[default]{lato} % Use the Lato font for sans serif text
+
+%----------------------------------------------------------------------------------------
+%	SELECT INNER THEME
+%----------------------------------------------------------------------------------------
+\useinnertheme{rectangles}
+
+%----------------------------------------------------------------------------------------
+%	SELECT OUTER THEME
+%----------------------------------------------------------------------------------------
+
+% Outer themes change the overall layout of slides, such as: header and footer lines, sidebars and slide titles. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useoutertheme{default}
+%\useoutertheme{infolines}
+%\useoutertheme{miniframes}
+%\useoutertheme{smoothbars}
+%\useoutertheme{sidebar}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+
+%\setbeamertemplate{footline} % Uncomment this line to remove the footer line in all slides
+%\setbeamertemplate{footline}[page number] % Uncomment this line to replace the footer line in all slides with a simple slide count
+
+%\setbeamertemplate{navigation symbols}{} % Uncomment this line to remove the navigation symbols from the bottom of all slides
+
+% \bibliography{references} % Specifies the bibliography file to include publications
+% \bibliographystyle{apalike} % Specifies the bibliography style
+\addbibresource{references.bib}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title[DesWebII]{Desenvolvimento Web II} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+\subtitle{Aula 11 - Web Components} % Presentation subtitle, remove this command if a subtitle isn't required
+\author[Fabricio Bizotto]{Prof. Fabricio Bizotto} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+\institute[IFC]{Instituto Federal Catarinense \\ \smallskip \textit{fabricio.bizotto@ifc.edu.br}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+\date[\today]{Ciência da Computação \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Roteiro} % Slide title, remove this command for no title
+	
+	\tableofcontents % Output the table of contents (all sections on one slide)
+	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Web Components}
+
+\begin{frame}
+	\frametitle{Web Components}
+	\framesubtitle{Conceito}
+	\begin{itemize}
+		\item Web Components são um conjunto de especificações elaboradas para permitir a criação de elementos web de forma customizada e independente.
+		\item Web Components é uma especificação do W3C, que inclui:
+		\begin{itemize}
+			\item \textbf{Custom Elements}
+			\item \textbf{Shadow DOM}
+			\item \textbf{HTML Templates}
+			\item \textbf{HTML Imports}
+		\end{itemize}
+		\item Frameworks como Angular, React e Vue.js ajudaram a popularizar a ideia de componentização no desenvolvimento web.
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{web_components.jpg}
+		\caption{Web Components}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Web Components}
+	\framesubtitle{Custom Elements}
+	\begin{itemize}
+		\item Custom Elements é uma API que permite a criação de novos elementos HTML personalizados, encapsulando HTML, CSS e JavaScript.
+		\item A classe pode ser estendida a partir de \texttt{HTMLElement} ou \texttt{HTMLButtonElement}, por exemplo.
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{custom_elements.png}
+		\caption{Custom Elements}
+	\end{figure}
+
+\end{frame}
+
+\section{DOM vs Shadow DOM}
+
+\begin{frame}
+	\frametitle{Web Components}
+	\framesubtitle{DOM vs Shadow DOM}
+	\begin{itemize}
+		\item O DOM é uma árvore de elementos HTML/XML que representa a estrutura de uma página web. No contexto de Web Components, light DOM é o DOM padrão da página.
+		\item O Shadow DOM é uma árvore de elementos HTML encapsulada que representa a estrutura de um componente web.
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{dom_shadow_dom.png}
+		\caption{DOM vs Shadow DOM}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Web Components}
+	\framesubtitle{Shadow DOM}
+	\begin{itemize}
+		\item Shadow DOM é uma API que permite a criação de um DOM encapsulado para fornecer um encapsulamento de estilo e comportamento.
+		\item Permite criar árvores de DOM independentes e isoladas que podem ser anexadas a um elemento HTML.
+		\item Impede que estilos e scripts de fora do DOM encapsulado afetem o DOM encapsulado.
+		\item Permite criar e reutilizar componentes.
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{shadow_dom.png}
+		\caption{Shadow DOM}
+	\end{figure}
+
+\end{frame}
+
+\end{document} 
