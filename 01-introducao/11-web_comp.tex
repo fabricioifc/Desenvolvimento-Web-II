@@ -172,7 +172,7 @@ citestyle=authoryear,
 
 \end{frame}
 
-\section{DOM vs Shadow DOM}
+\subsection{DOM vs Shadow DOM}
 
 \begin{frame}
 	\frametitle{Web Components}
@@ -209,7 +209,7 @@ citestyle=authoryear,
 
 \end{frame}
 
-\section{HTML Templates e Slots}
+\subsection{HTML Templates e Slots}
 
 \begin{frame}
 	\frametitle{Web Components}
@@ -233,7 +233,7 @@ citestyle=authoryear,
 	\begin{itemize}
 		\item Slots são um mecanismo que permite inserir conteúdo dinâmico dentro de um componente encapsulado.
 		\item Se um componente tem um slot, o conteúdo inserido no slot é renderizado no lugar do slot.
-		\item O slot tem um conteúdo padrão que é renderizado se nenhum conteúdo for inserido.
+		\item O slot é usado para adicionar texto customizado.
 	\end{itemize}
 
 	\begin{figure}
@@ -244,7 +244,7 @@ citestyle=authoryear,
 
 \end{frame}
 
-\section{HTML Imports}
+\subsection{HTML Imports - \textit{Descontinuado}}
 
 \begin{frame}
 	\frametitle{Web Components}
@@ -262,6 +262,54 @@ citestyle=authoryear,
 		\texttt{// Importa o módulo ES6}\\
 		\texttt{import \{Component\} from $"$component.js$"$}
 	\end{block}
+
+\end{frame}
+
+\section{Prós e Contras}
+
+\begin{frame}
+	\frametitle{Web Components}
+	\framesubtitle{Prós e Contras}
+	\begin{exampleblock}{Prós}
+		\begin{itemize}
+			\item \textbf{Reusabilidade}: Componentes podem ser reutilizados em diferentes projetos.
+			\item \textbf{Encapsulamento}: O Shadow DOM permite encapsular estilos e comportamentos
+			\item \textbf{Produtivididade}: Facilita a manutenção e evolução de aplicações web.
+			\item \textbf{Padronização}: Padrão do W3C, suportado por todos os navegadores modernos.
+		\end{itemize}
+	\end{exampleblock}
+
+	\begin{alertblock}{Contras}
+		\begin{itemize}
+			\item \textbf{Compatibilidade}: Não é suportado por navegadores mais antigos.
+			\item \textbf{Complexidade}: Requer conhecimento avançado de HTML, CSS e JavaScript.
+			\item \textbf{Performance}: Pode impactar a performance da aplicação.
+			\item \textbf{Curva de Aprendizado}: Requer tempo para aprender e dominar.
+			\item \textbf{Acessibilidade}: Pode impactar leitores de tela e outras tecnologias assistivas.
+		\end{itemize}
+	\end{alertblock}
+
+\end{frame}
+
+\section{Exemplo}
+
+\begin{frame}
+	\frametitle{Web Components}
+	\framesubtitle{Exemplo}
+
+	Para criar um Web Component, é necessário:
+	\begin{itemize}
+		\item Criar uma classe que estende \texttt{HTMLElement}
+		\item Definir o template do componente
+		\item Definir o Shadow DOM
+		\item Registrar o componente
+		\item Usar o componente
+	\end{itemize}
+	
+	\begin{exampleblock}{Exemplo}
+		\centering
+		\iconLink{https://gist.github.com/fabricioifc/36e978f4ff2add25ca0eed6e86219918}{Gist - Exemplo prático de Web Components}
+	\end{exampleblock}	
 
 \end{frame}
 
