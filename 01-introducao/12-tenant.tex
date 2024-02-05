@@ -279,9 +279,9 @@ citestyle=authoryear,
 	Esses são os tipos mais comuns de \textit{Multi Tenancy}:
 
 	\begin{itemize}
-		\item \textbf{Isolated Tenancy:} cada \textit{tenant} tem sua própria instância da aplicação, banco de dados, etc. Cada instância é isolada das demais. É o mais seguro, mas também o mais caro.
-		\item \textbf{Database Tenancy:} todos os \textit{tenants} compartilham a mesma base de dados, mas cada \textit{tenant} tem suas próprias tabelas. É mais barato, mas menos seguro.
-		\item \textbf{Schema Tenancy:} todos os \textit{tenants} compartilham a mesma base de dados e as mesmas tabelas, mas cada \textit{tenant} tem seu próprio \textit{schema}. É mais barato, mas menos seguro.
+		\item \textbf{Shared Database:} todos os \textit{tenants} compartilham a mesma base de dados, tabelas, etc. Cada \textit{tenant} tem suas próprias linhas de dados. Essa é a forma mais básica de \textit{Multi Tenancy}.
+		\item \textbf{One Schema Per Tenant:} todos os \textit{tenants} compartilham a mesma base de dados, mas cada \textit{tenant} tem seu próprio \textit{schema}. Cada \textit{tenant} tem suas próprias tabelas, índices, etc.
+		\item \textbf{One Database Per Tenant:} cada \textit{tenant} tem sua própria base de dados. Cada \textit{tenant} tem suas próprias tabelas, índices, etc. É o mais seguro, mas também o mais caro.
 	\end{itemize}
 
 	\begin{figure}
@@ -289,6 +289,86 @@ citestyle=authoryear,
 		\includegraphics[width=0.8\textwidth]{tenancy_types.png}
 		% \caption{Tipos de \textit{Multi Tenancy}}
 	\end{figure}
+
+\end{frame}
+
+\subsection{Schema Database}
+
+\begin{frame}
+	\frametitle{Multi Tenancy}
+	\framesubtitle{Schema Database}
+
+	\begin{itemize}
+		\item Somente um banco de dados é utilizado.
+		\item Gerenciamento simples.
+		\item \alert{Aumenta os riscos de segurança ao expor dados de um \textit{tenant} para outro.}
+		\item \alert{Não tem isolamento físico entre os \textit{tenants}.} Esse isolamento está na mão do desenvolvedor.
+		
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\textwidth]{schema_database.png}
+		\caption{Schema Database}
+	\end{figure}
+
+\end{frame}
+
+\subsection{One Schema Per Tenant}
+
+\begin{frame}
+	\frametitle{Multi Tenancy}
+	\framesubtitle{One Schema Per Tenant}
+
+	\begin{itemize}
+		\item Cada \textit{tenant} tem seu próprio \textit{schema}.
+		\item Os dados de cada \textit{tenant} estão isolados, mas compartilham a mesma base de dados.
+		\item Reduz os riscos de segurança pois não precisa usar a cláusula \texttt{WHERE} para filtrar os dados entre os \textit{tenants}.
+		\item \alert{Risco de consultar o \textit{schema} errado.}
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\textwidth]{one_schema.png}
+		\caption{One Schema Per Tenant}
+	\end{figure}
+
+\end{frame}
+
+\subsection{One Database Per Tenant}
+
+\begin{frame}
+	\frametitle{Multi Tenancy}
+	\framesubtitle{One Database Per Tenant}
+
+	\begin{itemize}
+		\item Cada \textit{tenant} tem seu próprio banco de dados.
+		\item Maior segurança e isolamento entre os \textit{tenants}.
+		\item Sem complexidade para filtrar os dados.
+		\item \alert{Maior custo de manutenção e infraestrutura.}
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\textwidth]{one_per_database.png}
+		\caption{One Database Per Tenant}
+	\end{figure}
+
+\end{frame}
+
+\section{Considerações Finais}
+
+\begin{frame}
+	\frametitle{Multi Tenancy}
+	\framesubtitle{Considerações Finais}
+
+	\begin{itemize}
+		\item O \textit{Multi Tenancy} é uma forma de compartilhar recursos entre múltiplos clientes.
+		\item Existem diferentes formas de implementar o \textit{Multi Tenancy}, cada uma com suas vantagens e desvantagens.
+		\item O \textit{Multi Tenancy} é comum em sistemas de \textit{Software as a Service} (SaaS).
+		\item O \textit{Multi Tenancy} é uma forma de reduzir custos e facilitar a manutenção e atualização de sistemas.
+		\item O \textit{Multi Tenancy} é uma forma de escalar sistemas para atender a um grande número de clientes.
+	\end{itemize}
 
 \end{frame}
 
