@@ -1,0 +1,274 @@
+\documentclass[
+	9pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+	t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
+	%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+
+\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[english,brazil]{babel}
+\usepackage{fontawesome5}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{xcolor}
+% \usepackage{graphicx}
+% \usepackage{animate}
+\RequirePackage[backend=biber,
+style=ieee,
+citestyle=authoryear,
+]{biblatex}
+
+% Define a custom command for an icon link
+\newcommand{\iconLink}[2]{\href{#1}{\faLink \hspace{0.2em} {#2}}}
+\newcommand{\yellowbox}[1]{\colorbox{yellow!75}{#1}}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+
+% Definindo um estilo para o destaque
+%----------------------------------------------------------------------------------------
+%	SELECT LAYOUT THEME
+%----------------------------------------------------------------------------------------
+\usetheme{Madrid}
+
+%----------------------------------------------------------------------------------------
+%	SELECT COLOR THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of color themes that can be applied to any layout theme to change its colors. Uncomment each of these in turn to see how they change the colors of your selected layout theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+% \usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{monarca}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{spruce}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%----------------------------------------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%----------------------------------------------------------------------------------------
+\usefonttheme{default} % Typeset using the default sans serif font
+
+%------------------------------------------------
+
+\usepackage{palatino} % Use the Palatino font for serif text
+\usepackage[default]{lato} % Use the Lato font for sans serif text
+
+%----------------------------------------------------------------------------------------
+%	SELECT INNER THEME
+%----------------------------------------------------------------------------------------
+\useinnertheme{rectangles}
+
+%----------------------------------------------------------------------------------------
+%	SELECT OUTER THEME
+%----------------------------------------------------------------------------------------
+
+% Outer themes change the overall layout of slides, such as: header and footer lines, sidebars and slide titles. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+%\useoutertheme{default}
+%\useoutertheme{infolines}
+%\useoutertheme{miniframes}
+%\useoutertheme{smoothbars}
+%\useoutertheme{sidebar}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+
+%\setbeamertemplate{footline} % Uncomment this line to remove the footer line in all slides
+%\setbeamertemplate{footline}[page number] % Uncomment this line to replace the footer line in all slides with a simple slide count
+
+%\setbeamertemplate{navigation symbols}{} % Uncomment this line to remove the navigation symbols from the bottom of all slides
+
+% \bibliography{references} % Specifies the bibliography file to include publications
+% \bibliographystyle{apalike} % Specifies the bibliography style
+\addbibresource{references.bib}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title[DesWebII]{Desenvolvimento Web II} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+\subtitle{Aula 12 - \textit{Multi Tenancy}} % Presentation subtitle, remove this command if a subtitle isn't required
+\author[Fabricio Bizotto]{Prof. Fabricio Bizotto} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+\institute[IFC]{Instituto Federal Catarinense \\ \smallskip \textit{fabricio.bizotto@ifc.edu.br}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+\date[\today]{Ciência da Computação \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Roteiro} % Slide title, remove this command for no title
+	
+	\tableofcontents % Output the table of contents (all sections on one slide)
+	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Definição}
+
+\begin{frame}
+	\frametitle{Multi Tenancy}
+	\framesubtitle{Definição}
+
+	\begin{itemize}
+		\item \textit{Multi Tenancy} é um padrão de arquitetura de software onde uma única instância de software serve a múltiplos clientes, chamados de \textit{tenants}.
+		\item Cada \textit{tenant} é isolado dos demais, e pode ter suas próprias configurações, dados e personalizações.
+		\item O \textit{Multi Tenancy} é comum em sistemas de \textit{Software as a Service} (SaaS), onde um único sistema é utilizado por múltiplos clientes.
+		\item O \textit{Multi Tenancy} pode ser implementado em diferentes níveis de um sistema, como banco de dados, aplicação, interface de usuário, etc.
+	\end{itemize}
+
+	\begin{block}{Empresas que Utilizam \textit{Multi Tenancy}}
+		\begin{itemize}
+			\item \textbf{Salesforce:} um único sistema de CRM utilizado por milhares de empresas.
+			\item \textbf{Google Apps:} um único sistema de e-mail, calendário, etc., utilizado por milhões de usuários.
+			\item \textbf{Shopify:} um único sistema de e-commerce utilizado por milhares de lojas.
+			\item \textbf{Microsoft 365:} um único sistema de produtividade utilizado por milhões de usuários.
+			\item \textbf{Dropbox:} um único sistema de armazenamento de arquivos utilizado por milhões de usuários.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\section{Analogia com Imóveis}
+
+\begin{frame}
+	\frametitle{Multi Tenancy}
+	\framesubtitle{Analogia com Imóveis}
+	
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{itemize}
+			\item Imagine um prédio de apartamentos.
+			\item Cada apartamento é um \textit{tenant}.
+			\item Cada apartamento tem suas próprias chaves, móveis, decoração, etc.
+			\item Cada apartamento é isolado dos demais.
+			\item O prédio é o sistema de \textit{Multi Tenancy}.
+		\end{itemize}
+
+		\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\textwidth]{multitenancy_imoveis.jpg}
+			\caption{Single Tenant vs. Multi Tenant}
+		\end{figure}
+
+	\end{columns}
+
+	\begin{block}{Não é a mesma coisa que \textit{Multi User}?}
+		Não. Todos sistema \textit{Multi Tenant} é \textit{Multi User}, mas nem todo sistema \textit{Multi User} é \textit{Multi Tenant}.
+	\end{block}
+
+\end{frame}
+
+\subsection{Multi User}
+
+\begin{frame}
+	\frametitle{Multi Tenancy}
+	\framesubtitle{Aplicação Multi User}
+
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{enumerate}
+			\item Existe compartilhamento de dados e recursos entre os usuários.
+			\item O professor pode ver e interagir com os dados dos alunos.
+			\item O aluno pode ver suas próprias notas.
+			\item O coordenador pode gerenciar as disciplinas, alunos, professores.
+			\item Não existe isolamento entre os usuários.
+			\item Não posso vender esse produto para outra escola.
+		\end{enumerate}
+
+		\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\textwidth]{sigaa_tela.png}
+			\caption{Aplicação Multi User}
+		\end{figure}
+
+	\end{columns}
+
+\end{frame}
+
+\section{\textit{Single Tenant} vs. \textit{Multi Tenant}}
+
+\begin{frame}
+	\framesubtitle{\textit{Multi Tenant}}
+	\frametitle{Single Tenant}
+
+	\begin{block}{Definição}
+		Aplicação que serve a um único cliente. Cada cliente tem sua própria instância da aplicação. Cada instância é isolada das demais.
+	\end{block}
+
+	\begin{exampleblock}{Vantagens}
+		\begin{itemize}
+			\item A base de dados é isolada. Maior segurança.
+			\item A performance é previsível. Não será afetada por outros clientes.
+			\item Facilidade para customizar a aplicação para um cliente específico.
+			\item Oferece maior controle sobre a aplicação.
+		\end{itemize}
+	\end{exampleblock}
+
+	\begin{alertblock}{Desvantagens}
+		\begin{itemize}
+			\item Cliente precisa arcar com os custos de uma instância completa.
+			\item Exige maior esforço para manter e atualizar as instâncias.
+		\end{itemize}
+	\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\textit{Single Tenant} vs. \textit{Multi Tenant}}
+	\framesubtitle{\textit{Multi Tenant}}
+
+	\begin{block}{Definição}
+		Aplicação que serve a múltiplos clientes. Todos os clientes compartilham a mesma instância da aplicação. Cada cliente é isolado dos demais.
+	\end{block}
+
+	\begin{exampleblock}{Vantagens}
+		\begin{itemize}
+			\item Redução de custos. A aplicação é compartilhada entre os clientes.
+			\item Facilidade para manter e atualizar a aplicação.
+			\item Facilidade para escalar a aplicação.
+			\item Facilidade para adicionar novos clientes.
+		\end{itemize}
+	\end{exampleblock}
+
+	\begin{alertblock}{Desvantagens}
+		\begin{itemize}
+			\item Menor controle sobre a aplicação.
+			\item Menor segurança. Um cliente pode afetar a performance de outros.
+			\item Dificuldade para customizar a aplicação para um cliente específico.
+		\end{itemize}
+	\end{alertblock}
+
+\end{frame}
+
+
+\end{document} 
