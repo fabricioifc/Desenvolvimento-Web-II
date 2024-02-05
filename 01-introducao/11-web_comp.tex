@@ -183,6 +183,25 @@ citestyle=authoryear,
 
 \end{frame}
 
+\subsection{ciclo de vida}
+
+\begin{frame}
+	\frametitle{Web Components}
+	\framesubtitle{Ciclo de Vida}
+	\begin{itemize}
+		\item Os Web Components têm um ciclo de vida que é gerenciado pelo navegador.
+		\item O ciclo de vida é composto por callbacks que são chamados em diferentes momentos do ciclo de vida do componente.
+		\item Os callbacks mais comuns são:
+		\begin{itemize}
+			\item \texttt{connectedCallback}: Chamado quando o componente é conectado ao DOM.
+			\item \texttt{disconnectedCallback}: Chamado quando o componente é desconectado do DOM.
+			\item \texttt{attributeChangedCallback}: Chamado quando um atributo do componente é alterado.
+			\item \texttt{adoptedCallback}: Chamado quando o componente é movido para um novo documento.
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
 \begin{frame}
 	\frametitle{Web Components}
 	\framesubtitle{Custom Elements}
@@ -354,6 +373,7 @@ citestyle=authoryear,
 		\item \iconLink{https://ui.shadcn.com/}{\textbf{ShadCN - UI Components}}.\\Biblioteca de Componentes Web
 		\item \iconLink{https://medium.com/@yourkube/10-best-web-component-libraries-b470541277e8}{\textbf{10 Best Web Component Libraries}}.\\Artigo - Medium
 		\item \iconLink{https://webcomponent-ds.estaleiro.serpro.gov.br}{\textbf{Web Components - GovBR-DS}}.\\Design System do Governo Brasileiro
+		\item \iconLink{https://ultimatecourses.com/blog/lifecycle-hooks-in-web-components}{\textbf{Lifecycle}}.\\Lifecycle Hooks in Web Components
 	\end{itemize}
 
 \end{frame}
@@ -379,6 +399,7 @@ citestyle=authoryear,
 	\begin{block}{Entrega}
 		\begin{itemize}
 			\item Crie um repositório no GitHub para entregar os exercícios.
+			\item O componente precisa implementar o ciclo de vida.
 			\item Crie um arquivo \texttt{README.md} com instruções sobre como usar os componentes.
 		\end{itemize}
 	\end{block}
