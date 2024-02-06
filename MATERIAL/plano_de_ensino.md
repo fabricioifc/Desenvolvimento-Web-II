@@ -5,37 +5,48 @@
 **Ementa:**
 Segurança e arquitetura de sistemas Web. Serviços Web. Integração de sistemas. Tecnologias emergentes de sistemas Web. 
 
+**Objetivos Específicos:**
+ - Explorar os conceitos básicos de segurança de sistemas web.
+ - Compreender e aplicar os principais modelos arquiteturais de sistemas web.
+ - Desenvolver e consumir serviços web.
+ - Explorar os conceitos de serviços web e as tecnologias subjacentes.
+ - Estar atualizado com as últimas tendências e tecnologias emergentes em sistemas web.
+ - Analisar os protocolos de comunicação utilizados em serviços web, como HTTP e HTTPS.
+
 **Objetivo Geral:**
 Capacitar os estudantes a compreender e aplicar conceitos fundamentais relacionados à arquitetura de sistemas web, serviços web, integração de sistemas e tecnologias emergentes, proporcionando uma visão abrangente e atualizada do desenvolvimento web.
 
 **Carga Horária Total:**
 60 horas (18 semanas)
 
-**Unidade 1: Introdução à Arquitetura de Sistemas Web (4 horas)**\
+**Unidade 1: Introdução à Arquitetura de Sistemas Web**\
 1.1. Conceitos básicos de arquitetura de sistemas web\
 1.2. Modelos arquiteturais: monolítico, cliente-servidor, arquitetura em camadas, arquitetura orientada a serviços (SOA), arquitetura orientada a microsserviços\
-1.3. Principais desafios e tendências\
+1.3. Padrões de projeto (MVC, MCP, MVVM)\
+1.4. Principais desafios e tendências\
 
-**Unidade 2: Serviços Web (16 horas)**\
+**Unidade 2: Serviços Web**\
 2.1. Protocolos de comunicação: HTTP, HTTPS, WebSocket\
 2.2. Arquitetura REST e RESTful\
-2.3. Desenvolvimento de APIs\
-2.4. Documentação de serviços web (Swagger, OpenAPI)\
-2.5. Segurança em serviços web (OAuth, JWT)\
+2.3. Documentação de serviços web (Swagger, OpenAPI)\
+2.4. Segurança em serviços web (OAuth, JWT)\
 
-**Unidade 3: Integração de Sistemas (18 horas)**\
-3.1. Padrões de integração\
-3.2. APIs de terceiros\
-3.3. Integração de bancos de dados\
-3.4. Autenticação e autorização em sistemas distribuídos\
-3.5. Ferramentas de integração\
+**Unidade 3: Integração e Entrega Contínua**\
+3.1. Integração contínua\
+3.2. Entrega contínua\
+3.3. Ferramentas de integração e entrega contínua\
+3.4. Automação de testes\
+3.5. Estratégias de deploy\
 
-**Unidade 4: Tecnologias Emergentes de Sistemas Web (14 horas)**\
-4.1. Arquiteturas serverless\
-4.2. Contêineres e orquestração\
-4.3. Microserviços\
-4.4. Progressive Web Apps (PWAs)\
-4.5. Exploração de tendências e inovações\
+**Unidade 4: Tecnologias Emergentes de Sistemas Web**\
+4.1. Mensageria e filas de mensagens\
+4.2. Estratégias de integração assíncrona e síncrona\
+4.3. Principais linguagens e frameworks\
+4.4. Server Sent Events (SSE)\
+4.5. HTTP/2 e HTTP/3\
+4.6. Design Thinking (Web Components)\
+4.7. Multi-tenancy\
+4.8. Progressive Web Apps (PWAs)\
 
 **Metodologia:**
 - Aulas expositivas com recursos audiovisuais
