@@ -299,6 +299,7 @@ citestyle=authoryear,
 	\begin{itemize}
 		\item Somente um banco de dados é utilizado.
 		\item Gerenciamento simples.
+		\item É a forma mais comum de \textit{Multi Tenancy}.
 		\item \alert{Aumenta os riscos de segurança ao expor dados de um \textit{tenant} para outro.}
 		\item \alert{Não tem isolamento físico entre os \textit{tenants}.} Esse isolamento está na mão do desenvolvedor.
 		
@@ -341,16 +342,35 @@ citestyle=authoryear,
 
 	\begin{itemize}
 		\item Cada \textit{tenant} tem seu próprio banco de dados.
+		\item Normalmente é usado para isolar um cliente grande.
 		\item Maior segurança e isolamento entre os \textit{tenants}.
 		\item Sem complexidade para filtrar os dados.
 		\item \alert{Maior custo de manutenção e infraestrutura.}
+		\item \alert{Alterações no banco de dados precisam ser replicadas para todos os \textit{tenants}.}
 	\end{itemize}
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.9\textwidth]{one_per_database.png}
+		\includegraphics[width=0.8\textwidth]{one_per_database.png}
 		\caption{One Database Per Tenant}
 	\end{figure}
+
+\end{frame}
+
+\section{\textit{Multi Tenancy} em uma API REST}
+
+\begin{frame}
+	\frametitle{Multi Tenancy}
+	\framesubtitle{\textit{Multi Tenancy} em uma API REST}
+
+	\begin{itemize}
+		\item Identificação do \textit{tenant} baseada em parâmetros de consulta\\
+		\texttt{GET /api/v1/tasks?tenant=tenant\_id}
+		\item Identificação do \textit{tenant} baseada em subdomínio\\
+		\texttt{GET https://tenant1.myapp.com/api/v1/tasks}
+		\item Identificação do \textit{tenant} baseada na URL\\
+		\texttt{GET https://myapp.com/tenant1/api/v1/tasks}
+	\end{itemize}
 
 \end{frame}
 
@@ -367,6 +387,39 @@ citestyle=authoryear,
 		\item O \textit{Multi Tenancy} é uma forma de reduzir custos e facilitar a manutenção e atualização de sistemas.
 		\item O \textit{Multi Tenancy} é uma forma de escalar sistemas para atender a um grande número de clientes.
 	\end{itemize}
+
+\end{frame}
+
+\section{QUIZ}
+
+\begin{frame}
+	\frametitle{Recapitulando}
+	\framesubtitle{QUIZ}
+
+	Vamos praticar um pouco o que vimos até agora?
+	\vfill
+
+	\bigskip
+	\centering
+
+	\href{https://quizizz.com/admin/quiz/65c20cca036b2c1121fc8392?source=admin&trigger=quizPage}{\textbf{QUIZ - Multi Tenancy}}
+	\vfill
+		
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\section{Experimentos}
+
+\begin{frame}
+	\frametitle{Experimentos}
+	\framesubtitle{Vamos praticar?}
+
+	Nesta atividade, o aluno deve desenvolver uma aplicação web simples utilizando a arquitetura multi tenancy. O objetivo é criar uma plataforma de lista de tarefas compartilhada, onde diferentes usuários, ou inquilinos, podem criar e gerenciar suas próprias listas de tarefas dentro da mesma instância da aplicação, garantindo o isolamento e a segurança dos dados de cada inquilino. Os participantes devem planejar e projetar a aplicação, implementar a lógica da aplicação com recursos como autenticação de usuário, gerenciamento de tarefas e compartilhamento de listas.
+	
+	\bigskip
+	
+	A entrega no incluirá o código-fonte da aplicação (GitHub) e documentação de suporte (README.md).
 
 \end{frame}
 
