@@ -1,4 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beamer Presentation
 % LaTeX Template
 % Version 2.0 (March 8, 2022)
@@ -240,7 +239,7 @@ citestyle=authoryear,
 	\begin{block}{Definição}
 	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
 			\begin{column}{0.8\textwidth} % Left column width
-				É um dos padrões de Projeto mais conhecidos e adotados pela indústria de software. Foi introduzido pela primeira vez no final da década de 1970 por Trygve Reenskaug, um cientista da computação norueguês, e desde então se tornou um elemento básico na Projeto de aplicativos. O padrão facilita a separação de interesses dividindo o aplicativo em três componentes principais.
+				É um dos padrões de projeto mais conhecidos e adotados pela indústria de software. Foi introduzido pela primeira vez no final da década de 1970 por Trygve Reenskaug, um cientista da computação norueguês, e desde então se tornou um elemento básico na Projeto de aplicativos. O padrão facilita a separação de interesses dividindo o aplicativo em três componentes principais.
 			\end{column}
 
 			\begin{column}{0.2\textwidth} % Right column width
@@ -267,13 +266,11 @@ citestyle=authoryear,
 	\frametitle{Padrões de Projeto para Web}
 	\framesubtitle{MVC - Model-View-Controller}
 
-	\begin{block}{Explicando}
-		\begin{itemize}
-			\item \textbf{Model}: define quais dados o aplicativo deve conter. Se o estado desses dados mudar, o modelo geralmente notificará a visualização (\textit{View}) (para que a exibição possa mudar conforme necessário) e, às vezes, o controlador (se for necessária uma lógica diferente para controlar a visualização atualizada).
-			\item \textbf{View}: define como os dados do aplicativo devem ser exibidos (Interface com o Usuário). A visualização é responsável por receber a entrada do usuário e encaminhá-la para o controlador.
-			\item \textbf{Controller}: atua como intermediário entre o modelo e a visualização. O controlador é responsável por receber a entrada do usuário da visualização e atualizar o modelo conforme necessário. 
-		\end{itemize}
-	\end{block}
+	\begin{itemize}
+		\item \textbf{Model}: representa os dados e a lógica de negócios da aplicação. Ele encapsula o estado e o comportamento dos dados, e responde a consultas sobre esses dados, bem como a atualizações desses dados. O modelo não está ciente da interface do usuário nem da forma como os dados são apresentados ou manipulados.
+		\item \textbf{View}: é a camada de apresentação da aplicação. Ela é responsável por exibir os dados ao usuário de maneira visualmente compreensível e interativa. A visão normalmente consome dados do modelo e os apresenta de forma apropriada para o usuário. É importante destacar que a visão não manipula diretamente os dados, mas apenas os exibe.
+		\item \textbf{Controller}: atua como intermediário entre o Modelo e a Visão. Ele recebe as entradas do usuário, como cliques do mouse ou pressionamentos de teclas, e traduz essas entradas em ações que devem ser realizadas no Modelo ou na Visão. Ele manipula as requisições do usuário, atualiza o estado do Modelo conforme necessário e seleciona a Visão apropriada para exibir os resultados ao usuário.
+	\end{itemize}
 
 \end{frame}
 
@@ -319,48 +316,33 @@ citestyle=authoryear,
 	\frametitle{Padrões de Projeto para Web}
 	\framesubtitle{MVP - Model-View-Presenter}
 
-	No MVP quem manda é o View. Cada View chama seu Presenter ou possui alguns eventos que o Presenter escuta.
-	\begin{exampleblock}{Exemplo}
-		Quando o usuário clica no botão “Salvar”, o manipulador de eventos na View delega ao método “OnSave” do Presenter. O Presenter fará a lógica necessária e qualquer comunicação necessária com o Modelo e, em seguida, chamará de volta a Visualização por meio de sua interface para que a Visualização possa exibir que o salvamento foi concluído.
-	\end{exampleblock}
+	\begin{itemize}
+		\item \textbf{Model}: assim como no padrão MVC, o Modelo (Model) no padrão MVP representa os dados e a lógica de negócios da aplicação. Ele é responsável por armazenar e manipular os dados, além de conter a lógica de negócios da aplicação. No entanto, no MVP, o Modelo é geralmente mais simples e passivo do que no MVC.
+		\item \textbf{View}: é responsável pela apresentação dos dados ao usuário. Ela exibe a interface do usuário e recebe interações do usuário. No entanto, ao contrário do MVC, a Visão no MVP é mais passiva e tem um papel mais limitado na aplicação. Ela não realiza diretamente ações sobre o Modelo.
+		\item \textbf{Presenter}: é o componente central do padrão MVP e desempenha um papel semelhante ao do Controlador no MVC. Ele atua como um intermediário entre o Modelo e a Visão. O Apresentador responde às interações do usuário na Visão, solicita dados ou ações ao Modelo e atualiza a Visão conforme necessário. Ele contém a lógica de apresentação da aplicação e coordena as interações entre o Modelo e a Visão.
+	\end{itemize}
 
 	
 \end{frame}
 
-\begin{frame}
-	\frametitle{Padrões de Projeto para Web}
-	\framesubtitle{MVP - Model-View-Presenter}
+% \begin{frame}
+% 	\frametitle{Padrões de Projeto para Web}
+% 	\framesubtitle{MVP - Model-View-Presenter}
 
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.9\linewidth]{Images/mvc_mvp.png}
-		\caption{Estrutura do MVP.}\label{fig:mvp}
-	\end{figure}
+% 	\begin{figure}
+% 		\centering
+% 		\includegraphics[width=0.9\linewidth]{Images/mvc_mvp.png}
+% 		\caption{Estrutura do MVP.}\label{fig:mvp}
+% 	\end{figure}
 
-\end{frame}
-
-\begin{frame}
-	\frametitle{Padrões de Projeto para Web}
-	\framesubtitle{MVC vs MVP}
-
-	\begin{block}{MVC vs MVP}
-		\begin{itemize}
-			\item O \alert{MVC} não coloca o View no comando, os Views atuam como escravos que o Controlador pode gerenciar e direcionar.
-			\item No \alert{MVC}, as visualizações são sem estado, ao contrário das visualizações no MVP, onde são com estado e podem mudar com o tempo.
-			\item No \alert{MVP}, as Views não têm lógica e devemos mantê-las o mais burras possível. Por outro lado, Views em MVC podem ter algum tipo de lógica.
-			\item No \alert{MVP}, o Presenter é desacoplado da View e se comunica com ela através de uma interface. Isso permite que o Presenter seja testado sem a View.
-			\item No \alert{MVP}, as visualizações são completamente isoladas do modelo. No entanto, no MVC, as Views podem se comunicar com o Modelo para mantê-lo atualizado.
-		\end{itemize}
-	\end{block}
-
-\end{frame}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{Padrões de Projeto para Web}
-	\framesubtitle{MVC vs MVP}
+	\framesubtitle{MVP}
 
 	\centering
-	\includegraphics[width=0.5\linewidth]{Images/mvc2.png}
+	% \includegraphics[width=0.5\linewidth]{Images/mvc2.png}
 	\includegraphics[width=0.8\linewidth]{Images/mvp2.png}
 
 \end{frame}
@@ -425,6 +407,27 @@ citestyle=authoryear,
 		\centering
 		\includegraphics[width=0.9\linewidth]{Images/mvvm.png}
 		\caption{Estrutura do MVP.}\label{fig:mvvm}
+	\end{figure}
+
+\end{frame}
+
+\section{Conclusão}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{Conclusão}
+
+	\begin{itemize}
+		\item Os padrões de projeto MVC, MVP e MVVM são soluções reutilizáveis para problemas comuns de design de software que surgem no desenvolvimento de aplicativos web.
+		\item Eles fornecem diretrizes e estruturas para organizar o código, melhorar a escalabilidade, a manutenibilidade e a eficiência do desenvolvimento.
+		\item Cada padrão tem suas próprias vantagens e desvantagens, e é importante escolher o padrão certo com base nos requisitos do projeto e nas habilidades da equipe.
+		\item A escolha do padrão de projeto certo pode ter um impacto significativo na qualidade, manutenibilidade e escalabilidade do aplicativo.
+	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\linewidth]{mvc_mvp_mvvm_dif.png}
+		\caption{Diferenças entre MVC, MVP e MVVM.}\label{fig:mvvm_dif}
 	\end{figure}
 
 \end{frame}
