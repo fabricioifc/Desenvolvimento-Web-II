@@ -274,6 +274,18 @@ citestyle=authoryear,
 
 \end{frame}
 
+\subsection{Onde é usado?}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVC - Model-View-Controller}
+
+	\begin{block}{Onde é usado?}
+		Frameworks populares como Rails, Django (MVT), Laravel e Spring MVC são exemplos de tecnologias que adotam o padrão MVC para criar aplicativos da web. Nesses frameworks, o modelo representa os dados e a lógica de negócios, a view cuida da interface do usuário e o controller gerencia as solicitações do usuário e coordena a interação entre o modelo e a view.
+	\end{block}
+
+\end{frame}
+
 % ------------------------------------------------
 
 
@@ -322,7 +334,18 @@ citestyle=authoryear,
 		\item \textbf{Presenter}: é o componente central do padrão MVP e desempenha um papel semelhante ao do Controlador no MVC. Ele atua como um intermediário entre o Modelo e a Visão. O Apresentador responde às interações do usuário na Visão, solicita dados ou ações ao Modelo e atualiza a Visão conforme necessário. Ele contém a lógica de apresentação da aplicação e coordena as interações entre o Modelo e a Visão.
 	\end{itemize}
 
-	
+\end{frame}
+
+\subsection{Onde é usado?}
+
+\begin{frame}
+	\frametitle{Padrões de Projeto para Web}
+	\framesubtitle{MVP - Model-View-Presenter}
+
+	\begin{block}{Onde é usado?}
+		O MVP é particularmente adequado para aplicativos de \alert{UI complexos}, onde é necessária uma extensa ligação de dados, e para projetos que usam estruturas como WPF, UWP, Angular e Xamarin. Com seu forte foco no desenvolvimento de UI, o MVP se tornou popular no mundo do \alert{desenvolvimento móvel}.
+	\end{block}
+
 \end{frame}
 
 % \begin{frame}
@@ -340,10 +363,11 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Padrões de Projeto para Web}
 	\framesubtitle{MVP}
+	\vfill
 
 	\centering
 	% \includegraphics[width=0.5\linewidth]{Images/mvc2.png}
-	\includegraphics[width=0.8\linewidth]{Images/mvp2.png}
+	\includegraphics[width=0.9\linewidth]{Images/mvp2.png}
 
 \end{frame}
 
@@ -551,8 +575,6 @@ citestyle=authoryear,
 
 	\begin{block}{Exemplos Práticos}
 		\iconLink{https://gist.github.com/fabricioifc/d1bde9f4a13cf63b49870be4bc87a72f}{Exemplo do padrão MVC com Python/Flask}.\\
-		\iconLink{https://gist.github.com/fabricioifc/663f8abcba307a013bb56d214752458b}{Exemplo do padrão MVP com Python/Flask}.\\
-		\iconLink{https://codepen.io/fabriciobizotto/pen/MWxeONo}{Exemplo do padrão MVVM com VueJS}.
 	\end{block}
 \end{frame}
 
@@ -567,9 +589,7 @@ citestyle=authoryear,
 	\begin{itemize}
 		\item \textbf{Experimento 01}
 		\begin{itemize}
-			\item Modifique o exemplo do padrão MVC para adicionar a funcionalidade de \textbf{excluir} uma tarefa, ou
-			\item Modifique o exemplo do padrão MVP para adicionar a funcionalidade de \textbf{excluir} uma tarefa, ou
-			\item Modifique o exemplo do padrão MVVM para adicionar a funcionalidade de \textbf{excluir} uma tarefa.
+			\item Modifique o exemplo do padrão MVC para adicionar a funcionalidade de \textbf{excluir} uma tarefa
 		\end{itemize}
 			\item \textbf{Experimento 02}
 			\begin{itemize}
@@ -579,11 +599,10 @@ citestyle=authoryear,
 
 	\begin{block}{Observações}
 		\begin{itemize}
-			\item Os experimentos devem ser publicados no \textbf{GitHub}. No arquivo \textbf{README.md}, explique resumidamente o que foi feito e como foi feito.
+			\item O experimento 02 deve ser publicados no \textbf{GitHub}. No arquivo \textbf{README.md}, explique resumidamente o que foi feito e como foi feito.
 			\item \textbf{Entrega:} à combinada com o professor.
 			\item \textbf{Avaliação:} Faz parte da 1° avaliação.
 		\end{itemize}
-		\alert{Faremos uma aula para compartilhar os experimentos e discutir os resultados.}
 	\end{block}
 	
 \end{frame}
