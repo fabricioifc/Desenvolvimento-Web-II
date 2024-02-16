@@ -2,8 +2,7 @@
 
 **Professor:** Prof. Fabricio Bizotto\
 **Contato**: fabricio.bizotto@ifc.edu.br\
-**Carga Horária:**
-60 horas (18 semanas)
+**Carga Horária:** 60 horas (18 semanas)
 
 ### Ementa
 Segurança e arquitetura de sistemas Web. Serviços Web. Integração de sistemas. Tecnologias emergentes de sistemas Web. 
