@@ -1,11 +1,17 @@
-**Plano de Ensino para a Disciplina de Desenvolvimento Web: Arquitetura de Sistemas Web**
+## DESENVOLVIMENTO WEB II
 
 **Professor:** Prof. Fabricio Bizotto\
+**Contato**: fabricio.bizotto@ifc.edu.br\
+**Carga Horária:**
+60 horas (18 semanas)
 
-**Ementa:**
+### Ementa
 Segurança e arquitetura de sistemas Web. Serviços Web. Integração de sistemas. Tecnologias emergentes de sistemas Web. 
 
-**Objetivos Específicos:**
+### Objetivo Geral
+Capacitar os estudantes a compreender e aplicar conceitos fundamentais relacionados à arquitetura de sistemas web, serviços web, integração de sistemas e tecnologias emergentes, proporcionando uma visão abrangente e atualizada do desenvolvimento web.
+
+### Objetivos Específicos
  - Explorar os conceitos básicos de segurança de sistemas web.
  - Compreender e aplicar os principais modelos arquiteturais de sistemas web.
  - Desenvolver e consumir serviços web.
@@ -13,11 +19,7 @@ Segurança e arquitetura de sistemas Web. Serviços Web. Integração de sistema
  - Estar atualizado com as últimas tendências e tecnologias emergentes em sistemas web.
  - Analisar os protocolos de comunicação utilizados em serviços web, como HTTP e HTTPS.
 
-**Objetivo Geral:**
-Capacitar os estudantes a compreender e aplicar conceitos fundamentais relacionados à arquitetura de sistemas web, serviços web, integração de sistemas e tecnologias emergentes, proporcionando uma visão abrangente e atualizada do desenvolvimento web.
-
-**Carga Horária Total:**
-60 horas (18 semanas)
+### Cronograma
 
 **Unidade 1: Introdução à Arquitetura de Sistemas Web**\
 1.1. Conceitos básicos de arquitetura de sistemas web\
@@ -48,40 +50,31 @@ Capacitar os estudantes a compreender e aplicar conceitos fundamentais relaciona
 4.7. Multi-tenancy\
 4.8. Progressive Web Apps (PWAs)\
 
-**Metodologia:**
-- Aulas expositivas com recursos audiovisuais
-- Estudos de caso práticos
-- Atividades individuais e em grupo
-- Desenvolvimento de projetos práticos
-
-**Avaliação:**
-- Participação em sala de aula: 10%
-- Trabalhos individuais e em grupo: 40%
-- Prova teórica: 30%
-- Projeto final: 20%
-
-**Semana a Semana:**
-
-1. **Semana 1-2:** Introdução à Arquitetura de Sistemas Web
-2. **Semana 3-6:** Serviços Web
-3. **Semana 7-10:** Integração de Sistemas
-4. **Semana 11-14:** Tecnologias Emergentes de Sistemas Web
-5. **Semana 15-17:** Projeto prático e revisão
-6. **Semana 18:** Apresentação de projetos finais e conclusões
-
 **Observações:**
-- O cronograma pode ser ajustado conforme o progresso da turma.
-- Incentive a participação ativa dos alunos nas atividades práticas e discussões em sala de aula.
-- Ofereça suporte adicional para os projetos práticos, estimulando a aplicação dos conhecimentos adquiridos.
+O cronograma pode ser ajustado conforme o progresso da turma.
 
-Este plano visa proporcionar uma experiência abrangente e prática sobre os temas relacionados à arquitetura de sistemas web, preparando os estudantes para os desafios e demandas do desenvolvimento web moderno.
+### Metodologia
+As aulas serão conduzidas por aulas expositivas-dialogadas, demonstração prática de conceitos e trabalhos individuais e/ou em grupo. As aulas serão ministradas no laboratório de informática. Os principais recursos didáticos a serem utilizados serão o quadro branco, marcador, apagador, datashow e ferramentas para desenvolvimento de software.
 
-**Bibliografia Básica:**\
+### Avaliação
+O aluno será avaliado no decorrer do semestre por meio de 3 avaliações, aplicando-se a seguinte fórmula:
+
+MF = (A1 * 0,2) + (A2 * 0,3) + (A3 * 0,5)
+
+Onde:
+- MF: Média Final do período letivo, referente a soma ponderada das 3 avaliações parciais;
+- A1: Primeira avaliação parcial, referente a diversas listas de exercícios que irá compor 20% da MS (ou seja, peso 2.0);
+- A2: Segunda avaliação parcial, referente a uma prova que irá compor 30% da MS (ou seja, peso 3.0);
+- A3: Terceira avaliação parcial, referente a uma projeto prático, que irá compor 50% da MS (ou seja, peso 5.0);
+
+Será considerado aprovado o estudante que obtiver MF igual ou superior a 6,0 (seis) pontos. Para os estudantes que não atingirem a nota mínima para aprovação será oportunizada a reavaliação de aprendizagem que irá substituir a menor nota obtida pelo aluno durante o período letivo, conforme prevista no Art. 210 da Resolução CONSUPER 010/2021. O estudante não terá direito a reavaliação da aprendizagem quando não realizou nenhuma das atividades avaliativas. O estudante que realizar reavaliação da aprendizagem e não atingir os critérios de aprovação definidos no PPC, é considerado reprovado.
+
+### Bibliografia Básica
 [1] HOGAN, Brian P. HTML 5 and CSS3: desenvolva hoje com o padrão de amanhã . Rio de Janeiro: Editora Ciência Moderna, 2012.\
 [2] LUCKOW, Décio Heinzelmann; MELO, Alexandre Altair de. Programação Java para a Web. São Paulo, SP: Novatec, 2010.\
 [3] NIEDERAUER, Juliano. Desenvolvendo websites com PHP: aprenda a criar websites dinâmicos e interativos com PHP e bancos de dados. 2. ed. rev. e atual. São Paulo: Novatec, 2011.\
 
-**Bibliografia Complementar**\
+### Bibliografia Complementar
 [1] CAELUM. Desenvolvimento Web com HTML, CSS e JavaScript. Disponível em <https://www.caelum.com.br/download/caelum-html-css-javascript.pdf>. Acesso em: 03 jul. 2018.\
 [2] FERREIRA, Elcio; EIS, Diego. HTML 5: Curso W3C Escritório Brasil. Disponível em: <http://www.w3c.br/pub/Cursos/CursoHTML5/html5-web pdf>. Acesso em: 03 jul. 2018.\
 [3] HAVERBEKE, Marijn. JavaScript Eloquente: Uma moderna introdução ao JavaScript, programação e maravilhas digitais. 2 ed. Disponível em: <https://github.com/braziljs/eloquente-javascript>. Acesso em: 03 jul. 2018.\
