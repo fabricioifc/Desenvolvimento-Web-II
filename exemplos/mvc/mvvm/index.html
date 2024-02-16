@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beer List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Beer List - MVVM</h1>
+    <button data-bind="click: addBeer">Add Beer</button>
+    <ul data-bind="if: beers().length === 0">
+      <li>Acabou a Cerveja</li>
+    </ul>
+    <ul id="beer-list" data-bind="foreach: beers">
+      <li>
+        <span data-bind="text: name"></span>
+        <span data-bind="text: type"></span>
+        <button data-bind="click: $parent.removeBeer">Remove</button>
+      </li>
+    </ul>
+  </div>
+  <!-- https://knockoutjs.com/ -->
+  <script src="knockout.min.js"></script>
+  <script src="viewmodel.js"></script>
+</body>
+</html>
