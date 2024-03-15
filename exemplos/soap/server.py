@@ -18,7 +18,7 @@ class HelloWorldService(ServiceBase):
 # Criando uma aplicação Spyne com o serviço HelloWorldService
 soap_app = Application([HelloWorldService], 'spyne.examples.hello.soap',
                        in_protocol=Soap11(validator='lxml'),
-                       out_protocol=Soap12())
+                       out_protocol=Soap11())
 
 # Criando um aplicativo WSGI a partir da aplicação SOAP
 # WSGI: Web Server Gateway Interface é uma especificação padrão para a 
