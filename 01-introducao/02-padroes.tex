@@ -33,14 +33,13 @@
 \usepackage[english,brazil]{babel}
 \usepackage{fontawesome5}
 \RequirePackage[backend=biber,
-style=ieee,
-%style=authoryear,
-%style=authoryear-comp,
-%style=authoryear-ibid,
-%style=authoryear-icomp,
-%style=authoryear-icomp,
-citestyle=authoryear,
-]{biblatex}
+	style=ieee,
+	%style=authoryear,
+	%style=authoryear-comp,
+	%style=authoryear-ibid,
+	%style=authoryear-icomp,
+	%style=authoryear-icomp,
+	citestyle=authoryear, ]{biblatex}
 
 % Define a custom command for an icon link
 \newcommand{\iconLink}[2]{\href{#1}{\faLink \hspace{0.2em} {#2}}}
@@ -186,7 +185,7 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{Roteiro} % Slide title, remove this command for no title
-	
+
 	\tableofcontents % Output the table of contents (all sections on one slide)
 	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
 \end{frame}
@@ -203,8 +202,12 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{Conceitos}
-	
-	Os \alert{Padrões de Projeto para Web} são soluções reutilizáveis para problemas comuns de design de software que surgem no desenvolvimento de aplicativos web. Eles fornecem \alert{diretrizes e estruturas} para organizar o código, melhorar a escalabilidade, a manutenibilidade e a eficiência do desenvolvimento. Os mais comuns são:
+
+	Os \alert{Padrões de Projeto para Web} são soluções reutilizáveis para
+	problemas comuns de design de software que surgem no desenvolvimento de
+	aplicativos web. Eles fornecem \alert{diretrizes e estruturas} para organizar o
+	código, melhorar a escalabilidade, a manutenibilidade e a eficiência do
+	desenvolvimento. Os mais comuns são:
 
 	\begin{itemize}
 		\item \textbf{Modelo-Visão-Controlador (MVC)}
@@ -219,13 +222,13 @@ citestyle=authoryear,
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Padrões de Projeto}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge MVC}
-		
+
 		\smallskip
 		{\small \textit{Model-View-Controller}}
 	\end{center}
@@ -237,7 +240,7 @@ citestyle=authoryear,
 	\framesubtitle{MVC - Model-View-Controller}
 
 	\begin{block}{Definição}
-	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
 			\begin{column}{0.8\textwidth} % Left column width
 				É um dos padrões de projeto mais conhecidos e adotados pela indústria de software. Foi introduzido pela primeira vez no final da década de 1970 por Trygve Reenskaug, um cientista da computação norueguês, e desde então se tornou um elemento básico na Projeto de aplicativos. O padrão facilita a separação de interesses dividindo o aplicativo em três componentes principais.
 			\end{column}
@@ -286,18 +289,17 @@ citestyle=authoryear,
 
 % ------------------------------------------------
 
-
 \subsection{MVP}
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Padrões de Projeto}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge MVP}
-		
+
 		\smallskip
 		{\small \textit{Model-View-Presenter}}
 	\end{center}
@@ -309,7 +311,7 @@ citestyle=authoryear,
 	\framesubtitle{MVP - Model-View-Presenter}
 
 	\begin{block}{Definição}
-	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
 			\begin{column}{0.8\textwidth} % Left column width
 				Aborda algumas das desvantagens da abordagem MVC tradicional. Originou-se no início da década de 1990 na Taligent, uma joint venture entre Apple, IBM e Hewlett-Packard. Foi ainda mais popularizado pelo Dolphin Smalltalk em 1998 e, em 2006, a Microsoft adotou o MVP para programação de interface de usuário no framework .NET.
 			\end{column}
@@ -373,13 +375,13 @@ citestyle=authoryear,
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Padrões de Projeto}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge MVVM}
-		
+
 		\smallskip
 		{\small \textit{Model-View-ViewModel}}
 	\end{center}
@@ -400,33 +402,36 @@ citestyle=authoryear,
 	\frametitle{Padrões de Projeto para Web}
 	\framesubtitle{MVVM - Model-View-ViewModel}
 
-	O MVVM foi criado pelo arquiteto de software do WPF  (Windows Presentation Foundation) e Silverlight da Microsoft, John Grossman em 2005. Desde então, ele vem sendo usado principalmente no desenvolvimento mobile. Ele foi criado para ser usado em aplicativos WPF e usava XAML (uma linguagem declarativa para objetos e suas propriedades) a fim de separar a interface do usuário da lógica de negócios, aproveitando o data binding que é a vinculação de dados. Na prática, a camada Model não se comunica com a View nem a View se comunica com a Model.
+	\begin{itemize}
+		\item Criado em 2005 por John Gossman, arquiteto do WPF e Silverlight na Microsoft.
+		\item Conceitualmente idêntico ao MVP, mas com uma diferença fundamental: o
+		      ViewModel.
+		\item Excelente para aplicativos com uma UI complexa.
+		\item Como benefício adicional, o MVVM facilita a separação de interesses e a
+		      manutenção do código.
+		\item Amplamente usado em frameworks como Angular, Vue.js, Knockout.js, etc.
+	\end{itemize}
 
-	\begin{block}{Onde é usado?}
-		O MVVM é particularmente adequado para aplicativos de \alert{UI complexos}, onde é necessária uma extensa ligação de dados, e para projetos que usam estruturas como WPF, UWP, Angular e Xamarin. Com seu forte foco no desenvolvimento de UI, o MVVM se tornou popular no mundo do \alert{desenvolvimento móvel}.
-	\end{block}
-
-	
 \end{frame}
 
 \begin{frame}
 	\frametitle{Padrões de Projeto para Web}
 	\framesubtitle{MVVM - Model-View-ViewModel}
 
-	{\small 
-	\begin{itemize}
-		\item \textbf{Model}: representa os dados e as regras de negócios. Ele é responsável por recuperar, armazenar e processar dados.
-		\item \textbf{View}: é a interface do usuário. Ela é responsável por exibir os dados ao usuário e capturar a entrada do usuário.
-		\item \textbf{ViewModel}: é um intermediário entre a View e o Model. Ele é responsável por expor métodos, comandos e outras propriedades que ajudam a manter o estado da View, manipular a entrada do usuário e se comunicar com o Modelo.
-		\item \textbf{Data Binding}: é o mecanismo que sincroniza automaticamente a View e o ViewModel. Quando os dados no ViewModel mudam, a View é atualizada automaticamente e vice-versa.
-		\item \textbf{Send Notifications}: o ViewModel envia notificações para a View quando os dados mudam. Isso permite que a View saiba quando atualizar a interface do usuário.
-	\end{itemize}
+	{\small
+		\begin{itemize}
+			\item \textbf{Model}: representa os dados e as regras de negócios. Ele é responsável por recuperar, armazenar e processar dados.
+			\item \textbf{View}: é a interface do usuário. Ela é responsável por exibir os dados ao usuário e capturar a entrada do usuário.
+			\item \textbf{ViewModel}: é um intermediário entre a View e o Model. Ele é responsável por expor métodos, comandos e outras propriedades que ajudam a manter o estado da View, manipular a entrada do usuário e se comunicar com o Modelo.
+			\item \textbf{Data Binding}: é o mecanismo que sincroniza automaticamente a View e o ViewModel. Quando os dados no ViewModel mudam, a View é atualizada automaticamente e vice-versa.
+			\item \textbf{Send Notifications}: o ViewModel envia notificações para a View quando os dados mudam. Isso permite que a View saiba quando atualizar a interface do usuário.
+		\end{itemize}
 	}
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.9\linewidth]{Images/mvvm.png}
-		\caption{Estrutura do MVP.}\label{fig:mvvm}
+		\caption{Estrutura do MVVM.}\label{fig:mvvm}
 	\end{figure}
 
 \end{frame}
@@ -438,10 +443,12 @@ citestyle=authoryear,
 	\framesubtitle{Conclusão}
 
 	\begin{itemize}
-		\item Os padrões de projeto MVC, MVP e MVVM são soluções reutilizáveis para problemas comuns de design de software que surgem no desenvolvimento de aplicativos web.
-		\item Eles fornecem diretrizes e estruturas para organizar o código, melhorar a escalabilidade, a manutenibilidade e a eficiência do desenvolvimento.
-		% \item Cada padrão tem suas próprias vantagens e desvantagens, e é importante escolher o padrão certo com base nos requisitos do projeto e nas habilidades da equipe.
-		% \item A escolha do padrão de projeto certo pode ter um impacto significativo na qualidade, manutenibilidade e escalabilidade do aplicativo.
+		\item Os padrões de projeto MVC, MVP e MVVM são soluções reutilizáveis para problemas
+		      comuns de design de software que surgem no desenvolvimento de aplicativos web.
+		\item Eles fornecem diretrizes e estruturas para organizar o código, melhorar a
+		      escalabilidade, a manutenibilidade e a eficiência do desenvolvimento.
+		      % \item Cada padrão tem suas próprias vantagens e desvantagens, e é importante escolher o padrão certo com base nos requisitos do projeto e nas habilidades da equipe.
+		      % \item A escolha do padrão de projeto certo pode ter um impacto significativo na qualidade, manutenibilidade e escalabilidade do aplicativo.
 	\end{itemize}
 
 	\begin{figure}
@@ -457,7 +464,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Material Complementar}
 	\framesubtitle{Vídeos, Podcasts, Livros, etc}
-	
+
 	\begin{itemize}
 		\item \iconLink{https://youtu.be/mMDt9g7bMjk}{\textbf{Padrão MVC (Model - View - Controller)}}.\\Canal \textbf{Cod3r Cursos}.\\
 		\item \iconLink{https://youtu.be/B2pJWtSyVFA}{\textbf{MVVM (A Arquitetura de Apps Mobile)}}.\\Canal \textbf{Código Fonte TV}.\\
@@ -466,7 +473,7 @@ citestyle=authoryear,
 		\item \iconLink{https://itcraftapps.com/blog/mvc-mvp-and-mvvm-architecture-pattern-introduction/}{\textbf{MVC MVP and MVVM architecture pattern}}.\\Artigo \textbf{itCraft}.\\
 		\item \iconLink{https://blog.stackademic.com/understanding-mvc-mvvm-and-mvp-a-comprehensive-comparison-324fd6e3c730}{\textbf{Understanding MVC, MVVM, and MVP: A Comprehensive Comparison}}.\\Medium \textbf{Gulshan}.\\
 	\end{itemize}
-	
+
 \end{frame}
 
 \subsection{Quiz}
@@ -475,15 +482,14 @@ citestyle=authoryear,
 	\frametitle{Recapitulando}
 	\framesubtitle{QUIZ}
 
-	Vamos praticar um pouco o que vimos até agora?
-	\vfill
+	Vamos praticar um pouco o que vimos até agora? \vfill
 
 	\bigskip
 	\centering
 
 	\iconLink{https://quizizz.com/admin/quiz/659d7e449a88c830fdf1801c?source=quiz_share}{\textbf{QUIZ - Padrões de Projeto MVC, MVP e MVVM}}
 	\vfill
-		
+
 \end{frame}
 
 % ------------------------------------------------
@@ -492,13 +498,13 @@ citestyle=authoryear,
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Padrões de Projeto}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge Tarefa}
-		
+
 		\smallskip
 		{\small \textit{Lista de Exercícios}}
 
@@ -516,7 +522,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Tarefa}
 	\framesubtitle{Lista de Exercícios}
-	
+
 	\begin{itemize}
 		\item { \small \textbf{Questão 01}: Explique resumidamente o que é um padrão de projeto no contexto web. }
 		\item { \small \textbf{Questão 02}: Explique o padrão de projeto MVC (Model-View-Controller). Destaque as responsabilidades de cada componente (Modelo, Visão e Controlador) e como eles interagem para criar uma aplicação estruturada. }
@@ -525,33 +531,32 @@ citestyle=authoryear,
 		\item { \small \textbf{Questão 05}: Explique como a separação de preocupações é alcançada nos padrões MVC, MVP e MVVM. Destaque como essa separação facilita a manutenção do código e a colaboração entre equipes de desenvolvimento. }
 		\item { \small \textbf{Questão 06}: Considere um cenário em que a interface do usuário precisa ser atualizada dinamicamente com base em mudanças frequentes nos dados do Modelo. Qual padrão de projeto (MVC, MVP ou MVVM) você escolheria para otimizar a atualização da interface do usuário e por quê? }
 	\end{itemize}
-	
+
 \end{frame}
 
 % ------------------------------------------------
 
 % \begin{frame}
 % 	\begin{center}
-		
+
 % 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 % 		{\Large Padrões de Projeto}
-		
+
 % 		\bigskip\bigskip % Vertical whitespace
 % 		{\Huge Aula 03 - Exemplos e Experimentos Práticos}
-		
+
 % 		\smallskip
 % 		{\small \textit{Lista de Exercícios}}
 % 	\end{center}
 
 % \end{frame}
 
-
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Padrões de Projeto}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge Exemplos Práticos}
 	\end{center}
@@ -582,26 +587,29 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Experimentos}
 	\framesubtitle{Lista de Exercícios}
-	
+
 	\begin{itemize}
 		\item \textbf{Experimento 01}
-		\begin{itemize}
-			\item Modifique o exemplo do padrão MVC para adicionar a funcionalidade de \textbf{excluir} uma tarefa
-		\end{itemize}
-			\item \textbf{Experimento 02}
-			\begin{itemize}
-				\item Crie outro exemplo simples de aplicação web utilizando o padrão MVC, MVP ou MVVM para demonstrar o funcionamento do padrão.
-			\end{itemize}
+		      \begin{itemize}
+			      \item Modifique o exemplo do padrão MVC para adicionar a funcionalidade de
+			            \textbf{excluir} uma tarefa
+		      \end{itemize}
+		\item \textbf{Experimento 02}
+		      \begin{itemize}
+			      \item Crie outro exemplo simples de aplicação web utilizando o padrão MVC, MVP ou
+			            MVVM para demonstrar o funcionamento do padrão.
+		      \end{itemize}
 	\end{itemize}
 
 	\begin{block}{Observações}
 		\begin{itemize}
-			\item O experimento 02 deve ser publicados no \textbf{GitHub}. No arquivo \textbf{README.md}, explique resumidamente o que foi feito e como foi feito.
+			\item O experimento 02 deve ser publicados no \textbf{GitHub}. No arquivo
+			      \textbf{README.md}, explique resumidamente o que foi feito e como foi feito.
 			\item \textbf{Entrega:} à combinada com o professor.
 			\item \textbf{Avaliação:} Faz parte da 1° avaliação.
 		\end{itemize}
 	\end{block}
-	
+
 \end{frame}
 
 %------------------------------------------------
@@ -611,7 +619,7 @@ citestyle=authoryear,
 % \begin{frame}
 % 	\frametitle{Multiple Columns}
 % 	\framesubtitle{Subtitle} % Optional subtitle
-	
+
 % 	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
 % 		\begin{column}{0.45\textwidth} % Left column width
 % 			\textbf{Heading}
@@ -636,7 +644,7 @@ citestyle=authoryear,
 % \begin{frame}
 % 	\frametitle{Table}
 % 	\framesubtitle{Subtitle} % Optional subtitle
-	
+
 % 	\begin{table}
 % 		\begin{tabular}{l l l}
 % 			\toprule
@@ -657,7 +665,7 @@ citestyle=authoryear,
 
 % \begin{frame}
 % 	\frametitle{Figure}
-	
+
 % 	\begin{figure}
 % 		\includegraphics[width=0.8\linewidth]{logo.png}
 % 		\caption{IFC Videira.}
@@ -670,13 +678,13 @@ citestyle=authoryear,
 
 % \begin{frame}
 % 	\frametitle{Definitions \& Examples}
-	
+
 % 	\begin{definition}
 % 		A \alert{prime number} is a number that has exactly two divisors.
 % 	\end{definition}
-	
+
 % 	\smallskip % Vertical whitespace
-	
+
 % 	\begin{example}
 % 		\begin{itemize}
 % 			\item 2 is prime (two divisors: 1 and 2).
@@ -684,9 +692,9 @@ citestyle=authoryear,
 % 			\item 4 is not prime (\alert{three} divisors: 1, 2, and 4).
 % 		\end{itemize}
 % 	\end{example}
-	
+
 % 	\smallskip % Vertical whitespace
-	
+
 % 	You can also use the \texttt{theorem}, \texttt{lemma}, \texttt{proof} and \texttt{corollary} environments.
 % \end{frame}
 
@@ -694,15 +702,15 @@ citestyle=authoryear,
 
 % \begin{frame}
 % 	\frametitle{Theorem, Corollary \& Proof}
-	
+
 % 	\begin{theorem}[Mass--energy equivalence]
 % 		$E = mc^2$
 % 	\end{theorem}
-	
+
 % 	\begin{corollary}
 % 		$x + y = y + x$
 % 	\end{corollary}
-	
+
 % 	\begin{proof}
 % 		$\omega + \phi = \epsilon$
 % 	\end{proof}
@@ -722,7 +730,7 @@ citestyle=authoryear,
 
 % \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 % 	\frametitle{Verbatim}
-	
+
 % 	\begin{example}[Theorem Slide Code]
 % 		\begin{verbatim}
 % 			\begin{frame}
@@ -735,7 +743,6 @@ citestyle=authoryear,
 % \end{frame}
 
 % %------------------------------------------------
-
 
 % \section{Referências}
 
@@ -751,15 +758,15 @@ citestyle=authoryear,
 % \begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
 % 	\begin{center}
 % 		\bigskip\bigskip % Vertical whitespace
-		
+
 % 		{\Huge Perguntas? Comentários?}
-		
+
 % 		\bigskip\bigskip % Vertical whitespace
-		
+
 % 		{\LARGE Aula 03 - Padrões de Arquitetura}
 % 	\end{center}
 % \end{frame}
 
 %----------------------------------------------------------------------------------------
 
-\end{document} 
+\end{document}
