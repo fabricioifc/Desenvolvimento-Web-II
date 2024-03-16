@@ -19,8 +19,8 @@
 % \usepackage{graphicx}
 % \usepackage{animate}
 \RequirePackage[backend=biber,
-style=ieee,
-citestyle=authoryear,
+	style=ieee,
+	citestyle=authoryear,
 ]{biblatex}
 
 % Define a custom command for an icon link
@@ -121,7 +121,7 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{Roteiro} % Slide title, remove this command for no title
-	
+
 	\tableofcontents % Output the table of contents (all sections on one slide)
 	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
 \end{frame}
@@ -140,7 +140,8 @@ citestyle=authoryear,
 	\begin{block}{Definição}
 		\begin{itemize}
 			\item É uma solução utilizada na integração de sistemas e na comunicação entre aplicações diferentes.
-			\item Permite que aplicações se comuniquem independentemente de linguagem, software e hardware utilizados.
+			\item Permite que aplicações se comuniquem independentemente de linguagem, software e
+			      hardware utilizados.
 			\item É uma tecnologia utilizada para \alert{padronizar} e \alert{organizar} a comunicação entre aplicações.
 		\end{itemize}
 	\end{block}
@@ -171,8 +172,8 @@ citestyle=authoryear,
 	\framesubtitle{Web Service vs API}
 
 	\begin{block}{API - \textit{Application Programming Interface}}
-		API é um termo bastante amplo, que não necessariamente descreve um web service. 
-		API é uma interface que permite a comunicação entre dois componentes de software. 
+		API é um termo bastante amplo, que não necessariamente descreve um web service.
+		API é uma interface que permite a comunicação entre dois componentes de software.
 		Por meio de uma API, um software cliente é capaz de consumir serviços disponibilizados por um software servidor.
 	\end{block}
 
@@ -194,13 +195,13 @@ citestyle=authoryear,
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Web Service}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge SOAP}
-		
+
 		\smallskip
 		{\small \textit{Simple Object Access Protocol}}
 	\end{center}
@@ -210,12 +211,15 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{SOAP}
 	\framesubtitle{Definição}
-	
+
 	\begin{block}{Definição}
 		\begin{itemize}
 			\item Protocolo de comunicação usado para troca de mensagens entre aplicações.
-			\item As mensagens SOAP basicamente são \alert{documentos XML} serializados seguindo o padrão W3C enviados em cima de um protocolo de rede como HTTP.
-			\item Para descrever os serviços SOAP, é comum utilizar o WSDL (\textit{Web Services Description Language}), um documento XML que define a interface, operações, e protocolos de comunicação.
+			\item As mensagens SOAP basicamente são \alert{documentos XML} serializados seguindo
+			      o padrão W3C enviados em cima de um protocolo de rede como HTTP.
+			\item Para descrever os serviços SOAP, é comum utilizar o WSDL (\textit{Web Services
+				      Description Language}), um documento XML que define a interface, operações, e
+			      protocolos de comunicação.
 		\end{itemize}
 	\end{block}
 
@@ -233,7 +237,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{SOAP}
 	\framesubtitle{Estrutura}
-	
+
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.7\linewidth]{soap_structure.png}
@@ -245,15 +249,15 @@ citestyle=authoryear,
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Web Service}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge SOAP - Exemplo}
-		
+
 		\smallskip
-		{\small Requisição e Resposta} 
+		{\small Requisição e Resposta}
 	\end{center}
 
 \end{frame}
@@ -261,7 +265,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{SOAP}
 	\framesubtitle{Exemplo}
-	
+
 	\begin{figure}
 		\includegraphics[width=0.8\linewidth]{soap_example_user.png}
 		\caption{SOAP - Exemplo - Requisição e Resposta}
@@ -272,15 +276,15 @@ citestyle=authoryear,
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Web Service}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge SOAP - Exemplo}
-		
+
 		\smallskip
-		{\small Olá Mundo usando protocolo SOAP e Python} 
+		{\small Olá Mundo usando protocolo SOAP e Python}
 	\end{center}
 
 \end{frame}
@@ -288,7 +292,7 @@ citestyle=authoryear,
 \begin{frame}[fragile]
 	\frametitle{SOAP}
 	\framesubtitle{Servidor}
-	
+
 	\begin{figure}
 		\includegraphics[width=0.7\linewidth]{server_soap.PNG}
 		\caption{SOAP - Servidor}
@@ -300,7 +304,7 @@ citestyle=authoryear,
 \begin{frame}[fragile]
 	\frametitle{SOAP}
 	\framesubtitle{Cliente}
-	
+
 	\begin{figure}
 		\includegraphics[width=0.9\linewidth]{client_soap.PNG}
 		\caption{SOAP - Cliente}
@@ -312,7 +316,7 @@ citestyle=authoryear,
 \begin{frame}[plain, c]
 	% \frametitle{SOAP}
 	% \framesubtitle{WSDL - \textit{Web Services Description Language}}
-	
+
 	\begin{figure}
 		\includegraphics[width=0.75\linewidth]{soap_example.png}
 		\caption{SOAP - Chamada e WSDL}
@@ -323,13 +327,13 @@ citestyle=authoryear,
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Web Service}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge SOAP - Exemplo com Chamada Direta}
-		
+
 		\smallskip
 		{\small Podemos enviar o arquivo XML diretamente para o servidor}
 	\end{center}
@@ -339,7 +343,7 @@ citestyle=authoryear,
 \begin{frame}[fragile]
 	\frametitle{SOAP}
 	\framesubtitle{Enviando XML para o Servidor via Postman}
-	
+
 	\begin{figure}
 		\includegraphics[width=0.7\linewidth]{client_xml.PNG}
 		\caption{SOAP - Chamada Direta - Cliente}
@@ -351,7 +355,7 @@ citestyle=authoryear,
 \begin{frame}[fragile]
 	\frametitle{SOAP}
 	\framesubtitle{Enviando XML para o Servidor via Postman}
-	
+
 	\begin{figure}
 		\includegraphics[width=0.7\linewidth]{soap_http_request_example.PNG}
 		\caption{SOAP - Enviando XML}
@@ -368,15 +372,22 @@ citestyle=authoryear,
 
 	\begin{block}{Experimento 1}
 		\begin{itemize}
-			\item Consuma o Web Service SOAP disponível em \url{http://www.dneonline.com/calculator.asmx?WSDL}.
-			\item Crie um cliente para testar o Web Service.
+			\item Crie um cliente SOAP para o Web Service
+			      \href{http://www.dneonline.com/calculator.asmx?WSDL}{http://www.dneonline.com/calculator.asmx?WSDL}.
+			      Escolha uma linguagem de programação de sua preferência.
 		\end{itemize}
 	\end{block}
-	
+
 	\begin{block}{Experimento 2}
 		\begin{itemize}
-			\item Crie um Web Service SOAP que receba um número inteiro e retorne o dobro do número.
-			\item Crie um cliente para testar o Web Service ou use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client}.
+			\item Crie um Web Service do tipo SOAP para calcular o MDC (Máximo Divisor Comum) de
+			      uma imagem digital com largura e altura (x e y).
+			\item Para implementar o servidor, use o WSDL
+			      \href{https://gist.github.com/fabricioifc/bf6ccecd92d2aefc7362bdce5342f2c2}{disponível
+				      aqui}.
+			\item Implemente um cliente para testar o Web Service. Com a resposta do servidor,
+			      calcule o Aspect Ratio da imagem usando a fórmula: $\text{Aspect Ratio} =
+				      {x/MDC} : {y/MDC}$
 			\item Peça para outro colega testar seu Web Service.
 		\end{itemize}
 	\end{block}
@@ -389,13 +400,13 @@ citestyle=authoryear,
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Web Service}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge REST}
-		
+
 		\smallskip
 		{\small \textit{Representational State Transfer}}
 	\end{center}
@@ -446,31 +457,31 @@ citestyle=authoryear,
 			\item \textbf{Interface Uniforme} - O cliente só precisa saber a URL do recurso e o servidor deve retornar os dados no formato apropriado.
 			\item \textbf{Sistema em camadas} - O cliente não precisa saber se está se comunicando diretamente com o servidor ou com um intermediário.
 		\end{itemize}
-	
+
 	\end{block}
 
 	\begin{block}{RESTful}
 		É uma \alert{implementação} dos princípios REST.
 	\end{block}
-	
+
 \end{frame}
 
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{REST vs SOAP}
-	
+
 	\begin{table}
 		\renewcommand{\arraystretch}{1.25} % Ajuste este valor conforme necessário
 		\begin{tabular}{|p{0.45\linewidth}|p{0.45\linewidth}|}
 			\hline
-			\textbf{SOAP} & \textbf{REST} \\ \hline
-			SOAP é um protocolo & REST é uma arquitetura \\ \hline
-			Geralmente usa HTTP/HTTPS, mas pode usar outros & Usa apenas HTTP/HTTPS \\ \hline
-			XML & XML, JSON, HTML, etc \\ \hline
-			SOAP usa WSDL & Rest usa apenas a URL \\ \hline
-			É mais pesado & É mais leve \\ \hline
-			Não usa cache & Pode usar cache \\ \hline
-			WS-Security\footnote{\href{https://xaropedecafe.medium.com/conhecendo-o-ws-security-c6c775b461fd}{Conhecendo o WS-Security}} & HTTPS \\ \hline
+			\textbf{SOAP}                                                                                                                & \textbf{REST}          \\ \hline
+			SOAP é um protocolo                                                                                                          & REST é uma arquitetura \\ \hline
+			Geralmente usa HTTP/HTTPS, mas pode usar outros                                                                              & Usa apenas HTTP/HTTPS  \\ \hline
+			XML                                                                                                                          & XML, JSON, HTML, etc   \\ \hline
+			SOAP usa WSDL                                                                                                                & Rest usa apenas a URL  \\ \hline
+			É mais pesado                                                                                                                & É mais leve            \\ \hline
+			Não usa cache                                                                                                                & Pode usar cache        \\ \hline
+			WS-Security\footnote{\href{https://xaropedecafe.medium.com/conhecendo-o-ws-security-c6c775b461fd}{Conhecendo o WS-Security}} & HTTPS                  \\ \hline
 		\end{tabular}
 		\caption{SOAP vs REST}
 		\label{tab:soap_rest}
@@ -481,13 +492,13 @@ citestyle=authoryear,
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Web Service}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge REST}
-		
+
 		\smallskip
 		{\small \textit{Boas práticas}}
 	\end{center}
@@ -500,9 +511,12 @@ citestyle=authoryear,
 
 	\begin{block}{1. Documentação Clara}
 		\begin{itemize}
-			\item Documente sua API para que os desenvolvedores possam entender facilmente como usá-la.
-			\item Use uma ferramenta como o \href{https://swagger.io/}{Swagger} para documentar sua API.
-			\item Descreva os recursos, parâmetros, cabeçalhos, corpo da solicitação, corpo da resposta, códigos de status, etc.
+			\item Documente sua API para que os desenvolvedores possam entender facilmente como
+			      usá-la.
+			\item Use uma ferramenta como o \href{https://swagger.io/}{Swagger} para documentar
+			      sua API.
+			\item Descreva os recursos, parâmetros, cabeçalhos, corpo da solicitação, corpo da
+			      resposta, códigos de status, etc.
 		\end{itemize}
 	\end{block}
 
@@ -527,9 +541,13 @@ citestyle=authoryear,
 	\begin{block}{1. Documentação clara - \textit{Exemplo} - \textbf{Swagger}}
 		\begin{itemize}
 			\item O Swagger é uma ferramenta para documentar APIs REST.
-			\item O Swagger permite que você descreva a estrutura da sua API para que os desenvolvedores possam entender como interagir com ela sem precisar ler o código-fonte.
-			\item O Swagger gera automaticamente uma documentação interativa da API, que permite aos desenvolvedores enviar solicitações que chamam os endpoints da API.
-			\item O Swagger pode ser usado com a maioria das linguagens de programação modernas e frameworks da web.
+			\item O Swagger permite que você descreva a estrutura da sua API para que os
+			      desenvolvedores possam entender como interagir com ela sem precisar ler o
+			      código-fonte.
+			\item O Swagger gera automaticamente uma documentação interativa da API, que permite
+			      aos desenvolvedores enviar solicitações que chamam os endpoints da API.
+			\item O Swagger pode ser usado com a maioria das linguagens de programação modernas e
+			      frameworks da web.
 		\end{itemize}
 	\end{block}
 
@@ -544,18 +562,17 @@ citestyle=authoryear,
 		\caption{Swagger para documentar a API REST.}
 		\label{fig:swagger}
 	\end{figure}
-	
-	
+
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{REST}
+	\frametitle{REST}
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{2. JSON}
 		JSON é o formato de dados mais utilizado, embora você possa enviar dados em outros formatos como CSV, XML e HTML. A sintaxe JSON pode tornar os dados fáceis de ler para humanos.
-    
-\begin{lstlisting}[basicstyle=\small]
+
+		\begin{lstlisting}[basicstyle=\small]
 "produto": {
   "id": 1,
   "nome": "Produto 1",
@@ -570,7 +587,7 @@ citestyle=authoryear,
 }
 
 \end{lstlisting}
-\end{block}
+	\end{block}
 \end{frame}
 
 \begin{frame}
@@ -578,7 +595,7 @@ citestyle=authoryear,
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{3. Versionamento da API}
-		Inclua versões na sua API para garantir a compatibilidade com versões anteriores e permitir evolução controlada. 
+		Inclua versões na sua API para garantir a compatibilidade com versões anteriores e permitir evolução controlada.
 		Pode ser feito por meio de versões na URI ou por meio de cabeçalhos. O mais comum é usar a versão na URI.
 	\end{block}
 
@@ -610,7 +627,7 @@ citestyle=authoryear,
 					\item {\small /api/v1/produtos}
 					\item {\small /api/v1/produtos/1}
 					\item {\small /api/v1/produtos/1/categorias}
-				\end{itemize}		
+				\end{itemize}
 			\end{exampleblock}
 		\end{column}
 
@@ -620,9 +637,9 @@ citestyle=authoryear,
 					\item {\small /api/v1/criarProduto}
 					\item {\small /api/v1/obterProduto/1}
 					\item {\small /api/v1/prodCat/1}
-				\end{itemize}		
+				\end{itemize}
 			\end{alertblock}
-			
+
 		\end{column}
 	\end{columns}
 
@@ -633,17 +650,17 @@ citestyle=authoryear,
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{5. Verbos HTTP}
-		Use métodos HTTP para operações CRUD. Por exemplo: \yellowbox{GET, POST, PUT e DELETE}. 
+		Use métodos HTTP para operações CRUD. Por exemplo: \yellowbox{GET, POST, PUT e DELETE}.
 	\end{block}
 
 	\begin{exampleblock}{Exemplo}
 		\begin{tabular}{@{}ll@{}}
-			\yellowbox{\textbf{GET}}    &  /api/v1/produtos \\
-			\yellowbox{\textbf{POST}}   &  /api/v1/produtos \\
-			\yellowbox{\textbf{GET}}    &  /api/v1/produtos/1 \\
-			\yellowbox{\textbf{PUT}}    &  /api/v1/produtos/1 \\
-			\yellowbox{\textbf{DELETE}} &  /api/v1/produtos/1 \\
-			\yellowbox{\textbf{PATCH}}  &  /api/v1/produtos/1 (\textit{atualiza apenas alguns campos})
+			\yellowbox{\textbf{GET}}    & /api/v1/produtos                                            \\
+			\yellowbox{\textbf{POST}}   & /api/v1/produtos                                            \\
+			\yellowbox{\textbf{GET}}    & /api/v1/produtos/1                                          \\
+			\yellowbox{\textbf{PUT}}    & /api/v1/produtos/1                                          \\
+			\yellowbox{\textbf{DELETE}} & /api/v1/produtos/1                                          \\
+			\yellowbox{\textbf{PATCH}}  & /api/v1/produtos/1 (\textit{atualiza apenas alguns campos})
 		\end{tabular}
 	\end{exampleblock}
 
@@ -674,7 +691,7 @@ citestyle=authoryear,
 					\item \textbf{401} - Não autorizado
 				\end{itemize}
 			\end{column}
-	
+
 			\begin{column}{0.45\textwidth} % Right column width
 				\begin{itemize}
 					\item \textbf{404} - Não encontrado
@@ -693,7 +710,7 @@ citestyle=authoryear,
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{7. Paginação}
-		Para coleções muito grandes, use paginação para limitar o número de itens retornados. 
+		Para coleções muito grandes, use paginação para limitar o número de itens retornados.
 	\end{block}
 
 	\begin{exampleblock}{Exemplo}
@@ -717,9 +734,9 @@ citestyle=authoryear,
 
 	\begin{exampleblock}{Exemplo}
 		\begin{tabular}{@{}ll@{}}
-			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?type=eletronicos}} \\
-			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?price\_min=100\&price\_max=200}} \\
-			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?search=smartphone}} \\
+			\textbf{GET} & \yellowbox{/api/v1/produtos\textbf{?type=eletronicos}}               \\
+			\textbf{GET} & \yellowbox{/api/v1/produtos\textbf{?price\_min=100\&price\_max=200}} \\
+			\textbf{GET} & \yellowbox{/api/v1/produtos\textbf{?search=smartphone}}              \\
 		\end{tabular}
 	\end{exampleblock}
 
@@ -735,9 +752,9 @@ citestyle=authoryear,
 
 	\begin{exampleblock}{Exemplo}
 		\begin{tabular}{@{}ll@{}}
-			\textbf{GET}    &  \yellowbox{/api/v1/produtos\text{?sort=nome}} \\
-			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?sort=nome\&asc=false}} \\
-			\textbf{GET}    &  \yellowbox{/api/v1/produtos\textbf{?sort=preco,vendas\&ordem=desc,desc}} \\
+			\textbf{GET} & \yellowbox{/api/v1/produtos\text{?sort=nome}}                            \\
+			\textbf{GET} & \yellowbox{/api/v1/produtos\textbf{?sort=nome\&asc=false}}               \\
+			\textbf{GET} & \yellowbox{/api/v1/produtos\textbf{?sort=preco,vendas\&ordem=desc,desc}} \\
 		\end{tabular}
 	\end{exampleblock}
 
@@ -749,7 +766,9 @@ citestyle=authoryear,
 
 	\begin{block}{10. HATEOAS - \textit{H}ypermedia \textbf{A}s \textbf{T}he \textbf{E}ngine \textbf{O}f \textbf{A}pplication \textbf{S}tate}
 		\begin{itemize}
-			\item Se possível, adote o HATEOAS para permitir que os clientes naveguem pela API dinamicamente usando links nos recursos para descrever as ações disponíveis a seguir.
+			\item Se possível, adote o HATEOAS para permitir que os clientes naveguem pela API
+			      dinamicamente usando links nos recursos para descrever as ações disponíveis a
+			      seguir.
 			\item {\small Pode não ser viável fora do escopo de CRUD.}
 			\item {\small \textit{Keep it simple and stupid (KISS)}. Nem sempre é necessário adicionar mais complexidade ao projeto.}
 		\end{itemize}
@@ -761,14 +780,18 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas}
-	
+
 	\begin{block}{11. Segurança}
 		\begin{itemize}
-			\item Utilize sempre HTTPS para garantir a criptografia dos dados durante a transmissão. Isso protege contra ataques de interceptação \yellowbox{\textit(man-in-the-middle)} e assegura a confidencialidade das informações.
-			\item Evite chave primária incremental. Use UUIDs ou chaves primárias aleatórias para evitar a adivinhação de IDs. Isso evita \yellowbox{escavação de dados}.
-			\begin{itemize}
-				\item Ex: /api/v1/users/\textbf{a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11} 
-			\end{itemize}
+			\item Utilize sempre HTTPS para garantir a criptografia dos dados durante a
+			      transmissão. Isso protege contra ataques de interceptação
+			      \yellowbox{\textit(man-in-the-middle)} e assegura a confidencialidade das
+			      informações.
+			\item Evite chave primária incremental. Use UUIDs ou chaves primárias aleatórias para
+			      evitar a adivinhação de IDs. Isso evita \yellowbox{escavação de dados}.
+			      \begin{itemize}
+				      \item Ex: /api/v1/users/\textbf{a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11}
+			      \end{itemize}
 		\end{itemize}
 	\end{block}
 
@@ -777,7 +800,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas}
-	
+
 	\begin{block}{11. Segurança - Autenticação com Basic Auth}
 		Nesse método, o nome de usuário e a senha são codificados e incluídos no cabeçalho da solicitação HTTP usando a sintaxe \yellowbox{Authorization: Basic}. Embora seja simples, não é a opção mais segura, especialmente se a conexão não for protegida por SSL/TLS.
 	\end{block}
@@ -793,15 +816,18 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas}
-	
+
 	\begin{block}{{\small 11. Segurança - Autenticação com Bearer Token}}
-		{ \small 
-		\begin{itemize}
-			\item Um token de acesso (Bearer Token) é incluído no cabeçalho da solicitação HTTP para autenticação.
-			\item O cliente deve incluir o token de acesso em cada solicitação. 
-			\item O servidor valida o token de acesso e, se for válido, processa a solicitação.
-			\item O esquema de autenticação Bearer foi originalmente criado como parte do OAuth 2.0 na RFC 6750 , mas às vezes também é usado sozinho. Da mesma forma que a autenticação Básica, a autenticação Bearer só deve ser usada via HTTPS (SSL).
-		\end{itemize}
+		{ \small
+			\begin{itemize}
+				\item Um token de acesso (Bearer Token) é incluído no cabeçalho da solicitação HTTP
+				      para autenticação.
+				\item O cliente deve incluir o token de acesso em cada solicitação.
+				\item O servidor valida o token de acesso e, se for válido, processa a solicitação.
+				\item O esquema de autenticação Bearer foi originalmente criado como parte do OAuth
+				      2.0 na RFC 6750 , mas às vezes também é usado sozinho. Da mesma forma que a
+				      autenticação Básica, a autenticação Bearer só deve ser usada via HTTPS (SSL).
+			\end{itemize}
 		}
 	\end{block}
 
@@ -822,7 +848,7 @@ citestyle=authoryear,
 		\caption{Bearer Token - Login}
 		\label{fig:bearer_token_login}
 	\end{figure}
-		
+
 \end{frame}
 
 \begin{frame}
@@ -834,9 +860,8 @@ citestyle=authoryear,
 		\caption{Bearer Token - Usando o Token de Acesso}
 		\label{fig:bearer_token_usando}
 	\end{figure}
-		
-\end{frame}
 
+\end{frame}
 
 \begin{frame}
 	\frametitle{REST}
@@ -845,14 +870,16 @@ citestyle=authoryear,
 	\begin{block}{JWT - \textit{JSON Web Token}}
 		\begin{itemize}
 			\item É um padrão aberto definido pela \href{https://datatracker.ietf.org/doc/html/rfc7519}{RFC 7519} que define um método compacto e autocontido para transmitir com segurança informações entre partes como um objeto JSON.
-			\item As informações podem ser verificadas e confiadas porque são assinadas digitalmente.
-			\item Os JWTs podem ser assinados usando um segredo (com o algoritmo HS256) ou um par de chaves pública/privada usando RSA ou ECDSA.
+			\item As informações podem ser verificadas e confiadas porque são assinadas
+			      digitalmente.
+			\item Os JWTs podem ser assinados usando um segredo (com o algoritmo HS256) ou um par
+			      de chaves pública/privada usando RSA ou ECDSA.
 			\item Um JWT consiste em três partes separadas por pontos (.), que são:
-			\begin{itemize}
-				\item \textbf{Cabeçalho} - Contém o tipo de token e o algoritmo de assinatura.
-				\item \textbf{Corpo} - Contém as informações.
-				\item \textbf{Assinatura} - Usada para verificar se o remetente do JWT é confiável.
-			\end{itemize}
+			      \begin{itemize}
+				      \item \textbf{Cabeçalho} - Contém o tipo de token e o algoritmo de assinatura.
+				      \item \textbf{Corpo} - Contém as informações.
+				      \item \textbf{Assinatura} - Usada para verificar se o remetente do JWT é confiável.
+			      \end{itemize}
 		\end{itemize}
 	\end{block}
 
@@ -894,7 +921,7 @@ citestyle=authoryear,
 
 	\centering
 	O token expirou após 1 minuto, conforme definido no servidor.
-	
+
 	\begin{figure}
 		\includegraphics[width=0.9\linewidth]{jwt-3.png}
 		\caption{JWT - Exemplo (parte 3)}
@@ -939,7 +966,7 @@ citestyle=authoryear,
 
 	\begin{block}{Como armazenar o token JWT no cliente?}
 		\begin{itemize}
-			\item \textbf{Cookies} - O token de acesso é armazenado em um cookie. O cookie é enviado automaticamente pelo navegador para o servidor em cada solicitação. 
+			\item \textbf{Cookies} - O token de acesso é armazenado em um cookie. O cookie é enviado automaticamente pelo navegador para o servidor em cada solicitação.
 			\item \textbf{LocalStorage} ou \textbf{SessionStorage} - O token de acesso é armazenado no armazenamento local ou de sessão do navegador.
 			\item \textbf{Banco de Dados} - O token de acesso pode ser armazenado no IndexedDB ou WebSQL do navegador.
 		\end{itemize}
@@ -947,9 +974,12 @@ citestyle=authoryear,
 
 	\begin{block}{Importante}
 		\begin{itemize}
-			\item Evite armazenar tokens em LocalStorage ou SessionStorage se sua aplicação for vulnerável a ataques XSS.
-			\item Considere configurar o token como um cookie seguro com HttpOnly para mitigar alguns riscos.
-			\item Mantenha o tempo de expiração (exp) do token curto para reduzir o impacto de um possível vazamento.
+			\item Evite armazenar tokens em LocalStorage ou SessionStorage se sua aplicação for
+			      vulnerável a ataques XSS.
+			\item Considere configurar o token como um cookie seguro com HttpOnly para mitigar
+			      alguns riscos.
+			\item Mantenha o tempo de expiração (exp) do token curto para reduzir o impacto de um
+			      possível vazamento.
 			\item Use HTTPS para proteger a transmissão do token entre o cliente e o servidor.
 		\end{itemize}
 	\end{block}
@@ -959,7 +989,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas - Segurança (cont.)}
-	
+
 	\begin{block}{11. Segurança - Autenticação com OAuth}
 		O OAuth é um protocolo ou estrutura de autorização de padrão aberto que fornece aos aplicativos a capacidade de “acesso designado seguro”. Você pode, por exemplo, dizer ao Facebook que a ESPN.com pode acessar seu perfil ou postar atualizações em sua linha do tempo sem precisar fornecer à ESPN sua senha do Facebook. Isso minimiza o risco de forma importante: caso a ESPN sofra uma violação, sua senha do Facebook permanece segura.
 	\end{block}
@@ -984,9 +1014,9 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{Boas Práticas}
-	
+
 	\begin{block}{12. CORS (\textbf{C}ross \textbf{O}rigin \textbf{R}esource \textbf{S}haring)}
-		Permite que os clientes acessem a API de um \yellowbox{domínio diferente}. 
+		Permite que os clientes acessem a API de um \yellowbox{domínio diferente}.
 	\end{block}
 
 	\begin{exampleblock}{Cabeçalho}
@@ -1117,22 +1147,27 @@ def test_get_all_products(self):
 \begin{frame}
 	\frametitle{REST}
 	\framesubtitle{Experimentos}
-	{\small 
-	\begin{block}{Experimento 1}
-		\begin{itemize}
-			\item Consumir a API REST \href{https://pokeapi.co/}{PokéAPI} ou a Brasil API \href{https://brasilapi.com.br/docs}{Brasil API}.
-			\item Use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client} para testar a API.
-			\item Navegue pela documentação da API e teste os endpoints.
-		\end{itemize}
-	\end{block}
+	{\small
+		\begin{block}{Experimento 1}
+			\begin{itemize}
+				\item Consumir a API REST \href{https://pokeapi.co/}{PokéAPI} ou a Brasil API
+				      \href{https://brasilapi.com.br/docs}{Brasil API}.
+				\item Use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client}
+				      para testar a API.
+				\item Navegue pela documentação da API e teste os endpoints.
+			\end{itemize}
+		\end{block}
 
-	\begin{block}{Experimento 2}
-		Consumir a API REST \href{https://www.themoviedb.org/}{The Movies DB}.
-		\begin{itemize}
-			\item Utilizar uma biblioteca/framework de sua escolha para o desenvolvimento frontend (por exemplo, React, Vue, Angular, etc.).
-			\item Fazer solicitações HTTP para a API do TMDb (https://www.themoviedb.org/documentation/api) para obter informações sobre os filmes.
-		\end{itemize}
-	\end{block}
+		\begin{block}{Experimento 2}
+			Consumir a API REST \href{https://www.themoviedb.org/}{The Movies DB}.
+			\begin{itemize}
+				\item Utilizar uma biblioteca/framework de sua escolha para o desenvolvimento
+				      frontend (por exemplo, React, Vue, Angular, etc.).
+				\item Fazer solicitações HTTP para a API do TMDb
+				      (https://www.themoviedb.org/documentation/api) para obter informações sobre os
+				      filmes.
+			\end{itemize}
+		\end{block}
 	}
 
 \end{frame}
@@ -1141,13 +1176,13 @@ def test_get_all_products(self):
 
 \begin{frame}
 	\begin{center}
-		
+
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
 		{\Large Web Service}
-		
+
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge GraphQL}
-		
+
 		\smallskip
 		{\small \textit{Definição}}
 	\end{center}
@@ -1188,14 +1223,14 @@ def test_get_all_products(self):
 		\renewcommand{\arraystretch}{1.25} % Ajuste este valor conforme necessário
 		\begin{tabular}{|p{0.45\linewidth}|p{0.45\linewidth}|}
 			\hline
-			\textbf{REST} & \textbf{GraphQL} \\ \hline
-			É uma arquitetura & É uma linguagem de consulta \\ \hline
-			Os dados são expostos como recursos & Os dados são expostos como um grafo \\ \hline
-			Overfetching ou underfetching são comuns. & Os clientes solicitam apenas os dados necessários, evitando overfetching e underfetching. \\ \hline
-			Múltiplos endpoints para diferentes recursos. & Um único ponto de entrada para todas as operações. \\ \hline
-			Operações de escrita (POST, PUT, DELETE) têm endpoints separados. & Mutações são tratadas no mesmo sistema de tipos e no mesmo endpoint que as consultas. \\ \hline
-			Utiliza diversos métodos HTTP (GET, POST, PUT, DELETE). & Usa o método POST para todas as operações. Pode ser usado com qualquer protocolo de transporte. \\ \hline
-			Pode exigir versionamento da API para adicionar ou modificar funcionalidades. & Não requer versionamento devido à flexibilidade nas consultas. \\ \hline
+			\textbf{REST}                                                                 & \textbf{GraphQL}                                                                                \\ \hline
+			É uma arquitetura                                                             & É uma linguagem de consulta                                                                     \\ \hline
+			Os dados são expostos como recursos                                           & Os dados são expostos como um grafo                                                             \\ \hline
+			Overfetching ou underfetching são comuns.                                     & Os clientes solicitam apenas os dados necessários, evitando overfetching e underfetching.       \\ \hline
+			Múltiplos endpoints para diferentes recursos.                                 & Um único ponto de entrada para todas as operações.                                              \\ \hline
+			Operações de escrita (POST, PUT, DELETE) têm endpoints separados.             & Mutações são tratadas no mesmo sistema de tipos e no mesmo endpoint que as consultas.           \\ \hline
+			Utiliza diversos métodos HTTP (GET, POST, PUT, DELETE).                       & Usa o método POST para todas as operações. Pode ser usado com qualquer protocolo de transporte. \\ \hline
+			Pode exigir versionamento da API para adicionar ou modificar funcionalidades. & Não requer versionamento devido à flexibilidade nas consultas.                                  \\ \hline
 		\end{tabular}
 		\caption{REST vs GraphQL}
 		\label{tab:rest_graphql}
@@ -1212,7 +1247,8 @@ def test_get_all_products(self):
 		\begin{itemize}
 			\item É um tipo de operação que permite \yellowbox{criar, atualizar ou excluir dados.}
 			\item É semelhante a uma operação de escrita no REST.
-			\item As mutações são tratadas no mesmo sistema de tipos e no mesmo endpoint que as consultas.
+			\item As mutações são tratadas no mesmo sistema de tipos e no mesmo endpoint que as
+			      consultas.
 		\end{itemize}
 	\end{block}
 
@@ -1232,7 +1268,8 @@ def test_get_all_products(self):
 		\begin{itemize}
 			\item É um tipo de operação que permite \yellowbox{recuperar dados.}
 			\item É semelhante a uma operação de leitura no REST.
-			\item As consultas são tratadas no mesmo sistema de tipos e no mesmo endpoint que as mutações.
+			\item As consultas são tratadas no mesmo sistema de tipos e no mesmo endpoint que as
+			      mutações.
 		\end{itemize}
 	\end{block}
 
@@ -1249,25 +1286,29 @@ def test_get_all_products(self):
 \begin{frame}
 	\frametitle{GraphQL}
 	\framesubtitle{Experimentos}
-	{\small 
-	\begin{block}{Experimento 1}
-		\begin{itemize}
-			\item Consumir a API GraphQL \href{https://graphqlpokemon.favware.tech/v8}{https://graphqlpokemon.favware.tech/v8}.
-			\item Use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client} para testar a API.
-			\item Navegue pela documentação da API e teste os endpoints.
-		\end{itemize}
-	\end{block}
+	{\small
+		\begin{block}{Experimento 1}
+			\begin{itemize}
+				\item Consumir a API GraphQL
+				      \href{https://graphqlpokemon.favware.tech/v8}{https://graphqlpokemon.favware.tech/v8}.
+				\item Use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client}
+				      para testar a API.
+				\item Navegue pela documentação da API e teste os endpoints.
+			\end{itemize}
+		\end{block}
 
-	\begin{block}{Experimento 2}
-		Consumir a API GraphQL \href{https://countries.trevorblades.com/}{Countries}. \\
-		Repositório da API: \href{https://github.com/trevorblades/countries}{GitHub}.
-		\begin{itemize}
-			\item Utilizar uma biblioteca/framework de sua escolha para o desenvolvimento frontend (por exemplo, React, Vue, Angular, etc.).
-			\item Fazer solicitações HTTP para a API Countries (https://countries.trevorblades.com/) para obter informações sobre os países.
-		\end{itemize}
-	\end{block}
+		\begin{block}{Experimento 2}
+			Consumir a API GraphQL \href{https://countries.trevorblades.com/}{Countries}. \\
+			Repositório da API: \href{https://github.com/trevorblades/countries}{GitHub}.
+			\begin{itemize}
+				\item Utilizar uma biblioteca/framework de sua escolha para o desenvolvimento
+				      frontend (por exemplo, React, Vue, Angular, etc.).
+				\item Fazer solicitações HTTP para a API Countries
+				      (https://countries.trevorblades.com/) para obter informações sobre os países.
+			\end{itemize}
+		\end{block}
 	}
 
 \end{frame}
 
-\end{document} 
+\end{document}

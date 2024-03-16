@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://localhost:3000/mdc">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tns:CalculateMDC>
+         <tns:x>800</tns:x>
+         <tns:y>600</tns:y>
+      </tns:CalculateMDC>
+   </soapenv:Body>
+</soapenv:Envelope>
