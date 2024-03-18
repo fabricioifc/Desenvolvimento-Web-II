@@ -1,35 +1,42 @@
 const express = require('express');
 const soap = require('soap');
 const app = express();
-const calcular = require('./util');
+const port = 3000;
+const wsdl = require('fs').readFileSync('mdc.wsdl', 'utf8');
 
+function calcularMDC(num1, num2) {
+    // Validar se os números são inteiros
+    if (!Number.isInteger(num1) || !Number.isInteger(num2)) {
+      throw new Error("Os números informados devem ser inteiros");
+    }
+  
+    // Implementar o algoritmo de Euclides
+    while (num2 != 0) {
+      let resto = num1 % num2;
+      num1 = num2;
+      num2 = resto;
+    }
+  
+    // Retornar o MDC
+    return num1;
+  }
 
-// Defina o serviço SOAP
 const service = {
     MDCService: {
         MDCPort: {
-            CalculateMDC: function(args) {
-                console.log(args);
-                    
-                const x = parseInt(args.x);
-                const y = parseInt(args.y);
-                const mdc = calcular(x, y);
-                return {
-                    MDC: mdc
-                }
+            CalculateMDC: async function (args) {
+                console.log('CalculateMDC', args);
+                const { x, y } = args;
+                const result = calcularMDC(x, y);
+                return { result: result };
             }
         }
     }
 };
 
-app.get('/mdc?wsdl', (req, res) => {
-    res.setHeader('Content-Type', 'text/xml');
-    res.status(200).send(wsdl);
-})
+// app.use(express.static(__dirname));
 
-const server = app.listen(3000, () => {
-    console.log('Server is running on port', server.address().port);
-})
-
-const wsdl = require('fs').readFileSync('src/resources/mdc.wsdl', 'utf8');
-soap.listen(server, '/mdc', service, wsdl);
+app.listen(port, () => {
+    soap.listen(app, '/mdc', service, wsdl);
+    console.log(`Server is running on port ${port}`);
+});
