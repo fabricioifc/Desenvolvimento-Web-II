@@ -99,7 +99,7 @@
 %----------------------------------------------------------------------------------------
 
 \title[DesWebII]{Desenvolvimento Web II} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
-\subtitle{Aula 04 - Web Service e API} % Presentation subtitle, remove this command if a subtitle isn't required
+\subtitle{Aula 05 - Web Service e API} % Presentation subtitle, remove this command if a subtitle isn't required
 \author[Fabricio Bizotto]{Prof. Fabricio Bizotto} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
 \institute[IFC]{Instituto Federal Catarinense \\ \smallskip \textit{fabricio.bizotto@ifc.edu.br}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
 \date[\today]{Ciência da Computação \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
@@ -128,272 +128,6 @@
 
 %----------------------------------------------------------------------------------------
 %	PRESENTATION BODY SLIDES
-%----------------------------------------------------------------------------------------
-
-\section{Web Service} % Sections are added in order to organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
-
-%------------------------------------------------
-
-\begin{frame}
-	\frametitle{Web Service}
-
-	\begin{block}{Definição}
-		\begin{itemize}
-			\item É uma solução utilizada na integração de sistemas e na comunicação entre aplicações diferentes.
-			\item Permite que aplicações se comuniquem independentemente de linguagem, software e
-			      hardware utilizados.
-			\item É uma tecnologia utilizada para \alert{padronizar} e \alert{organizar} a comunicação entre aplicações.
-		\end{itemize}
-	\end{block}
-
-	\begin{block}{Características}
-		\begin{itemize}
-			\item \textbf{Interoperabilidade} - Comunicação entre diferentes plataformas.
-			\item \textbf{Independência de Linguagem} - Permite a comunicação entre diferentes linguagens de programação.
-			\item \textbf{Formato de Mensagem} - Utiliza XML ou JSON.
-			\item \textbf{Padrões Abertos} - Utiliza padrões abertos como SOAP e REST.
-		\end{itemize}
-	\end{block}
-
-\end{frame}
-
-\begin{frame}[plain, c]
-	\centering
-	\includegraphics[width=0.9\linewidth]{vdp_ws.png}
-\end{frame}
-
-\begin{frame}[plain, c]
-	\centering
-	\includegraphics[width=0.7\linewidth]{vdp_ws2.png}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Web Service}
-	\framesubtitle{Web Service vs API}
-
-	\begin{block}{API - \textit{Application Programming Interface}}
-		API é um termo bastante amplo, que não necessariamente descreve um web service.
-		API é uma interface que permite a comunicação entre dois componentes de software.
-		Por meio de uma API, um software cliente é capaz de consumir serviços disponibilizados por um software servidor.
-	\end{block}
-
-	\begin{block}{Web Service}
-		Um web service, por sua vez, é um tipo de API que fornece a sua interface de comunicação \yellowbox{via internet}.
-	\end{block}
-
-	\bigskip
-
-	\begin{center}
-		\yellowbox{Nem toda API é um web service, mas todos os web services são APIs.}
-	\end{center}
-
-\end{frame}
-
-%------------------------------------------------
-
-\section{SOAP}
-
-\begin{frame}
-	\begin{center}
-
-		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Web Service}
-
-		\bigskip\bigskip % Vertical whitespace
-		{\Huge SOAP}
-
-		\smallskip
-		{\small \textit{Simple Object Access Protocol}}
-	\end{center}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{SOAP}
-	\framesubtitle{Definição}
-
-	\begin{block}{Definição}
-		\begin{itemize}
-			\item Protocolo de comunicação usado para troca de mensagens entre aplicações.
-			\item As mensagens SOAP basicamente são \alert{documentos XML} serializados seguindo
-			      o padrão W3C enviados em cima de um protocolo de rede como HTTP.
-			\item Para descrever os serviços SOAP, é comum utilizar o WSDL (\textit{Web Services
-				      Description Language}), um documento XML que define a interface, operações, e
-			      protocolos de comunicação.
-		\end{itemize}
-	\end{block}
-
-	\begin{exampleblock}{Estrutura}
-		\begin{itemize}
-			\item \textit{Envelope} - Define o início e o fim da mensagem. É o elemento raiz.
-			\item \textit{Header} - Define informações adicionais sobre a mensagem. Opcional
-			\item \textit{Body} - Define o conteúdo da mensagem. Obrigatório.
-			\item \textit{Fault} - Define informações sobre erros. Opcional
-		\end{itemize}
-	\end{exampleblock}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{SOAP}
-	\framesubtitle{Estrutura}
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.7\linewidth]{soap_structure.png}
-		\caption{Estrutura SOAP}
-		\label{fig:soap}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}
-	\begin{center}
-
-		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Web Service}
-
-		\bigskip\bigskip % Vertical whitespace
-		{\Huge SOAP - Exemplo}
-
-		\smallskip
-		{\small Requisição e Resposta}
-	\end{center}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{SOAP}
-	\framesubtitle{Exemplo}
-
-	\begin{figure}
-		\includegraphics[width=0.8\linewidth]{soap_example_user.png}
-		\caption{SOAP - Exemplo - Requisição e Resposta}
-		\label{fig:soap_example_user}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}
-	\begin{center}
-
-		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Web Service}
-
-		\bigskip\bigskip % Vertical whitespace
-		{\Huge SOAP - Exemplo}
-
-		\smallskip
-		{\small Olá Mundo usando protocolo SOAP e Python}
-	\end{center}
-
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{SOAP}
-	\framesubtitle{Servidor}
-
-	\begin{figure}
-		\includegraphics[width=0.7\linewidth]{server_soap.PNG}
-		\caption{SOAP - Servidor}
-		\label{fig:soap_server}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{SOAP}
-	\framesubtitle{Cliente}
-
-	\begin{figure}
-		\includegraphics[width=0.9\linewidth]{client_soap.PNG}
-		\caption{SOAP - Cliente}
-		\label{fig:soap_client}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}[plain, c]
-	% \frametitle{SOAP}
-	% \framesubtitle{WSDL - \textit{Web Services Description Language}}
-
-	\begin{figure}
-		\includegraphics[width=0.75\linewidth]{soap_example.png}
-		\caption{SOAP - Chamada e WSDL}
-		\label{fig:soap_example}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}
-	\begin{center}
-
-		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Web Service}
-
-		\bigskip\bigskip % Vertical whitespace
-		{\Huge SOAP - Exemplo com Chamada Direta}
-
-		\smallskip
-		{\small Podemos enviar o arquivo XML diretamente para o servidor}
-	\end{center}
-
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{SOAP}
-	\framesubtitle{Enviando XML para o Servidor via Postman}
-
-	\begin{figure}
-		\includegraphics[width=0.9\linewidth]{client_xml.PNG}
-		\caption{SOAP - Chamada Direta - Cliente}
-		\label{fig:soap_client_xml}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{SOAP}
-	\framesubtitle{Enviando XML para o Servidor via Postman}
-
-	\begin{figure}
-		\includegraphics[width=0.7\linewidth]{soap_http_request_example.PNG}
-		\caption{SOAP - Enviando XML}
-		\label{fig:soap_server_xml_2}
-	\end{figure}
-
-\end{frame}
-
-\subsection{Experimentos}
-
-\begin{frame}
-	\frametitle{Experimentos}
-	\framesubtitle{Web Service}
-
-	\begin{block}{Experimento 1}
-		\begin{itemize}
-			\item Crie um cliente SOAP para o Web Service
-			      \href{http://www.dneonline.com/calculator.asmx?WSDL}{http://www.dneonline.com/calculator.asmx?WSDL}.
-			      Escolha uma linguagem de programação de sua preferência.
-		\end{itemize}
-	\end{block}
-
-	\begin{block}{Experimento 2}
-		\begin{itemize}
-			\item Crie um Web Service do tipo SOAP para calcular o MDC (Máximo Divisor Comum) de
-			      uma imagem digital com largura e altura (x e y).
-			\item Para implementar o servidor, use o WSDL
-			      \href{https://gist.github.com/fabricioifc/bf6ccecd92d2aefc7362bdce5342f2c2}{disponível
-				      aqui}.
-			\item Implemente um cliente para testar o Web Service. Com a resposta do servidor,
-			      calcule o Aspect Ratio da imagem usando a fórmula: $\text{Aspect Ratio} =
-				      {x/MDC} : {y/MDC}$
-			\item Peça para outro colega testar seu Web Service.
-		\end{itemize}
-	\end{block}
-
-\end{frame}
-
 %----------------------------------------------------------------------------------------
 
 \section{REST}
@@ -1133,7 +867,7 @@ def test_get_all_products(self):
 	\framesubtitle{Boas Práticas}
 
 	\begin{block}{15. Proteja contra ataques (cont.)}
-		\textbf{Cross-Site Request Forgery (CSRF)}: Use \yellowbox{tokens} para evitar que os usuários sejam enganados para executar ações indesejadas em nome deles. O token CSRF é um valor aleatório que é gerado pelo servidor web e enviado ao cliente. O cliente deve enviar o token CSRF de volta ao servidor web ao enviar um formulário.
+		\textbf{Cross-Site Request Forgery (CSRF)}: Use \yellowbox{tokens} para evitar que os usuários sejam enganados para executar ações indesejadas em nome deles. O token CSRF é um valor aleatório que é gerado pelo servidor web e enviado ao cliente. O cliente deve enviar o token CSRF de volta ao servidor web ao enviar um formulário. A requisição é rejeitada se o token CSRF não corresponder ao token esperado.
 	\end{block}
 
 	\begin{exampleblock}{Exemplo - CSRF}
@@ -1150,7 +884,7 @@ def test_get_all_products(self):
 	{\small
 		\begin{block}{Experimento 1}
 			\begin{itemize}
-				\item Consumir a API REST \href{https://pokeapi.co/}{PokéAPI} ou a Brasil API
+				\item Consumir a API REST \href{https://pokeapi.co/}{PokéAPI} ou a 
 				      \href{https://brasilapi.com.br/docs}{Brasil API}.
 				\item Use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client}
 				      para testar a API.
@@ -1166,6 +900,7 @@ def test_get_all_products(self):
 				\item Fazer solicitações HTTP para a API do TMDb
 				      (https://www.themoviedb.org/documentation/api) para obter informações sobre os
 				      filmes.
+				\item Use um arquivo $.env $ para armazenar a chave da API.
 			\end{itemize}
 		\end{block}
 	}
