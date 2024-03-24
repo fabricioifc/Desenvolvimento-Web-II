@@ -884,23 +884,27 @@ def test_get_all_products(self):
 	{\small
 		\begin{block}{Experimento 1}
 			\begin{itemize}
-				\item Consumir a API REST \href{https://pokeapi.co/}{PokéAPI} ou a 
+				\item Consumir a API REST \href{https://pokeapi.co/}{PokéAPI} ou a
 				      \href{https://brasilapi.com.br/docs}{Brasil API}.
 				\item Use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client}
 				      para testar a API.
+				\item Use um arquivo $.env $ para armazenar a chave da API.
 				\item Navegue pela documentação da API e teste os endpoints.
 			\end{itemize}
 		\end{block}
 
-		\begin{block}{Experimento 2}
-			Consumir a API REST \href{https://www.themoviedb.org/}{The Movies DB}.
+		\begin{block}{Experimento 3}
 			\begin{itemize}
-				\item Utilizar uma biblioteca/framework de sua escolha para o desenvolvimento
-				      frontend (por exemplo, React, Vue, Angular, etc.).
-				\item Fazer solicitações HTTP para a API do TMDb
-				      (https://www.themoviedb.org/documentation/api) para obter informações sobre os
-				      filmes.
-				\item Use um arquivo $.env $ para armazenar a chave da API.
+				\item Criar uma API REST que faça autenticacão com JWT. A API deve ter endpoints para
+				      login, registro e acesso a recursos protegidos. Disponibilize a documentação
+				      mínima dos endpoints (por exemplo, usando o Swagger).
+				\item Use um banco de dados para armazenar os usuários e as informações de
+				      autenticação.
+				\item Use um framework de sua escolha (por exemplo, Flask, Django, Express, etc.).
+				\item Use cookies ou LocalStorage para armazenar o token JWT no cliente.
+				      Opcionalmente, implemente a renovação do token JWT.
+				\item Use $.env$ para armazenar as variáveis de ambiente.
+				\item Use o Thunder Client ou Postman para testar a API.
 			\end{itemize}
 		\end{block}
 	}
