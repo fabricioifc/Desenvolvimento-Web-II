@@ -888,162 +888,21 @@ def test_get_all_products(self):
 				      \href{https://brasilapi.com.br/docs}{Brasil API}.
 				\item Use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client}
 				      para testar a API.
-				\item Use um arquivo $.env $ para armazenar a chave da API.
-				\item Navegue pela documentação da API e teste os endpoints.
-			\end{itemize}
-		\end{block}
-
-		\begin{block}{Experimento 3}
-			\begin{itemize}
-				\item Criar uma API REST que faça autenticacão com JWT. A API deve ter endpoints para
-				      login, registro e acesso a recursos protegidos. Disponibilize a documentação
-				      mínima dos endpoints (por exemplo, usando o Swagger).
-				\item Use um banco de dados para armazenar os usuários e as informações de
-				      autenticação.
-				\item Use um framework de sua escolha (por exemplo, Flask, Django, Express, etc.).
-				\item Use cookies ou LocalStorage para armazenar o token JWT no cliente.
-				      Opcionalmente, implemente a renovação do token JWT.
-				\item Use $.env$ para armazenar as variáveis de ambiente.
-				\item Use o Thunder Client ou Postman para testar a API.
-			\end{itemize}
-		\end{block}
-	}
-
-\end{frame}
-
-\section{GraphQL}
-
-\begin{frame}
-	\begin{center}
-
-		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Web Service}
-
-		\bigskip\bigskip % Vertical whitespace
-		{\Huge GraphQL}
-
-		\smallskip
-		{\small \textit{Definição}}
-	\end{center}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{GraphQL}
-	\framesubtitle{Definição}
-
-	\begin{block}{GraphQL - \textit{Graph Query Language}}
-		\begin{itemize}
-			\item Linguagem de consulta para APIs.
-			\item Foi criada pelo Facebook em 2012 e tornou-se open-source em 2015.
-			\item É uma alternativa ao REST. Permite que os clientes solicitem dados de forma flexível.
-		\end{itemize}
-	\end{block}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{GraphQL}
-	\framesubtitle{Estrutura}
-
-	\begin{figure}
-		\includegraphics[width=0.9\linewidth]{graphql.png}
-		\caption{Estrutura GraphQL}
-		\label{fig:graphql_structure}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{GraphQL}
-	\framesubtitle{Comparação com REST}
-
-	\begin{table}
-		\renewcommand{\arraystretch}{1.25} % Ajuste este valor conforme necessário
-		\begin{tabular}{|p{0.45\linewidth}|p{0.45\linewidth}|}
-			\hline
-			\textbf{REST}                                                                 & \textbf{GraphQL}                                                                                \\ \hline
-			É uma arquitetura                                                             & É uma linguagem de consulta                                                                     \\ \hline
-			Os dados são expostos como recursos                                           & Os dados são expostos como um grafo                                                             \\ \hline
-			Overfetching ou underfetching são comuns.                                     & Os clientes solicitam apenas os dados necessários, evitando overfetching e underfetching.       \\ \hline
-			Múltiplos endpoints para diferentes recursos.                                 & Um único ponto de entrada para todas as operações.                                              \\ \hline
-			Operações de escrita (POST, PUT, DELETE) têm endpoints separados.             & Mutações são tratadas no mesmo sistema de tipos e no mesmo endpoint que as consultas.           \\ \hline
-			Utiliza diversos métodos HTTP (GET, POST, PUT, DELETE).                       & Usa o método POST para todas as operações. Pode ser usado com qualquer protocolo de transporte. \\ \hline
-			Pode exigir versionamento da API para adicionar ou modificar funcionalidades. & Não requer versionamento devido à flexibilidade nas consultas.                                  \\ \hline
-		\end{tabular}
-		\caption{REST vs GraphQL}
-		\label{tab:rest_graphql}
-
-	\end{table}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{GraphQL}
-	\framesubtitle{Mutation}
-
-	\begin{block}{Mutation}
-		\begin{itemize}
-			\item É um tipo de operação que permite \yellowbox{criar, atualizar ou excluir dados.}
-			\item É semelhante a uma operação de escrita no REST.
-			\item As mutações são tratadas no mesmo sistema de tipos e no mesmo endpoint que as
-			      consultas.
-		\end{itemize}
-	\end{block}
-
-	\begin{figure}
-		\includegraphics[width=0.9\linewidth]{gql_mutation.png}
-		\caption{Exemplo de Mutation}
-		\label{fig:graphql_mutation}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{GraphQL}
-	\framesubtitle{Query}
-
-	\begin{block}{Query}
-		\begin{itemize}
-			\item É um tipo de operação que permite \yellowbox{recuperar dados.}
-			\item É semelhante a uma operação de leitura no REST.
-			\item As consultas são tratadas no mesmo sistema de tipos e no mesmo endpoint que as
-			      mutações.
-		\end{itemize}
-	\end{block}
-
-	\begin{figure}
-		\includegraphics[width=0.9\linewidth]{gql_query.png}
-		\caption{Exemplo de Query}
-		\label{fig:graphql_query}
-	\end{figure}
-
-\end{frame}
-
-\subsection{Experimentos}
-
-\begin{frame}
-	\frametitle{GraphQL}
-	\framesubtitle{Experimentos}
-	{\small
-		\begin{block}{Experimento 1}
-			\begin{itemize}
-				\item Consumir a API GraphQL
-				      \href{https://graphqlpokemon.favware.tech/v8}{https://graphqlpokemon.favware.tech/v8}.
-				\item Use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client}
-				      para testar a API.
 				\item Navegue pela documentação da API e teste os endpoints.
 			\end{itemize}
 		\end{block}
 
 		\begin{block}{Experimento 2}
-			Consumir a API GraphQL \href{https://countries.trevorblades.com/}{Countries}. \\
-			Repositório da API: \href{https://github.com/trevorblades/countries}{GitHub}.
 			\begin{itemize}
-				\item Utilizar uma biblioteca/framework de sua escolha para o desenvolvimento
-				      frontend (por exemplo, React, Vue, Angular, etc.).
-				\item Fazer solicitações HTTP para a API Countries
-				      (https://countries.trevorblades.com/) para obter informações sobre os países.
+				\item Criar uma API REST que faça autenticacão com JWT. A API deve ter endpoints para
+				      registro, login, logout e acesso a recursos protegidos.
+				\item Use um banco de dados para armazenar os usuários e as informações de
+				      autenticação.
+				\item Use um framework de sua escolha (por exemplo, Flask, Django, Express, etc.).
+				\item Use $.env$ para armazenar as variáveis de ambiente.
+				\item Use o Thunder Client ou Postman para testar a API.
+				\item Opcionalmente, implemente a renovação do token JWT e uma documentação mínima da
+				      API (por exemplo, Swagger).
 			\end{itemize}
 		\end{block}
 	}
