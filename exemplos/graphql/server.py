@@ -13,13 +13,15 @@ class Task(graphene.ObjectType):
     title = graphene.String()
     description = graphene.String()
 
-# Definindo a raiz da consulta GraphQL
+# Definindo a raiz da consulta GraphQL com filtro por title optional contendo parte do texto
 class Query(graphene.ObjectType):
-    tasks = graphene.List(Task)
+    tasks = graphene.List(Task, title=graphene.String())
 
-    def resolve_tasks(self, info):
+    def resolve_tasks(self, info, title=None):
+        if title:
+            return [task for task in tasks if title in task.title]
         return tasks
-
+        
 # Definindo a raiz da mutação GraphQL
 class CreateTask(graphene.Mutation):
     class Arguments:

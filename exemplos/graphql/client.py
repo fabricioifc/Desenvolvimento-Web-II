@@ -1,4 +1,5 @@
 import requests
+import argparse
 
 def create_task(title, description):
     endpoint = "http://localhost:5000/graphql"
@@ -23,32 +24,41 @@ def create_task(title, description):
         print(f"Erro ao criar a tarefa: {response.status_code}")
         return None
 
-def get_tasks():
+def get_tasks(title=None):
     endpoint = "http://localhost:5000/graphql"
 
     query = """
     query {
-        tasks {
+        tasks(title: "%s") {
             id
             title
             description
         }
     }
-    """
+    """ % (title or "")
 
     response = requests.post(endpoint, json={"query": query})
 
     if response.status_code == 200:
         return response.json()["data"]["tasks"]
     else:
-        print(f"Erro ao obter as tarefas: {response.status_code}")
-        return None
+        print(f"Erro ao buscar as tarefas: {response.status_code}")
+        return []
 
-# Exemplo de uso
-new_task = create_task("Estudar GraphQL", "Aprender os conceitos básicos do GraphQL")
-print(f"Tarefa criada: {new_task}")
+if __name__ == "__main__":
+    args = argparse.ArgumentParser()
+    args.add_argument("--title", type=str, help="Título da tarefa")
+    args.add_argument("--description", type=str, help="Descrição da tarefa")
+    args = args.parse_args()
 
-all_tasks = get_tasks()
-print("\nLista de Tarefas:")
-for task in all_tasks:
-    print(f"{task['id']}: {task['title']} - {task['description']}")
+    if args.title and args.description:
+        task = create_task(args.title, args.description)
+        print(f"Tarefa criada: {task}")
+    elif args.title:
+        tasks = get_tasks(args.title)
+        for task in tasks:
+            print(f"{task['id']}: {task['title']} - {task['description']}")
+    else:
+        tasks = get_tasks()
+        for task in tasks:
+            print(f"{task['id']}: {task['title']} - {task['description']}")
