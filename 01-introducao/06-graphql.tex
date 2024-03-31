@@ -99,7 +99,7 @@
 %----------------------------------------------------------------------------------------
 
 \title[DesWebII]{Desenvolvimento Web II} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
-\subtitle{Aula 06 - GraphQL} % Presentation subtitle, remove this command if a subtitle isn't required
+\subtitle{Aula 06 - GraphQL \\Linguagem de Consulta para APIs} % Presentation subtitle, remove this command if a subtitle isn't required
 \author[Fabricio Bizotto]{Prof. Fabricio Bizotto} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
 \institute[IFC]{Instituto Federal Catarinense \\ \smallskip \textit{fabricio.bizotto@ifc.edu.br}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
 \date[\today]{Ciência da Computação \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
@@ -136,7 +136,7 @@
 	\begin{center}
 
 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Web Service}
+		{\Large Linguagem de Consulta para API}
 
 		\bigskip\bigskip % Vertical whitespace
 		{\Huge GraphQL}
@@ -156,6 +156,25 @@
 			\item Linguagem de consulta para APIs.
 			\item Foi criada pelo Facebook em 2012 e tornou-se open-source em 2015.
 			\item É uma alternativa ao REST. Permite que os clientes solicitem dados de forma flexível.
+			\item O GraphQL fornece uma descrição completa e compreensível dos dados em sua API,
+			      facilitando a evolução das APIs ao longo do tempo.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{GraphQL}
+	\framesubtitle{Características}
+
+	\begin{block}{Características}
+		\begin{itemize}
+			\item \yellowbox{Consulta única} para recuperar apenas os dados necessários.
+			\item \yellowbox{Tipagem forte} para definir a estrutura dos dados.
+			\item \yellowbox{Introspecção} para consultar a estrutura da API. Isso permite que os clientes descubram quais operações podem ser realizadas.
+			\item \yellowbox{Múltiplas operações} em uma única solicitação. Os clientes podem solicitar vários recursos em uma única solicitação.
+			\item \yellowbox{Documentação} embutida. O GraphQL fornece uma descrição completa e compreensível dos dados em sua API.
+			\item \yellowbox{Validação} de consulta. O GraphQL valida a consulta antes de executá-la.
 		\end{itemize}
 	\end{block}
 
@@ -239,6 +258,25 @@
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{GraphQL}
+	\framesubtitle{Material Complementar}
+
+	\begin{block}{Material Complementar}
+		\begin{itemize}
+			\item \iconLink{https://graphql.org/}{Documentação Oficial do GraphQL}
+			\item \iconLink{https://graphql.com/}{GraphQL: APIs for humans}
+			\item \iconLink{https://www.apollographql.com/docs/}{Apollo GraphQL}
+			\item \iconLink{https://www.howtographql.com/}{How to GraphQL}
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Quem usa GraphQL?}
+		\iconLink{https://github.com/graphql-brasil/empresas-que-usam-graphql-no-brasil}{Repositório que lista algumas empresas brasileiras que utilizam GraphQL}
+	\end{block}
+
+\end{frame}
+
 \subsection{Experimentos}
 
 \begin{frame}
@@ -247,22 +285,33 @@
 	{\small
 		\begin{block}{Experimento 1}
 			\begin{itemize}
-				\item Consumir a API GraphQL
-				      \href{https://graphqlpokemon.favware.tech/v8}{https://graphqlpokemon.favware.tech/v8}.
-				\item Use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client}
-				      para testar a API.
-				\item Navegue pela documentação da API e teste os endpoints.
+				\item Consultar a API GraphQL
+				      \href{https://graphqlpokemon.favware.tech/v8}{https://graphqlpokemon.favware.tech/v8}
+				\item Navegue pela documentação da API e teste os recursos disponíveis.
 			\end{itemize}
 		\end{block}
 
 		\begin{block}{Experimento 2}
-			Consumir a API GraphQL \href{https://countries.trevorblades.com/}{Countries}. \\
-			Repositório da API: \href{https://github.com/trevorblades/countries}{GitHub}.
+			Implementar uma aplicação frontend que permita consultar informações consultando uma API GraphQL.
 			\begin{itemize}
 				\item Utilizar uma biblioteca/framework de sua escolha para o desenvolvimento
-				      frontend (por exemplo, React, Vue, Angular, etc.).
-				\item Fazer solicitações HTTP para a API Countries
-				      (https://countries.trevorblades.com/) para obter informações sobre os países.
+				      frontend (por exemplo, React, Vue, Angular, Python, VanillaJS, etc.).
+				\item Utilizar a API GraphQL
+				      \href{https://github.com/favware/graphql-pokemon}{https://github.com/favware/graphql-pokemon}
+				      ou
+				\item Utilizar a API GraphQL
+				      \href{https://github.com/trevorblades/countries/}{https://github.com/trevorblades/countries}
+				      ou
+				\item Utilizar a API GraphQL
+				      \href{https://rickandmortyapi.com/documentation}{https://rickandmortyapi.com/documentation}
+				      ou
+				\item Utilizar a API GraphQL
+				      \href{https://studio.apollographql.com/public/SpaceX-pxxbxen/variant/current/home}{https://studio.apollographql.com/public/SpaceX-pxxbxen/variant/current/home}
+				      ou
+				\item Utilizar a API GraphQL
+				      \href{https://graphqlzero.almansi.me/}{https://graphqlzero.almansi.me/} ou
+				\item Outra API GraphQL de sua escolha.
+
 			\end{itemize}
 		\end{block}
 	}
