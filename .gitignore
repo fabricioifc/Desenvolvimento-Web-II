@@ -308,3 +308,5 @@ __pycache__/
 
 **/node_modules/
 **/yarn.lock
+stoten
+*.docx
