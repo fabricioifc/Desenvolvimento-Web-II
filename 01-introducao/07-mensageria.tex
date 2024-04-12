@@ -19,8 +19,8 @@
 % \usepackage{graphicx}
 % \usepackage{animate}
 \RequirePackage[backend=biber,
-style=ieee,
-citestyle=authoryear,
+	style=ieee,
+	citestyle=authoryear,
 ]{biblatex}
 
 % Define a custom command for an icon link
@@ -122,7 +122,7 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{Roteiro} % Slide title, remove this command for no title
-	
+
 	\tableofcontents % Output the table of contents (all sections on one slide)
 	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
 \end{frame}
@@ -145,8 +145,8 @@ citestyle=authoryear,
 
 	\begin{exampleblock}{Exemplo em JavaScript - Assíncrono}
 		fetch('https://api.github.com/users/fabriciobizotto')\\
-			.then(response =$>$ response.json())\\
-			.then(data =$>$ console.log(data));\\
+		.then(response =$>$ response.json())\\
+		.then(data =$>$ console.log(data));\\
 	\end{exampleblock}
 
 \end{frame}
@@ -162,9 +162,12 @@ citestyle=authoryear,
 	"Mensageria é um conceito que define que sistemas distribuídos, possam se comunicar por meio de troca de mensagens (evento), sendo estas mensagens "gerenciadas" por um Message Broker (servidor/módulo de mensagens)."
 
 	\begin{itemize}
-		\item A mensageria é um padrão de comunicação \yellowbox{assíncrona} entre aplicações.
-		\item A comunicação assíncrona é feita por meio de mensagens que são enviadas para uma \yellowbox{fila de mensagens}.
-		\item A fila de mensagens é gerenciada por um \textit{broker}, que é responsável por garantir que as mensagens sejam entregues e processadas.
+		\item A mensageria é um padrão de comunicação \yellowbox{assíncrona} entre
+		      aplicações.
+		\item A comunicação assíncrona é feita por meio de mensagens que são enviadas para
+		      uma \yellowbox{fila de mensagens}.
+		\item A fila de mensagens é gerenciada por um \textit{broker}, que é responsável por
+		      garantir que as mensagens sejam entregues e processadas.
 	\end{itemize}
 
 \end{frame}
@@ -178,7 +181,7 @@ citestyle=authoryear,
 	\framesubtitle{Integração com Sistemas Parceiros}
 
 	\begin{block}{Exemplo de Uso}
-		Imagin que na organização na qual você trabalha, surge a necessidade de realizar uma integração com algum sistema parceiro que agrega valor ao seu negócio. Parece ser algo simples e você logo pensa:
+		Imagine que na organização na qual você trabalha, surge a necessidade de realizar uma integração com algum sistema parceiro que agrega valor ao seu negócio. Parece ser algo simples e você logo pensa:
 		\\ \bigskip
 		\alert{Bom só preciso me preocupar, em desenvolver uma comunicação com a Web API do sistema que desejo integrar e está tudo certo!}
 
@@ -191,7 +194,7 @@ citestyle=authoryear,
 	\framesubtitle{Integração com Sistemas Parceiros}
 
 	\begin{block}{Exemplo de Uso}
-		Imagin que na organização na qual você trabalha, surge a necessidade de realizar uma integração com algum sistema parceiro que agrega valor ao seu negócio. Parece ser algo simples e você logo pensa:
+		Imagine que na organização na qual você trabalha, surge a necessidade de realizar uma integração com algum sistema parceiro que agrega valor ao seu negócio. Parece ser algo simples e você logo pensa:
 		\\ \bigskip
 		\alert{Bom só preciso me preocupar, em desenvolver uma comunicação com a Web API do sistema que desejo integrar e está tudo certo!}
 
@@ -220,7 +223,7 @@ citestyle=authoryear,
 		\alert{Bom só preciso me preocupar, em desenvolver uma comunicação com a Web API do sistema que desejo integrar e está tudo certo!}
 
 	\end{block}
-	
+
 	\begin{exampleblock}{Possíveis Soluções}
 		\begin{itemize}
 			\item \textcolor{red}{Criar vários ifs para tratar cada um dos problemas apresentados anteriormente.}
@@ -245,7 +248,8 @@ citestyle=authoryear,
 			\item Pode representar um evento, uma notificação, um comando, etc.
 			\item Deveriam ser pequenas e conter apenas as informações necessárias.
 			\item Deve-se evitar o uso de dados sensíveis.
-			\item Possui um formato bem definido com um cabeçalho (\textit{header}) e um corpo (\textit{payload}).
+			\item Possui um formato bem definido com um cabeçalho (\textit{header}) e um corpo
+			      (\textit{payload}).
 		\end{itemize}
 	\end{block}
 
@@ -264,7 +268,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Mensageria}
 	\framesubtitle{Quando Utilizar?}
-	
+
 	\begin{itemize}
 		\item \textbf{Comunicação Assíncrona}: o sistema não precisa esperar a resposta do sistema parceiro.
 		\item \textbf{Sistemas Distribuídos/Desacoplados}: caso o sistema parceiro esteja fora do ar, o sistema não deve parar de funcionar.
@@ -280,7 +284,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Mensageria}
 	\framesubtitle{Message Broker}
-	
+
 	\begin{block}{Definição}
 		Um Message Broker nada mais é que um \yellowbox{servidor de mensagens}, responsável por garantir que a mensagem seja enfileirada e armazenada em disco (opcional), garantindo que ela fique lá enquanto necessário até que alguém consuma a mensagem.
 	\end{block}
@@ -304,7 +308,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Mensageria}
 	\framesubtitle{Nomenclatura}
-	
+
 	\begin{block}{Básico}
 		\begin{itemize}
 			\item \textbf{Producer/Publisher}: é o sistema que envia a mensagem para o \textit{message broker}.
@@ -319,16 +323,15 @@ citestyle=authoryear,
 		\includegraphics[width=0.9\linewidth]{Images/message_broker.png}
 	\end{figure}
 
-
 \end{frame}
 
 \begin{frame}
 	\frametitle{Mensageria}
 	\framesubtitle{Nomenclatura}
-	
+
 	\begin{block}{AMQP - \textit{Advanced Message Queuing Protocol}}
 		Protocolo de rede que permite a comunicação com um middleware (\textit{message broker}) para troca de mensagens assínconas. \\ \smallskip
-		
+
 		\begin{center}
 			\textbf{Producer} $>$ \yellowbox{\textbf{Exchange} $>$ \textbf{Binding} $>$ \textbf{Queue}} $>$ \textbf{Consumer}
 		\end{center}
@@ -344,7 +347,6 @@ citestyle=authoryear,
 		\includegraphics[width=0.9\linewidth]{Images/message_broker.png}
 	\end{figure}
 
-
 \end{frame}
 
 \section{Material Complementar}
@@ -352,7 +354,7 @@ citestyle=authoryear,
 \begin{frame}
 	\frametitle{Mensageria}
 	\framesubtitle{Material Complementar}
-	
+
 	\begin{itemize}
 		\item \iconLink{https://www.youtube.com/playlist?list=PLqONbZa3fPe4Z6sg7RQGaHlYqUjsliKAH}{\textbf{Playlist - Mensageria}}.\\Canal \textbf{Gabriel Faraday}.
 		\item \iconLink{https://www.youtube.com/watch?v=A3gmE5yC97g}{\textbf{Apache Kafka e Spring Boot}}.\\Livro \textbf{Casa do Código}.
@@ -385,11 +387,31 @@ citestyle=authoryear,
 	\framesubtitle{Experimentos}
 
 	{\Large \textbf{Experimento 1}} \\
-	
-	Acesse o repositório \href{https://github.com/rabbitmq/rabbitmq-tutorials?tab=readme-ov-file}{RabbitMQ Tutorials}, escolha uma linguagem de programação e realize os experimentos propostos.
+
+	Acesse o repositório
+	\iconLink{https://github.com/rabbitmq/rabbitmq-tutorials?tab=readme-ov-file}{RabbitMQ
+		Tutorials}, escolha uma linguagem de programação e realize os experimentos
+	propostos.
 
 	\begin{block}{Observações}
-		\textbf{Pré-requisitos}: instalar o RabbitMQ.
+		\textbf{Pré-requisitos}: instalar o RabbitMQ.\\
+		\textbf{Entrega}: O aluno precisa entregar um relatório descritivo do experimento realizado, incluíndo detalhes sobre a linguagem de programação escolhida, o código desenvolvido e as mensagens trocadas, uma análise dos resultados obtidos e as dificuldades encontradas.
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mensageria}
+	\framesubtitle{Experimentos}
+
+	\begin{block}{Experimento 2}
+		Acesse os detalhes para este experimento no link abaixo:\\
+		\iconLink{https://gist.github.com/fabricioifc/94171e7d6cd6ac8a9b4cf6bcb23823d4}{https://gist.github.com/fabricioifc/94171e7d6cd6ac8a9b4cf6bcb23823d4}.
+	\end{block}
+
+	\begin{block}{Observações}
+		\textbf{Pré-requisitos}: instalar o RabbitMQ.\\
+		\textbf{Entrega}: Link do repositório com o código desenvolvido e informar no README.md uma breve descrição do experimento realizado.
 	\end{block}
 
 \end{frame}
@@ -408,10 +430,9 @@ citestyle=authoryear,
 % 			\item O microserviço de estoque deve consumir as mensagens da fila e atualizar o estoque conforme necessário.
 % 			\item Considere a possibilidade de tratamento de mensagens de erro, como a falta de estoque para atender a um pedido.
 % 		\end{enumerate}
-		
+
 % 	\end{block}
 
 % \end{frame}
-		
-	
-\end{document} 
+
+\end{document}
