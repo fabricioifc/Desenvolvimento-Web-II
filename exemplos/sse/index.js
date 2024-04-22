@@ -21,7 +21,7 @@ app.listen(port, () => console.log(`Server running on port ${port}`));
 // node index.js
 // Acesse o endereço http://localhost:8000/stream
 // O servidor irá enviar mensagens a cada segundo.
-// Tente abrir o endereço em mais de uma aba do navegador.
+// Tente abrir o endereço em mais de uma aba do navegador (use google chrome).
 // ou
 // curl -N http://localhost:8000/stream
 
