@@ -19,8 +19,8 @@
 % \usepackage{graphicx}
 % \usepackage{animate}
 \RequirePackage[backend=biber,
-style=ieee,
-citestyle=authoryear,
+	style=ieee,
+	citestyle=authoryear,
 ]{biblatex}
 
 % Define a custom command for an icon link
@@ -122,7 +122,7 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{Roteiro} % Slide title, remove this command for no title
-	
+
 	\tableofcontents % Output the table of contents (all sections on one slide)
 	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
 \end{frame}
@@ -138,15 +138,17 @@ citestyle=authoryear,
 	\framesubtitle{Conceito}
 
 	\begin{itemize}
-		\item Design System é um conjunto de \yellowbox{padrões, práticas, diretrizes e componentes} que são usados para criar e manter produtos digitais.
+		\item Design System é um conjunto de \yellowbox{padrões, práticas, diretrizes e
+			      componentes} que são usados para criar e manter produtos digitais.
 		\item O objetivo é garantir a consistência e a qualidade do produto final.
 		\item Um Design System inclui:
-		\begin{itemize}
-			\item \textbf{Componentes}: Botões, formulários, cards, etc.
-			\item \textbf{Estilos}: Cores, tipografia, espaçamento, etc.
-			\item \textbf{Padrões}: Diretrizes de uso, acessibilidade, etc.
-		\end{itemize}
-		\item Exemplos: Material Design, Bootstrap, Ant Design, Fast Design, Radix UI, GovBR-DS, etc.
+		      \begin{itemize}
+			      \item \textbf{Componentes}: Botões, formulários, cards, etc.
+			      \item \textbf{Estilos}: Cores, tipografia, espaçamento, etc.
+			      \item \textbf{Padrões}: Diretrizes de uso, acessibilidade, etc.
+		      \end{itemize}
+		\item Exemplos: Material Design, Bootstrap, Ant Design, Fast Design, Radix UI,
+		      GovBR-DS, etc.
 		\item \textbf{Web Components são uma forma de criar e distribuir componentes em um Design System.}
 	\end{itemize}
 
@@ -164,15 +166,17 @@ citestyle=authoryear,
 	\frametitle{Web Components}
 	\framesubtitle{Conceito}
 	\begin{itemize}
-		\item Web Components são um conjunto de especificações elaboradas para permitir a criação de elementos web de forma customizada e independente.
+		\item Web Components são um conjunto de especificações elaboradas para permitir a
+		      criação de elementos web de forma customizada e independente.
 		\item Web Components é uma especificação do W3C, que inclui:
-		\begin{itemize}
-			\item \textbf{Custom Elements}
-			\item \textbf{Shadow DOM}
-			\item \textbf{HTML Templates}
-			\item \textbf{HTML Imports}
-		\end{itemize}
-		\item Frameworks como Angular, React e Vue.js ajudaram a popularizar a ideia de componentização no desenvolvimento web.
+		      \begin{itemize}
+			      \item \textbf{Custom Elements}
+			      \item \textbf{Shadow DOM}
+			      \item \textbf{HTML Templates}
+			      \item \textbf{HTML Imports}
+		      \end{itemize}
+		\item Frameworks como Angular, React e Vue.js ajudaram a popularizar a ideia de
+		      componentização no desenvolvimento web.
 	\end{itemize}
 
 	\begin{figure}
@@ -183,21 +187,22 @@ citestyle=authoryear,
 
 \end{frame}
 
-\subsection{ciclo de vida}
+\subsection{Ciclo de Vida}
 
 \begin{frame}
 	\frametitle{Web Components}
 	\framesubtitle{Ciclo de Vida}
 	\begin{itemize}
 		\item Os Web Components têm um ciclo de vida que é gerenciado pelo navegador.
-		\item O ciclo de vida é composto por callbacks que são chamados em diferentes momentos do ciclo de vida do componente.
+		\item O ciclo de vida é composto por callbacks que são chamados em diferentes
+		      momentos do ciclo de vida do componente.
 		\item Os callbacks mais comuns são:
-		\begin{itemize}
-			\item \texttt{connectedCallback}: Chamado quando o componente é conectado ao DOM.
-			\item \texttt{disconnectedCallback}: Chamado quando o componente é desconectado do DOM.
-			\item \texttt{attributeChangedCallback}: Chamado quando um atributo do componente é alterado.
-			\item \texttt{adoptedCallback}: Chamado quando o componente é movido para um novo documento.
-		\end{itemize}
+		      \begin{itemize}
+			      \item \texttt{connectedCallback}: Chamado quando o componente é conectado ao DOM.
+			      \item \texttt{disconnectedCallback}: Chamado quando o componente é desconectado do DOM.
+			      \item \texttt{attributeChangedCallback}: Chamado quando um atributo do componente é alterado.
+			      \item \texttt{adoptedCallback}: Chamado quando o componente é movido para um novo documento.
+		      \end{itemize}
 	\end{itemize}
 
 \end{frame}
@@ -206,8 +211,10 @@ citestyle=authoryear,
 	\frametitle{Web Components}
 	\framesubtitle{Custom Elements}
 	\begin{itemize}
-		\item Custom Elements é uma API que permite a criação de novos elementos HTML personalizados, encapsulando HTML, CSS e JavaScript.
-		\item A classe pode ser estendida a partir de \texttt{HTMLElement} ou \texttt{HTMLButtonElement}, por exemplo.
+		\item Custom Elements é uma API que permite a criação de novos elementos HTML
+		      personalizados, encapsulando HTML, CSS e JavaScript.
+		\item A classe pode ser estendida a partir de \texttt{HTMLElement} ou
+		      \texttt{HTMLButtonElement}, por exemplo.
 	\end{itemize}
 
 	\begin{figure}
@@ -224,8 +231,10 @@ citestyle=authoryear,
 	\frametitle{Web Components}
 	\framesubtitle{DOM vs Shadow DOM}
 	\begin{itemize}
-		\item O DOM é uma árvore de elementos HTML/XML que representa a estrutura de uma página web. No contexto de Web Components, light DOM é o DOM padrão da página.
-		\item O Shadow DOM é uma árvore de elementos HTML encapsulada que representa a estrutura de um componente web.
+		\item O DOM é uma árvore de elementos HTML/XML que representa a estrutura de uma
+		      página web. No contexto de Web Components, light DOM é o DOM padrão da página.
+		\item O Shadow DOM é uma árvore de elementos HTML encapsulada que representa a
+		      estrutura de um componente web.
 	\end{itemize}
 
 	\begin{figure}
@@ -240,9 +249,12 @@ citestyle=authoryear,
 	\frametitle{Web Components}
 	\framesubtitle{Shadow DOM}
 	\begin{itemize}
-		\item Shadow DOM é uma API que permite a criação de um DOM encapsulado para fornecer um encapsulamento de estilo e comportamento.
-		\item Permite criar árvores de DOM independentes e isoladas que podem ser anexadas a um elemento HTML.
-		\item Impede que estilos e scripts de fora do DOM encapsulado afetem o DOM encapsulado.
+		\item Shadow DOM é uma API que permite a criação de um DOM encapsulado para fornecer
+		      um encapsulamento de estilo e comportamento.
+		\item Permite criar árvores de DOM independentes e isoladas que podem ser anexadas a
+		      um elemento HTML.
+		\item Impede que estilos e scripts de fora do DOM encapsulado afetem o DOM
+		      encapsulado.
 		\item Permite criar e reutilizar componentes.
 		\item Exemplo: \texttt{<input type="range">} é um elemento nativo encapsulado.
 	\end{itemize}
@@ -261,7 +273,8 @@ citestyle=authoryear,
 	\frametitle{Web Components}
 	\framesubtitle{HTML Templates}
 	\begin{itemize}
-		\item HTML Templates é uma tag que permite declarar fragmentos de código HTML que não são renderizados quando a página é carregada.
+		\item HTML Templates é uma tag que permite declarar fragmentos de código HTML que não
+		      são renderizados quando a página é carregada.
 		\item O conteúdo do template pode ser clonado e renderizado posteriormente.
 	\end{itemize}
 
@@ -277,8 +290,10 @@ citestyle=authoryear,
 	\frametitle{Web Components}
 	\framesubtitle{HTML Templates - Slots}
 	\begin{itemize}
-		\item Slots são um mecanismo que permite inserir conteúdo dinâmico dentro de um componente encapsulado.
-		\item Se um componente tem um slot, o conteúdo inserido no slot é renderizado no lugar do slot.
+		\item Slots são um mecanismo que permite inserir conteúdo dinâmico dentro de um
+		      componente encapsulado.
+		\item Se um componente tem um slot, o conteúdo inserido no slot é renderizado no
+		      lugar do slot.
 		\item O slot é usado para adicionar texto customizado.
 	\end{itemize}
 
@@ -296,15 +311,17 @@ citestyle=authoryear,
 	\frametitle{Web Components}
 	\framesubtitle{HTML Imports}
 	\begin{itemize}
-		\item HTML Imports era uma especificação da W3C que permitia importar e incluir componentes web em outros documentos HTML.
-		\item Foi descontinuado em favor de módulos ES6 que permitem importar e exportar módulos JavaScript.
+		\item HTML Imports era uma especificação da W3C que permitia importar e incluir
+		      componentes web em outros documentos HTML.
+		\item Foi descontinuado em favor de módulos ES6 que permitem importar e exportar
+		      módulos JavaScript.
 	\end{itemize}
 
 	\begin{block}{Exemplo}
 		\texttt{// Importa o componente - \alert{descontinuado}}\\
 		\texttt{<link rel=$"$import$"$ href=$"$component.html$"$>}\\
 
-		\bigskip 
+		\bigskip
 		\texttt{// Importa o módulo ES6}\\
 		\texttt{import \{Component\} from $"$component.js$"$}
 	\end{block}
@@ -351,10 +368,10 @@ citestyle=authoryear,
 		\item Registrar o componente
 		\item Usar o componente
 	\end{itemize}
-	
+
 	\begin{exampleblock}{Exemplo}
 		\iconLink{https://gist.github.com/fabricioifc/36e978f4ff2add25ca0eed6e86219918}{Gist - Exemplo prático de Web Components}
-	\end{exampleblock}	
+	\end{exampleblock}
 
 \end{frame}
 
@@ -386,11 +403,15 @@ citestyle=authoryear,
 	Escolha dois dos seguintes exercícios para entregar até a próxima aula:
 
 	\begin{enumerate}
-		\item Crie um Web Component que represente um botão personalizado, com diferentes cores e tamanhos.
+		\item Crie um Web Component que represente um botão personalizado, com diferentes
+		      cores e tamanhos.
 		\item Crie um Web Component para alterar o tema da página (claro/escuro).
-		\item Crie um Web Component que represente um formulário de contato com campos de entrada para nome, e-mail, mensagem e um botão de envio.
-		\item Crie um Web Component que represente um card com uma imagem, título e descrição.
-		\item Crie um Web Component que represente um menu de navegação com links para diferentes páginas.
+		\item Crie um Web Component que represente um formulário de contato com campos de
+		      entrada para nome, e-mail, mensagem e um botão de envio.
+		\item Crie um Web Component que represente um card com uma imagem, título e
+		      descrição.
+		\item Crie um Web Component que represente um menu de navegação com links para
+		      diferentes páginas.
 		\item Crie um Web Component que represente um carrossel de imagens.
 		\item Outro componente de sua escolha.
 	\end{enumerate}
@@ -398,11 +419,11 @@ citestyle=authoryear,
 	\begin{block}{Entrega}
 		\begin{itemize}
 			\item Crie um repositório no GitHub para entregar os exercícios.
-			\item O componente precisa implementar o ciclo de vida.
-			\item Crie um arquivo \texttt{README.md} com instruções sobre como usar os componentes.
+			\item Crie um arquivo \texttt{README.md} com instruções sobre como usar os
+			      componentes.
 		\end{itemize}
 	\end{block}
 
 \end{frame}
 
-\end{document} 
+\end{document}
