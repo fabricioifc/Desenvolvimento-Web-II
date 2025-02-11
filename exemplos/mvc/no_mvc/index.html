@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beer List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Beer List</h1>
+      <button id="add-beer">Adicionar</button>
+      <ul id="beer-list"></ul>
+    </div>
+    <script>
+      // Lista de cervejas
+      let beers = [
+        { id: 1, name: "Stella Artois", type: "Pilsner" },
+        { id: 2, name: "Guinness", type: "Stout" },
+        { id: 3, name: "Heineken", type: "Lager" },
+      ];
+
+      // Função para renderizar a lista
+      function renderList() {
+        const beerListElement = document.getElementById("beer-list");
+        beerListElement.innerHTML = "";
+
+        beers.forEach((beer) => {
+          const li = document.createElement("li");
+          li.textContent = `${beer.name} - ${beer.type}`;
+          li.addEventListener("click", () => removeBeer(beer.id));
+          beerListElement.appendChild(li);
+        });
+      }
+
+      // Função para adicionar uma cerveja aleatória
+      function addBeer() {
+        const randomBeerNames = [
+          "Corona",
+          "Budweiser",
+          "Skol",
+          "Brahma",
+          "Antarctica",
+          "Bavaria",
+          "Bohemia",
+          "Cacildis",
+        ];
+        const randomBeerTypes = [
+          "Pilsner",
+          "Stout",
+          "Lager",
+          "IPA",
+          "Weiss",
+          "Ale",
+          "Porter",
+          "Sour",
+          "Barley Wine",
+        ];
+
+        const randomName =
+          randomBeerNames[Math.floor(Math.random() * randomBeerNames.length)];
+        const randomType =
+          randomBeerTypes[Math.floor(Math.random() * randomBeerTypes.length)];
+        const newId = beers.length
+          ? Math.max(...beers.map((beer) => beer.id)) + 1
+          : 1;
+
+        beers.push({ id: newId, name: randomName, type: randomType });
+        renderList();
+      }
+
+      // Função para remover uma cerveja pelo ID
+      function removeBeer(id) {
+        beers = beers.filter((beer) => beer.id !== id);
+        renderList();
+      }
+
+      // Adicionar evento ao botão de adicionar
+      document.getElementById("add-beer").addEventListener("click", addBeer);
+
+      // Inicializa a lista
+      renderList();
+    </script>
+  </body>
+</html>

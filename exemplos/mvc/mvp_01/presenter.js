@@ -14,6 +14,7 @@ class BeerModel {
 }
 
 // Visão
+// No padrão MVP, a View geralmente se comunica com um Presenter que age como intermediário entre Model e View.
 class BeerView {
   constructor() {
     this.beerListElement = document.getElementById('beer-list');
