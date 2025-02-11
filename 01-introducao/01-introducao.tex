@@ -253,6 +253,14 @@ citestyle=authoryear,
 	
 	Abordagem tradicional no desenvolvimento de software na qual todos os componentes de uma aplicação são combinados em uma única unidade totalmente integrada. A aplicação é implantada como uma \alert{única base de código} que contém todas as funcionalidades.
 
+	\begin{exampleblock}{Características}
+		\begin{itemize}
+			\item \textbf{Acoplamento forte}: todas as partes do sistema dependem umas das outras.
+			\item \textbf{Deploy Único}: o sistema é implantado como uma única unidade.
+			\item \textbf{Escalabilidade vertical:}: para escalar, é necessário replicar o monólito inteiro.
+		\end{itemize}
+	\end{exampleblock}
+
 \end{frame}
 
 \begin{frame}
@@ -264,6 +272,7 @@ citestyle=authoryear,
 			\item \textbf{Simplicidade da Arquitetura}: não existem muitas camadas e componentes para gerenciar. É mais fácil para começar.
 			\item \textbf{Tecnologias}: usar uma única linguagem de programação e tecnologias para desenvolver a aplicação pode facilitar o entendimento da equipe.
 			\item \textbf{Fluxo de implantação}: o `deploy` é simples de fazer e gerenciar. Não há necessidade de implantar vários componentes separadamente.
+			\item \textbf{Menor complexidade operacional}: menos componentes para gerenciar.
 		\end{itemize}
 	\end{exampleblock}
 
@@ -275,12 +284,26 @@ citestyle=authoryear,
 
 	\begin{alertblock}{Desvantagens}
 		\begin{itemize}
-			\item \textbf{Acoplamento forte}: a aplicação é uma única unidade totalmente integrada, o que significa que qualquer alteração em um componente pode afetar outros componentes da aplicação.
-			\item \textbf{Escalabilidade limitada}:a aplicação é implantada como uma única unidade, o que significa que todos os componentes da aplicação devem ser escalados juntos horizontalmente.
+			\item \textbf{Manutenção}: À medida que o sistema cresce, o código pode se tornar complexo e difícil de entender.
+			\item \textbf{Escalabilidade limitada}: Não é possível escalar partes específicas do sistema.
 			\item \textbf{Implantação única}: a aplicação é implantada como uma única unidade, o que significa que todos os componentes da aplicação devem ser implantados juntos. Qualquer alteração, por menor que seja, requer a implantação de toda a aplicação.
-			\item \textbf{Tecnologias limitadas}: todos os componentes da aplicação devem ser desenvolvidos usando a mesma linguagem de programação e tecnologias.
+			\item \textbf{Falhas}: Um erro em uma parte do sistema pode afetar todo o monólito.
 		\end{itemize}
 	\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Principais Arquiteturas de Software}
+	\framesubtitle{Monolito - Casos de Uso}
+
+	\begin{exampleblock}{Casos de Uso}
+		\begin{itemize}
+			\item Aplicações pequenas ou de baixa complexidade.
+			\item Projetos com equipes pequenas e prazos curtos.
+			\item Sistemas que não exigem alta escalabilidade ou flexibilidade.
+		\end{itemize}
+	\end{exampleblock}
 
 \end{frame}
 
@@ -351,7 +374,7 @@ citestyle=authoryear,
 	\frametitle{Principais Arquiteturas de Software}
 	\framesubtitle{Arquitetura em N camadas (N-tier) - Definição}
 
-	A arquitetura em N camadas é um padrão de arquitetura de software no qual a aplicação é dividida em camadas lógicas ou físicas. N refere-se ao número de camadas que compõem a aplicação. Cada camada é responsável por uma parte específica da aplicação.
+	A arquitetura em camadas organiza o sistema em camadas lógicas, onde cada camada tem uma responsabilidade específica. Cada camada é responsável por uma parte específica da aplicação.
 
 	% \two columns
 	\begin{columns}
@@ -449,11 +472,10 @@ citestyle=authoryear,
 
 	\begin{itemize}
 		\item A arquitetura de microsserviços é uma abordagem arquitetônica e organizacional do desenvolvimento de software na qual o software consiste em \alert{pequenos serviços independentes}.
-		\item É similar à \alert{arquitetura orientada a serviços (SOA)}, mas com algumas diferenças importantes, tais como, por exemplo, o tamanho dos serviços e a forma como eles se comunicam.
 		\item Esses serviços são mantidos por \alert{pequenas equipes autossuficientes}.
 		\item Cada serviço é desenvolvido, implantado e gerenciado de forma \alert{independente}.
 		\item Cada serviço é responsável por uma \alert{única funcionalidade}.
-		\item Os serviços se comunicam entre si através de \alert{APIs} bem definidas.
+		\item Os serviços se comunicam entre si através de \alert{APIs}, geralmente usando protocolos como HTTP ou mensageria.
 	\end{itemize}
 
 \end{frame}
@@ -464,9 +486,9 @@ citestyle=authoryear,
 
 	\begin{exampleblock}{Vantagens}
 		\begin{itemize}
-			\item \textbf{Separação de Responsabilidades}: Tudo é desenvolvido através de pequenas unidades de código e publicado em processos de deploy automatizados e independentes.
-			\item \textbf{Tecnologias}: Essa abordagem permite que cada serviço seja desenvolvido usando a \textit{stack} mais adequadas para o problema que está sendo resolvido.
-			\item \textbf{Aplicabilidade}: em aplicações de \alert{grande porte e complexas} que precisam ser escaladas rapidamente e com equipes distribuídas.
+			\item \textbf{Flexibilidade}: Facilita a adoção de novas tecnologias e a evolução do sistema.
+			\item \textbf{Resiliência}: Falhas em um serviço não afetam necessariamente outros serviços.
+			\item \textbf{Escalabilidade}: Permite escalar apenas os serviços que precisam de mais recursos.
 		\end{itemize}
 	\end{exampleblock}
 \end{frame}
@@ -477,9 +499,9 @@ citestyle=authoryear,
 
 	\begin{alertblock}{Desvantagens}
 		\begin{itemize}
-			\item \textbf{Complexidade}: A complexidade de uma arquitetura de microsserviços é maior do que a de uma arquitetura monolítica, pois existem mais componentes para gerenciar.
-			\item \textbf{Comunicação}: A comunicação entre os serviços pode resultar em algum overhead, especialmente em sistemas distribuídos, o que pode impactar o desempenho.
-			\item \textbf{Testes}: Os testes de integração são mais complexos, pois envolvem a comunicação entre os serviços.
+			\item \textbf{Complexidade}: Requer ferramentas para gerenciar deploy, monitoramento e comunicação entre serviços.
+			\item \textbf{Latência}: A comunicação entre serviços pode introduzir atrasos.
+			\item \textbf{Consistência}: Manter a consistência de dados entre serviços pode ser desafiador.
 			\item \textbf{Gerenciamento}: O gerenciamento de uma arquitetura de microsserviços (governança) é mais complexo, pois existem mais componentes para gerenciar.
 		\end{itemize}
 	\end{alertblock}
@@ -498,148 +520,162 @@ citestyle=authoryear,
 
 \end{frame}
 
-\subsection{Comparativos}
-
-\begin{frame}
-	\begin{center}
-		
-		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Modelos Arquiteturais}
-		
-		\bigskip\bigskip % Vertical whitespace
-		{\Huge Comparativos}
-		
-		% \smallskip
-		% {\small \textit{Monolithic}}
-	\end{center}
-
-\end{frame}
-
 \begin{frame}
 	\frametitle{Principais Arquiteturas de Software}
-	\framesubtitle{Monolito vs. Microsserviços}
+	\framesubtitle{Microserviços - Casos de Uso}
 
-	\begin{figure}
-		\centering
-		% \caption*{Fonte: \url{https://aws.amazon.com/pt/microservices/}}
-		\includegraphics[width=0.9\linewidth]{Images/mono_x_micro.png}
-		\caption{Monolito vs. Microsserviços.}\label{fig:monolito-vs-microservicos}
-	\end{figure}
+	\begin{exampleblock}{Casos de Uso}
+		\begin{itemize}
+			\item Sistemas grandes e complexos com equipes distribuídas.
+			\item Aplicações que exigem alta escalabilidade e disponibilidade.
+			\item Projetos que precisam evoluir rapidamente e adotar novas tecnologias.
+		\end{itemize}
+	\end{exampleblock}
 
 \end{frame}
 
-\begin{frame}
-	\frametitle{Principais Arquiteturas de Software}
-	\framesubtitle{Monolito, N Camares e Microsserviços}
+% \subsection{Comparativos}
 
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.9\linewidth]{Images/arquit-comparativo.jpg}
-		\caption{Monolito, N Camares e Microsserviços.}\label{fig:comparativo}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{Principais Arquiteturas de Software}
-	\framesubtitle{Exemplo Prático}
-
-	\textbf{Sistema de Comércio Eletrônico - Módulo de Recomendações:}
-
-	\begin{exampleblock}{Monolito - Exemplo}
-		Um componente que fornece recomendações de produtos com base no histórico de compras, comportamentos de navegação e preferências do usuário. Todos os módulos serão construídos na mesma base de código e implantados como uma única unidade.
-	\end{exampleblock}
-
-	\begin{exampleblock}{N Camadas - Exemplo}
-		Será organizado como parte da camada de lógica de negócios (Backend).
-	\end{exampleblock}
-
-	\begin{exampleblock}{Microserviços - Exemplo}
-		Um microserviço que fornece recomendações personalizadas aos clientes com base em seu histórico de compras, preferências e comportamentos de navegação. Será um serviço separado e independente.
-	\end{exampleblock}
-	
-
-\end{frame}
-
-\section{Outras Arquiteturas}
-
-\begin{frame}
-	\begin{center}
+% \begin{frame}
+% 	\begin{center}
 		
-		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Modelos Arquiteturais}
+% 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+% 		{\Large Modelos Arquiteturais}
 		
-		\bigskip\bigskip % Vertical whitespace
-		{\Huge Outras Arquiteturas}
+% 		\bigskip\bigskip % Vertical whitespace
+% 		{\Huge Comparativos}
 		
-		% \smallskip
-		% {\small \textit{Monolithic}}
-	\end{center}
+% 		% \smallskip
+% 		% {\small \textit{Monolithic}}
+% 	\end{center}
 
-\end{frame}
+% \end{frame}
 
+% \begin{frame}
+% 	\frametitle{Principais Arquiteturas de Software}
+% 	\framesubtitle{Monolito vs. Microsserviços}
 
-\begin{frame}
-	\frametitle{Outras Arquiteturas}
-	\framesubtitle{Arquitetura Orientada a Serviços (SOA)}
+% 	\begin{figure}
+% 		\centering
+% 		% \caption*{Fonte: \url{https://aws.amazon.com/pt/microservices/}}
+% 		\includegraphics[width=0.9\linewidth]{Images/mono_x_micro.png}
+% 		\caption{Monolito vs. Microsserviços.}\label{fig:monolito-vs-microservicos}
+% 	\end{figure}
 
-	\begin{block}{Arquitetura Orientada a Serviços (SOA)}
-		A arquitetura de microsserviços é uma evolução do estilo de arquitetura SOA. Embora cada serviço de SOA seja um \alert{recurso de negócios completo}, cada microsserviço é um componente de software muito menor, especializado em apenas uma única tarefa. Os microsserviços abordam as deficiências da SOA para tornar o software mais compatível com ambientes corporativos modernos baseados na nuvem \parencite{AWSSOA2024}.		
-	\end{block}
-	\begin{exampleblock}{Exemplo}
-		\textbf{Sistema de Comércio Eletrônico - Serviço de Pagamento:} Responsável pelo processamento de transações financeiras, integração com gateways de pagamento e validação de transações.
-	\end{exampleblock}
+% \end{frame}
+
+% \begin{frame}
+% 	\frametitle{Principais Arquiteturas de Software}
+% 	\framesubtitle{Monolito, N Camares e Microsserviços}
+
+% 	\begin{figure}
+% 		\centering
+% 		\includegraphics[width=0.9\linewidth]{Images/arquit-comparativo.jpg}
+% 		\caption{Monolito, N Camares e Microsserviços.}\label{fig:comparativo}
+% 	\end{figure}
+
+% \end{frame}
+
+% \begin{frame}
+% 	\frametitle{Principais Arquiteturas de Software}
+% 	\framesubtitle{Exemplo Prático}
+
+% 	\textbf{Sistema de Comércio Eletrônico - Módulo de Recomendações:}
+
+% 	\begin{exampleblock}{Monolito - Exemplo}
+% 		Um componente que fornece recomendações de produtos com base no histórico de compras, comportamentos de navegação e preferências do usuário. Todos os módulos serão construídos na mesma base de código e implantados como uma única unidade.
+% 	\end{exampleblock}
+
+% 	\begin{exampleblock}{N Camadas - Exemplo}
+% 		Será organizado como parte da camada de lógica de negócios (Backend).
+% 	\end{exampleblock}
+
+% 	\begin{exampleblock}{Microserviços - Exemplo}
+% 		Um microserviço que fornece recomendações personalizadas aos clientes com base em seu histórico de compras, preferências e comportamentos de navegação. Será um serviço separado e independente.
+% 	\end{exampleblock}
 	
-\end{frame}
 
-\begin{frame}
-	\frametitle{Outras Arquiteturas}
-	\framesubtitle{Arquitetura Orientada a Eventos}
+% \end{frame}
 
-	\begin{block}{Arquitetura Orientada a Eventos}
-		Uma arquitetura orientada por eventos usa eventos para acionamento e comunicação entre serviços desacoplados e é comum em aplicações modernas criadas com microsserviços \parencite{AWSEVENTOS2024}.
-	\end{block}
+% \section{Outras Arquiteturas}
 
-	\begin{exampleblock}{Exemplo}
-		\textbf{Sistema de Comércio Eletrônico - Pedido Realizado}: quando um cliente faz um pedido, um evento é gerado e enviado para o serviço de processamento de pedidos, que pode então iniciar o processamento do pedido.
-	\end{exampleblock}
+% \begin{frame}
+% 	\begin{center}
+		
+% 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+% 		{\Large Modelos Arquiteturais}
+		
+% 		\bigskip\bigskip % Vertical whitespace
+% 		{\Huge Outras Arquiteturas}
+		
+% 		% \smallskip
+% 		% {\small \textit{Monolithic}}
+% 	\end{center}
+
+% \end{frame}
+
+
+% \begin{frame}
+% 	\frametitle{Outras Arquiteturas}
+% 	\framesubtitle{Arquitetura Orientada a Serviços (SOA)}
+
+% 	\begin{block}{Arquitetura Orientada a Serviços (SOA)}
+% 		A arquitetura de microsserviços é uma evolução do estilo de arquitetura SOA. Embora cada serviço de SOA seja um \alert{recurso de negócios completo}, cada microsserviço é um componente de software muito menor, especializado em apenas uma única tarefa. Os microsserviços abordam as deficiências da SOA para tornar o software mais compatível com ambientes corporativos modernos baseados na nuvem \parencite{AWSSOA2024}.		
+% 	\end{block}
+% 	\begin{exampleblock}{Exemplo}
+% 		\textbf{Sistema de Comércio Eletrônico - Serviço de Pagamento:} Responsável pelo processamento de transações financeiras, integração com gateways de pagamento e validação de transações.
+% 	\end{exampleblock}
 	
-\end{frame}
+% \end{frame}
 
-\begin{frame}
-	\frametitle{Outras Arquiteturas}
-	\framesubtitle{Arquitetura Serverless}
+% \begin{frame}
+% 	\frametitle{Outras Arquiteturas}
+% 	\framesubtitle{Arquitetura Orientada a Eventos}
 
-	\begin{block}{Serverless}
-		É um modelo de desenvolvimento nativo em nuvem para criação e execução de aplicações sem o gerenciamento de servidores. Os servidores ainda são usados nesse modelo, mas eles são abstraídos do desenvolvimento de aplicações \parencite{REDHAT2024}.
-	\end{block}
+% 	\begin{block}{Arquitetura Orientada a Eventos}
+% 		Uma arquitetura orientada por eventos usa eventos para acionamento e comunicação entre serviços desacoplados e é comum em aplicações modernas criadas com microsserviços \parencite{AWSEVENTOS2024}.
+% 	\end{block}
 
-	\begin{exampleblock}{Exemplo}
-		\textbf{Serviço de Armazenamento (Storage)}: Os usuários fazem upload de imagens para um serviço de armazenamento na nuvem, como o Amazon S3. A função serverless terá a lógica para processar a imagem e gerar thumbnails em diferentes tamanhos.
-	\end{exampleblock}
+% 	\begin{exampleblock}{Exemplo}
+% 		\textbf{Sistema de Comércio Eletrônico - Pedido Realizado}: quando um cliente faz um pedido, um evento é gerado e enviado para o serviço de processamento de pedidos, que pode então iniciar o processamento do pedido.
+% 	\end{exampleblock}
 	
-\end{frame}
+% \end{frame}
+
+% \begin{frame}
+% 	\frametitle{Outras Arquiteturas}
+% 	\framesubtitle{Arquitetura Serverless}
+
+% 	\begin{block}{Serverless}
+% 		É um modelo de desenvolvimento nativo em nuvem para criação e execução de aplicações sem o gerenciamento de servidores. Os servidores ainda são usados nesse modelo, mas eles são abstraídos do desenvolvimento de aplicações \parencite{REDHAT2024}.
+% 	\end{block}
+
+% 	\begin{exampleblock}{Exemplo}
+% 		\textbf{Serviço de Armazenamento (Storage)}: Os usuários fazem upload de imagens para um serviço de armazenamento na nuvem, como o Amazon S3. A função serverless terá a lógica para processar a imagem e gerar thumbnails em diferentes tamanhos.
+% 	\end{exampleblock}
+	
+% \end{frame}
 
 %------------------------------------------------
 
-\section{Monorepo vs Multi-repo vs Monolith}
+% \section{Monorepo vs Multi-repo vs Monolith}
 
-\begin{frame}
-	\begin{center}
+% \begin{frame}
+% 	\begin{center}
 		
-		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
-		{\Large Modelos Arquiteturais}
+% 		\bigskip\bigskip\bigskip\bigskip % Vertical whitespace
+% 		{\Large Modelos Arquiteturais}
 		
-		\bigskip\bigskip % Vertical whitespace
-		{\Huge Monorepo vs Multi-repo vs Monolith}
+% 		\bigskip\bigskip % Vertical whitespace
+% 		{\Huge Monorepo vs Multi-repo vs Monolith}
 		
-		\smallskip
-		{\small \iconLink{https://medium.com/@magenta2127/monorepo-vs-multi-repo-vs-monolith-7c4a5f476009}{\textbf{Medium: Monorepo vs Multi-repo vs Monolith}}}\\
-		\bigskip
-		{\small Este post compara vantagens e desvantagens do mono repo, multi repo e arquitetura monolítica e discute qual arquitetura escolher na vida real.}
-	\end{center}
+% 		\smallskip
+% 		{\small \iconLink{https://medium.com/@magenta2127/monorepo-vs-multi-repo-vs-monolith-7c4a5f476009}{\textbf{Medium: Monorepo vs Multi-repo vs Monolith}}}\\
+% 		\bigskip
+% 		{\small Este post compara vantagens e desvantagens do mono repo, multi repo e arquitetura monolítica e discute qual arquitetura escolher na vida real.}
+% 	\end{center}
 
-\end{frame}
+% \end{frame}
 
 \section{Material Complementar}
 
@@ -674,37 +710,37 @@ citestyle=authoryear,
 		
 \end{frame}
 
-\section{Experimentos}
+% \section{Experimentos}
 
-\begin{frame}
-	\frametitle{Experimentos}
-	\framesubtitle{Experimento prático}
+% \begin{frame}
+% 	\frametitle{Experimentos}
+% 	\framesubtitle{Experimento prático}
 
-	Escolha uma das arquiteturas e crie uma aplicação web simples para demonstrar como ela funciona.
+% 	Escolha uma das arquiteturas e crie uma aplicação web simples para demonstrar como ela funciona.
 
-	\smallskip
+% 	\smallskip
 
-	\begin{itemize}
-		\item \textbf{Arquitetura 01}: \textit{Monolítico.}
-		\item \textbf{Arquitetura 02}: \textit{Em camadas.}
-		\item \textbf{Arquitetura 03}: \textit{Microsserviços.}
-		\item \textbf{Arquitetura 04}: \textit{Orientado a Eventos.}
-		\item \textbf{Arquitetura 05}: \textit{Serverless.}
-		\item \textbf{Arquitetura 06}: \textit{Orientado a serviços.}
-		\item \textbf{Arquitetura 07}: \textit{Monorepo/Multi-repo.}
-	\end{itemize}
-	\begin{block}{Entrega}
-		\begin{itemize}
-			\item \textbf{Prazo}: Combinar com o professor.
-			\item \textbf{Forma}: Repositório no GitHub. 
-			\item \textbf{Conteúdo}: Código fonte e documentação - README.md
-			\item \textbf{Avaliação}: Faz parte da 1° avaliação.
-		\end{itemize}
-		% \alert{Faremos uma aula para compartilhamento dos resultados.}
-	\end{block}
+% 	\begin{itemize}
+% 		\item \textbf{Arquitetura 01}: \textit{Monolítico.}
+% 		\item \textbf{Arquitetura 02}: \textit{Em camadas.}
+% 		\item \textbf{Arquitetura 03}: \textit{Microsserviços.}
+% 		\item \textbf{Arquitetura 04}: \textit{Orientado a Eventos.}
+% 		\item \textbf{Arquitetura 05}: \textit{Serverless.}
+% 		\item \textbf{Arquitetura 06}: \textit{Orientado a serviços.}
+% 		% \item \textbf{Arquitetura 07}: \textit{Monorepo/Multi-repo.}
+% 	\end{itemize}
+% 	\begin{block}{Entrega}
+% 		\begin{itemize}
+% 			\item \textbf{Prazo}: Combinar com o professor.
+% 			\item \textbf{Forma}: Repositório no GitHub. 
+% 			\item \textbf{Conteúdo}: Código fonte e documentação - README.md
+% 			\item \textbf{Avaliação}: Faz parte da 1° avaliação.
+% 		\end{itemize}
+% 		% \alert{Faremos uma aula para compartilhamento dos resultados.}
+% 	\end{block}
 
 
-\end{frame}
+% \end{frame}
 
 \section{Referências}
 
