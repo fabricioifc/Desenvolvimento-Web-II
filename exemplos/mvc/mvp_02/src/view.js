@@ -1,4 +1,5 @@
 // a View (BeerView) apenas expõe métodos para renderizar a interface e notifica o Presenter (BeerPresenter) sobre interações do usuário (como cliques).
+// Toda a lógica de decisão (o que fazer quando o usuário clica em um botão) é tratada pelo Presenter.
 export const BeerView = {
     init: function (presenter) {
       this.presenter = presenter;
@@ -18,7 +19,7 @@ export const BeerView = {
   
       beerList.forEach((beer) => {
         const li = document.createElement('li');
-        li.textContent = `[${beer.id}] ${beer.name} - ${beer.type}`;
+        li.textContent = `${beer.name} - ${beer.type}`;
         li.addEventListener('click', () => {
           this.presenter.onRemoveBeer(beer.id);
         });
