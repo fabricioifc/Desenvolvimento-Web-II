@@ -437,15 +437,18 @@ citestyle=authoryear,
 
 \begin{frame}
 	\frametitle{Principais Arquiteturas de Software}
-	\framesubtitle{Arquitetura em 2 camadas - Cliente-Servidor}
+	\framesubtitle{Monolito + N camadas}
 
-	A arquitetura de software em duas camadas, também conhecida como arquitetura cliente-servidor, é um modelo simples no qual a lógica de aplicação é dividida em duas partes principais: a camada de apresentação (cliente) e a camada de dados (servidor). Essa arquitetura é bastante direta e é frequentemente utilizada em aplicações pequenas e simples.
-	
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.7\linewidth]{Images/cliente-servidor.png}
-		\caption{Arquitetura Cliente-Servidor.}\label{fig:cliente-servidor}
-	\end{figure}
+	\begin{alertblock}{Monolito + N camadas}
+		\begin{itemize}
+			\item \textbf{Monolito + Camadas}: Uma aplicação monolítica pode ser estruturada em camadas. Por exemplo, um sistema tradicional MVC (Model-View-Controller) é monolítico e organizado em camadas.
+			\item \textbf{Arquitetura em Camadas ≠ Monolítica}: A arquitetura em camadas é um padrão de design, enquanto "monolítica" é um estilo arquitetural.
+		\end{itemize}
+	\end{alertblock}
+
+	\begin{exampleblock}{Exemplo}
+		Um sistema Java EE clássico, onde a UI (JSP/JSF), lógica de negócio (EJB) e acesso a dados (JPA) estão no mesmo projeto, mas separados em camadas.
+	\end{exampleblock}
 
 \end{frame}
 
@@ -503,6 +506,7 @@ citestyle=authoryear,
 			\item \textbf{Latência}: A comunicação entre serviços pode introduzir atrasos.
 			\item \textbf{Consistência}: Manter a consistência de dados entre serviços pode ser desafiador.
 			\item \textbf{Gerenciamento}: O gerenciamento de uma arquitetura de microsserviços (governança) é mais complexo, pois existem mais componentes para gerenciar.
+			\item \textbf{Testes}: Testes unitários e de integração podem ser mais complexos devido à natureza distribuída do sistema.
 		\end{itemize}
 	\end{alertblock}
 
@@ -685,8 +689,8 @@ citestyle=authoryear,
 	
 	\begin{itemize}
 		\item \href{https://youtu.be/CsrHHHPHKwE}{\textbf{Aplicação Monolítica // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
-		\item \href{https://youtu.be/suZfVAk7hco}{\textbf{Arquitetura de Software: Monolítica x SOA x Microserviços}}.\\Canal \textbf{Marcos Dósea}.
 		\item \href{https://www.youtube.com/watch?v=_2bDOCTnbKc}{\textbf{Microservices // Dicionário do Programador}}.\\Canal \textbf{Código Fonte TV}.
+		\item \href{https://youtu.be/suZfVAk7hco}{\textbf{Arquitetura de Software: Monolítica x SOA x Microserviços}}.\\Canal \textbf{Marcos Dósea}.
 		\item \href{https://youtu.be/gtv9szE_P1U}{\textbf{Microservices na prática}}.\\Canal \textbf{Full Cycle}.
 		\item \href{https://www.hipsters.tech/uma-linguagem-para-cada-combate-hipsters-ponto-tech-277}{\textbf{Monolitos}}.\\Podcast Hipsters Ponto Tech.
 	\end{itemize}
