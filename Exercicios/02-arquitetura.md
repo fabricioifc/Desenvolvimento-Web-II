@@ -3,11 +3,13 @@
 Assista ao vídeo sobre [monolito](https://youtu.be/CsrHHHPHKwE). Em seguida, responda as seguintes perguntas:
 
 1. O que é um monolito? Defina.
-2. No vídeo, foi apresentada uma imagem representando as camadas de apresentação, negócios e acesso a dados. Explique o que cada camada representa.
-3. Quais são as características desta arquitetura?
-4. Quais são as vantagens de utilizar um monolito?
-5. Quais são as desvantagens de utilizar um monolito?
-6. Quais são os principais desafios ao utilizar um monolito?
+2. No vídeo, foi apresentada uma imagem representando as camadas de apresentação, negócios e acesso a dados. Qual é a relação entre camadas em uma arquitetura monolítica?
+3. Quais são as características desta arquitetura? Explique.
+4. Quais são as vantagens de utilizar um monolito? Explique.
+5. Quais são as desvantagens de utilizar um monolito? Explique.
+6. Quais são os principais desafios ao utilizar um monolito? Explique.
+7. Como podemos contornar problemas de escalabilidade em um monolito?
+8. Em um monolito, qual é a função do load balancer? Explique.
 
 ## Tarefa - Microserviços
 
