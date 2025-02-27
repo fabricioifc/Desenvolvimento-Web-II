@@ -25,15 +25,15 @@ Caso contrário, o Python pode ser baixado em: [https://www.python.org/downloads
 Execute os comandos:  
 ```sh
 # Criar um ambiente virtual
-python -m venv venv  
+python -m venv .venv  
 
 # Ativar o ambiente virtual (Windows)
-venv\Scripts\activate  
+.venv\Scripts\activate  
 
 # Ativar o ambiente virtual (Linux/Mac)
-source venv/bin/activate  
+source .venv/bin/activate  
 ```
-O terminal mostrará algo como `(venv)` indicando que o ambiente virtual está ativo.
+O terminal mostrará algo como `(.venv)` indicando que o ambiente virtual está ativo.
 
 ---
 
@@ -86,6 +86,7 @@ Agora, crie o arquivo `app.py` com o seguinte código:
 
 ```python
 from flask import Flask, render_template, request, redirect
+import socket, os
 
 app = Flask(__name__)
 
@@ -93,6 +94,12 @@ import sqlite3
 
 def connect_db():
     return sqlite3.connect("database.db")
+
+@app.route('/oi')
+def hello():
+    hostname = socket.gethostname()
+    port = os.environ.get('PORT', '5000')  # Pega a porta do ambiente ou usa 5000 como padrão
+    return f"Hello from {hostname} on port {port}!\n"
 
 @app.route('/')
 def index():
@@ -177,7 +184,7 @@ Crie uma pasta chamada `templates` e dentro dela um arquivo `index.html`:
 </body>
 </html>
 ```
-Esse frontend:
+Esse frontend:\
 ✅ Exibe as tarefas  
 ✅ Permite adicionar novas  
 ✅ Permite marcar como concluídas  
@@ -206,12 +213,25 @@ A escalabilidade **vertical** significa **melhorar o servidor** onde sua aplica�
 ✅ **Configurar um WSGI mais eficiente**, como **Gunicorn**  
 
 ### **🔧 Usando Gunicorn**
+
+WSGI (Web Server Gateway Interface) é um padrão para servidores web e aplicações Python se comunicarem. **Gunicorn** é um servidor WSGI que pode melhorar a performance do Flask. Usar o Gunicorn traz os seguintes benefícios:
+
+✅ Diferente do servidor de desenvolvimento do Flask, que processa apenas uma requisição por vez, o Gunicorn pode lidar com várias conexões simultâneas, tornando a aplicação mais eficiente.\
+✅ O Gunicorn pode ser executado atrás de um proxy reverso como o Nginx ou Apache, que pode servir arquivos estáticos e lidar com tarefas de balanceamento de carga.
+
 Em produção, ao invés de rodar `python app.py`, use **Gunicorn** para melhorar a performance:  
 ```sh
 pip install gunicorn
 gunicorn -w 4 -b 0.0.0.0:5000 app:app
 ```
 Isso inicia 4 "workers", permitindo que várias requisições sejam processadas ao mesmo tempo.
+
+✅ Se houver mais de 4 requisições simultâneas, elas entram na fila e esperam um worker ficar disponível.\
+✅ Se o servidor tiver mais CPU/RAM, você pode aumentar o número de workers.\
+✅ Se o número de requisições for muito alto e os workers demorarem para processar, a fila pode ficar sobrecarregada, causando lentidão ou erros 502/504 (Bad Gateway, Timeout).\
+✅ O Nginx pode ajudar a gerenciar conexões e servir arquivos estáticos, reduzindo a carga do Gunicorn.
+
+Se a aplicação faz muitas operações de entrada e saída (consultas SQL, chamadas HTTP externas), aumentar os workers melhora o desempenho. Fórmula Geral: **2 × CPUs + 1** (ex: 4 CPUs → 9 workers).
 
 ---
 
@@ -222,10 +242,11 @@ A escalabilidade **horizontal** significa rodar várias cópias da aplicação p
 Se o tráfego aumentar, você pode rodar **múltiplas instâncias** e usar um **Load Balancer** para distribuir as requisições.  
 
 🔹 No **Railway, Render ou Heroku**, basta aumentar as "instâncias" na configuração do serviço.  
-🔹 Se estiver em um **VPS (AWS, DigitalOcean, Linode)**, pode usar o **NGINX** como proxy reverso.
+🔹 Se estiver em um **VPS (AWS, DigitalOcean, Brdrive)**, pode usar o **NGINX** como proxy reverso.
 
 Exemplo de configuração NGINX para distribuir o tráfego entre 2 instâncias Flask:
-```
+
+```nginx
 upstream flask_app {
     server 127.0.0.1:5000;
     server 127.0.0.1:5001;
@@ -328,12 +349,204 @@ Isso reduz a carga no banco de dados.
 
 ---
 
-# **6️⃣ Conclusão**
-Para escalar sua aplicação Flask monolítica:  
-✅ **Escalabilidade Vertical:** Use Gunicorn, aumente RAM/CPU e otimize queries.  
-✅ **Escalabilidade Horizontal:** Use Load Balancer, NGINX e rode múltiplas instâncias.  
-✅ **Containerização:** Docker e Kubernetes ajudam a gerenciar múltiplas réplicas.  
-✅ **Banco de Dados Externo:** Use PostgreSQL/MySQL em vez de SQLite.  
-✅ **Cache:** Redis pode reduzir a carga no banco.
+# **6️⃣ Otimizações de Código**
 
-🚀 **Se precisar de mais detalhes sobre alguma abordagem, me avise!**
+Vamos fazer mudanças para testar a escalabilidade da aplicação.
+
+### Database Init
+
+```sh
+mkdir data
+```
+
+```python
+import sqlite3
+
+con = sqlite3.connect("data/database.db")
+cur = con.cursor()
+cur.execute("""
+CREATE TABLE tasks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    task TEXT NOT NULL,
+    completed INTEGER DEFAULT 0
+)
+""")
+con.commit()
+con.close()
+
+print("Banco de dados criado com sucesso!")
+```
+
+### app.py
+```python
+from flask import Flask, render_template, request, redirect
+import socket
+import os
+import logging
+import sqlite3
+
+app = Flask(__name__)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+@app.before_request
+def log_request_info():
+    hostname = socket.gethostname()
+    port = os.environ.get('PORT', '5000')  # Pega a porta do ambiente ou usa 5000 como padrão
+    logger.info(f"Requisição recebida em {hostname} na porta {port}")
+
+def connect_db():
+    # return sqlite3.connect("database.db")
+    db_path = '/app/db/database.db'
+    conn = sqlite3.connect(db_path)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+@app.route('/env')
+def env():
+    return str(os.environ)
+
+@app.route('/oi')
+def hello():
+    hostname = socket.gethostname()
+    port = os.environ.get('PORT', '5000')  # Pega a porta do ambiente ou usa 5000 como padrão
+    logger.info(f"Requisição recebida em {hostname} na porta {port}")
+    return f"Hello from {hostname} on port {port}!\n"
+
+@app.route('/')
+def index():
+    con = connect_db()
+    cur = con.cursor()
+    cur.execute("SELECT * FROM tasks")
+    tasks = cur.fetchall()
+    con.close()
+    return render_template("index.html", tasks=tasks)
+
+@app.route('/add', methods=['POST'])
+def add_task():
+    task = request.form['task']
+    con = connect_db()
+    cur = con.cursor()
+    cur.execute("INSERT INTO tasks (task, completed) VALUES (?, ?)", (task, 0))
+    con.commit()
+    con.close()
+    return redirect('/')
+
+@app.route('/delete/<int:id>')
+def delete_task(id):
+    con = connect_db()
+    cur = con.cursor()
+    cur.execute("DELETE FROM tasks WHERE id=?", (id,))
+    con.commit()
+    con.close()
+    return redirect('/')
+
+@app.route('/complete/<int:id>')
+def complete_task(id):
+    con = connect_db()
+    cur = con.cursor()
+    cur.execute("UPDATE tasks SET completed = 1 WHERE id=?", (id,))
+    con.commit()
+    con.close()
+    return redirect('/')
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+### Nginx
+
+```nginx
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log warn;
+pid /var/run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    sendfile on;
+    keepalive_timeout 65;
+
+    upstream flask_app {
+        server app1:5000;
+        server app2:5001;
+    }
+
+    server {
+        listen 80;
+        server_name _;
+
+        location / {
+            proxy_pass http://flask_app;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+
+            proxy_connect_timeout 10;
+            proxy_send_timeout 10;
+            proxy_read_timeout 10;
+
+            client_max_body_size 10M;
+        }
+    }
+}
+```
+
+### Docker Compose
+```yaml
+services:
+  app1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app1
+    environment:
+      - PORT=5000
+    volumes:
+      - ./data:/app/db  # Monta ./data do host em /app/db no container
+
+  app2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app2
+    environment:
+      - PORT=5001
+    volumes:
+      - ./data:/app/db  # Monta ./data do host em /app/db no container
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - app1
+      - app2
+```
+
+### Dockerfile
+```dockerfile
+# Usa a versão leve do Python (Slim)
+FROM python:3.9-slim
+# Define o diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# Instala as dependências necessárias
+RUN apt update && apt install -y net-tools bash
+
+# Copia os arquivos necessários para o contêiner
+COPY . .
+# Instala as dependências necessárias (usa --no-cache para evitar arquivos desnecessários)
+RUN pip install --no-cache-dir -r requirements.txt
+# Comando para iniciar a aplicação usando Gunicorn
+CMD ["sh", "-c", "gunicorn --workers 2 --bind 0.0.0.0:${PORT:-5000} app:app"]
+```
