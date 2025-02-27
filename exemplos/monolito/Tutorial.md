@@ -550,3 +550,17 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Comando para iniciar a aplicação usando Gunicorn
 CMD ["sh", "-c", "gunicorn --workers 2 --bind 0.0.0.0:${PORT:-5000} app:app"]
 ```
+
+### Comandos
+```sh
+docker ps
+docker compose ps
+docker compose up -d --build
+docker compose down
+docker compose logs -f app1
+docker compose logs -f app2
+docker compose logs -f nginx
+docker exec -it app1 bash -c "netstat -tuln | grep 5000"
+docker exec -it app2 bash -c "netstat -tuln | grep 5001"
+for i in {1..10}; do curl http://localhost/oi; done
+```
