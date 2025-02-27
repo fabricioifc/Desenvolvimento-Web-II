@@ -19,6 +19,12 @@ services:
     volumes:
       - ./data:/app/db  # Monta ./data do host em /app/db no container
 
+  app3:
+    image: busybox:latest
+    container_name: app3
+    volumes:
+      - ./backup:/var/www  # Monta o diretório app3 como raiz do servidor
+    command: ["httpd", "-f", "-p", "3000", "-h", "/var/www"]  # Inicia o httpd na porta 3000
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -29,3 +35,4 @@ services:
     depends_on:
       - app1
       - app2
+      - app3

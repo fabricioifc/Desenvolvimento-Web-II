@@ -473,8 +473,9 @@ http {
     keepalive_timeout 65;
 
     upstream flask_app {
-        server app1:5000;
-        server app2:5001;
+        server app1:5000 max_fails=3 fail_timeout=30s;  # Tolerância a falhas
+        server app2:5001 max_fails=3 fail_timeout=30s;
+        server app3:3000 backup;
     }
 
     server {
@@ -496,6 +497,7 @@ http {
         }
     }
 }
+
 ```
 
 ### Docker Compose
@@ -521,6 +523,12 @@ services:
     volumes:
       - ./data:/app/db  # Monta ./data do host em /app/db no container
 
+  app3:
+    image: busybox:latest
+    container_name: app3
+    volumes:
+      - ./backup:/var/www  # Monta o diretório app3 como raiz do servidor
+    command: ["httpd", "-f", "-p", "3000", "-h", "/var/www"]  # Inicia o httpd na porta 3000
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -531,6 +539,7 @@ services:
     depends_on:
       - app1
       - app2
+      - app3
 ```
 
 ### Dockerfile
@@ -562,5 +571,14 @@ docker compose logs -f app2
 docker compose logs -f nginx
 docker exec -it app1 bash -c "netstat -tuln | grep 5000"
 docker exec -it app2 bash -c "netstat -tuln | grep 5001"
+curl http://localhost/oi
 for i in {1..10}; do curl http://localhost/oi; done
+```
+
+### Para parar um container 
+
+```sh
+docker stop app1
+docker stop app2
+# assim testamos o backup
 ```
