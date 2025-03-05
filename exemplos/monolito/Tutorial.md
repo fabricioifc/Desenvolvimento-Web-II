@@ -355,6 +355,8 @@ Vamos fazer mudanças para testar a escalabilidade da aplicação.
 
 ### Database Init
 
+Vamos fazer uma alteração no script `init_db.py` para criar o banco de dados em um diretório separado. Criamos um diretório `data` e alteramos o script para criar o banco de dados em `data/database.db`.
+
 ```sh
 mkdir data
 ```
@@ -376,6 +378,8 @@ con.close()
 
 print("Banco de dados criado com sucesso!")
 ```
+
+Em seguida, vamos alterar o `app.py` para conectar ao banco de dados no diretório `data`. Além disso, vamos adicionar um log para cada requisição recebida. Isso nos ajudará a identificar o servidor que está processando a requisição.
 
 ### app.py
 ```python
@@ -456,51 +460,119 @@ if __name__ == "__main__":
 
 ### Nginx
 
+Vamos adicionar um servidor de backup ao nosso cluster. Para isso, vamos usar o **Busybox** como um servidor HTTP simples. O **Busybox** é uma imagem leve que contém várias ferramentas comuns do Linux. Vamos usar o **httpd** do Busybox para servir arquivos estáticos.
+
 ```nginx
+# Define o usuário sob o qual o Nginx será executado. 'nginx' é um usuário comum criado para rodar o serviço de forma segura,
+# evitando que ele execute como root e reduzindo riscos de segurança.
 user nginx;
+
+# Define o número de processos trabalhadores. 'auto' permite que o Nginx determine automaticamente o número ideal baseado
+# na quantidade de núcleos de CPU disponíveis, otimizando o desempenho.
 worker_processes auto;
+
+# Especifica o caminho do arquivo de log de erros e o nível de severidade. 'warn' significa que apenas mensagens de aviso
+# ou mais graves serão registradas, ajudando a monitorar problemas sem sobrecarregar o log com informações triviais.
+# Outros níveis possíveis são 'info' e 'error'. O log de erros é útil para diagnosticar problemas no servidor.
 error_log /var/log/nginx/error.log warn;
+
+# Define o local do arquivo PID, que armazena o ID do processo principal do Nginx. Isso é útil para gerenciar o serviço
+# (ex.: parar ou reiniciar o servidor).
 pid /var/run/nginx.pid;
 
+# Bloco 'events' configura como o Nginx lida com conexões de rede.
 events {
+    # Define o número máximo de conexões simultâneas que cada processo trabalhador pode gerenciar. 1024 é um valor padrão
+    # razoável, mas pode ser ajustado conforme a carga esperada e os recursos do servidor.
     worker_connections 1024;
 }
 
+# Bloco 'http' contém configurações globais para o protocolo HTTP.
 http {
+    # Inclui um arquivo externo que mapeia extensões de arquivo (ex.: .html, .jpg) para tipos MIME, permitindo que o Nginx
+    # informe corretamente aos navegadores como interpretar os arquivos enviados.
     include /etc/nginx/mime.types;
+
+    # Define o tipo MIME padrão para arquivos cuja extensão não está mapeada no mime.types. 'application/octet-stream'
+    # indica um fluxo genérico de bytes, deixando a interpretação para o cliente.
     default_type application/octet-stream;
+
+    # Ativa o uso de 'sendfile', uma chamada de sistema eficiente para transferir arquivos diretamente do disco para a rede,
+    # reduzindo a sobrecarga no servidor ao evitar cópias desnecessárias na memória.
     sendfile on;
+
+    # Define o tempo (em segundos) que uma conexão persistente (keep-alive) será mantida aberta. 65 segundos é um valor
+    # equilibrado que melhora a performance ao reutilizar conexões, mas evita desperdício de recursos.
     keepalive_timeout 65;
 
+    # Define um grupo de servidores upstream (backend) chamado 'flask_app'. O Nginx usará esses servidores para balancear
+    # a carga das requisições recebidas.
     upstream flask_app {
-        server app1:5000 max_fails=3 fail_timeout=30s;  # Tolerância a falhas
+        # Servidor primário na porta 5000. 'max_fails=3' significa que após 3 falhas consecutivas, o servidor será considerado
+        # indisponível por 'fail_timeout=30s' (30 segundos), permitindo tolerância a falhas temporárias.
+        server app1:5000 max_fails=3 fail_timeout=30s;
+
+        # Segundo servidor primário, na porta 5001, com as mesmas regras de tolerância a falhas. O Nginx distribuirá as
+        # requisições entre app1 e app2 usando um algoritmo de balanceamento (padrão é round-robin).
         server app2:5001 max_fails=3 fail_timeout=30s;
+
+        # Servidor de backup, na porta 3000. Só será usado se os servidores primários (app1 e app2) estiverem indisponíveis,
+        # funcionando como uma camada extra de resiliência.
         server app3:3000 backup;
     }
 
+    # Bloco 'server' define um servidor virtual que lida com requisições HTTP.
     server {
+        # O Nginx escuta na porta 80, que é a porta padrão para HTTP, permitindo que o servidor responda a requisições web.
         listen 80;
+
+        # Define o nome do servidor. '_' é um curinga que faz o servidor aceitar requisições para qualquer domínio,
+        # funcionando como um servidor padrão (catch-all).
         server_name _;
 
+        # Bloco 'location' especifica como lidar com requisições para a raiz ('/') do site.
         location / {
+            # Encaminha as requisições para o grupo upstream 'flask_app', efetivamente delegando o processamento para os
+            # servidores backend definidos acima (app1, app2 ou app3).
             proxy_pass http://flask_app;
+
+            # Define cabeçalhos HTTP enviados ao backend para preservar informações do cliente:
+            # 'Host' mantém o domínio original da requisição.
             proxy_set_header Host $host;
+
+            # 'X-Real-IP' envia o IP real do cliente ao backend.
             proxy_set_header X-Real-IP $remote_addr;
+
+            # 'X-Forwarded-For' adiciona o IP do cliente à lista de proxies pelos quais a requisição passou.
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+            # 'X-Forwarded-Proto' informa o protocolo original (http ou https), útil em cenários com HTTPS no frontend.
             proxy_set_header X-Forwarded-Proto $scheme;
 
+            # Define o tempo máximo (em segundos) para estabelecer a conexão com o backend. 10 segundos é um valor baixo,
+            # indicando que o backend deve responder rapidamente ou a requisição falhará.
             proxy_connect_timeout 10;
+
+            # Limita o tempo para enviar dados ao backend. Ajuda a evitar travamentos se o backend estiver lento.
             proxy_send_timeout 10;
+
+            # Limita o tempo para receber uma resposta do backend. Garante que requisições lentas sejam encerradas.
             proxy_read_timeout 10;
 
+            # Define o tamanho máximo do corpo da requisição (ex.: uploads). '10M' (10 megabytes) restringe o tamanho dos
+            # dados enviados pelo cliente, protegendo contra abusos.
             client_max_body_size 10M;
         }
     }
 }
-
 ```
 
+> **Artigo**: [Tune nginx performance](https://medium.com/@tynwthpq/tune-nginx-performance-fbba6a7f4a25)
+
 ### Docker Compose
+
+Vamos usar o **Docker Compose** para gerenciar os containers. O Docker Compose é uma ferramenta que permite definir e executar aplicativos Docker multi-container. Ele usa um arquivo YAML para configurar os serviços, volumes e redes. No arquivo `docker-compose.yml`, definimos os serviços `app1`, `app2`, `app3` e `nginx`.
+
 ```yaml
 services:
   app1:
@@ -529,18 +601,30 @@ services:
     volumes:
       - ./backup:/var/www  # Monta o diretório app3 como raiz do servidor
     command: ["httpd", "-f", "-p", "3000", "-h", "/var/www"]  # Inicia o httpd na porta 3000
+
   nginx:
     image: nginx:latest
     container_name: nginx
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
-      - "80:80"
+      - "80:80" # Mapeia a porta 80 do host para a porta 80 do container
     depends_on:
       - app1
       - app2
       - app3
 ```
+
+**Detalhes**:
+- **app1** e **app2** são instâncias do Flask rodando na porta 5000 e 5001, respectivamente.
+- **app3** é um servidor de backup usando o Busybox para servir arquivos estáticos na porta 3000.
+- **nginx** é o servidor Nginx que balanceia a carga entre app1, app2 e app3.
+- O volume `./data` é montado em `/app/db` nos containers app1 e app2 para persistir o banco de dados.
+- O volume `./backup` é montado em `/var/www` no container app3 para servir arquivos estáticos.
+- O volume `./nginx/nginx.conf` é montado em `/etc/nginx/nginx.conf` no container nginx para configurar o Nginx.
+- O Nginx depende dos serviços app1, app2 e app3, garantindo que eles sejam iniciados primeiro.
+- O Nginx escuta na porta 80 e encaminha as requisições para os servidores backend.
+- Para usar `https`, adicione um certificado SSL e configure o Nginx para redirecionar o tráfego seguro.
 
 ### Dockerfile
 ```dockerfile
