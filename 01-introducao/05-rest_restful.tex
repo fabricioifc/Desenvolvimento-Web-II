@@ -889,23 +889,28 @@ def after_request(response):
 				\item Navegue pela documentação da API e teste os endpoints.
 				\item Use o \textbf{Postman} ou \textbf{Thunder Client} para testar a API.
 				\item Faça requisições GET, POST, PUT e DELETE.
-				\item Crie um cliente em Python ou JavaScript para consumir a API.
+				\item Crie um cliente em (Python, JavaScript, outro) para consumir a API.
 			\end{itemize}
 		\end{block}
 
 		\begin{block}{Experimento 2}
+			Temas Sugeridos: Receitas Caseiras, Cardápio, Pizzaria, Diário Alimentar, Usuários, Produtos, etc.
+
 			\begin{itemize}
-				\item Criar uma API REST que faça autenticacão com JWT. A API deve ter endpoints para
-				      registro, login, logout e acesso a recursos protegidos.
-				\item Use um banco de dados para armazenar os usuários e as informações de
-				      autenticação.
-				\item Use um framework de sua escolha (por exemplo, Flask, Django, Express, etc.).
-				\item Use $.env$ para armazenar as variáveis de ambiente.
-				\item Use o Thunder Client ou Postman para testar a API.
-				\item Opcionalmente, implemente a renovação do token JWT e uma documentação mínima da
-				      API (por exemplo, Swagger).
+				\item Criar uma API REST seguindo os princípios RESTful:
+				\begin{itemize}
+					\item Uso correto dos verbos HTTP (GET, POST, PUT, DELETE, PATCH).
+					\item Recursos identificados por URLs significativas (ex: \texttt{/usuarios}, \texttt{/produtos/123}).
+					\item Uso adequado de códigos de status HTTP (200, 201, 400, 404, 500, etc.).
+					\item HATEOAS (opcional): forneça links para ações relacionadas nos retornos da API.
+				\end{itemize}
+				\item A API deve expor pelo menos dois recursos (ex: usuários e produtos), com operações CRUD completas.
+				\item Os dados devem ser retornados em formato JSON, com estrutura consistente e clara.
+				\item A API deve ter paginação, ordenação e filtros nos endpoints de listagem.
+				\item Documente a API usando Swagger ou outra ferramenta similar.
 			\end{itemize}
 		\end{block}
+		
 	}
 
 \end{frame}
