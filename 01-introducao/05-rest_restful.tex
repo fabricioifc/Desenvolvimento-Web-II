@@ -720,30 +720,30 @@
 
 \end{frame}
 
-\begin{frame}
-	\frametitle{REST}
-	\framesubtitle{Boas Práticas - Segurança (cont.)}
+% \begin{frame}
+% 	\frametitle{REST}
+% 	\framesubtitle{Boas Práticas - Segurança (cont.)}
 
-	\begin{block}{11. Segurança - Autenticação com OAuth}
-		O OAuth é um protocolo ou estrutura de autorização de padrão aberto que fornece aos aplicativos a capacidade de “acesso designado seguro”. Você pode, por exemplo, dizer ao Facebook que a ESPN.com pode acessar seu perfil ou postar atualizações em sua linha do tempo sem precisar fornecer à ESPN sua senha do Facebook. Isso minimiza o risco de forma importante: caso a ESPN sofra uma violação, sua senha do Facebook permanece segura.
-	\end{block}
+% 	\begin{block}{11. Segurança - Autenticação com OAuth}
+% 		O OAuth é um protocolo ou estrutura de autorização de padrão aberto que fornece aos aplicativos a capacidade de “acesso designado seguro”. Você pode, por exemplo, dizer ao Facebook que a ESPN.com pode acessar seu perfil ou postar atualizações em sua linha do tempo sem precisar fornecer à ESPN sua senha do Facebook. Isso minimiza o risco de forma importante: caso a ESPN sofra uma violação, sua senha do Facebook permanece segura.
+% 	\end{block}
 
-	\begin{exampleblock}{OAuth - Fluxo de Autorização}
-		Google, Facebook, Twitter, GitHub, etc.
-		\begin{itemize}
-			\item \textbf{Passo 1} - O cliente solicita autorização do usuário.
-			\item \textbf{Passo 2} - O usuário autoriza o cliente.
-			\item \textbf{Passo 3} - O cliente recebe um código de autorização.
-			\item \textbf{Passo 4} - O cliente troca o código de autorização por um token de acesso.
-			\item \textbf{Passo 5} - O cliente usa o token de acesso para acessar o recurso protegido.
-		\end{itemize}
-		\smallskip
-		{\small \iconLink{https://blog.miguelgrinberg.com/static/images/flask-oauth2-demo.gif}{OAuth - Simulação}}
-	\end{exampleblock}
+% 	\begin{exampleblock}{OAuth - Fluxo de Autorização}
+% 		Google, Facebook, Twitter, GitHub, etc.
+% 		\begin{itemize}
+% 			\item \textbf{Passo 1} - O cliente solicita autorização do usuário.
+% 			\item \textbf{Passo 2} - O usuário autoriza o cliente.
+% 			\item \textbf{Passo 3} - O cliente recebe um código de autorização.
+% 			\item \textbf{Passo 4} - O cliente troca o código de autorização por um token de acesso.
+% 			\item \textbf{Passo 5} - O cliente usa o token de acesso para acessar o recurso protegido.
+% 		\end{itemize}
+% 		\smallskip
+% 		{\small \iconLink{https://blog.miguelgrinberg.com/static/images/flask-oauth2-demo.gif}{OAuth - Simulação}}
+% 	\end{exampleblock}
 
-	% \footnotetext{OAuth é um protocolo de autorização usado para permitir que aplicativos acessem recursos em nome do usuário. Ele fornece tokens de acesso que podem ser usados para autenticar solicitações.}
+% 	% \footnotetext{OAuth é um protocolo de autorização usado para permitir que aplicativos acessem recursos em nome do usuário. Ele fornece tokens de acesso que podem ser usados para autenticar solicitações.}
 
-\end{frame}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{REST}
@@ -814,25 +814,25 @@ def after_request(response):
 
 \end{frame}
 
-\begin{frame}[fragile]
-	\frametitle{REST}
-	\framesubtitle{Boas Práticas}
+% \begin{frame}[fragile]
+% 	\frametitle{REST}
+% 	\framesubtitle{Boas Práticas}
 
-	\begin{block}{14. Testes Automatizados}
-		Crie testes automatizados para garantir a estabilidade da API e detectar rapidamente problemas de integração ou regressão.
-	\end{block}
+% 	\begin{block}{14. Testes Automatizados}
+% 		Crie testes automatizados para garantir a estabilidade da API e detectar rapidamente problemas de integração ou regressão.
+% 	\end{block}
 
-	\begin{exampleblock}{Exemplo}
-		\begin{lstlisting}[language=Python, basicstyle=\small]
-# Integration Test
-def test_get_all_products(self):
-	response = self.client.get("http://localhost:5000/api/v1/produtos")
-	self.assertEqual(response.status_code, 200)
-		\end{lstlisting}
+% 	\begin{exampleblock}{Exemplo}
+% 		\begin{lstlisting}[language=Python, basicstyle=\small]
+% # Integration Test
+% def test_get_all_products(self):
+% 	response = self.client.get("http://localhost:5000/api/v1/produtos")
+% 	self.assertEqual(response.status_code, 200)
+% 		\end{lstlisting}
 
-	\end{exampleblock}
+% 	\end{exampleblock}
 
-\end{frame}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{REST}
@@ -884,27 +884,33 @@ def test_get_all_products(self):
 	{\small
 		\begin{block}{Experimento 1}
 			\begin{itemize}
-				\item Consumir a API REST \href{https://pokeapi.co/}{PokéAPI} ou a
-				      \href{https://brasilapi.com.br/docs}{Brasil API}.
-				\item Use uma ferramenta como o \href{https://www.thunderclient.com/}{Thunder Client}
-				      para testar a API.
+				\item Consumir a API REST \href{https://pokeapi.co/}{PokéAPI}, a
+				      \href{https://brasilapi.com.br/docs}{Brasil API} ou outra API pública.
 				\item Navegue pela documentação da API e teste os endpoints.
+				\item Use o \textbf{Postman} ou \textbf{Thunder Client} para testar a API.
+				\item Faça requisições GET, POST, PUT e DELETE.
+				\item Crie um cliente em (Python, JavaScript, outro) para consumir a API.
 			\end{itemize}
 		\end{block}
 
 		\begin{block}{Experimento 2}
+			Temas Sugeridos: Receitas Caseiras, Cardápio, Pizzaria, Diário Alimentar, Usuários, Produtos, etc.
+
 			\begin{itemize}
-				\item Criar uma API REST que faça autenticacão com JWT. A API deve ter endpoints para
-				      registro, login, logout e acesso a recursos protegidos.
-				\item Use um banco de dados para armazenar os usuários e as informações de
-				      autenticação.
-				\item Use um framework de sua escolha (por exemplo, Flask, Django, Express, etc.).
-				\item Use $.env$ para armazenar as variáveis de ambiente.
-				\item Use o Thunder Client ou Postman para testar a API.
-				\item Opcionalmente, implemente a renovação do token JWT e uma documentação mínima da
-				      API (por exemplo, Swagger).
+				\item Criar uma API REST seguindo os princípios RESTful:
+				\begin{itemize}
+					\item Uso correto dos verbos HTTP (GET, POST, PUT, DELETE, PATCH).
+					\item Recursos identificados por URLs significativas (ex: \texttt{/usuarios}, \texttt{/produtos/123}).
+					\item Uso adequado de códigos de status HTTP (200, 201, 400, 404, 500, etc.).
+					\item HATEOAS (opcional): forneça links para ações relacionadas nos retornos da API.
+				\end{itemize}
+				\item A API deve expor pelo menos dois recursos (ex: usuários e produtos), com operações CRUD completas.
+				\item Os dados devem ser retornados em formato JSON, com estrutura consistente e clara.
+				\item A API deve ter paginação, ordenação e filtros nos endpoints de listagem.
+				\item Documente a API usando Swagger ou outra ferramenta similar.
 			\end{itemize}
 		\end{block}
+		
 	}
 
 \end{frame}
