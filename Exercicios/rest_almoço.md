@@ -109,3 +109,19 @@ Para promover a interação social entre alunos, será desenvolvido um sistema q
 - Integração com mapas para localização do evento
 - Sistema de enquetes para escolha de local/data
 - Funcionalidades de acessibilidade
+
+---
+
+## Equipe de Desenvolvimento
+
+### Backend
+
+- Scrum Master: [Nome do Aluno]
+- Desenvolvedor Backend 1: [Nome do Aluno]
+
+### Frontend
+
+- Scrum Master: [Nome do Aluno]
+- Desenvolvedor Frontend 1: [Nome do Aluno]
+
+> O projeto deve ser desenvolvido em equipe, com reuniões regulares para acompanhamento do progresso.
