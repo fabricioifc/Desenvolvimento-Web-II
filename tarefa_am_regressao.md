@@ -1,4 +1,4 @@
-## Dinâmica de Grupo: Introdução à Modelagem Preditiva com Regressão Linear (Versão com Gráficos por Equipe)
+## Dinâmica de Grupo: Introdução à Regressão Linear
 
 Ensinar os participantes a identificar padrões entre variáveis, compreender a ideia de previsão com base em modelos e exercitar a construção de gráficos e linhas de tendência, **cada equipe de forma autônoma**.
 
