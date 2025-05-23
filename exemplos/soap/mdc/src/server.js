@@ -22,13 +22,12 @@ const service = {
     }
 };
 
-app.get('/mdc?wsdl', (req, res) => {
-    res.setHeader('Content-Type', 'text/xml');
-    res.status(200).send(wsdl);
-})
+// app.get('/mdc?wsdl', (req, res) => {
+//     res.setHeader('Content-Type', 'text/xml');
+//     res.status(200).send(wsdl);
+// })
 
 const server = app.listen(3000, () => {
+    soap.listen(server, '/mdc', service, wsdl);
     console.log('Server is running on port', server.address().port);
 })
-
-soap.listen(server, '/mdc', service, wsdl);

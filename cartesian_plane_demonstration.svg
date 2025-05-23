@@ -1,0 +1,202 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definições para gradientes e sombras -->
+  <defs>
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gridGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#dee2e6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#dee2e6;stop-opacity:0.3" />
+    </linearGradient>
+    
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Fundo do gráfico -->
+  <rect width="800" height="600" fill="url(#backgroundGradient)"/>
+  
+  <!-- Área do gráfico -->
+  <rect x="100" y="50" width="600" height="450" fill="white" stroke="#dee2e6" stroke-width="2" rx="5" filter="url(#shadow)"/>
+  
+  <!-- Grid horizontal -->
+  <g stroke="url(#gridGradient)" stroke-width="1" opacity="0.6">
+    <!-- Linhas horizontais -->
+    <line x1="100" y1="100" x2="700" y2="100"/>
+    <line x1="100" y1="150" x2="700" y2="150"/>
+    <line x1="100" y1="200" x2="700" y2="200"/>
+    <line x1="100" y1="250" x2="700" y2="250"/>
+    <line x1="100" y1="300" x2="700" y2="300"/>
+    <line x1="100" y1="350" x2="700" y2="350"/>
+    <line x1="100" y1="400" x2="700" y2="400"/>
+    <line x1="100" y1="450" x2="700" y2="450"/>
+    
+    <!-- Linhas verticais -->
+    <line x1="150" y1="50" x2="150" y2="500"/>
+    <line x1="200" y1="50" x2="200" y2="500"/>
+    <line x1="250" y1="50" x2="250" y2="500"/>
+    <line x1="300" y1="50" x2="300" y2="500"/>
+    <line x1="350" y1="50" x2="350" y2="500"/>
+    <line x1="400" y1="50" x2="400" y2="500"/>
+    <line x1="450" y1="50" x2="450" y2="500"/>
+    <line x1="500" y1="50" x2="500" y2="500"/>
+    <line x1="550" y1="50" x2="550" y2="500"/>
+    <line x1="600" y1="50" x2="600" y2="500"/>
+    <line x1="650" y1="50" x2="650" y2="500"/>
+  </g>
+  
+  <!-- Eixos principais -->
+  <g stroke="#2c3e50" stroke-width="3">
+    <!-- Eixo Y -->
+    <line x1="100" y1="50" x2="100" y2="500"/>
+    <!-- Eixo X -->
+    <line x1="100" y1="500" x2="700" y2="500"/>
+  </g>
+  
+  <!-- Setas dos eixos -->
+  <polygon points="100,45 95,55 105,55" fill="#2c3e50"/>
+  <polygon points="705,500 695,495 695,505" fill="#2c3e50"/>
+  
+  <!-- Labels dos eixos Y (Altura em cm) -->
+  <g fill="#2c3e50" font-family="Arial, sans-serif" font-size="12" text-anchor="end">
+    <text x="95" y="505">150</text>
+    <text x="95" y="455">155</text>
+    <text x="95" y="405">160</text>
+    <text x="95" y="355">165</text>
+    <text x="95" y="305">170</text>
+    <text x="95" y="255">175</text>
+    <text x="95" y="205">180</text>
+    <text x="95" y="155">185</text>
+    <text x="95" y="105">190</text>
+    <text x="95" y="55">195</text>
+  </g>
+  
+  <!-- Labels dos eixos X (Antebraço em cm) -->
+  <g fill="#2c3e50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">
+    <text x="100" y="520">22</text>
+    <text x="200" y="520">23</text>
+    <text x="300" y="520">24</text>
+    <text x="400" y="520">25</text>
+    <text x="500" y="520">26</text>
+    <text x="600" y="520">27</text>
+    <text x="700" y="520">28</text>
+  </g>
+  
+  <!-- Títulos dos eixos -->
+  <text x="400" y="550" fill="#2c3e50" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">
+    Comprimento do Antebraço (cm)
+  </text>
+  
+  <text x="30" y="275" fill="#2c3e50" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" transform="rotate(-90, 30, 275)">
+    Altura (cm)
+  </text>
+  
+  <!-- Linha de regressão -->
+  <line x1="150" y1="420" x2="650" y2="180" stroke="url(#lineGradient)" stroke-width="4" opacity="0.8"/>
+  
+  <!-- Pontos de dados com diferentes cores para equipes -->
+  <!-- Equipe 1 - Azul -->
+  <g fill="#3498db" stroke="#2980b9" stroke-width="2">
+    <circle cx="280" cy="380" r="8" filter="url(#shadow)"/>  <!-- Ana: 23.8cm, 158cm -->
+    <circle cx="320" cy="340" r="8" filter="url(#shadow)"/>  <!-- Bruno: 24.2cm, 162cm -->
+    <circle cx="380" cy="300" r="8" filter="url(#shadow)"/>  <!-- Carla: 24.8cm, 168cm -->
+    <circle cx="440" cy="260" r="8" filter="url(#shadow)"/>  <!-- Diego: 25.4cm, 173cm -->
+  </g>
+  
+  <!-- Equipe 2 - Verde -->
+  <g fill="#27ae60" stroke="#1e8449" stroke-width="2">
+    <circle cx="340" cy="360" r="8" filter="url(#shadow)"/>  <!-- Eva: 24.4cm, 160cm -->
+    <circle cx="400" cy="320" r="8" filter="url(#shadow)"/>  <!-- Felipe: 25.0cm, 164cm -->
+    <circle cx="460" cy="280" r="8" filter="url(#shadow)"/>  <!-- Gabi: 25.6cm, 170cm -->
+    <circle cx="520" cy="240" r="8" filter="url(#shadow)"/>  <!-- Hugo: 26.2cm, 176cm -->
+  </g>
+  
+  <!-- Equipe 3 - Vermelho -->
+  <g fill="#e74c3c" stroke="#c0392b" stroke-width="2">
+    <circle cx="240" cy="400" r="8" filter="url(#shadow)"/>  <!-- Iris: 23.4cm, 155cm -->
+    <circle cx="360" cy="340" r="8" filter="url(#shadow)"/>  <!-- João: 24.6cm, 162cm -->
+    <circle cx="480" cy="280" r="8" filter="url(#shadow)"/>  <!-- Kara: 25.8cm, 170cm -->
+    <circle cx="580" cy="220" r="8" filter="url(#shadow)"/>  <!-- Luca: 26.8cm, 178cm -->
+  </g>
+  
+  <!-- Demonstração do erro residual -->
+  <g stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5" opacity="0.7">
+    <!-- Linha vertical mostrando o erro para um ponto -->
+    <line x1="380" y1="300" x2="380" y2="320"/>
+    <line x1="440" y1="260" x2="440" y2="290"/>
+    <line x1="520" y1="240" x2="520" y2="260"/>
+  </g>
+  
+  <!-- Labels dos pontos (nomes dos participantes) -->
+  <g fill="#2c3e50" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+    <!-- Equipe 1 -->
+    <text x="285" y="375" text-anchor="start">Ana</text>
+    <text x="325" y="335" text-anchor="start">Bruno</text>
+    <text x="385" y="295" text-anchor="start">Carla</text>
+    <text x="445" y="255" text-anchor="start">Diego</text>
+    
+    <!-- Equipe 2 -->
+    <text x="345" y="355" text-anchor="start">Eva</text>
+    <text x="405" y="315" text-anchor="start">Felipe</text>
+    <text x="465" y="275" text-anchor="start">Gabi</text>
+    <text x="525" y="235" text-anchor="start">Hugo</text>
+    
+    <!-- Equipe 3 -->
+    <text x="245" y="395" text-anchor="start">Iris</text>
+    <text x="365" y="335" text-anchor="start">João</text>
+    <text x="485" y="275" text-anchor="start">Kara</text>
+    <text x="585" y="215" text-anchor="start">Luca</text>
+  </g>
+  
+  <!-- Título do gráfico -->
+  <text x="400" y="30" fill="#2c3e50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">
+    Regressão Linear: Altura vs Comprimento do Antebraço
+  </text>
+  
+  <!-- Legenda -->
+  <g transform="translate(720, 100)">
+    <rect x="0" y="0" width="150" height="120" fill="white" stroke="#dee2e6" stroke-width="1" rx="5" filter="url(#shadow)"/>
+    
+    <text x="10" y="20" fill="#2c3e50" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Legenda:</text>
+    
+    <!-- Equipe 1 -->
+    <circle cx="20" cy="35" r="6" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+    <text x="35" y="40" fill="#2c3e50" font-family="Arial, sans-serif" font-size="12">Equipe 1</text>
+    
+    <!-- Equipe 2 -->
+    <circle cx="20" cy="55" r="6" fill="#27ae60" stroke="#1e8449" stroke-width="2"/>
+    <text x="35" y="60" fill="#2c3e50" font-family="Arial, sans-serif" font-size="12">Equipe 2</text>
+    
+    <!-- Equipe 3 -->
+    <circle cx="20" cy="75" r="6" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="35" y="80" fill="#2c3e50" font-family="Arial, sans-serif" font-size="12">Equipe 3</text>
+    
+    <!-- Linha de tendência -->
+    <line x1="15" y1="95" x2="30" y2="95" stroke="url(#lineGradient)" stroke-width="3"/>
+    <text x="35" y="100" fill="#2c3e50" font-family="Arial, sans-serif" font-size="12">Linha de Regressão</text>
+  </g>
+  
+  <!-- Equação da reta -->
+  <!-- <g transform="translate(520, 400)">
+    <rect x="0" y="0" width="160" height="60" fill="rgba(255,255,255,0.9)" stroke="#e74c3c" stroke-width="2" rx="5" filter="url(#shadow)"/>
+    <text x="10" y="20" fill="#e74c3c" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Equação da Reta:</text>
+    <text x="10" y="35" fill="#2c3e50" font-family="Arial, sans-serif" font-size="12">y = 6.4x - 4.2</text>
+    <text x="10" y="50" fill="#2c3e50" font-family="Arial, sans-serif" font-size="10">R² = 0.847</text>
+  </g> -->
+  
+  <!-- Indicação dos resíduos -->
+  <!-- <g transform="translate(120, 120)">
+    <rect x="0" y="0" width="140" height="40" fill="rgba(149,165,166,0.1)" stroke="#95a5a6" stroke-width="1" rx="3"/>
+    <line x1="10" y1="20" x2="25" y2="20" stroke="#95a5a6" stroke-width="2" stroke-dasharray="3,3"/>
+    <text x="30" y="15" fill="#95a5a6" font-family="Arial, sans-serif" font-size="10">Linhas tracejadas:</text>
+    <text x="30" y="28" fill="#95a5a6" font-family="Arial, sans-serif" font-size="10">Erros (resíduos)</text>
+  </g> -->
+</svg>
