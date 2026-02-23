@@ -1,6 +1,7 @@
 from .tarefa import Tarefa
+from core.interfaces import TarefaInterface
 
-class TarefaModel:
+class TarefaModel(TarefaInterface):
 
     def __init__(self):
         self.tarefas = []

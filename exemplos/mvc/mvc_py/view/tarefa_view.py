@@ -1,4 +1,7 @@
-class TarefaView:
+from core.interfaces import TarefaViewInterface
+
+
+class TarefaView(TarefaViewInterface):
 
     def exibir_tarefas(self, tarefas):
         print("Tarefas:")

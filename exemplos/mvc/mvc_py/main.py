@@ -1,4 +1,3 @@
-from model.tarefa import Tarefa
 from model.tarefa_model import TarefaModel
 from view.tarefa_view import TarefaView
 from controller.tarefa_controller import TarefaController
@@ -19,18 +18,15 @@ if __name__ == "__main__":
         escolha = view.obter_input("Escolha uma opção")
 
         if escolha == '1':
-            controller.adicionar_tarefa()
+            controller.adicionar()
         elif escolha == '2':
-            tarefas = model.listar()
-            view.exibir_tarefas(tarefas)
+            controller.listar()
         elif escolha == '3':
             id = int(view.obter_input("Digite o ID da tarefa a concluir"))
-            model.concluir(id)
-            view.exibir_mensagem("Tarefa concluída!")
+            controller.concluir(id)
         elif escolha == '4':
             id = int(view.obter_input("Digite o ID da tarefa a remover"))
-            model.remover(id)
-            view.exibir_mensagem("Tarefa removida!")
+            controller.remover(id)
         elif escolha == '5':
             break
         else:
